@@ -79,7 +79,7 @@
     "rcfile": "^1.0.3",
     "react-hot-loader": "4.8.0",
     "service-worker-loader": "^3.0.0",
-    "stylelint": "^9.9.0",
+    "stylelint": "^10.0.0",
     "stylelint-config-trigen": "^2.0.4",
     "stylelint-webpack-plugin": "^0.10.5",
     "svg-sprite-loader": "^4.1.3",
