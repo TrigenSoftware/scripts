@@ -25,7 +25,7 @@
     "builtin-modules": "*",
     "rollup": "^1.13.0",
     "rollup-plugin-babel": "^4.0.3",
-    "rollup-plugin-babel-minify": "^8.0.0",
+    "rollup-plugin-babel-minify": "^9.0.0",
     "rollup-plugin-commonjs": "^10.0.0"
   },
   "publishConfig": {
