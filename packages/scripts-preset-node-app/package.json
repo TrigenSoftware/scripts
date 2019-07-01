@@ -27,7 +27,7 @@
     "@trigen/scripts-plugin-jest": "^2.6.3",
     "@trigen/scripts-plugin-rollup": "^2.4.0",
     "browserslist-config-trigen": "^1.1.0",
-    "husky": "^2.3.0",
+    "husky": "^3.0.0",
     "lint-staged": "^8.1.0"
   },
   "publishConfig": {
