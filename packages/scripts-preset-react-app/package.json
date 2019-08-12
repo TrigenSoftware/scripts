@@ -58,7 +58,7 @@
     "node-notifier": "*",
     "postcss": "^7.0.2",
     "postcss-momentum-scrolling": "^1.4.8",
-    "react-hot-loader": "4.9.0",
+    "react-hot-loader": "4.12.11",
     "service-worker-loader": "^3.0.0",
     "stylelint": "^10.0.1",
     "stylelint-config-trigen": "^2.0.4",
