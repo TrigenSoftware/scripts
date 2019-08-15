@@ -7664,9 +7664,9 @@ escodegen@^1.9.1:
     source-map "~0.6.1"
 
 eslint-config-trigen@^3.2.3:
-  version "3.2.3"
-  resolved "https://registry.yarnpkg.com/eslint-config-trigen/-/eslint-config-trigen-3.2.3.tgz#725dccec7a6d3bbf9bd355d122ec84588acba8cd"
-  integrity sha512-ciftOWBYiFYxQ0C0r++EZCYKg3Tjnz/tQQduC0ZZnG5tvOZRM3nIs5bonOufduDQvGlXcoFbAaPVdmNKe7k4aw==
+  version "3.2.4"
+  resolved "https://registry.yarnpkg.com/eslint-config-trigen/-/eslint-config-trigen-3.2.4.tgz#dd42684bc868bcefeb9a3310ada65b51a34e55d8"
+  integrity sha512-fvVdehebqW0j7esvDVNp2LWRV81Rvifr8H/kSaQZwHht3TJ7ada8gEyjGUoc8h+oZA7P/FICBKWe5xWhucbvFA==
   dependencies:
     babel-eslint "^10.0.1"
     eslint-plugin-import "^2.13.0"
