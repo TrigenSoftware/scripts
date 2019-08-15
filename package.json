@@ -52,7 +52,7 @@
     "husky": "^2.3.0",
     "jest": "^24.3.0",
     "lerna": "^3.13.3",
-    "lerna-update-wizard": "^0.14.0",
+    "lerna-update-wizard": "^0.16.0",
     "lint-staged": "^8.1.0",
     "react": "^16.8.6",
     "typescript": "3.5.1"
