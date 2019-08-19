@@ -70,7 +70,8 @@
     "webpack": "^4.26.1",
     "webpack-dev-middleware": "^3.2.0",
     "webpack-filter-warnings-plugin": "^1.2.1",
-    "webpack-hot-middleware": "^2.22.3"
+    "webpack-hot-middleware": "^2.22.3",
+    "webpack-node-externals": "^1.7.2"
   },
   "publishConfig": {
     "access": "public"

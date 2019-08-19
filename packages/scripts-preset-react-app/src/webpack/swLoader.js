@@ -28,3 +28,7 @@ export function dev(config) {
 export function build(config) {
 	return config;
 }
+
+export {
+	build as render
+};

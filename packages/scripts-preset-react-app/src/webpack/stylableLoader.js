@@ -96,3 +96,36 @@ export function build(config) {
 		] }
 	});
 }
+
+export function render(config) {
+	return update(config, {
+		module: {
+			rules: {
+				[findIndex('loader', 'file-loader', config.module.rules)]: {
+					options: {
+						name:     { $set: '[name].[hash:10].[ext]' },
+						emitFile: { $set: false }
+					}
+				},
+				[findIndex('loader', '@flexis/srcset-loader', config.module.rules)]: {
+					options: {
+						name:             { $set: '[name].[hash:10].[ext]' },
+						skipOptimization: { $set: false },
+						emitFile:         { $set: false }
+					}
+				}
+			}
+		},
+		plugins: { $push: [
+			new StylablePlugin({
+				filename:           '[name].[chunkhash].css',
+				createRuntimeChunk: false,
+				outputCSS:          false,
+				includeCSSInJS:     false,
+				optimize:           {
+					classNameOptimizations: true
+				}
+			})
+		] }
+	});
+}

@@ -39,3 +39,7 @@ export function build(config) {
 		}
 	});
 }
+
+export {
+	build as render
+};

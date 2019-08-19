@@ -12,23 +12,28 @@ import storybook from '@trigen/scripts-plugin-storybook';
 
 const storybookConfigs = path.join(__dirname, 'storybook');
 const scripts = {
-	'lint:styles': {
+	'lint:styles':  {
 		cmd:  'stylelint',
 		args: FILL_ME
 	},
-	'lint':        ['lint:styles'],
-	'test':        ['build'],
-	'start':       {
+	'lint':         ['lint:styles'],
+	'test':         ['build'],
+	'start':        {
 		vars: { NODE_ENV: 'development' },
 		cmd:  'node',
 		args: [path.join(__dirname, 'start.js')]
 	},
-	'build':       {
+	'build':        {
 		vars: { NODE_ENV: 'production' },
 		cmd:  'node',
 		args: [path.join(__dirname, 'build.js')]
 	},
-	'serve':       {
+	'build:render': {
+		vars: { NODE_ENV: 'production' },
+		cmd:  'node',
+		args: [path.join(__dirname, 'render.js')]
+	},
+	'serve':        {
 		vars: { NODE_ENV: 'production' },
 		cmd:  'node',
 		args: [path.join(__dirname, 'serve.js')]
@@ -95,6 +100,13 @@ export default function getScripts(args, inputAllScripts, {
 		},
 		'build':     {
 			$set: update(scripts.build, {
+				args: {
+					$push: args
+				}
+			})
+		},
+		'build:render':     {
+			$set: update(scripts['build:render'], {
 				args: {
 					$push: args
 				}

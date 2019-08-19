@@ -6,14 +6,16 @@ module.exports = configureStorybook;
 function configureStorybook(input) {
 
 	const storybookBaseConfig = configure(input);
-	const webpackDevConfig = webpackConfig.dev();
+	const webpackSbConfig = input.mode == 'PRODUCTION'
+		? webpackConfig.build()
+		: webpackConfig.dev();
 
 	storybookBaseConfig.resolve.extensions.push(
-		...webpackDevConfig.resolve.extensions
+		...webpackSbConfig.resolve.extensions
 	);
 	Object.assign(
 		storybookBaseConfig.resolve.alias,
-		webpackDevConfig.resolve.alias
+		webpackSbConfig.resolve.alias
 	);
 
 	storybookBaseConfig.module.rules = [
@@ -34,17 +36,19 @@ function configureStorybook(input) {
 					return true;
 			}
 		}),
-		...webpackDevConfig.module.rules
+		...webpackSbConfig.module.rules
 	];
 
 	storybookBaseConfig.plugins.push(
-		...webpackDevConfig.plugins.filter((plugin) => {
+		...webpackSbConfig.plugins.filter((plugin) => {
 
 			switch (plugin.constructor.name) {
 
+				case 'HashedModuleIdsPlugin':
 				case 'HtmlWebpackPlugin':
 				case 'HotModuleReplacementPlugin':
 				case 'WorkboxWebpackPlugin':
+				case 'CleanWebpackPlugin':
 					return false;
 
 				default:

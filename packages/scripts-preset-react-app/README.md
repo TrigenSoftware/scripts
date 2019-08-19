@@ -71,6 +71,8 @@ yarn build:storybook
 yarn start
 # Build app
 yarn build
+# Build app renderer
+yarn build:render
 # Serve files from `build` directory
 yarn serve
 ```

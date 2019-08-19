@@ -118,16 +118,19 @@ function addHrefListener(listener) {
 	);
 }
 
-const hrefListenerTimeout = 1500;
-let prevHref = location.href;
+if (shoudlPrepandPathname) {
 
-setInterval(() => {
+	const hrefListenerTimeout = 1500;
+	let prevHref = location.href;
 
-	if (prevHref != location.href) {
-		prevHref = location.href;
-		hrefListeners.forEach((listener) => {
-			listener();
-		});
-	}
+	setInterval(() => {
 
-}, hrefListenerTimeout);
+		if (prevHref != location.href) {
+			prevHref = location.href;
+			hrefListeners.forEach((listener) => {
+				listener();
+			});
+		}
+
+	}, hrefListenerTimeout);
+}

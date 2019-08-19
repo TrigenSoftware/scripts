@@ -1,5 +1,6 @@
 import path from 'path';
 import webpack from 'webpack';
+import externals from 'webpack-node-externals';
 import {
 	CleanWebpackPlugin as CleanPlugin
 } from 'clean-webpack-plugin';
@@ -28,6 +29,7 @@ const loaders = [
 const baseLoaders = loaders.map(_ => _.base);
 const devLoaders = loaders.map(_ => _.dev);
 const buildLoaders = loaders.map(_ => _.build);
+const renderLoaders = loaders.map(_ => _.render);
 const ignoreWarnings = loaders.reduce((all, { ignoreWarnings }) => {
 
 	if (ignoreWarnings) {
@@ -58,6 +60,7 @@ function base({
 		},
 		resolve: {
 			extensions: [
+				'.es.js',
 				'.js',
 				'.jsx',
 				'.json',
@@ -218,6 +221,45 @@ export function build(params) {
 				template: 'src/index.html',
 				minify:   htmlminConfig
 			})
+		] }
+	}));
+}
+
+export function render(params) {
+
+	const config = base(params);
+	const { rules } = config.module;
+
+	return applyReducers(renderLoaders, update(config, {
+		entry:        { $set: {
+			index: path.join(cwd, 'src/App/render.tsx')
+		} },
+		output:       {
+			path:          { $set: path.join(cwd, 'build', 'render') },
+			libraryTarget: { $set: 'commonjs2' }
+		},
+		target:       { $set: 'node' },
+		externals:    { $set: [externals({
+			whitelist: [/^@flexis\/ui/]
+		})] },
+		mode:         { $set: 'production' },
+		optimization: { $set: { minimize: false } },
+		module:       {
+			rules: {
+				[findIndex('test', '/\\.tsx?$/', rules)]: {
+					use: {
+						1: {
+							options: {
+								failOnHint: { $set: true }
+							}
+						}
+					}
+				}
+			}
+		},
+		plugins:      { $push: [
+			new CleanPlugin(),
+			new webpack.HashedModuleIdsPlugin()
 		] }
 	}));
 }

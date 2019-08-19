@@ -4,9 +4,10 @@ import babelRegister from '@babel/register';
 const scriptsPath = path.join(process.cwd(), 'scripts');
 const hookPath = path.join(scriptsPath, 'webpack.js');
 const emptyHook = {
-	base:  _ => _,
-	dev:   _ => _,
-	build: _ => _
+	base:   _ => _,
+	dev:    _ => _,
+	build:  _ => _,
+	render: _ => _
 };
 
 babelRegister({

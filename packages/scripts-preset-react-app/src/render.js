@@ -3,6 +3,6 @@ import webpack from 'webpack';
 import reporter from './helpers/reporter';
 import * as webpackConfig from './webpack';
 
-const webpackBuildCompiler = webpack(webpackConfig.build());
+const webpackRenderCompiler = webpack(webpackConfig.render());
 
-webpackBuildCompiler.run(reporter);
+webpackRenderCompiler.run(reporter);
