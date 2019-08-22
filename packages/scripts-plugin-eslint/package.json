@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@trigen/scripts": "file:../scripts",
-    "eslint": "^5.15.3",
+    "eslint": "^6.2.1",
     "eslint-config-trigen": "^3.2.3"
   },
   "publishConfig": {
