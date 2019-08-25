@@ -31,13 +31,18 @@
     "@storybook/addon-info": "^5.0.5",
     "@storybook/addon-knobs": "^5.0.5",
     "@storybook/addon-options": "^5.0.5",
+    "@storybook/addon-storyshots": "^5.1.11",
+    "@storybook/addon-storyshots-puppeteer": "^5.1.11",
     "@storybook/addons": "^5.0.5",
     "@storybook/react": "^5.0.5",
     "@trigen/scripts": "file:../scripts",
+    "@trigen/scripts-plugin-jest": "file:../scripts-plugin-jest",
     "@types/storybook__addon-actions": "^3.4.1",
     "@types/storybook__addon-info": "^4.1.0",
     "@types/storybook__addon-knobs": "4.0.0",
-    "@types/storybook__react": "^4.0.0"
+    "@types/storybook__react": "^4.0.0",
+    "babel-plugin-require-context-hook": "^1.0.0",
+    "react-test-renderer": "^16.9.0"
   },
   "publishConfig": {
     "access": "public"

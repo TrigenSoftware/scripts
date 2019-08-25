@@ -55,10 +55,9 @@ export default function getScripts(args, inputAllScripts, {
 	allScripts = babel(args, allScripts);
 	allScripts = typescript(args, allScripts);
 	allScripts = jest(args, allScripts);
-	allScripts = storybook([
-		...getScriptArg(args, '-c', storybookConfigs),
-		...args
-	], allScripts);
+	allScripts = storybook(args, allScripts, {
+		storybookConfigs
+	});
 
 	return update(allScripts, {
 		'lint:styles':     {

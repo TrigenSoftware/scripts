@@ -31,19 +31,24 @@ addDecorator(withInfo);
 addDecorator(withKnobs);
 addDecorator(withA11y);
 
-export const stories = require.context(
-	process.env.PROJECT_SRC,
-	true,
-	/\.stories\.tsx$/
-);
+export function configure(module, inputStories) {
 
-export function loadStories() {
-	stories.keys().forEach(filename =>
-		stories(filename)
-	);
-}
+	let stories = inputStories;
 
-export function configure(module) {
+	if (!stories) {
+		stories = require.context(
+			process.env.PROJECT_SRC,
+			true,
+			/\.stories\.tsx$/
+		);
+	}
+
+	function loadStories() {
+		stories.keys().forEach(filename =>
+			stories(filename)
+		);
+	}
+
 	configureStorybook(loadStories, module);
 }
 

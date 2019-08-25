@@ -73,6 +73,8 @@ yarn start
 yarn build
 # Build app renderer
 yarn build:render
+# Build and run renderer
+yarn render
 # Serve files from `build` directory
 yarn serve
 ```
