@@ -23,11 +23,11 @@ const scripts = {
 
 export default function getScripts(args, allScripts, {
 	storybookConfigs: inputStorybookConfigs,
-	testSkipBuild
-}) {
+	testSkipBuild = false
+} = {}) {
 
 	const storybookConfigsArgs = getScriptArg(args, '-c', inputStorybookConfigs || storybookConfigs);
-	const storybookAutoConfigure = Boolean(storybookConfigsArgs.length);
+	const storybookAutoConfigure = Boolean(!inputStorybookConfigs && storybookConfigsArgs.length);
 
 	return update(allScripts, {
 		'start:storybook': {

@@ -54,10 +54,11 @@ export default function getScripts(args, inputAllScripts, {
 
 	allScripts = babel(args, allScripts);
 	allScripts = typescript(args, allScripts);
-	allScripts = jest(args, allScripts);
 	allScripts = storybook(args, allScripts, {
+		testSkipBuild,
 		storybookConfigs
 	});
+	allScripts = jest(args, allScripts);
 
 	return update(allScripts, {
 		'lint:styles':     {
