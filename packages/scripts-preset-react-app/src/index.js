@@ -45,7 +45,8 @@ const scripts = {
 };
 
 export default function getScripts(args, inputAllScripts, {
-	testSkipBuild = false
+	testSkipBuild = false,
+	testSkipStorybookBuild = false
 } = {}) {
 
 	const storybookConfigsArgs = getScriptArg(args, '-c', storybookConfigs);
@@ -55,7 +56,7 @@ export default function getScripts(args, inputAllScripts, {
 	allScripts = babel(args, allScripts);
 	allScripts = typescript(args, allScripts);
 	allScripts = storybook(args, allScripts, {
-		testSkipBuild,
+		testSkipBuild: testSkipStorybookBuild,
 		storybookConfigs
 	});
 	allScripts = jest(args, allScripts);
