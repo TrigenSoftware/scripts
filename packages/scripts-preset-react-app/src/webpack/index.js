@@ -8,6 +8,7 @@ import FilterWarningPlugins from 'webpack-filter-warnings-plugin';
 import HtmlPlugin from 'html-webpack-plugin';
 import ScriptHtmlPlugin from 'script-ext-html-webpack-plugin';
 import ExcludeHtmlPlugin from 'html-webpack-exclude-assets-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
 import update from 'immutability-helper';
 import {
 	decamelize
@@ -130,7 +131,13 @@ function base({
 			),
 			new FilterWarningPlugins({
 				exclude: ignoreWarnings
-			})
+			}),
+			new CopyPlugin([{
+				from: 'src/favicons',
+				to:   'favicons'
+			}, {
+				from: 'src/manifest.json'
+			}])
 		]
 	});
 }

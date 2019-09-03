@@ -12,32 +12,36 @@ import storybook from '@trigen/scripts-plugin-storybook';
 
 const storybookConfigs = path.join(__dirname, 'storybook');
 const scripts = {
-	'lint:styles':  {
+	'lint:styles':    {
 		cmd:  'stylelint',
 		args: FILL_ME
 	},
-	'lint':         ['lint:styles'],
-	'test':         ['build'],
-	'start':        {
+	'lint':           ['lint:styles'],
+	'test':           ['build'],
+	'start':          {
 		vars: { NODE_ENV: 'development' },
 		cmd:  'node',
 		args: [path.join(__dirname, 'start.js')]
 	},
-	'build':        {
+	'build:favicons': {
+		cmd:  'favicons',
+		args: FILL_ME
+	},
+	'build':          {
 		vars: { NODE_ENV: 'production' },
 		cmd:  'node',
 		args: [path.join(__dirname, 'build.js')]
 	},
-	'build:render': {
+	'build:render':   {
 		vars: { NODE_ENV: 'production' },
 		cmd:  'node',
 		args: [path.join(__dirname, 'render.js')]
 	},
-	'render':       ['build', 'build:render', {
+	'render':         ['build', 'build:render', {
 		cmd:  'node',
 		args: ['build/render']
 	}],
-	'serve':        {
+	'serve':          {
 		vars: { NODE_ENV: 'production' },
 		cmd:  'node',
 		args: [path.join(__dirname, 'serve.js')]
@@ -98,6 +102,20 @@ export default function getScripts(args, inputAllScripts, {
 			$set: update(scripts.start, {
 				args: {
 					$push: args
+				}
+			})
+		},
+		'build:favicons': {
+			$set: update(scripts['build:favicons'], {
+				args: {
+					$push: [
+						'-v',
+						'-H',
+						...getScriptArg(args, 0, 'src/favicon.svg'),
+						...getScriptArg(args, '-p', 'favicons'),
+						...getScriptArg(args, '-d', 'src/favicons'),
+						...args
+					]
 				}
 			})
 		},
