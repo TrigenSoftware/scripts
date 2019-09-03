@@ -372,6 +372,18 @@ exports[`@trigen/scripts-* scripts-preset-react-app should return correct script
 			\\"src/**/*.css\\"
 		]
 	},
+	\\"build:favicons\\": {
+		\\"cmd\\": \\"favicons\\",
+		\\"args\\": [
+			\\"-v\\",
+			\\"-H\\",
+			\\"src/favicon.svg\\",
+			\\"-p\\",
+			\\"favicons\\",
+			\\"-d\\",
+			\\"src/favicons\\"
+		]
+	},
 	\\"build:render\\": {
 		\\"vars\\": {
 			\\"NODE_ENV\\": \\"production\\"
