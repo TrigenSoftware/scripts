@@ -7,14 +7,14 @@ export default function reporter(error, stats) {
 
 	if (error) {
 		notifyError(error);
+		console.error(error);
 		process.exit(1);
 	}
 
 	process.stdout.write(`${stats.toString({
-		chunks:   false,
-		children: false,
-		modules:  false,
-		colors:   true
+		chunks:  false,
+		modules: false,
+		colors:  true
 	})}\n`);
 
 	if (stats.hasErrors()) {

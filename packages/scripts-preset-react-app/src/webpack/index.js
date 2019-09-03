@@ -17,6 +17,9 @@ import applyReducers from '../helpers/applyReducers';
 import addDevScripts from '../helpers/addDevScripts';
 import getWebpackHook from '../helpers/getWebpackHook';
 import htmlminConfig from '../configs/htmlmin';
+import {
+	excludeAssets
+} from './common';
 import * as stylableLoader from './stylableLoader';
 import * as svgLoader from './svgLoader';
 import * as swLoader from './swLoader';
@@ -220,14 +223,10 @@ export function build(params) {
 			new CleanPlugin(),
 			new webpack.HashedModuleIdsPlugin(),
 			new HtmlPlugin({
-				template:      'src/index.html',
-				inject:        'head',
-				minify:        htmlminConfig,
-				excludeAssets: [
-					/runtime\..*\.css$/,
-					/stylable-css-runtime\..*\.css$/,
-					/vendor\..*\.css$/
-				]
+				template: 'src/index.html',
+				inject:   'head',
+				minify:   htmlminConfig,
+				excludeAssets
 			}),
 			new ScriptHtmlPlugin({
 				defaultAttribute: 'defer'

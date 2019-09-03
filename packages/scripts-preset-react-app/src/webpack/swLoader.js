@@ -1,28 +1,47 @@
 import update from 'immutability-helper';
 import WorkboxPlugin from '@flexis/workbox-webpack-plugin';
+import {
+	HotModuleReplacementFilterPlugin
+} from 'hmr-filter-webpack-plugin';
+import {
+	excludeAssets
+} from './common';
 
-const swTest = /(\/|\.)sw\.(js|ts)$/;
+const serviceWorkerTest = /(\/|\.)serviceWorker\.(js|ts)$/;
 
 export function base(config) {
 	return update(config, {
 		module: {
-			rules: { $push: [{
-				test:    swTest,
+			rules: { $unshift: [{
+				test:    serviceWorkerTest,
 				exclude: /node_modules/,
 				loader:  'service-worker-loader',
 				options: {
-					filename: '[name].[chunkhash].js'
+					filename: '[name].js'
 				}
 			}] }
 		},
 		plugins: { $push: [
-			new WorkboxPlugin(swTest)
+			new WorkboxPlugin(serviceWorkerTest, {
+				exclude: excludeAssets
+			})
 		] }
 	});
 }
 
 export function dev(config) {
-	return config;
+	return update(config, {
+		plugins: { $unshift: [
+			new HotModuleReplacementFilterPlugin((compilation) => {
+
+				const {
+					name
+				} = compilation.compiler;
+
+				return name && name.includes('worker');
+			})
+		] }
+	});
 }
 
 export function build(config) {
