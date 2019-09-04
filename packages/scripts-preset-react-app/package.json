@@ -34,7 +34,7 @@
     "@flexis/srcset-loader": "^1.0.0",
     "@flexis/workbox-webpack-plugin": "^1.2.1",
     "@stylable/core": "^1.0.6",
-    "@stylable/webpack-plugin": "^1.1.4",
+    "@stylable/webpack-plugin": "^2.0.0",
     "@trigen/scripts": "file:../scripts",
     "@trigen/scripts-plugin-babel": "file:../scripts-plugin-babel",
     "@trigen/scripts-plugin-jest": "file:../scripts-plugin-jest",
