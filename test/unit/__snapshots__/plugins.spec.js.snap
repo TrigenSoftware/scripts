@@ -68,6 +68,15 @@ exports[`@trigen/scripts-* scripts-plugin-jest should return correct scripts obj
 	},
 	\\"test\\": [
 		\\"jest\\"
+	],
+	\\"eject\\": [
+		{
+			\\"cmd\\": \\"cp\\",
+			\\"args\\": [
+				\\"/packages/scripts-plugin-jest/src/artifacts.js\\",
+				\\"scripts/artifacts.js\\"
+			]
+		}
 	]
 }"
 `;
@@ -82,7 +91,16 @@ exports[`@trigen/scripts-* scripts-plugin-rollup should return correct scripts o
 		\\"args\\": [
 			\\"-c\\"
 		]
-	}
+	},
+	\\"eject\\": [
+		{
+			\\"cmd\\": \\"cp\\",
+			\\"args\\": [
+				\\"/packages/scripts-plugin-rollup/src/helpers.js\\",
+				\\"scripts/rollup-helpers.js\\"
+			]
+		}
+	]
 }"
 `;
 
@@ -125,7 +143,25 @@ exports[`@trigen/scripts-* scripts-plugin-storybook should return correct script
 			\\"-o\\",
 			\\"storybook-build\\"
 		]
-	}
+	},
+	\\"eject\\": [
+		{
+			\\"cmd\\": \\"cp\\",
+			\\"args\\": [
+				\\"-R\\",
+				\\"/packages/scripts-plugin-storybook/src/jest\\",
+				\\"scripts/jest\\"
+			]
+		},
+		{
+			\\"cmd\\": \\"cp\\",
+			\\"args\\": [
+				\\"-R\\",
+				\\"/packages/scripts-plugin-storybook/src/storybook\\",
+				\\"scripts/storybook\\"
+			]
+		}
+	]
 }"
 `;
 
@@ -264,6 +300,22 @@ exports[`@trigen/scripts-* scripts-preset-node-app should return correct scripts
 	\\"test\\": [
 		\\"jest\\",
 		\\"build\\"
+	],
+	\\"eject\\": [
+		{
+			\\"cmd\\": \\"cp\\",
+			\\"args\\": [
+				\\"/packages/scripts-plugin-jest/src/artifacts.js\\",
+				\\"scripts/artifacts.js\\"
+			]
+		},
+		{
+			\\"cmd\\": \\"cp\\",
+			\\"args\\": [
+				\\"/packages/scripts-plugin-rollup/src/helpers.js\\",
+				\\"scripts/rollup-helpers.js\\"
+			]
+		}
 	]
 }"
 `;
@@ -368,6 +420,31 @@ exports[`@trigen/scripts-* scripts-preset-react-app should return correct script
 			\\"storybook-build\\"
 		]
 	},
+	\\"eject\\": [
+		{
+			\\"cmd\\": \\"cp\\",
+			\\"args\\": [
+				\\"-R\\",
+				\\"/packages/scripts-plugin-storybook/src/jest\\",
+				\\"scripts/jest\\"
+			]
+		},
+		{
+			\\"cmd\\": \\"cp\\",
+			\\"args\\": [
+				\\"-R\\",
+				\\"/packages/scripts-plugin-storybook/src/storybook\\",
+				\\"scripts/storybook\\"
+			]
+		},
+		{
+			\\"cmd\\": \\"cp\\",
+			\\"args\\": [
+				\\"/packages/scripts-plugin-jest/src/artifacts.js\\",
+				\\"scripts/artifacts.js\\"
+			]
+		}
+	],
 	\\"jest\\": {
 		\\"vars\\": {
 			\\"NODE_ENV\\": \\"test\\"
