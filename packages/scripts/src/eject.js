@@ -15,6 +15,10 @@ export default async function eject(scripts) {
 
 	const tasks = Object.entries(scripts).map(async ([name, script]) => {
 
+		if (name === 'eject') {
+			return;
+		}
+
 		const filename = scriptToFilename(name);
 		const body = scriptToString(script);
 		const scriptFile = bashScript(body);
@@ -69,14 +73,23 @@ function patchArgs(args) {
 	));
 }
 
-function cmdToString(cmd) {
-	return `${cmd.ignoreResult
+function cmdToString({
+	vars,
+	cmd,
+	args,
+	ignoreResult
+}) {
+	return `${ignoreResult
 		? 'set +e; '
 		: ''
-	}${cmd.vars
-		? `${varsToString(cmd.vars)} `
+	}${vars
+		? `${varsToString(vars)} `
 		: ''
-	}${cmd.cmd}${` ${patchArgs(cmd.args).join(' ')}`.trim()} $@${cmd.ignoreResult
+	}${cmd}${
+		args.length
+			? ' '
+			: ''
+	}${patchArgs(args).join(' ')} $@${ignoreResult
 		? '; set -e'
 		: ''
 	}`;
