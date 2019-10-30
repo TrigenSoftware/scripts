@@ -1,6 +1,9 @@
 import {
 	promises as fs
 } from 'fs';
+import {
+	getDependencies
+} from './scripts';
 
 export default async function eject(scripts) {
 
@@ -20,6 +23,36 @@ export default async function eject(scripts) {
 	});
 
 	await Promise.all(tasks);
+	await ejectPackages();
+}
+
+async function ejectPackages() {
+
+	const pluginsDependencies = getDependencies();
+	const pkg = JSON.parse(await fs.readFile('package.json'));
+	const {
+		scripts
+	} = pkg;
+
+	for (const scriptName in scripts) {
+
+		const cmd = scripts[scriptName];
+
+		if (cmd.startsWith('trigen-scripts')) {
+
+			const [
+				,
+				script,
+				...args
+			] = cmd.split(' ');
+
+			scripts[scriptName] = `${scriptToFilename(script)} ${args.join(' ')}`.trim();
+		}
+	}
+
+	Object.assign(pkg.devDependencies, pluginsDependencies);
+
+	await fs.writeFile('package.json', JSON.stringify(pkg, null, '  '));
 }
 
 function varsToString(vars) {
@@ -43,7 +76,7 @@ function cmdToString(cmd) {
 	}${cmd.vars
 		? `${varsToString(cmd.vars)} `
 		: ''
-	}${cmd.cmd} ${patchArgs(cmd.args).join(' ')} $@${cmd.ignoreResult
+	}${cmd.cmd}${` ${patchArgs(cmd.args).join(' ')}`.trim()} $@${cmd.ignoreResult
 		? '; set -e'
 		: ''
 	}`;

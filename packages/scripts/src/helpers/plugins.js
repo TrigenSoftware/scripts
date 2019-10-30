@@ -1,7 +1,8 @@
 /* eslint-disable import/no-dynamic-require */
+import path from 'path';
 import resolve from 'resolve-cwd';
 
-export default function getPlugins(plugins, prefix) {
+export function getPlugins(plugins, prefix) {
 	return plugins.map((_) => {
 
 		let name = '';
@@ -27,5 +28,32 @@ export default function getPlugins(plugins, prefix) {
 		}
 
 		return [plugin, params];
+	});
+}
+
+export function getPluginsDependencies(plugins, prefix) {
+	return plugins.map((_) => {
+
+		let name = '';
+		let pkg = null;
+
+		if (Array.isArray(_)) {
+			name = _[0];
+		} else {
+			name = _;
+		}
+
+		try {
+			pkg = require(resolve(path.join(`${prefix}${name}`, 'package.json')));
+		} catch (err) {
+
+			try {
+				pkg = require(resolve(path.join(name, 'package.json')));
+			} catch (err2) {
+				throw err2;
+			}
+		}
+
+		return pkg.dependencies;
 	});
 }

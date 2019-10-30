@@ -1,5 +1,8 @@
 /* eslint-disable no-magic-numbers */
-import getPlugins from './helpers/plugins';
+import {
+	getPlugins,
+	getPluginsDependencies
+} from './helpers/plugins';
 import getConfigFromRC from './rc';
 
 const PREFIX = `@trigen/scripts-`;
@@ -31,4 +34,26 @@ export function getScripts(args, options) {
 	}, {});
 
 	return scripts;
+}
+
+export function getDependencies(options) {
+
+	const rcPlugins = getConfigFromRC(options);
+	const pluginsDependencies = getPluginsDependencies(rcPlugins, PREFIX);
+	const dependencies = pluginsDependencies.reduce((dependencies, pluginDependencies) => {
+
+		for (const key in pluginDependencies) {
+
+			if (key.startsWith('@trigen/scripts')) {
+				Reflect.deleteProperty(pluginDependencies, key);
+			}
+		}
+
+		return {
+			...dependencies,
+			...pluginDependencies
+		};
+	}, {});
+
+	return dependencies;
 }
