@@ -5,6 +5,7 @@ import {
 	getScriptAndArgs,
 	getScripts
 } from './scripts';
+import eject from './eject';
 
 const [
 	exec,
@@ -64,6 +65,17 @@ function run(script, ignoreTitle) {
 	}
 }
 
+if (exec === 'eject') {
+
+	try {
+		run(exec);
+	} catch (err) {
+		/* Silent */
+	}
+
+	eject(scripts);
+
+} else
 if (scripts[exec]) {
 	run(exec);
 } else {

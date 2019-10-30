@@ -2,7 +2,8 @@ import path from 'path';
 import update from 'immutability-helper';
 import {
 	FILL_ME,
-	getScriptArg
+	getScriptArg,
+	addScripts
 } from '@trigen/scripts/helpers';
 
 const storybookConfigs = path.join(__dirname, 'storybook');
@@ -16,7 +17,22 @@ const scripts = {
 		vars: { NODE_ENV: 'development' },
 		cmd:  'build-storybook',
 		args: FILL_ME
-	}
+	},
+	'eject': [{
+		cmd:  'cp',
+		args: [
+			'-R',
+			path.join(__dirname, 'jest'),
+			'scripts/jest'
+		]
+	}, {
+		cmd:  'cp',
+		args: [
+			'-R',
+			path.join(__dirname, 'storybook'),
+			'scripts/storybook'
+		]
+	}]
 };
 
 export default function getScripts(args, allScripts, {
@@ -58,6 +74,9 @@ export default function getScripts(args, allScripts, {
 					]
 				}
 			})
+		},
+		'eject': {
+			$apply: _ => addScripts(_, scripts.eject)
 		}
 	});
 }

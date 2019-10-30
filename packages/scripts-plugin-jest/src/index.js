@@ -16,7 +16,14 @@ const scripts = {
 		cmd:  'node',
 		args: [path.join(__dirname, 'artifacts.js')]
 	},
-	'test': ['jest']
+	'test':  ['jest'],
+	'eject': {
+		cmd:  'cp',
+		args: [
+			path.join(__dirname, 'artifacts.js'),
+			'scripts/artifacts.js'
+		]
+	}
 };
 
 export default function getScripts(args, allScripts) {
@@ -40,6 +47,9 @@ export default function getScripts(args, allScripts) {
 		},
 		'test': {
 			$apply: _ => addScripts(_, scripts.test)
+		},
+		'eject': {
+			$apply: _ => addScripts(_, scripts.eject)
 		}
 	});
 }
