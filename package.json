@@ -44,7 +44,7 @@
     "babel-jest": "^24.5.0",
     "babel-preset-trigen": "^2.2.1",
     "browserslist-config-trigen": "^1.1.0",
-    "chalk": "^2.4.2",
+    "chalk": "^3.0.0",
     "del": "^5.0.0",
     "eslint": "^5.15.3",
     "eslint-config-trigen": "^3.2.3",
