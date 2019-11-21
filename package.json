@@ -46,7 +46,7 @@
     "browserslist-config-trigen": "^1.1.0",
     "chalk": "^3.0.0",
     "del": "^5.0.0",
-    "eslint": "^5.15.3",
+    "eslint": "^6.6.0",
     "eslint-config-trigen": "^3.2.3",
     "eslint-plugin-jest": "^23.0.4",
     "husky": "^3.0.3",
