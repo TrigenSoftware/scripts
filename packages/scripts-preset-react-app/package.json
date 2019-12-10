@@ -49,7 +49,7 @@
     "connect-history-api-fallback": "^1.5.0",
     "copy-webpack-plugin": "^5.0.4",
     "core-js": "3",
-    "eslint-loader": "^2.1.1",
+    "eslint-loader": "^3.0.3",
     "file-loader": "^4.2.0",
     "filter-chunk-webpack-plugin": "^2.1.0",
     "hmr-filter-webpack-plugin": "^1.0.0",
