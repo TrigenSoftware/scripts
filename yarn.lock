@@ -2920,20 +2920,20 @@
     "@babel/core" "^7.4.0"
     "@babel/node" "^7.0.0"
     "@babel/runtime" "^7.4.2"
-    "@trigen/scripts" "file:../../Library/Caches/Yarn/v4/npm-@trigen-scripts-plugin-babel-3.5.3-99735123-6d6a-46e2-9554-4143c3088471-1579122383600/node_modules/@trigen/scripts"
+    "@trigen/scripts" "file:packages/scripts"
     babel-preset-trigen "^2.2.1"
 
 "@trigen/scripts-plugin-eslint@file:packages/scripts-plugin-eslint":
   version "3.5.3"
   dependencies:
-    "@trigen/scripts" "file:../../Library/Caches/Yarn/v4/npm-@trigen-scripts-plugin-eslint-3.5.3-ce90117b-85ba-4b41-bc31-f65e86e7872d-1579122383605/node_modules/@trigen/scripts"
+    "@trigen/scripts" "file:packages/scripts"
     eslint "^6.1.0"
     eslint-config-trigen "^3.2.3"
 
 "@trigen/scripts-plugin-jest@file:packages/scripts-plugin-jest":
   version "3.5.3"
   dependencies:
-    "@trigen/scripts" "file:../../Library/Caches/Yarn/v4/npm-@trigen-scripts-plugin-jest-3.5.3-782ecbb8-377b-495b-93c8-7b34c15f5e7e-1579122383607/node_modules/@trigen/scripts"
+    "@trigen/scripts" "file:packages/scripts"
     "@types/jest" "^24.0.10"
     archiver "^3.1.1"
     babel-jest "^24.5.0"
@@ -2953,7 +2953,7 @@
 "@trigen/scripts-plugin-size-limit@file:packages/scripts-plugin-size-limit":
   version "3.5.3"
   dependencies:
-    "@trigen/scripts" "file:../../Library/Caches/Yarn/v4/npm-@trigen-scripts-plugin-size-limit-3.5.3-7e301fbd-9b97-4a9e-b7eb-5f97f485e0e8-1579122386265/node_modules/@trigen/scripts"
+    "@trigen/scripts" "file:packages/scripts"
     size-limit "^3.0.0"
 
 "@trigen/scripts-plugin-storybook@file:packages/scripts-plugin-storybook":
@@ -2968,8 +2968,8 @@
     "@storybook/addon-storyshots-puppeteer" "^5.1.11"
     "@storybook/addons" "^5.0.5"
     "@storybook/react" "^5.0.5"
-    "@trigen/scripts" "file:../../Library/Caches/Yarn/v4/npm-@trigen-scripts-plugin-storybook-3.5.3-1a5581e6-8216-46bb-a2ed-35ff5d710982-1579122387809/node_modules/@trigen/scripts"
-    "@trigen/scripts-plugin-jest" "file:../../Library/Caches/Yarn/v4/npm-@trigen-scripts-plugin-storybook-3.5.3-1a5581e6-8216-46bb-a2ed-35ff5d710982-1579122387809/node_modules/@trigen/scripts-plugin-jest"
+    "@trigen/scripts" "file:packages/scripts"
+    "@trigen/scripts-plugin-jest" "file:packages/scripts-plugin-jest"
     "@types/storybook__addon-info" "^5.2.1"
     babel-plugin-require-context-hook "^1.0.0"
     react-test-renderer "^16.9.0"
@@ -2977,18 +2977,18 @@
 "@trigen/scripts-plugin-typescript@file:packages/scripts-plugin-typescript":
   version "3.6.0"
   dependencies:
-    "@trigen/scripts" "file:../../Library/Caches/Yarn/v4/npm-@trigen-scripts-plugin-typescript-3.6.0-eca723da-3690-4e6d-bb78-b69ef2f9043f-1579122399955/node_modules/@trigen/scripts"
+    "@trigen/scripts" "file:packages/scripts"
     ts-node-dev "^1.0.0-pre.39"
     tsconfig-paths "^3.8.0"
     tslint "^5.11.0"
     tslint-config-trigen "^3.0.7"
     typedoc "^0.15.0"
-    typescript "3.7.4"
+    typescript "3.7.5"
 
 "@trigen/scripts-preset-lib@file:packages/scripts-preset-lib":
   version "3.5.3"
   dependencies:
-    "@trigen/scripts" "file:../../Library/Caches/Yarn/v4/npm-@trigen-scripts-preset-lib-3.5.3-4aa7bfdc-77ae-40ac-9729-966edf92d6f6-1579122400483/node_modules/@trigen/scripts"
+    "@trigen/scripts" "file:packages/scripts"
     browserslist-config-trigen "^1.1.0"
     clean-publish "^1.1.0"
     coveralls "^3.0.0"
@@ -2998,10 +2998,10 @@
 "@trigen/scripts-preset-node-app@file:packages/scripts-preset-node-app":
   version "3.5.3"
   dependencies:
-    "@trigen/scripts" "file:../../Library/Caches/Yarn/v4/npm-@trigen-scripts-preset-node-app-3.5.3-a6a2bec1-ddab-48c4-816b-0b2081c1742c-1579122400984/node_modules/@trigen/scripts"
-    "@trigen/scripts-plugin-babel" "file:../../Library/Caches/Yarn/v4/npm-@trigen-scripts-preset-node-app-3.5.3-a6a2bec1-ddab-48c4-816b-0b2081c1742c-1579122400984/node_modules/@trigen/scripts-plugin-babel"
-    "@trigen/scripts-plugin-jest" "file:../../Library/Caches/Yarn/v4/npm-@trigen-scripts-preset-node-app-3.5.3-a6a2bec1-ddab-48c4-816b-0b2081c1742c-1579122400984/node_modules/@trigen/scripts-plugin-jest"
-    "@trigen/scripts-plugin-rollup" "file:../../Library/Caches/Yarn/v4/npm-@trigen-scripts-preset-node-app-3.5.3-a6a2bec1-ddab-48c4-816b-0b2081c1742c-1579122400984/node_modules/@trigen/scripts-plugin-rollup"
+    "@trigen/scripts" "file:packages/scripts"
+    "@trigen/scripts-plugin-babel" "file:packages/scripts-plugin-babel"
+    "@trigen/scripts-plugin-jest" "file:packages/scripts-plugin-jest"
+    "@trigen/scripts-plugin-rollup" "file:packages/scripts-plugin-rollup"
     browserslist-config-trigen "^1.1.0"
     husky "^4.0.9"
     lint-staged "^9.2.1"
@@ -3015,11 +3015,11 @@
     "@flexis/workbox-webpack-plugin" "^1.2.1"
     "@stylable/core" "^2.1.4"
     "@stylable/webpack-plugin" "^2.1.7"
-    "@trigen/scripts" "file:../../Library/Caches/Yarn/v4/npm-@trigen-scripts-preset-react-app-3.6.0-709dd856-56e3-45f3-944a-ea2bbaee4e88-1579122400989/node_modules/@trigen/scripts"
-    "@trigen/scripts-plugin-babel" "file:../../Library/Caches/Yarn/v4/npm-@trigen-scripts-preset-react-app-3.6.0-709dd856-56e3-45f3-944a-ea2bbaee4e88-1579122400989/node_modules/@trigen/scripts-plugin-babel"
-    "@trigen/scripts-plugin-jest" "file:../../Library/Caches/Yarn/v4/npm-@trigen-scripts-preset-react-app-3.6.0-709dd856-56e3-45f3-944a-ea2bbaee4e88-1579122400989/node_modules/@trigen/scripts-plugin-jest"
-    "@trigen/scripts-plugin-storybook" "file:../../Library/Caches/Yarn/v4/npm-@trigen-scripts-preset-react-app-3.6.0-709dd856-56e3-45f3-944a-ea2bbaee4e88-1579122400989/node_modules/@trigen/scripts-plugin-storybook"
-    "@trigen/scripts-plugin-typescript" "file:../../Library/Caches/Yarn/v4/npm-@trigen-scripts-preset-react-app-3.6.0-709dd856-56e3-45f3-944a-ea2bbaee4e88-1579122400989/node_modules/@trigen/scripts-plugin-typescript"
+    "@trigen/scripts" "file:packages/scripts"
+    "@trigen/scripts-plugin-babel" "file:packages/scripts-plugin-babel"
+    "@trigen/scripts-plugin-jest" "file:packages/scripts-plugin-jest"
+    "@trigen/scripts-plugin-storybook" "file:packages/scripts-plugin-storybook"
+    "@trigen/scripts-plugin-typescript" "file:packages/scripts-plugin-typescript"
     autoprefixer "^9.1.3"
     awesome-typescript-loader "^5.2.0"
     babel-loader "^8.0.0"
@@ -13287,22 +13287,6 @@ node-notifier@^5.4.0, node-notifier@^5.4.2:
     shellwords "^0.1.1"
     which "^1.3.0"
 
-node-pre-gyp@*:
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.14.0.tgz#9a0596533b877289bcad4e143982ca3d904ddc83"
-  integrity sha512-+CvDC7ZttU/sSt9rFjix/P05iS43qHCOOGzcr3Ry99bXG7VX953+vFyEuph/tfqoYu8dttBkE86JSKBO2OzcxA==
-  dependencies:
-    detect-libc "^1.0.2"
-    mkdirp "^0.5.1"
-    needle "^2.2.1"
-    nopt "^4.0.1"
-    npm-packlist "^1.1.6"
-    npmlog "^4.0.2"
-    rc "^1.2.7"
-    rimraf "^2.6.1"
-    semver "^5.3.0"
-    tar "^4.4.2"
-
 node-pre-gyp@^0.11.0:
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.11.0.tgz#db1f33215272f692cd38f03238e3e9b47c5dd054"
@@ -17776,7 +17760,7 @@ tar-stream@^2.0.0, tar-stream@^2.1.0:
     inherits "^2.0.3"
     readable-stream "^3.1.1"
 
-tar@^4, tar@^4.4.10, tar@^4.4.12, tar@^4.4.2, tar@^4.4.8:
+tar@^4, tar@^4.4.10, tar@^4.4.12, tar@^4.4.8:
   version "4.4.13"
   resolved "https://registry.yarnpkg.com/tar/-/tar-4.4.13.tgz#43b364bc52888d555298637b10d60790254ab525"
   integrity sha512-w2VwSrBoHa5BsSyH+KxEqeQBAllHhccyMFVHtGtdMpF4W7IRWfZjFiQceJPChOeTsSDVUpER2T8FA93pr0L+QA==
@@ -18473,10 +18457,10 @@ typedoc@^0.15.0:
     typedoc-default-themes "^0.6.3"
     typescript "3.7.x"
 
-typescript@3.7.4, typescript@3.7.x:
-  version "3.7.4"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.7.4.tgz#1743a5ec5fef6a1fa9f3e4708e33c81c73876c19"
-  integrity sha512-A25xv5XCtarLwXpcDNZzCGvW2D1S3/bACratYBx2sax8PefsFhlYmkQicKHvpYflFS8if4zne5zT5kpJ7pzuvw==
+typescript@3.7.5, typescript@3.7.x:
+  version "3.7.5"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.7.5.tgz#0692e21f65fd4108b9330238aac11dd2e177a1ae"
+  integrity sha512-/P5lkRXkWHNAbcJIiHPfRoKqyd7bsyCma1hZNUGfn20qm64T6ZBlrzprymeu918H+mB/0rIg2gGK/BXkhhYgBw==
 
 ua-parser-js@0.7.17:
   version "0.7.17"
