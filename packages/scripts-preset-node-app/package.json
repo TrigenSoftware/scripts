@@ -25,7 +25,7 @@
     "@trigen/scripts-plugin-rollup": "file:../scripts-plugin-rollup",
     "browserslist-config-trigen": "^1.1.0",
     "husky": "^4.0.9",
-    "lint-staged": "^9.2.1"
+    "lint-staged": "^10.0.0"
   },
   "publishConfig": {
     "access": "public"
