@@ -57,7 +57,7 @@
     "lerna-update-wizard": "^0.17.7",
     "lint-staged": "^10.0.0",
     "react": "^16.8.6",
-    "tslint": "^5.11.0",
+    "tslint": "^6.0.0",
     "tslint-config-trigen": "^3.0.7",
     "typescript": "3.7.5"
   },
