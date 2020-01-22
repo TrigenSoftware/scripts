@@ -52,7 +52,7 @@
     "eslint-config-trigen": "^3.4.2",
     "eslint-plugin-jest": "^23.0.4",
     "husky": "^4.0.9",
-    "jest": "^24.3.0",
+    "jest": "^25.1.0",
     "lerna": "^3.13.3",
     "lerna-update-wizard": "^0.17.7",
     "lint-staged": "^10.0.0",
