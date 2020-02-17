@@ -41,7 +41,7 @@
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.8.3",
     "@babel/node": "^7.4.5",
-    "@stylable/webpack-plugin": "^2.1.7",
+    "@stylable/webpack-plugin": "^3.2.0",
     "babel-jest": "^25.1.0",
     "babel-preset-trigen": "^2.3.0",
     "browserslist-config-trigen": "^1.1.0",
