@@ -19,6 +19,7 @@ export default function start(script = 'start:storybook') {
 				resolve();
 			}
 		});
+		server.stderr.on('data', () => {});
 	});
 
 	return {
