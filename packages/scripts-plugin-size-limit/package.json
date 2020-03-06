@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@trigen/scripts": "file:../scripts",
-    "size-limit": "^3.0.0"
+    "size-limit": "^4.1.1"
   },
   "publishConfig": {
     "access": "public"
