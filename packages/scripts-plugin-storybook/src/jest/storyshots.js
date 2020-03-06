@@ -68,12 +68,18 @@ export default async function init(options = {}, srcDir, url) {
 		afterAll
 	} = test;
 
-	test.beforeAll = async () => {
+	// eslint-disable-next-line no-magic-numbers
+	jest.setTimeout(99999999);
 
+	test.beforeAll = async () => {
+		console.log('before server');
 		await server.wait();
+		console.log('after server');
 
 		try {
+			console.log('before beforeAll');
 			await beforeAll();
+			console.log('after beforeAll');
 		} catch (err) {
 			console.error(err);
 		}
