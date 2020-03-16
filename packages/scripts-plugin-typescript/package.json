@@ -24,7 +24,7 @@
     "tsconfig-paths": "^3.8.0",
     "tslint": "^6.0.0",
     "tslint-config-trigen": "^3.0.7",
-    "typedoc": "^0.16.8",
+    "typedoc": "^0.17.0",
     "typescript": "3.8.3"
   },
   "publishConfig": {
