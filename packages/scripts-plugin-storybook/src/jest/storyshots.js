@@ -14,22 +14,11 @@ export function customizePage(page) {
 	});
 }
 
-export function getMatchOptions({
-	context: {
-		kind,
-		story
-	}
-}) {
-	return {
-		customSnapshotIdentifier: `${kind}__${story.replace(/ /g, '-')}`
-	};
-}
-
 const {
 	isCi
 } = envCi();
 
-export function afterScreenshot({
+export function getMatchOptions({
 	context: {
 		kind,
 		story
@@ -39,6 +28,15 @@ export function afterScreenshot({
 	console.log(isCi);
 	console.log(`📷 ${kind} ${story}`);
 	process.stdout.write(`📷 ${kind} ${story}\n`);
+
+	return {
+		customSnapshotIdentifier: `${kind}__${story.replace(/ /g, '-')}`
+	};
+}
+
+export function afterScreenshot() {
+
+	console.log('afterScreenshot');
 }
 
 export async function closeWebsockets(page) {
