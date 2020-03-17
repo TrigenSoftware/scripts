@@ -25,18 +25,13 @@ export function getMatchOptions({
 	}
 }) {
 
-	console.log(isCi);
-	console.log(`📷 ${kind} ${story}`);
-	process.stdout.write(`📷 ${kind} ${story}\n`);
+	if (isCi) {
+		process.stdout.write(`📷 ${kind} ${story}\n`);
+	}
 
 	return {
 		customSnapshotIdentifier: `${kind}__${story.replace(/ /g, '-')}`
 	};
-}
-
-export function afterScreenshot() {
-
-	console.log('afterScreenshot');
 }
 
 export async function closeWebsockets(page) {
@@ -67,7 +62,6 @@ export default async function init(options = {}, srcDir, url) {
 	const finalOptions = {
 		getMatchOptions,
 		customizePage,
-		afterScreenshot,
 		...options
 	};
 	const server = start();
