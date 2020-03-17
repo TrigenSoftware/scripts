@@ -36,10 +36,9 @@ export function afterScreenshot({
 	}
 }) {
 
-	if (isCi) {
-		console.log(`📷 ${kind} ${story}`);
-		process.stdout.write(`📷 ${kind} ${story}\n`);
-	}
+	console.log(isCi);
+	console.log(`📷 ${kind} ${story}`);
+	process.stdout.write(`📷 ${kind} ${story}\n`);
 }
 
 export async function closeWebsockets(page) {
