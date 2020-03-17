@@ -29,9 +29,6 @@ const {
 	isCi
 } = envCi();
 
-console.log('CI ENV');
-console.log(envCi());
-
 export function afterScreenshot({
 	context: {
 		kind,
@@ -40,6 +37,7 @@ export function afterScreenshot({
 }) {
 
 	if (isCi) {
+		console.log(`📷 ${kind} ${story}`);
 		process.stdout.write(`📷 ${kind} ${story}\n`);
 	}
 }
