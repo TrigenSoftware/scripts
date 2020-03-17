@@ -29,6 +29,9 @@ const {
 	isCi
 } = envCi();
 
+console.log('CI ENV');
+console.log(envCi());
+
 export function afterScreenshot({
 	context: {
 		kind,
