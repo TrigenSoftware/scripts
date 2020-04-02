@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.4.2",
-    "chalk": "^3.0.0",
+    "chalk": "^4.0.0",
     "core-js": "3",
     "immutability-helper": "^3.0.0",
     "rcfile": "^1.0.3",
