@@ -1,7 +1,6 @@
 import path from 'path';
 import {
 	stringifySymbol,
-	stringify,
 	generateImport,
 	generateExport
 } from 'svg-sprite-loader/lib/utils';
@@ -16,9 +15,7 @@ module.exports = runtimeGenerator;
 
 function runtimeGenerator({
 	symbol,
-	config,
-	context,
-	loaderContext
+	config
 }) {
 
 	const {
@@ -31,11 +28,8 @@ function runtimeGenerator({
 		iconModule,
 		skipSymbol
 	} = runtimeOptions;
-	const compilerContext = loaderContext._compiler.context;
-	const iconModulePath = path.resolve(compilerContext, iconModule);
-	const iconModuleRequest = stringify(
-		path.relative(path.dirname(symbol.request.file), iconModulePath)
-	);
+	const context = path.dirname(symbol.request.file);
+	const iconRequest = stringifyRequest({ context }, iconModule);
 	const spriteRequest = stringifyRequest({ context }, spriteModule);
 	const symbolRequest = stringifyRequest({ context }, symbolModule);
 	const displayName = `Icon${pascalize(symbol.id)}`;
@@ -45,27 +39,21 @@ function runtimeGenerator({
 		${generateImport('React', 'react', esModule)}
 		${generateImport('SpriteSymbol', symbolRequest, esModule)}
 		${generateImport('sprite', spriteRequest, esModule)}
-		${generateImport(esModule ? 'Icon' : '{ default: Icon }', iconModuleRequest, esModule)}
+		${generateImport(esModule ? 'Icon' : '{ default: Icon }', iconRequest, esModule)}
 
 		${skipSymbol ? '' : `
 		sprite.add(new SpriteSymbol(${stringifySymbol(symbol)}));
 		`}
 
-		function ${displayName}() {
-			Icon.apply(this, arguments);
+		function ${displayName}(props) {
+			return React.createElement(Icon, props);
 		}
 
-		${displayName}.prototype = Object.create(Icon.prototype);
-
-		${displayName}.defaultProps = Object.assign(
-			{},
-			Icon.defaultProps,
-			{
-				glyph: '${symbol.id}',
-				width:  ${width},
-				height: ${height}
-			}
-		);
+		${displayName}.defaultProps = {
+			glyph:  '${symbol.id}',
+			width:  ${width},
+			height: ${height}
+		};
 
 		${generateExport(displayName, esModule)}
 	`;
