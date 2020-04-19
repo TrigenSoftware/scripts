@@ -1,7 +1,5 @@
 module.exports = {
-	exclude: [
-		'node_modules/**'
-	],
+	exclude: 'node_modules/**',
 	ignore: [
 		/\.babel\.jsx?$/,
 	],
