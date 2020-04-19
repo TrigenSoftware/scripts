@@ -10,6 +10,12 @@ tsfiles=(`find ./package \( -name "*.ts" -o -name "*.tsx" \)`)
 if [ ${#tsfiles[@]} -gt 0 ]; then
 	del 'package/**/*.{ts,tsx}'
 	tsc --rootDir src --outDir package
+
+	icons=package/helpers/icons
+
+	if [ -f "$icons/IconComponent.jsx" ]; then
+		cp $icons/IconComponent.jsx $icons/IconComponent.babel.js
+	fi
 fi
 
 NODE_ENV=production babel --root-mode upward ./package -d ./package -s inline

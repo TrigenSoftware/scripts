@@ -5,6 +5,8 @@ import {
 } from '../helpers';
 
 const svgTest = /\.svg$/;
+const runtimeGenerator = path.join(__dirname, '..', 'helpers', 'icons', 'svgToComponent.js');
+const iconModule = path.join(__dirname, '..', 'helpers', 'icons', 'IconComponent.js');
 
 export function base(config) {
 	return update(config, {
@@ -15,9 +17,9 @@ export function base(config) {
 					use:  [{
 						loader:  'svg-sprite-loader',
 						options: {
-							runtimeGenerator: path.join(__dirname, '..', 'helpers', 'icons', 'svgToComponent.js'),
-							runtimeOptions:   {
-								iconModule: path.join(__dirname, '..', 'helpers', 'icons', 'IconComponent.js')
+							runtimeGenerator,
+							runtimeOptions: {
+								iconModule
 							}
 						}
 					}]
@@ -31,13 +33,26 @@ export function dev(config) {
 	return config;
 }
 
-export function build(config) {
+export function build(config, params) {
 	return update(config, {
 		module:  {
 			rules: {
 				$apply: rules => update(rules, {
 					[findIndex('test', svgTest, rules)]: {
 						use: {
+							$apply: use => update(use, {
+								[findIndex('loader', 'svg-sprite-loader', use)]: {
+									options: {
+										runtimeOptions: {
+											iconModule: {
+												$set: Reflect.has(params, 'browserslistEnv')
+													? iconModule.replace('.js', '.babel.js')
+													: iconModule
+											}
+										}
+									}
+								}
+							}),
 							$push: ['svgo-loader']
 						}
 					}

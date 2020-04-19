@@ -44,7 +44,7 @@
     "@stylable/webpack-plugin": "^2.1.7",
     "babel-jest": "^25.1.0",
     "babel-preset-trigen": "^2.3.0",
-    "bdsl-webpack-plugin": "^1.3.0-beta",
+    "bdsl-webpack-plugin": "^1.4.0-beta",
     "browserslist-config-trigen": "^1.1.0",
     "chalk": "^4.0.0",
     "del": "^5.0.0",

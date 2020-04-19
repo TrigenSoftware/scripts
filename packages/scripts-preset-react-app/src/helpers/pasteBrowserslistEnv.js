@@ -1,7 +1,3 @@
-
-export function pasteBrowserslistEnv(template, browserslistEnv) {
-	return template.replace('.[env].', browserslistEnv
-		? `.${browserslistEnv}.`
-		: '.'
-	);
-}
+export {
+	pasteBrowserslistEnv
+} from 'bdsl-webpack-plugin';

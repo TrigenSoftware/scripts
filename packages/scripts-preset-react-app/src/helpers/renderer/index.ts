@@ -47,13 +47,13 @@ export default abstract class Renderer {
 		return template;
 	}
 
-	protected async findPrecacheManifestFile() {
+	protected async findPrecacheManifestFiles() {
 
 		const {
 			BUILD_DIR
 		} = this;
 		const files = await fs.readdir(BUILD_DIR);
-		const precacheManifestFile = files.find(_ => /precache-manifest/.test(_));
+		const precacheManifestFile = files.filter(_ => /precache-manifest/.test(_));
 
 		if (!precacheManifestFile) {
 			throw Error('No precache manifest');
@@ -67,19 +67,29 @@ export default abstract class Renderer {
 		const {
 			BUILD_DIR
 		} = this;
-		const precacheManifestFile = await this.findPrecacheManifestFile();
-		const precacheManifestPath = path.join(BUILD_DIR, precacheManifestFile);
-		const precacheManifestContent = await fs.readFile(precacheManifestPath, 'utf8');
 		const hash = createHash('md5').update(shellContent).digest('hex');
-		const patchedPrecacheManifestContent = precacheManifestContent.replace(
-			/"[^"]*"(,\n\s+)"url": "\/index.html"/,
-			`"${hash}", "url": "/shell.html"`
-		);
+		const precacheManifestFiles = await this.findPrecacheManifestFiles();
 
-		this.write(
-			precacheManifestFile,
-			patchedPrecacheManifestContent
-		);
+		for (const precacheManifestFile of precacheManifestFiles) {
+
+			const precacheManifestPath = path.join(BUILD_DIR, precacheManifestFile);
+			const precacheManifestContent = await fs.readFile(precacheManifestPath, 'utf8');
+			const patchedPrecacheManifestContent = precacheManifestContent
+				.replace(
+					/,[\s\n]*\{[^{}]*"\/index.html"[^{}]*\}/,
+					''
+				)
+				.replace(
+					/\}[\s\n]*\]/,
+					`}, { "revision": "${hash}", "url": "/shell.html" }]`
+				);
+
+			this.write(
+				precacheManifestFile,
+				patchedPrecacheManifestContent
+			);
+		}
+
 		this.write(
 			'shell.html',
 			shellContent
