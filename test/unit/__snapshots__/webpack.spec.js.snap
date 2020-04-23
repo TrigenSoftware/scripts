@@ -7,7 +7,6 @@ Array [
   "HtmlWebpackPlugin",
   "ScriptExtHtmlWebpackPlugin",
   "HtmlWebpackExcludeAssetsPlugin",
-  "BdslWebpackPlugin",
   "EnvironmentPlugin",
   "DefinePlugin",
   "FilterWarningsPlugin",

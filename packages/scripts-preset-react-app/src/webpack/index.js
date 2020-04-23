@@ -179,7 +179,7 @@ function base(params = {}) {
 	});
 }
 
-export function dev(params) {
+export function dev(params = {}) {
 
 	const {
 		preact
