@@ -12,9 +12,10 @@ import {
 } from './helpers';
 import browserSyncConfigBase from './configs/browserSync';
 import * as webpackConfig from './webpack';
+import options from './options';
 
 const server = create();
-const webpackDevCompiler = webpack(webpackConfig.dev());
+const webpackDevCompiler = webpack(webpackConfig.dev(options));
 
 webpackDevCompiler.hooks.done.tap('trigen-scripts', () => {
 	notify('Recompilation was done.');

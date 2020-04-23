@@ -2,7 +2,7 @@ export * from './addDevScripts';
 export * from './applyReducers';
 export * from './createDependenciesRegExp';
 export * from './findIndex';
-export * from './getConfigFromEnv';
+export * from './env';
 export * from './getWebpackHook';
 export * from './notify';
 export * from './pasteBrowserslistEnv';

@@ -20,8 +20,7 @@ import {
 	addDevScripts,
 	getWebpackHook,
 	createDependenciesRegExp,
-	pasteBrowserslistEnv,
-	getConfigFromEnv
+	pasteBrowserslistEnv
 } from '../helpers';
 import getBabelConfig from '../configs/babel';
 import htmlminConfig from '../configs/htmlmin';
@@ -65,13 +64,22 @@ const ignoreWarnings = loaders.reduce((all, { ignoreWarnings }) => {
 ]);
 const javascriptTest = /\.jsx?$/;
 const typescriptTest = /\.tsx?$/;
+const preactAlias = {
+	'react':            'preact/compat',
+	'react-dom':        'preact/compat',
+	'react-hot-loader': path.join(__dirname, './PreactHotLoader.js')
+};
 
 function base(params = {}) {
 
 	const {
 		isFirstBuild = true,
-		envify = {}
+		envify = {},
+		preact
 	} = params;
+	const alias = preact
+		? preactAlias
+		: {};
 
 	return applyReducers(baseLoaders, params, {
 		entry:   {
@@ -94,7 +102,8 @@ function base(params = {}) {
 				'.tsx'
 			],
 			alias: {
-				'~': path.join(cwd, 'src/App')
+				'~': path.join(cwd, 'src/App'),
+				...alias
 			}
 		},
 		module:  {
@@ -172,10 +181,15 @@ function base(params = {}) {
 
 export function dev(params) {
 
+	const {
+		preact
+	} = params;
 	const config = base(params);
 	const devScripts = [
-		'webpack-hot-middleware/client?http://localhost:3000/&reload=true'
-	];
+		'webpack-hot-middleware/client?http://localhost:3000/&reload=true',
+		!preact && 'react-hot-loader/patch',
+		preact && 'preact/debug'
+	].filter(Boolean);
 
 	return applyReducers(devLoaders, params, update(config, {
 		entry:        {
@@ -208,18 +222,20 @@ export function build(params = {}) {
 	const config = base(params);
 	const {
 		isFirstBuild = true,
-		transpile = {
-			extensions: []
-		},
-		browserslistEnv
+		browserslistEnv,
+		transpile = {},
+		bdsl
 	} = params;
 	const filenameTemplate = pasteBrowserslistEnv('[name].[env].[chunkhash].js', browserslistEnv);
+	const dependencies = [
+		...(transpile.dependencies || [])
+	];
 	const extensions = [
-		...transpile.extensions,
+		...(transpile.extensions || []),
 		'.babel.js'
 	];
 	const dependenciesRegExp = createDependenciesRegExp({
-		...transpile,
+		dependencies,
 		extensions
 	});
 	const excludeDependencies = _ => /node_modules/.test(_) && !dependenciesRegExp.test(_);
@@ -340,14 +356,11 @@ export function build(params = {}) {
 					defaultAttribute: 'defer'
 				}),
 				new ExcludeHtmlPlugin(),
-				new BdslPlugin(
-					getConfigFromEnv('REACT_APP_BDSL', config => ({
-						env:             browserslistEnv,
-						withStylesheets: true,
-						isModule:        config.moduleEnv === browserslistEnv,
-						...config
-					}))
-				)
+				bdsl && new BdslPlugin({
+					...bdsl,
+					env:      browserslistEnv,
+					isModule: config.moduleEnv === browserslistEnv
+				})
 			].filter(Boolean)
 		}
 	}));
@@ -415,18 +428,14 @@ export function render(params = {}) {
 	}));
 }
 
-export function dslBuild() {
+export function dslBuild(params) {
 
-	const transpile = getConfigFromEnv('REACT_APP_TRANSPILE', {
-		dependencies: [],
-		extensions:   []
-	});
 	const webpackBuildConfigs = [
 		...getBrowserslistEnvList(),
 		undefined
 	].map((browserslistEnv, index) => build({
+		...params,
 		isFirstBuild: index === 0,
-		transpile,
 		browserslistEnv
 	}));
 

@@ -12,3 +12,12 @@ export function getConfigFromEnv(name, defaultsOrMutator) {
 		...envConfig
 	};
 }
+
+export function getParamFromEnv(name, defaults) {
+
+	try {
+		return JSON.parse(process.env[name]);
+	} catch (err) {
+		return defaults;
+	}
+}

@@ -54,7 +54,8 @@ const scripts = {
 export default function getScripts(args, inputAllScripts, {
 	testSkipBuild = false,
 	transpile = {},
-	bdsl = {}
+	bdsl = {},
+	preact = false
 } = {}) {
 
 	const storybookConfigsArgs = getScriptArg(args, '-c', storybookConfigs);
@@ -105,6 +106,11 @@ export default function getScripts(args, inputAllScripts, {
 		},
 		'start':     {
 			$set: update(scripts.start, {
+				vars: {
+					REACT_APP_PREACT: {
+						$set: JSON.stringify(preact)
+					}
+				},
 				args: {
 					$push: args
 				}
@@ -132,6 +138,9 @@ export default function getScripts(args, inputAllScripts, {
 					},
 					REACT_APP_BDSL: {
 						$set: JSON.stringify(bdsl)
+					},
+					REACT_APP_PREACT: {
+						$set: JSON.stringify(preact)
 					}
 				},
 				args: {
@@ -147,6 +156,9 @@ export default function getScripts(args, inputAllScripts, {
 					},
 					REACT_APP_BDSL: {
 						$set: JSON.stringify(bdsl)
+					},
+					REACT_APP_PREACT: {
+						$set: JSON.stringify(preact)
 					}
 				},
 				args: {
