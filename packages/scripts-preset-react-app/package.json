@@ -69,7 +69,7 @@
     "service-worker-loader": "^4.0.1",
     "stylelint": "^13.0.0",
     "stylelint-config-trigen": "^2.0.4",
-    "stylelint-webpack-plugin": "^1.0.3",
+    "stylelint-webpack-plugin": "^2.0.0",
     "svg-sprite-loader": "4.2.5",
     "svgo": "^1.0.5",
     "svgo-loader": "^2.1.0",
