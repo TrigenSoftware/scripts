@@ -52,7 +52,7 @@
     "filter-chunk-webpack-plugin": "^2.1.0",
     "fork-ts-checker-webpack-plugin": "^4.0.4",
     "hmr-filter-webpack-plugin": "^1.0.0",
-    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-plugin": "^4.3.0",
     "html-webpack-skip-assets-plugin": "^0.0.2",
     "http-proxy-middleware": "^1.0.1",
     "humps": "^2.0.1",
