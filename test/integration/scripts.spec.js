@@ -43,10 +43,11 @@ try {
 			encoding: 'utf8',
 			cwd:      WEATHER_PATH
 		}).trim();
-		const currentVersionPatches = path.join(PATCHES_PATH, currentVersion);
-		const patches = fs.readdirSync(currentVersionPatches);
 
 		console.log(chalk.blue(`\n> Applying patches for ${currentVersion}...\n`));
+
+		const currentVersionPatches = path.join(PATCHES_PATH, currentVersion);
+		const patches = fs.readdirSync(currentVersionPatches);
 
 		patches.forEach((patch) => {
 			fs.copyFileSync(
