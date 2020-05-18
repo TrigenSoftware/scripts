@@ -57,7 +57,7 @@
     "http-proxy-middleware": "^1.0.1",
     "humps": "^2.0.1",
     "husky": "^4.0.9",
-    "jest-image-snapshot": "^3.0.1",
+    "jest-image-snapshot": "^4.0.0",
     "lint-staged": "^10.0.0",
     "loader-utils": "^2.0.0",
     "node-notifier": "*",
