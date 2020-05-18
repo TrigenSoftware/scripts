@@ -23,5 +23,14 @@ module.exports = {
 				react:    true
 			}]
 		]
-	}]
+	}],
+	env: {
+		test: {
+			presets: [
+				['babel-preset-trigen', {
+					env: 'jest'
+				}]
+			]
+		}
+	}
 };
