@@ -45,7 +45,7 @@
     "browserslist-config-trigen": "^1.1.0",
     "clean-webpack-plugin": "^3.0.0",
     "connect-history-api-fallback": "^1.5.0",
-    "copy-webpack-plugin": "^5.0.4",
+    "copy-webpack-plugin": "^6.0.1",
     "del": "^5.1.0",
     "eslint-loader": "^4.0.0",
     "file-loader": "^6.0.0",
