@@ -70,7 +70,7 @@
     "stylelint": "^13.0.0",
     "stylelint-config-trigen": "^2.0.4",
     "stylelint-webpack-plugin": "^2.0.0",
-    "svg-sprite-loader": "4.2.5",
+    "svg-sprite-loader": "5.0.0",
     "svgo": "^1.0.5",
     "svgo-loader": "^2.1.0",
     "ts-loader": "^7.0.1",
