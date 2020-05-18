@@ -160,15 +160,14 @@ function base(params = {}) {
 			new FilterWarningPlugins({
 				exclude: ignoreWarnings
 			}),
-			new CopyPlugin([
-				{
-					from:   'src/favicons',
-					to:     'favicons',
-					ignore: ['!*.{ico,png}']
-				},
-				'src/manifest.json'
-			], {
-				logLevel: 'silent'
+			new CopyPlugin({
+				patterns: [{
+					from:    'src/favicons/**/*.{ico,png}',
+					to:      'favicons',
+					flatten: true
+				}, {
+					from: 'src/manifest.json'
+				}]
 			}),
 			isFirstBuild && new ForkTsCheckerPlugin({
 				async:       false,
