@@ -1,0 +1,26 @@
+{
+	"exclude": "node_modules/**",
+	"presets": [
+		[
+			"babel-preset-trigen",
+			{
+				"env": "app",
+				"react": true
+			}
+		]
+	],
+	"env": {
+		"test": {
+			"presets": [
+				[
+					"babel-preset-trigen",
+					{
+						"env": "jest",
+						"typescript": true,
+						"react": true
+					}
+				]
+			]
+		}
+	}
+}
