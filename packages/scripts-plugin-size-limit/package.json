@@ -19,6 +19,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
+    "@babel/runtime-corejs3": "^7.9.6",
     "@trigen/scripts": "file:../scripts",
     "size-limit": "^4.1.1"
   },

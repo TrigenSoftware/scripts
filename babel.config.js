@@ -5,6 +5,7 @@ module.exports = {
 	],
 	presets: [
 		['babel-preset-trigen', {
+			env:      'lib',
 			targets:  require('browserslist-config-trigen/node'),
 			commonjs: true
 		}]
@@ -16,6 +17,7 @@ module.exports = {
 		],
 		presets: [
 			['babel-preset-trigen', {
+				env:      'lib',
 				targets:  require('browserslist-config-trigen/browsers'),
 				commonjs: true,
 				react:    true

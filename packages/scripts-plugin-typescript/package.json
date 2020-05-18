@@ -19,6 +19,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
+    "@babel/runtime-corejs3": "^7.9.6",
     "@trigen/scripts": "file:../scripts",
     "ts-node-dev": "^1.0.0-pre.39",
     "tsconfig-paths": "^3.8.0",

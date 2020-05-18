@@ -19,6 +19,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
+    "@babel/runtime-corejs3": "^7.9.6",
     "@rollup/plugin-commonjs": "^11.0.1",
     "builtin-modules": "*",
     "rollup": "^2.6.1",
