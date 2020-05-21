@@ -60,7 +60,7 @@
     "react": "^16.8.6",
     "tslint": "^6.0.0",
     "tslint-config-trigen": "^3.0.7",
-    "typescript": "3.9.2"
+    "typescript": "3.9.3"
   },
   "greenkeeper": {
     "ignore": [
