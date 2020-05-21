@@ -3147,17 +3147,17 @@
     loader-utils "^1.2.3"
 
 "@trigen/scripts-plugin-babel@file:packages/scripts-plugin-babel":
-  version "5.5.0"
+  version "6.0.0"
   dependencies:
     "@babel/cli" "^7.2.3"
     "@babel/core" "^7.4.0"
     "@babel/node" "^7.0.0"
     "@babel/runtime-corejs3" "^7.9.6"
     "@trigen/scripts" "file:packages/scripts"
-    babel-preset-trigen "^4.0.0"
+    babel-preset-trigen "^4.1.0"
 
 "@trigen/scripts-plugin-eslint@file:packages/scripts-plugin-eslint":
-  version "5.5.0"
+  version "6.0.0"
   dependencies:
     "@babel/runtime-corejs3" "^7.9.6"
     "@trigen/scripts" "file:packages/scripts"
@@ -3165,20 +3165,20 @@
     eslint-config-trigen "^3.2.3"
 
 "@trigen/scripts-plugin-jest@file:packages/scripts-plugin-jest":
-  version "5.5.0"
+  version "6.0.0"
   dependencies:
     "@babel/runtime-corejs3" "^7.9.6"
     "@trigen/scripts" "file:packages/scripts"
     "@types/jest" "^25.1.3"
     archiver "^4.0.1"
     babel-jest "^26.0.1"
-    babel-preset-trigen "^4.0.0"
+    babel-preset-trigen "^4.1.0"
     form-data "^3.0.0"
     jest "^25.1.0"
     nodemailer "^6.3.0"
 
 "@trigen/scripts-plugin-rollup@file:packages/scripts-plugin-rollup":
-  version "5.5.0"
+  version "6.0.0"
   dependencies:
     "@babel/runtime-corejs3" "^7.9.6"
     "@rollup/plugin-babel" "^5.0.2"
@@ -3187,14 +3187,14 @@
     rollup "^2.6.1"
 
 "@trigen/scripts-plugin-size-limit@file:packages/scripts-plugin-size-limit":
-  version "5.5.0"
+  version "6.0.0"
   dependencies:
     "@babel/runtime-corejs3" "^7.9.6"
     "@trigen/scripts" "file:packages/scripts"
     size-limit "^4.1.1"
 
 "@trigen/scripts-plugin-storybook@file:packages/scripts-plugin-storybook":
-  version "5.5.0"
+  version "6.0.0"
   dependencies:
     "@babel/runtime-corejs3" "^7.9.6"
     "@storybook/addon-a11y" "^5.1.10"
@@ -3214,7 +3214,7 @@
     react-test-renderer "^16.9.0"
 
 "@trigen/scripts-plugin-typescript@file:packages/scripts-plugin-typescript":
-  version "5.5.0"
+  version "6.0.0"
   dependencies:
     "@babel/runtime-corejs3" "^7.9.6"
     "@trigen/scripts" "file:packages/scripts"
@@ -3226,7 +3226,7 @@
     typescript "3.9.3"
 
 "@trigen/scripts-preset-lib@file:packages/scripts-preset-lib":
-  version "5.5.0"
+  version "6.0.0"
   dependencies:
     "@babel/runtime-corejs3" "^7.9.6"
     "@trigen/scripts" "file:packages/scripts"
@@ -3237,7 +3237,7 @@
     lint-staged "^10.0.0"
 
 "@trigen/scripts-preset-node-app@file:packages/scripts-preset-node-app":
-  version "5.5.0"
+  version "6.0.0"
   dependencies:
     "@babel/runtime-corejs3" "^7.9.6"
     "@trigen/scripts" "file:packages/scripts"
@@ -3249,7 +3249,7 @@
     lint-staged "^10.0.0"
 
 "@trigen/scripts-preset-react-app@file:packages/scripts-preset-react-app":
-  version "5.5.0"
+  version "6.0.0"
   dependencies:
     "@babel/register" "^7.4.0"
     "@babel/runtime-corejs3" "^7.9.6"
@@ -3307,7 +3307,7 @@
     webpack-node-externals "^1.7.2"
 
 "@trigen/scripts@file:packages/scripts":
-  version "5.5.0"
+  version "6.0.0"
   dependencies:
     "@babel/runtime-corejs3" "^7.9.6"
     chalk "^4.0.0"
@@ -4953,6 +4953,11 @@ babel-plugin-transform-remove-debugger@^6.9.4:
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-remove-debugger/-/babel-plugin-transform-remove-debugger-6.9.4.tgz#42b727631c97978e1eb2d199a7aec84a18339ef2"
   integrity sha1-QrcnYxyXl44estGZp67IShgznvI=
 
+babel-plugin-transform-remove-imports@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-remove-imports/-/babel-plugin-transform-remove-imports-1.3.2.tgz#a48201a8b6e60d4f95028914ace843f3ab762a4d"
+  integrity sha512-mm+/CyaY6mMoZUmwXOyoSRDPbcE2euXkw9WM11KGohv9oppM2eQ9kJfmYGpWGv6Ao3rvSbn2RshihXQaR6TrnA==
+
 babel-plugin-transform-remove-undefined@^0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-remove-undefined/-/babel-plugin-transform-remove-undefined-0.5.0.tgz#80208b31225766c630c97fa2d288952056ea22dd"
@@ -5031,10 +5036,10 @@ babel-preset-jest@^26.0.0:
     babel-plugin-transform-undefined-to-void "^6.9.4"
     lodash "^4.17.11"
 
-babel-preset-trigen@^4.0.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/babel-preset-trigen/-/babel-preset-trigen-4.1.0.tgz#b19e7d4386142ae3d140a0b37bba88e77c00e5a7"
-  integrity sha512-TcrFxoAtSFcTWfp2JSToZtsHdkuMMRAnN2o9D30lxmDhAOe1dQweO4MieUbjm3PkRVv6/LInQHeZx8YT9t8bIw==
+babel-preset-trigen@^4.0.0, babel-preset-trigen@^4.1.0:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/babel-preset-trigen/-/babel-preset-trigen-4.2.1.tgz#d58073b66c2373de54f703698fec4358a39a37da"
+  integrity sha512-s4qJd3AmIwx96t8DpKVAl18ze3ay6smbMLtOUqzQaXeLy7VSik6LEZWXw67kM9rqQxt5OC+6dyyW3HVrnj78dw==
   dependencies:
     "@babel/helper-plugin-utils" "^7.8.3"
     "@babel/plugin-proposal-async-generator-functions" "^7.8.3"
@@ -5058,6 +5063,7 @@ babel-preset-trigen@^4.0.0:
     babel-plugin-require-context-hook "^1.0.0"
     babel-plugin-transform-react-class-to-function "^1.2.2"
     babel-plugin-transform-react-remove-prop-types "^0.4.24"
+    babel-plugin-transform-remove-imports "^1.3.2"
 
 babel-runtime@^6.26.0:
   version "6.26.0"
