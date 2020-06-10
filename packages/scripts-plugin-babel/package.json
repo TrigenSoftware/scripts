@@ -23,8 +23,8 @@
     "@babel/core": "^7.4.0",
     "@babel/node": "^7.0.0",
     "@babel/runtime-corejs3": "^7.9.6",
-    "@trigen/scripts": "file:../scripts",
-    "babel-preset-trigen": "^4.2.3"
+    "@trigen/babel-preset": "file:../babel-preset",
+    "@trigen/scripts": "file:../scripts"
   },
   "publishConfig": {
     "access": "public"

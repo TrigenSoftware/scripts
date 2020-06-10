@@ -18,7 +18,7 @@ if [ ${#tsfiles[@]} -gt 0 ]; then
 	fi
 fi
 
-if [[ $PWD != *"-config"* ]]; then
+if [[ $PWD != *"-config"* && $PWD != *"babel-preset"* ]]; then
 	NODE_ENV=production babel --root-mode upward ./package -d ./package -s inline
 fi
 

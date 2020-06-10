@@ -16,7 +16,7 @@ babelRegister({
 		file => !file.indexOf(scriptsPath)
 	],
 	presets: [
-		['babel-preset-trigen', {
+		['@trigen/babel-preset', {
 			env:      'lib',
 			targets:  { node: 'current' },
 			commonjs: true

@@ -25,6 +25,7 @@
     "publishAll": "yarn test && lerna publish --contents package"
   },
   "dependencies": {
+    "@trigen/babel-preset": "file:packages/babel-preset",
     "@trigen/browserslist-config": "file:packages/browserslist-config",
     "@trigen/scripts": "file:packages/scripts",
     "@trigen/scripts-plugin-babel": "file:packages/scripts-plugin-babel",
@@ -44,7 +45,6 @@
     "@babel/node": "^7.4.5",
     "@stylable/webpack-plugin": "^2.1.7",
     "babel-jest": "^26.0.1",
-    "babel-preset-trigen": "^4.0.0",
     "bdsl-webpack-plugin": "^1.4.0-beta",
     "chalk": "^4.0.0",
     "del": "^5.0.0",

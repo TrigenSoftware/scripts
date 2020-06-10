@@ -1,10 +1,12 @@
+const babelPreset = './packages/babel-preset/src';
+
 module.exports = {
 	exclude: 'node_modules/**',
 	ignore: [
 		/\.babel\.jsx?$/
 	],
 	presets: [
-		['babel-preset-trigen', {
+		[babelPreset, {
 			env:      'lib',
 			targets:  require('./packages/browserslist-config/src/node'),
 			commonjs: true
@@ -16,7 +18,7 @@ module.exports = {
 			/helpers\/renderer/
 		],
 		presets: [
-			['babel-preset-trigen', {
+			[babelPreset, {
 				env:      'lib',
 				targets:  require('./packages/browserslist-config/src/browsers'),
 				commonjs: true,
@@ -27,7 +29,7 @@ module.exports = {
 	env: {
 		test: {
 			presets: [
-				['babel-preset-trigen', {
+				[babelPreset, {
 					env: 'jest'
 				}]
 			]
