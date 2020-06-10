@@ -28,6 +28,7 @@ try {
 
 	const packageJson = require(PACKAGE_JSON_PATH); // eslint-disable-line
 
+	packageJson.devDependencies['@trigen/browserslist-config'] = path.join(PACKAGES_PATH, 'browserslist-config', 'package');
 	packageJson.devDependencies['@trigen/scripts'] = path.join(PACKAGES_PATH, 'scripts', 'package');
 	packageJson.devDependencies['@trigen/scripts-preset-react-app'] = path.join(PACKAGES_PATH, 'scripts-preset-react-app', 'package');
 
