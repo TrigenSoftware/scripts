@@ -4,8 +4,14 @@ import lib from '../../packages/scripts-preset-lib/src';
 
 const cwd = process.cwd();
 const packages = path.join(cwd, 'packages');
+const configs = [
+	'browserslist-config',
+	'eslint-config',
+	'stylelint-config',
+	'babel-preset'
+];
 const plugins = fs.readdirSync(packages).filter(
-	_ => _ !== 'scripts' && _[0] != '.'
+	_ => _ !== 'scripts' && _[0] != '.' && !configs.includes(_)
 );
 
 describe('@trigen/scripts-*', () => {
