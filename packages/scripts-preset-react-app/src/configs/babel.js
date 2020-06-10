@@ -40,10 +40,8 @@ export default function getBabelConfig(browserslistEnv) {
 	if (browserslistEnv && Array.isArray(babelConfig.presets)) {
 
 		const trigenPreset = babelConfig.presets.find(
-			([preset]) => (
-				preset === 'babel-preset-trigen'
+			([preset]) => preset === 'babel-preset-trigen'
 				|| preset === '@trigen/babel-preset'
-			)
 		);
 
 		if (trigenPreset) {

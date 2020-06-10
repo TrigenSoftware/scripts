@@ -1,8 +1,8 @@
 function isCommonJS(api, defaults) {
 
-	const supportsStaticESM = api.caller(
-		({ supportsStaticESM }) => supportsStaticESM
-	);
+	const supportsStaticESM = api.caller(({
+		supportsStaticESM
+	}) => supportsStaticESM);
 
 	return typeof supportsStaticESM === 'undefined'
 		? defaults
@@ -23,24 +23,27 @@ module.exports = (api, envOptions, options) => {
 		requireContextHook,
 		reactConstantElements,
 		reactRemovePropTypes: inputReactRemovePropTypes
-	} = Object.assign({
-		targets:                false,
-		useBuiltIns:            'usage',
-		corejs:                 3,
-		commonjs:               isCommonJS(api, false),
-		typescript:             false,
-		react:                  false,
+	} = {
+		targets: false,
+		useBuiltIns: 'usage',
+		corejs: 3,
+		commonjs: isCommonJS(api, false),
+		typescript: false,
+		react: false,
 		transformDynamicImport: false,
-		transformRuntime:       false,
-		requireContextHook:     false,
-		reactConstantElements:  {},
-		reactRemovePropTypes:   {}
-	}, envOptions, options);
-	const reactRemovePropTypes = Object.assign({
-		removeImport:    typeof inputReactRemovePropTypes.mode === 'undefined'
+		transformRuntime: false,
+		requireContextHook: false,
+		reactConstantElements: {},
+		reactRemovePropTypes: {},
+		...envOptions,
+		...options
+	};
+	const reactRemovePropTypes = {
+		removeImport: typeof inputReactRemovePropTypes.mode === 'undefined'
 			|| inputReactRemovePropTypes.mode === 'remove',
-		ignoreFilenames: ['node_modules']
-	}, inputReactRemovePropTypes);
+		ignoreFilenames: ['node_modules'],
+		...inputReactRemovePropTypes
+	};
 	const presetEnvOptions = {};
 	const transformRuntimeOptions = {
 		useESModules: false
@@ -51,7 +54,9 @@ module.exports = (api, envOptions, options) => {
 	const plugins = [
 		'@babel/plugin-syntax-dynamic-import',
 		'@babel/plugin-syntax-import-meta',
-		['@babel/plugin-proposal-decorators', { legacy: true }],
+		['@babel/plugin-proposal-decorators', {
+			legacy: true
+		}],
 		'@babel/plugin-proposal-class-properties',
 		'@babel/plugin-proposal-json-strings',
 		'@babel/plugin-proposal-function-sent',

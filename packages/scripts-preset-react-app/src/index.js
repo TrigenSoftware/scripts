@@ -12,41 +12,47 @@ import storybook from '@trigen/scripts-plugin-storybook';
 
 const storybookConfigs = path.join(__dirname, 'storybook');
 const scripts = {
-	'lint:styles':    {
-		cmd:  'stylelint',
+	'lint:styles': {
+		cmd: 'stylelint',
 		args: FILL_ME
 	},
-	'lint':           ['lint:styles'],
-	'test':           ['build'],
-	'start':          {
-		vars: { NODE_ENV: 'development' },
-		cmd:  'node',
+	'lint': ['lint:styles'],
+	'test': ['build'],
+	'start': {
+		vars: {
+			NODE_ENV: 'development'
+		},
+		cmd: 'node',
 		args: [path.join(__dirname, 'start.js')]
 	},
 	'build:favicons': {
-		cmd:  'favicons',
+		cmd: 'favicons',
 		args: FILL_ME
 	},
-	'build':          {
-		vars: { NODE_ENV: 'production' },
-		cmd:  'node',
+	'build': {
+		vars: {
+			NODE_ENV: 'production'
+		},
+		cmd: 'node',
 		args: [path.join(__dirname, 'build.js')]
 	},
-	'build:render':   {
+	'build:render': {
 		vars: {
-			NODE_ENV:  'production',
+			NODE_ENV: 'production',
 			RENDERING: JSON.stringify(true)
 		},
-		cmd:  'node',
+		cmd: 'node',
 		args: [path.join(__dirname, 'render.js')]
 	},
-	'render':         ['build:render', {
-		cmd:  'node',
+	'render': ['build:render', {
+		cmd: 'node',
 		args: ['build/render']
 	}],
-	'serve':          {
-		vars: { NODE_ENV: 'production' },
-		cmd:  'node',
+	'serve': {
+		vars: {
+			NODE_ENV: 'production'
+		},
+		cmd: 'node',
 		args: [path.join(__dirname, 'serve.js')]
 	}
 };
@@ -70,7 +76,7 @@ export default function getScripts(args, inputAllScripts, {
 	allScripts = jest(args, allScripts);
 
 	return update(allScripts, {
-		'lint:styles':     {
+		'lint:styles': {
 			$set: update(scripts['lint:styles'], {
 				args: {
 					$push: [
@@ -80,10 +86,10 @@ export default function getScripts(args, inputAllScripts, {
 				}
 			})
 		},
-		'lint':            {
+		'lint': {
 			$apply: _ => addScripts(_, scripts.lint, null, true)
 		},
-		'test':            {
+		'test': {
 			$apply: _ => (
 				testSkipBuild
 					? _
@@ -104,7 +110,7 @@ export default function getScripts(args, inputAllScripts, {
 				}
 			}
 		},
-		'start':     {
+		'start': {
 			$set: update(scripts.start, {
 				vars: {
 					REACT_APP_PREACT: {
@@ -130,7 +136,7 @@ export default function getScripts(args, inputAllScripts, {
 				}
 			})
 		},
-		'build':     {
+		'build': {
 			$set: update(scripts.build, {
 				vars: {
 					REACT_APP_TRANSPILE: {
@@ -148,7 +154,7 @@ export default function getScripts(args, inputAllScripts, {
 				}
 			})
 		},
-		'build:render':     {
+		'build:render': {
 			$set: update(scripts['build:render'], {
 				vars: {
 					REACT_APP_TRANSPILE: {
@@ -166,7 +172,7 @@ export default function getScripts(args, inputAllScripts, {
 				}
 			})
 		},
-		'render':     {
+		'render': {
 			$set: update(scripts.render, {
 				1: {
 					args: {
@@ -175,7 +181,7 @@ export default function getScripts(args, inputAllScripts, {
 				}
 			})
 		},
-		'serve':     {
+		'serve': {
 			$set: update(scripts.serve, {
 				args: {
 					$push: args

@@ -1,4 +1,3 @@
-
 import path from 'path';
 import {
 	spawnSync
@@ -20,9 +19,9 @@ export default function spawn({
 		signal,
 		status
 	} = spawnSync(cmd, args, {
-		cwd:   cd,
+		cwd: cd,
 		stdio: 'inherit',
-		env:   {
+		env: {
 			...process.env,
 			...vars,
 			NODE_ENV: process.env.NODE_ENV || vars.NODE_ENV

@@ -10,7 +10,7 @@ export function getPlugins(plugins, prefix) {
 		let plugin = null;
 
 		if (Array.isArray(_)) {
-			name = _[0];
+			[name] = _;
 			params = _[1] || params;
 		} else {
 			name = _;
@@ -33,7 +33,7 @@ export function getPluginsDependencies(plugins, prefix) {
 		let pkg = null;
 
 		if (Array.isArray(_)) {
-			name = _[0];
+			[name] = _;
 		} else {
 			name = _;
 		}

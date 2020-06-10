@@ -1,8 +1,10 @@
 module.exports = {
-	env:                    'jest',
-	targets:                { node: 'current' },
-	commonjs:               true,
+	env: 'jest',
+	targets: {
+		node: 'current'
+	},
+	commonjs: true,
 	transformDynamicImport: true,
-	transformRuntime:       false,
-	requireContextHook:     true
+	transformRuntime: false,
+	requireContextHook: true
 };

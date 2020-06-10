@@ -1,0 +1,9 @@
+{
+	"extends": [
+        "@trigen/eslint-config",
+        "@trigen/eslint-config/react"
+	],
+	"env": {
+		"browser": true
+	}
+}

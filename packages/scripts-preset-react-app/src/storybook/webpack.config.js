@@ -6,7 +6,7 @@ module.exports = configureStorybook;
 function configureStorybook(input) {
 
 	const storybookBaseConfig = configure(input);
-	const webpackSbConfig = input.mode == 'PRODUCTION'
+	const webpackSbConfig = input.mode === 'PRODUCTION'
 		? webpackConfig.build()
 		: webpackConfig.dev();
 

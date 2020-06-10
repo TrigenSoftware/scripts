@@ -20,9 +20,9 @@
   },
   "dependencies": {
     "@babel/runtime-corejs3": "^7.9.6",
+    "@trigen/eslint-config": "file:../eslint-config",
     "@trigen/scripts": "file:../scripts",
-    "eslint": "^7.0.0",
-    "eslint-config-trigen": "^3.2.3"
+    "eslint": "^7.0.0"
   },
   "publishConfig": {
     "access": "public"

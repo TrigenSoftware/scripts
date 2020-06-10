@@ -7,18 +7,20 @@ import {
 } from '@trigen/scripts/helpers';
 
 const scripts = {
-	'jest': {
-		vars: { NODE_ENV: 'test' },
-		cmd:  'jest',
+	jest: {
+		vars: {
+			NODE_ENV: 'test'
+		},
+		cmd: 'jest',
 		args: FILL_ME
 	},
-	'artifacts': {
-		cmd:  'node',
+	artifacts: {
+		cmd: 'node',
 		args: [path.join(__dirname, 'artifacts.js')]
 	},
-	'test':  ['jest'],
-	'eject': {
-		cmd:  'cp',
+	test: ['jest'],
+	eject: {
+		cmd: 'cp',
 		args: [
 			path.join(__dirname, 'artifacts.js'),
 			'scripts/artifacts.js'
@@ -28,7 +30,7 @@ const scripts = {
 
 export default function getScripts(args, allScripts) {
 	return update(allScripts, {
-		'jest': {
+		jest: {
 			$set: update(scripts.jest, {
 				args: {
 					$push: [
@@ -38,17 +40,17 @@ export default function getScripts(args, allScripts) {
 				}
 			})
 		},
-		'artifacts': {
+		artifacts: {
 			$set: update(scripts.artifacts, {
 				args: {
 					$push: args
 				}
 			})
 		},
-		'test': {
+		test: {
 			$apply: _ => addScripts(_, scripts.test)
 		},
-		'eject': {
+		eject: {
 			$apply: _ => addScripts(_, scripts.eject)
 		}
 	});

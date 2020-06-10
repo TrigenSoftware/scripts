@@ -5,21 +5,25 @@ import {
 } from '@trigen/scripts/helpers';
 
 const scripts = {
-	'start': {
-		vars: { NODE_ENV: 'development' },
-		cmd:  'babel-node',
+	start: {
+		vars: {
+			NODE_ENV: 'development'
+		},
+		cmd: 'babel-node',
 		args: FILL_ME
 	},
-	'build': {
-		vars: { NODE_ENV: 'production' },
-		cmd:  'babel',
+	build: {
+		vars: {
+			NODE_ENV: 'production'
+		},
+		cmd: 'babel',
 		args: FILL_ME
 	}
 };
 
 export default function getScripts(args, allScripts) {
 	return update(allScripts, {
-		'start': {
+		start: {
 			$set: update(scripts.start, {
 				args: {
 					$push: [
@@ -29,7 +33,7 @@ export default function getScripts(args, allScripts) {
 				}
 			})
 		},
-		'build': {
+		build: {
 			$set: update(scripts.build, {
 				args: {
 					$push: [

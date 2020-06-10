@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import path from 'path';
 import envCi from 'env-ci';
 import initStoryshots from '@storybook/addon-storyshots';
@@ -9,7 +8,7 @@ import start from './start';
 
 export function customizePage(page) {
 	return page.setViewport({
-		width:  1280,
+		width: 1280,
 		height: 720
 	});
 }
@@ -55,7 +54,7 @@ export async function closeWebsockets(page) {
 	});
 }
 
-export default async function init(options = {}, srcDir, url) {
+export default function init(options = {}, srcDir = false, url = false) {
 
 	process.env.PROJECT_SRC = srcDir || path.join(process.cwd(), 'src');
 

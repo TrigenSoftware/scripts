@@ -12,9 +12,9 @@ export function reporter(error, stats) {
 	}
 
 	process.stdout.write(`${stats.toString({
-		chunks:  false,
+		chunks: false,
 		modules: false,
-		colors:  true
+		colors: true
 	})}\n`);
 
 	if (stats.hasErrors()) {

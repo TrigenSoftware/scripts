@@ -23,6 +23,7 @@ if [[ $PWD != *"-config"* && $PWD != *"babel-preset"* ]]; then
 fi
 
 del 'package/**/*.jsx'
+rm -rf package/.eslintrc
 cp README.md package/
 cp package.json package/
 ../../scripts/transformPackage.js package/package.json

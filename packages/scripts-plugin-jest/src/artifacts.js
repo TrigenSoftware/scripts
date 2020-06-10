@@ -1,4 +1,3 @@
-/* eslint-disable no-magic-numbers */
 import fs from 'fs';
 import {
 	request
@@ -16,7 +15,9 @@ if (!fs.existsSync(dir)) {
 }
 
 const archive = archiver('zip', {
-	zlib: { level: 9 }
+	zlib: {
+		level: 9
+	}
 });
 
 archive.directory(dir, false);
@@ -34,28 +35,28 @@ async function sendToEthereal() {
 		}
 	});
 	const info = await transporter.sendMail({
-		to:          'publish@test.artifacts',
-		text:        `Artifacts: ${dir}`,
+		to: 'publish@test.artifacts',
+		text: `Artifacts: ${dir}`,
 		attachments: [{
 			filename: 'artifacts.zip',
-			content:  archive
+			content: archive
 		}]
 	});
 
 	console.log('Artifacts: %s', nodemailer.getTestMessageUrl(info));
 }
 
-async function sendToFileio() {
+function sendToFileio() {
 
 	const form = new FormData();
 
 	form.append('file', archive, {
-		filename:    'artifacts.zip',
+		filename: 'artifacts.zip',
 		contentType: 'application/zip'
 	});
 
 	const req = request('https://file.io/?expires=1d', {
-		method:  'POST',
+		method: 'POST',
 		headers: form.getHeaders()
 	}, (response) => {
 
@@ -76,5 +77,5 @@ async function sendToFileio() {
 if (process.env.USE_ETHEREAL) {
 	sendToEthereal().catch(console.error);
 } else {
-	sendToFileio().catch(console.error);
+	sendToFileio();
 }

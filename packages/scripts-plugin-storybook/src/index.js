@@ -10,23 +10,25 @@ const storybookConfigs = path.join(__dirname, 'storybook');
 const scripts = {
 	'start:storybook': {
 		vars: {},
-		cmd:  'start-storybook',
+		cmd: 'start-storybook',
 		args: FILL_ME
 	},
 	'build:storybook': {
-		vars: { NODE_ENV: 'development' },
-		cmd:  'build-storybook',
+		vars: {
+			NODE_ENV: 'development'
+		},
+		cmd: 'build-storybook',
 		args: FILL_ME
 	},
 	'eject': [{
-		cmd:  'cp',
+		cmd: 'cp',
 		args: [
 			'-R',
 			path.join(__dirname, 'jest'),
 			'scripts/jest'
 		]
 	}, {
-		cmd:  'cp',
+		cmd: 'cp',
 		args: [
 			'-R',
 			path.join(__dirname, 'storybook'),
@@ -52,7 +54,9 @@ export default function getScripts(args, allScripts, {
 				},
 				args: {
 					$push: [
-						'--ci', '-p', '3001',
+						'--ci',
+						'-p',
+						'3001',
 						...storybookConfigsArgs,
 						...args
 					]

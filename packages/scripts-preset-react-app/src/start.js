@@ -23,12 +23,12 @@ webpackDevCompiler.hooks.done.tap('trigen-scripts', () => {
 
 const middleware = [
 	WebpackDevMiddleware(webpackDevCompiler, {
-		publicPath:  webpackDevCompiler.options.output.publicPath,
+		publicPath: webpackDevCompiler.options.output.publicPath,
 		writeToDisk: true,
-		stats:       {
-			chunks:  false,
+		stats: {
+			chunks: false,
 			modules: false,
-			colors:  true
+			colors: true
 		}
 	}),
 	WebpackHotMiddleware(webpackDevCompiler, {

@@ -14,8 +14,8 @@ export function base(config) {
 			rules: {
 				$push: [{
 					test: svgTest,
-					use:  [{
-						loader:  'svg-sprite-loader',
+					use: [{
+						loader: 'svg-sprite-loader',
 						options: {
 							runtimeGenerator,
 							runtimeOptions: {
@@ -35,7 +35,7 @@ export function dev(config) {
 
 export function build(config, params) {
 	return update(config, {
-		module:  {
+		module: {
 			rules: {
 				$apply: rules => update(rules, {
 					[findIndex('test', svgTest, rules)]: {

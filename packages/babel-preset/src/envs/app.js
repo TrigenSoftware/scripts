@@ -1,4 +1,4 @@
 module.exports = {
-	env:              'app',
+	env: 'app',
 	transformRuntime: false
 };

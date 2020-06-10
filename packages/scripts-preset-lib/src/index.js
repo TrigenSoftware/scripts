@@ -5,11 +5,11 @@ import {
 } from '@trigen/scripts/helpers';
 
 const scripts = {
-	'test':         ['build'],
-	'cleanPublish': [
+	test: ['build'],
+	cleanPublish: [
 		'test',
 		{
-			cmd:  'clean-publish',
+			cmd: 'clean-publish',
 			args: FILL_ME
 		}
 	]
@@ -20,14 +20,14 @@ export default function getScripts(args, allScripts, {
 	testSkipBuild = false
 } = {}) {
 	return update(allScripts, {
-		'test':         {
+		test: {
 			$apply: _ => (
 				testSkipBuild
 					? _
 					: addScripts(_, scripts.test, allScripts)
 			)
 		},
-		'cleanPublish': {
+		cleanPublish: {
 			$set: update(scripts.cleanPublish, {
 				1: {
 					args: {

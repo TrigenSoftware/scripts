@@ -27,6 +27,7 @@
   "dependencies": {
     "@trigen/babel-preset": "file:packages/babel-preset",
     "@trigen/browserslist-config": "file:packages/browserslist-config",
+    "@trigen/eslint-config": "file:packages/eslint-config",
     "@trigen/scripts": "file:packages/scripts",
     "@trigen/scripts-plugin-babel": "file:packages/scripts-plugin-babel",
     "@trigen/scripts-plugin-eslint": "file:packages/scripts-plugin-eslint",
@@ -50,7 +51,6 @@
     "del": "^5.0.0",
     "del-cli": "^3.0.0",
     "eslint": "^7.0.0",
-    "eslint-config-trigen": "^3.4.2",
     "eslint-plugin-jest": "^23.0.4",
     "husky": "^4.0.9",
     "jest": "^25.1.0",

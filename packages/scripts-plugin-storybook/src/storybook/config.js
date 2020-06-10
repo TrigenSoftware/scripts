@@ -16,14 +16,18 @@ import {
 
 addParameters({
 	options: {
-		brandTitle:     process.env.PROJECT_NAME,
-		brandUrl:       process.env.PROJECT_HOMEPAGE,
+		brandTitle: process.env.PROJECT_NAME,
+		brandUrl: process.env.PROJECT_HOMEPAGE,
 		panelPosition: 'right'
 	}
 });
 
 addDecorator(story => (
-	<div style={{ padding: '12px' }}>
+	<div
+		style={{
+			padding: '12px'
+		}}
+	>
 		{story()}
 	</div>
 ));
@@ -44,9 +48,7 @@ export function configure(module, inputStories) {
 	}
 
 	function loadStories() {
-		stories.keys().forEach(filename =>
-			stories(filename)
-		);
+		stories.keys().forEach(filename => stories(filename));
 	}
 
 	configureStorybook(loadStories, module);

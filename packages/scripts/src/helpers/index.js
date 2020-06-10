@@ -1,4 +1,3 @@
-/* eslint-disable no-magic-numbers */
 
 export const FILL_ME = [/* FILL ME */];
 

@@ -21,7 +21,7 @@ export function external(pkg, useInternals) {
 		);
 	}
 
-	return id => dependencies.some(_ =>
-		_ == id || id.indexOf(`${_}/`) == 0
+	return id => dependencies.some(
+		_ => _ === id || id.indexOf(`${_}/`) === 0
 	);
 }

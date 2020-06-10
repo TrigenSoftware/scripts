@@ -5,13 +5,15 @@ import {
 } from '@trigen/scripts/helpers';
 
 const scripts = {
-	'build': {
-		vars: { NODE_ENV: 'production' },
-		cmd:  'rollup',
+	build: {
+		vars: {
+			NODE_ENV: 'production'
+		},
+		cmd: 'rollup',
 		args: ['-c']
 	},
-	'eject': {
-		cmd:  'cp',
+	eject: {
+		cmd: 'cp',
 		args: [
 			path.join(__dirname, 'helpers.js'),
 			'scripts/rollup-helpers.js'
@@ -21,14 +23,14 @@ const scripts = {
 
 export default function getScripts(args, allScripts) {
 	return update(allScripts, {
-		'build': {
+		build: {
 			$set: update(scripts.build, {
 				args: {
 					$push: args
 				}
 			})
 		},
-		'eject': {
+		eject: {
 			$apply: _ => addScripts(_, scripts.eject)
 		}
 	});

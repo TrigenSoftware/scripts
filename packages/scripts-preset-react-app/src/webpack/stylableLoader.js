@@ -48,17 +48,17 @@ export function base(config) {
 		module: {
 			rules: {
 				$push: [{
-					test:    /\.(eot|woff|ttf)$/,
-					loader:  'file-loader',
+					test: /\.(eot|woff|ttf)$/,
+					loader: 'file-loader',
 					options: {
 						name: '[path][name].[ext]'
 					}
 				}, {
-					test:    /\.(jpg|webp|png|gif)$/,
-					loader:  '@flexis/srcset-loader',
+					test: /\.(jpg|webp|png|gif)$/,
+					loader: '@flexis/srcset-loader',
 					options: {
-						rules:            [{}],
-						name:             '[path][name].[ext]',
+						rules: [{}],
+						name: '[path][name].[ext]',
 						skipOptimization: true
 					}
 				}]
@@ -104,7 +104,7 @@ export function build(config, {
 					},
 					[findIndex('loader', '@flexis/srcset-loader', rules)]: {
 						options: {
-							name:             {
+							name: {
 								$set: '[name].[hash:10].[ext]'
 							},
 							skipOptimization: {
@@ -118,22 +118,22 @@ export function build(config, {
 		plugins: {
 			$push: [
 				isFirstBuild && new StylelintPlugin({
-					files:       'src/**/*.st.css',
+					files: 'src/**/*.st.css',
 					failOnError: true
 				}),
 				new StylableWebpackPlugin({
-					filename:       filenameTemplate,
+					filename: filenameTemplate,
 					transformHooks: {
 						postProcessor: createPostProcessor(browserslistEnv)
 					},
-					optimizer:      stylableOptimizer,
-					optimize:       {
-						removeUnusedComponents:   true,
-						removeComments:           true,
+					optimizer: stylableOptimizer,
+					optimize: {
+						removeUnusedComponents: true,
+						removeComments: true,
 						removeStylableDirectives: true,
-						classNameOptimizations:   STYLABLE_OPTIMIZE,
-						shortNamespaces:          STYLABLE_OPTIMIZE,
-						minify:                   true
+						classNameOptimizations: STYLABLE_OPTIMIZE,
+						shortNamespaces: STYLABLE_OPTIMIZE,
+						minify: true
 					}
 				}),
 				new FilterPlugin({
@@ -151,7 +151,7 @@ export function render(config) {
 				$apply: rules => update(rules, {
 					[findIndex('loader', 'file-loader', rules)]: {
 						options: {
-							name:     {
+							name: {
 								$set: '[name].[hash:10].[ext]'
 							},
 							emitFile: {
@@ -161,13 +161,13 @@ export function render(config) {
 					},
 					[findIndex('loader', '@flexis/srcset-loader', rules)]: {
 						options: {
-							name:             {
+							name: {
 								$set: '[name].[hash:10].[ext]'
 							},
 							skipOptimization: {
 								$set: false
 							},
-							emitFile:         {
+							emitFile: {
 								$set: false
 							}
 						}
@@ -178,12 +178,12 @@ export function render(config) {
 		plugins: {
 			$push: [
 				new StylableWebpackPlugin({
-					outputCSS:      false,
+					outputCSS: false,
 					includeCSSInJS: false,
-					optimizer:      stylableOptimizer,
-					optimize:       {
+					optimizer: stylableOptimizer,
+					optimize: {
 						classNameOptimizations: STYLABLE_OPTIMIZE,
-						shortNamespaces:        STYLABLE_OPTIMIZE
+						shortNamespaces: STYLABLE_OPTIMIZE
 					}
 				})
 			]

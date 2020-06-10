@@ -20,17 +20,17 @@ function defaultScreenshotOptions() {
 	};
 }
 
-const noop = () => {};
+const noop = () => undefined;
 const defaultConfig = {
-	url:                  'http://localhost:3000',
+	url: 'http://localhost:3000',
 	chromeExecutablePath: undefined,
-	getMatchOptions:      noop,
+	getMatchOptions: noop,
 	getScreenshotOptions: defaultScreenshotOptions,
-	beforeScreenshot:     noop,
-	getGotoOptions:       noop,
-	customizePage:        defaultCustomizePage,
-	getCustomBrowser:     undefined,
-	launch:               {}
+	beforeScreenshot: noop,
+	getGotoOptions: noop,
+	customizePage: defaultCustomizePage,
+	getCustomBrowser: undefined,
+	launch: {}
 };
 
 export default function initRouteshots(routes, customConfig = {}) {
@@ -52,7 +52,7 @@ export default function initRouteshots(routes, customConfig = {}) {
 	};
 	// add some options "no-sandbox" to make it work properly on some Linux systems as proposed here: https://github.com/Googlechrome/puppeteer/issues/290#issuecomment-322851507
 	const launchConfig = {
-		args:           [
+		args: [
 			'--no-sandbox ',
 			'--disable-setuid-sandbox',
 			'--disable-dev-shm-usage'

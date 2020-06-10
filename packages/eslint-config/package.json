@@ -1,0 +1,42 @@
+{
+  "name": "@trigen/eslint-config",
+  "version": "6.0.0",
+  "description": "Trigen's ESLint config",
+  "author": "dangreen",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TrigenSoftware/scripts/packages/eslint-config#readme"
+  },
+  "bugs": {
+    "url": "https://github.com/TrigenSoftware/scripts/issues"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "scripts": {
+    "build": "../../scripts/buildPackage.sh",
+    "prepublishOnly": "yarn build"
+  },
+  "keywords": [
+    "eslint",
+    "eslint-config"
+  ],
+  "peerDependencies": {
+    "eslint": ">=7.0.0"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.1.0",
+    "@typescript-eslint/parser": "^3.1.0",
+    "babel-eslint": "^10.0.3",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-jest": "^23.13.2",
+    "eslint-plugin-jsdoc": "^27.0.4",
+    "eslint-plugin-modules-newline": "^0.0.4",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^4.0.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

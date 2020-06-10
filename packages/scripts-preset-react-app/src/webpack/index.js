@@ -47,7 +47,9 @@ const baseLoaders = loaders.map(_ => _.base);
 const devLoaders = loaders.map(_ => _.dev);
 const buildLoaders = loaders.map(_ => _.build);
 const renderLoaders = loaders.map(_ => _.render);
-const ignoreWarnings = loaders.reduce((all, { ignoreWarnings }) => {
+const ignoreWarnings = loaders.reduce((all, {
+	ignoreWarnings
+}) => {
 
 	if (ignoreWarnings) {
 		return all.concat(ignoreWarnings);
@@ -67,8 +69,8 @@ const ignoreWarnings = loaders.reduce((all, { ignoreWarnings }) => {
 const javascriptTest = /\.jsx?$/;
 const typescriptTest = /\.tsx?$/;
 const preactAlias = {
-	'react':            'preact/compat',
-	'react-dom':        'preact/compat',
+	'react': 'preact/compat',
+	'react-dom': 'preact/compat',
 	'react-hot-loader': path.join(__dirname, './PreactHotLoader.js')
 };
 
@@ -84,15 +86,15 @@ function base(params = {}) {
 		: {};
 
 	return applyReducers(baseLoaders, params, {
-		entry:   {
+		entry: {
 			index: path.join(cwd, 'src/App/index.tsx')
 		},
-		output:  {
-			path:             path.join(cwd, 'build'),
-			filename:         '[name].js',
-			chunkFilename:    '[name].js',
+		output: {
+			path: path.join(cwd, 'build'),
+			filename: '[name].js',
+			chunkFilename: '[name].js',
 			hashDigestLength: 10,
-			publicPath:       '/'
+			publicPath: '/'
 		},
 		resolve: {
 			extensions: [
@@ -108,41 +110,42 @@ function base(params = {}) {
 				...alias
 			}
 		},
-		module:  {
+		module: {
 			rules: [{
-				test:   javascriptTest,
+				test: javascriptTest,
 				parser: {
 					amd: false
 				}
 			}, {
-				test:    javascriptTest,
+				test: javascriptTest,
 				exclude: /node_modules/,
-				loader:  'babel-loader',
+				loader: 'babel-loader',
 				options: {
 					cacheDirectory: true
 				}
 			}, {
-				test:    typescriptTest,
+				test: typescriptTest,
 				exclude: /node_modules/,
-				use:     [{
-					loader:  'babel-loader',
+				use: [{
+					loader: 'babel-loader',
 					options: {
 						cacheDirectory: true
 					}
-				}, {
-					loader:  'ts-loader',
+				},
+				{
+					loader: 'ts-loader',
 					options: {
-						transpileOnly:   true,
+						transpileOnly: true,
 						compilerOptions: {
-							sourceMap:       true,
+							sourceMap: true,
 							inlineSourceMap: false,
-							declaration:     false,
-							declarationMap:  false
+							declaration: false,
+							declarationMap: false
 						}
 					}
 				},
 				isFirstBuild && {
-					loader:  'tslint-loader',
+					loader: 'tslint-loader',
 					options: {
 						emitErrors: true
 					}
@@ -162,15 +165,15 @@ function base(params = {}) {
 			}),
 			new CopyPlugin({
 				patterns: [{
-					from:    'src/favicons/**/*.{ico,png}',
-					to:      'favicons',
+					from: 'src/favicons/**/*.{ico,png}',
+					to: 'favicons',
 					flatten: true
 				}, {
 					from: 'src/manifest.json'
 				}]
 			}),
 			isFirstBuild && new ForkTsCheckerPlugin({
-				async:       false,
+				async: false,
 				reportFiles: [
 					'src/**/*.{ts,tsx}',
 					'!globals.d.ts'
@@ -193,13 +196,13 @@ export function dev(params = {}) {
 	].filter(Boolean);
 
 	return applyReducers(devLoaders, params, update(config, {
-		entry:        {
+		entry: {
 			$apply: entry => addDevScripts(entry, devScripts)
 		},
-		mode:         {
+		mode: {
 			$set: 'development'
 		},
-		devtool:      {
+		devtool: {
 			$set: 'inline-source-map'
 		},
 		optimization: {
@@ -207,7 +210,7 @@ export function dev(params = {}) {
 				noEmitOnErrors: true
 			}
 		},
-		plugins:      {
+		plugins: {
 			$unshift: [
 				new webpack.HotModuleReplacementPlugin(),
 				new HtmlPlugin({
@@ -229,10 +232,10 @@ export function build(params = {}) {
 	} = params;
 	const filenameTemplate = pasteBrowserslistEnv('[name].[env].[chunkhash].js', browserslistEnv);
 	const dependencies = [
-		...(transpile.dependencies || [])
+		...transpile.dependencies || []
 	];
 	const extensions = [
-		...(transpile.extensions || []),
+		...transpile.extensions || [],
 		'.babel.js'
 	];
 	const dependenciesRegExp = createDependenciesRegExp({
@@ -243,18 +246,18 @@ export function build(params = {}) {
 	const babelConfig = getBabelConfig(browserslistEnv);
 
 	return applyReducers(buildLoaders, params, update(config, {
-		name:         {
+		name: {
 			$set: browserslistEnv
 		},
-		output:       {
-			filename:      {
+		output: {
+			filename: {
 				$set: filenameTemplate
 			},
 			chunkFilename: {
 				$set: filenameTemplate
 			}
 		},
-		resolve:      {
+		resolve: {
 			mainFields: {
 				$set: [
 					'raw',
@@ -267,10 +270,10 @@ export function build(params = {}) {
 				$unshift: extensions
 			}
 		},
-		mode:         {
+		mode: {
 			$set: 'production'
 		},
-		module:  {
+		module: {
 			rules: {
 				$apply: rules => update(rules, {
 					[findIndex('loader', 'babel-loader', rules)]: {
@@ -316,18 +319,18 @@ export function build(params = {}) {
 		optimization: {
 			$set: {
 				runtimeChunk: 'single',
-				splitChunks:  {
-					name:        true,
+				splitChunks: {
+					name: true,
 					cacheGroups: {
 						default: {
-							chunks:     'initial',
-							minChunks:  2
+							chunks: 'initial',
+							minChunks: 2
 						},
 						vendor: {
-							name:     'vendor',
-							chunks:   'initial',
+							name: 'vendor',
+							chunks: 'initial',
 							priority: 10,
-							enforce:  true,
+							enforce: true,
 							test(module) {
 
 								if (module.resource && !/\.(j|t)sx?$/.test(module.resource)) {
@@ -343,14 +346,14 @@ export function build(params = {}) {
 				}
 			}
 		},
-		plugins:      {
+		plugins: {
 			$unshift: [
 				isFirstBuild && new CleanPlugin(),
 				new webpack.HashedModuleIdsPlugin(),
 				new HtmlPlugin({
 					template: 'src/index.html',
-					inject:   'head',
-					minify:   htmlminConfig,
+					inject: 'head',
+					minify: htmlminConfig,
 					excludeAssets
 				}),
 				new ScriptHtmlPlugin({
@@ -359,7 +362,7 @@ export function build(params = {}) {
 				new ExcludeHtmlPlugin(),
 				bdsl && new BdslPlugin({
 					...bdsl,
-					env:      browserslistEnv,
+					env: browserslistEnv,
 					isModule: config.moduleEnv === browserslistEnv
 				})
 			].filter(Boolean)
@@ -372,28 +375,28 @@ export function render(params = {}) {
 	const config = base(params);
 
 	return applyReducers(renderLoaders, params, update(config, {
-		entry:        {
+		entry: {
 			$set: {
 				index: path.join(cwd, 'src/App/render.tsx')
 			}
 		},
-		output:       {
-			path:          {
+		output: {
+			path: {
 				$set: path.join(cwd, 'build', 'render')
 			},
 			libraryTarget: {
 				$set: 'commonjs2'
 			}
 		},
-		target:       {
+		target: {
 			$set: 'node'
 		},
-		externals:    {
+		externals: {
 			$set: [externals({
 				whitelist: [/^@flexis\/ui/]
 			})]
 		},
-		mode:         {
+		mode: {
 			$set: 'production'
 		},
 		optimization: {
@@ -401,7 +404,7 @@ export function render(params = {}) {
 				minimize: false
 			}
 		},
-		module:       {
+		module: {
 			rules: {
 				$apply: rules => update(rules, {
 					[findIndex('test', typescriptTest, rules)]: {
@@ -420,7 +423,7 @@ export function render(params = {}) {
 				})
 			}
 		},
-		plugins:      {
+		plugins: {
 			$unshift: [
 				new CleanPlugin(),
 				new webpack.HashedModuleIdsPlugin()

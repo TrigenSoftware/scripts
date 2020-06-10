@@ -18,9 +18,9 @@ export function base(config) {
 		module: {
 			rules: {
 				$unshift: [{
-					test:    serviceWorkerTest,
+					test: serviceWorkerTest,
 					exclude: /node_modules/,
-					loader:  'service-worker-loader',
+					loader: 'service-worker-loader',
 					options: {
 						filename: '[name].js'
 					}

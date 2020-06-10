@@ -1,15 +1,14 @@
 {
 	"root": true,
 	"extends": [
-		"trigen",
-		"trigen/commonjs"
+		"./packages/eslint-config/src",
+		"./packages/eslint-config/src/commonjs",
+		"./packages/eslint-config/src/react"
 	],
 	"env": {
 		"node": true
 	},
 	"rules": {
-		"no-sync": "off",
-		"no-process-exit": "off",
 		"no-console": "off"
 	}
 }

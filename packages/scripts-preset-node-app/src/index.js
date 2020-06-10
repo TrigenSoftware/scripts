@@ -8,7 +8,7 @@ import jest from '@trigen/scripts-plugin-jest';
 import rollup from '@trigen/scripts-plugin-rollup';
 
 const scripts = {
-	'test': ['build']
+	test: ['build']
 };
 
 export default function getScripts(args, inputAllScripts, {
@@ -22,7 +22,7 @@ export default function getScripts(args, inputAllScripts, {
 	allScripts = rollup(args, allScripts);
 
 	return update(allScripts, {
-		'test': {
+		test: {
 			$apply: _ => (
 				testSkipBuild
 					? _

@@ -10,6 +10,6 @@ export function notify(message) {
 export function notifyError(error) {
 	notifier.notify({
 		message: `Error: ${error.message}`,
-		sound:   'Frog'
+		sound: 'Frog'
 	});
 }

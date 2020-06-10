@@ -6,20 +6,20 @@ import {
 } from '@trigen/scripts/helpers';
 
 const scripts = {
-	'lint:js':      {
-		cmd:  'eslint',
+	'lint:js': {
+		cmd: 'eslint',
 		args: FILL_ME
 	},
 	'lint:scripts': ['lint:js'],
-	'lint':         ['lint:scripts'],
-	'test':         ['lint']
+	'lint': ['lint:scripts'],
+	'test': ['lint']
 };
 
 export default function getScripts(args, allScripts, {
 	lint = 'src/**/*.{js,jsx}'
 } = {}) {
 	return update(allScripts, {
-		'lint:js':      {
+		'lint:js': {
 			$set: update(scripts['lint:js'], {
 				args: {
 					$push: [
@@ -33,10 +33,10 @@ export default function getScripts(args, allScripts, {
 		'lint:scripts': {
 			$apply: _ => addScripts(_, scripts['lint:scripts'])
 		},
-		'lint':         {
+		'lint': {
 			$apply: _ => addScripts(_, scripts.lint)
 		},
-		'test':         {
+		'test': {
 			$apply: _ => addScripts(_, scripts.test)
 		}
 	});
