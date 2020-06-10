@@ -1,0 +1,28 @@
+{
+  "name": "@trigen/browserslist-config",
+  "version": "6.0.0",
+  "description": "Trigen's Browserslist config",
+  "author": "dangreen",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TrigenSoftware/scripts/packages/browserslist-config#readme"
+  },
+  "bugs": {
+    "url": "https://github.com/TrigenSoftware/scripts/issues"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "scripts": {
+    "build": "../../scripts/buildPackage.sh",
+    "prepublishOnly": "yarn build"
+  },
+  "keywords": [
+    "browserslist",
+    "browserslist-config"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -20,8 +20,8 @@
   },
   "dependencies": {
     "@babel/runtime-corejs3": "^7.9.6",
+    "@trigen/browserslist-config": "file:../browserslist-config",
     "@trigen/scripts": "file:../scripts",
-    "browserslist-config-trigen": "^1.1.0",
     "clean-publish": "^1.1.0",
     "coveralls": "^3.0.0",
     "husky": "^4.0.9",

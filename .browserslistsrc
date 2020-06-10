@@ -1,1 +1,1 @@
-extends browserslist-config-trigen/node
+extends ./packages/browserslist-config/src/node

@@ -1,12 +1,12 @@
 module.exports = {
 	exclude: 'node_modules/**',
 	ignore: [
-		/\.babel\.jsx?$/,
+		/\.babel\.jsx?$/
 	],
 	presets: [
 		['babel-preset-trigen', {
 			env:      'lib',
-			targets:  require('browserslist-config-trigen/node'),
+			targets:  require('./packages/browserslist-config/src/node'),
 			commonjs: true
 		}]
 	],
@@ -18,7 +18,7 @@ module.exports = {
 		presets: [
 			['babel-preset-trigen', {
 				env:      'lib',
-				targets:  require('browserslist-config-trigen/browsers'),
+				targets:  require('./packages/browserslist-config/src/browsers'),
 				commonjs: true,
 				react:    true
 			}]

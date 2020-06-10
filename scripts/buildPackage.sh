@@ -18,7 +18,10 @@ if [ ${#tsfiles[@]} -gt 0 ]; then
 	fi
 fi
 
-NODE_ENV=production babel --root-mode upward ./package -d ./package -s inline
+if [[ $PWD != *"-config"* ]]; then
+	NODE_ENV=production babel --root-mode upward ./package -d ./package -s inline
+fi
+
 del 'package/**/*.jsx'
 cp README.md package/
 cp package.json package/

@@ -59,16 +59,20 @@ yarn exec -- trigen-scripts lint
 
 | Package | Version | Dependencies |
 |---------|---------|--------------|
-| [`@trigen/scripts-plugin-eslint`](https://github.com/TrigenSoftware/scripts/tree/master/packages/scripts-plugin-eslint#readme)         | [![NPM version][plugin-eslint-npm]][plugin-eslint-npm-url]         | [![Dependencies status][plugin-eslint-deps]][plugin-eslint-deps-url]         |
-| [`@trigen/scripts-plugin-babel`](https://github.com/TrigenSoftware/scripts/tree/master/packages/scripts-plugin-babel#readme)           | [![NPM version][plugin-babel-npm]][plugin-babel-npm-url]           | [![Dependencies status][plugin-babel-deps]][plugin-babel-deps-url]           |
+| [`@trigen/browserslist-config`](https://github.com/TrigenSoftware/scripts/tree/master/packages/browserslist-config#readme) | [![NPM version][browserslist-config-npm]][browserslist-config-npm-url] | |
+| [`@trigen/scripts-plugin-eslint`](https://github.com/TrigenSoftware/scripts/tree/master/packages/scripts-plugin-eslint#readme) | [![NPM version][plugin-eslint-npm]][plugin-eslint-npm-url] | [![Dependencies status][plugin-eslint-deps]][plugin-eslint-deps-url] |
+| [`@trigen/scripts-plugin-babel`](https://github.com/TrigenSoftware/scripts/tree/master/packages/scripts-plugin-babel#readme) | [![NPM version][plugin-babel-npm]][plugin-babel-npm-url] | [![Dependencies status][plugin-babel-deps]][plugin-babel-deps-url] |
 | [`@trigen/scripts-plugin-typescript`](https://github.com/TrigenSoftware/scripts/tree/master/packages/scripts-plugin-typescript#readme) | [![NPM version][plugin-typescript-npm]][plugin-typescript-npm-url] | [![Dependencies status][plugin-typescript-deps]][plugin-typescript-deps-url] |
-| [`@trigen/scripts-plugin-jest`](https://github.com/TrigenSoftware/scripts/tree/master/packages/scripts-plugin-jest#readme)             | [![NPM version][plugin-jest-npm]][plugin-jest-npm-url]             | [![Dependencies status][plugin-jest-deps]][plugin-jest-deps-url]             |
-| [`@trigen/scripts-plugin-rollup`](https://github.com/TrigenSoftware/scripts/tree/master/packages/scripts-plugin-rollup#readme)         | [![NPM version][plugin-rollup-npm]][plugin-rollup-npm-url]         | [![Dependencies status][plugin-rollup-deps]][plugin-rollup-deps-url]         |
+| [`@trigen/scripts-plugin-jest`](https://github.com/TrigenSoftware/scripts/tree/master/packages/scripts-plugin-jest#readme) | [![NPM version][plugin-jest-npm]][plugin-jest-npm-url] | [![Dependencies status][plugin-jest-deps]][plugin-jest-deps-url] |
+| [`@trigen/scripts-plugin-rollup`](https://github.com/TrigenSoftware/scripts/tree/master/packages/scripts-plugin-rollup#readme) | [![NPM version][plugin-rollup-npm]][plugin-rollup-npm-url] | [![Dependencies status][plugin-rollup-deps]][plugin-rollup-deps-url] |
 | [`@trigen/scripts-plugin-size-limit`](https://github.com/TrigenSoftware/scripts/tree/master/packages/scripts-plugin-size-limit#readme) | [![NPM version][plugin-size-limit-npm]][plugin-size-limit-npm-url] | [![Dependencies status][plugin-size-limit-deps]][plugin-size-limit-deps-url] |
-| [`@trigen/scripts-plugin-storybook`](https://github.com/TrigenSoftware/scripts/tree/master/packages/scripts-plugin-storybook#readme)   | [![NPM version][plugin-storybook-npm]][plugin-storybook-npm-url]   | [![Dependencies status][plugin-storybook-deps]][plugin-storybook-deps-url]   |
-| [`@trigen/scripts-preset-lib`](https://github.com/TrigenSoftware/scripts/tree/master/packages/scripts-preset-lib#readme)               | [![NPM version][preset-lib-npm]][preset-lib-npm-url]               | [![Dependencies status][preset-lib-deps]][preset-lib-deps-url]               |
-| [`@trigen/scripts-preset-node-app`](https://github.com/TrigenSoftware/scripts/tree/master/packages/scripts-preset-node-app#readme)     | [![NPM version][preset-node-app-npm]][preset-node-app-npm-url]     | [![Dependencies status][preset-node-app-deps]][preset-node-app-deps-url]     |
-| [`@trigen/scripts-preset-react-app`](https://github.com/TrigenSoftware/scripts/tree/master/packages/scripts-preset-react-app#readme)   | [![NPM version][preset-react-app-npm]][preset-react-app-npm-url]   | [![Dependencies status][preset-react-app-deps]][preset-react-app-deps-url]   |
+| [`@trigen/scripts-plugin-storybook`](https://github.com/TrigenSoftware/scripts/tree/master/packages/scripts-plugin-storybook#readme) | [![NPM version][plugin-storybook-npm]][plugin-storybook-npm-url] | [![Dependencies status][plugin-storybook-deps]][plugin-storybook-deps-url] |
+| [`@trigen/scripts-preset-lib`](https://github.com/TrigenSoftware/scripts/tree/master/packages/scripts-preset-lib#readme) | [![NPM version][preset-lib-npm]][preset-lib-npm-url] | [![Dependencies status][preset-lib-deps]][preset-lib-deps-url] |
+| [`@trigen/scripts-preset-node-app`](https://github.com/TrigenSoftware/scripts/tree/master/packages/scripts-preset-node-app#readme) | [![NPM version][preset-node-app-npm]][preset-node-app-npm-url] | [![Dependencies status][preset-node-app-deps]][preset-node-app-deps-url] |
+| [`@trigen/scripts-preset-react-app`](https://github.com/TrigenSoftware/scripts/tree/master/packages/scripts-preset-react-app#readme) | [![NPM version][preset-react-app-npm]][preset-react-app-npm-url] | [![Dependencies status][preset-react-app-deps]][preset-react-app-deps-url] |
+
+[browserslist-config-npm]: https://img.shields.io/npm/v/%40trigen/browserslist-config.svg
+[browserslist-config-npm-url]: https://www.npmjs.com/package/@trigen/browserslist-config
 
 [plugin-eslint-npm]: https://img.shields.io/npm/v/%40trigen/scripts-plugin-eslint.svg
 [plugin-eslint-npm-url]: https://www.npmjs.com/package/@trigen/scripts-plugin-eslint
