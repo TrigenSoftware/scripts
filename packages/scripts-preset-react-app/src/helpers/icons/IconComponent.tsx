@@ -15,7 +15,7 @@ export type IProps = ISelfProps & SVGProps<SVGElement>;
 const headBase = typeof document !== 'undefined'
 	? document.querySelector('head > base')
 	: null;
-const shoudlPrepandPathname = headBase && headBase.hasAttribute('href');
+const shoudlPrepandPathname = headBase?.hasAttribute('href');
 let iconClassName = null;
 
 export function setIconClassName(className: string) {
@@ -25,19 +25,19 @@ export function setIconClassName(className: string) {
 export default class Icon extends PureComponent<IProps> {
 
 	static propTypes = {
-		'className':   PropTypes.string,
-		'style':       PropTypes.object,
-		'glyph':       PropTypes.string,
-		'width':       PropTypes.number,
-		'height':      PropTypes.number,
-		'tabIndex':    PropTypes.number,
+		'className': PropTypes.string,
+		'style': PropTypes.object,
+		'glyph': PropTypes.string,
+		'width': PropTypes.number,
+		'height': PropTypes.number,
+		'tabIndex': PropTypes.number,
 		'aria-hidden': PropTypes.bool,
-		'role':        PropTypes.string
+		'role': PropTypes.string
 	};
 
 	static defaultProps = {
-		'glyph':    '',
-		'tabIndex': -1
+		glyph: '',
+		tabIndex: -1
 	};
 
 	private useRef: SVGUseElement = null;
@@ -59,9 +59,14 @@ export default class Icon extends PureComponent<IProps> {
 			role,
 			...props
 		} = this.props;
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		const focusable: any = tabIndex < 0
-			? { focusable: false }
-			: { tabIndex };
+			? {
+				focusable: false
+			}
+			: {
+				tabIndex
+			};
 		const hidden = typeof ariaHidden !== 'undefined'
 			? ariaHidden
 			: typeof role !== 'string';

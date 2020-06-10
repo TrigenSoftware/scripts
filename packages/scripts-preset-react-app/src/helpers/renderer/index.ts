@@ -24,8 +24,8 @@ interface IOutput {
 
 export default abstract class Renderer {
 
-	protected BUILD_DIR = 'build';
-	protected INDEX_HTML = 'index.html';
+	protected buildDir = 'build';
+	protected indexHtml = 'index.html';
 	protected template = '';
 	protected readonly output: IOutput[] = [];
 
@@ -39,10 +39,10 @@ export default abstract class Renderer {
 	protected async readTemplateFile() {
 
 		const {
-			BUILD_DIR,
-			INDEX_HTML
+			buildDir,
+			indexHtml
 		} = this;
-		const template = await fs.readFile(path.join(BUILD_DIR, INDEX_HTML), 'utf8');
+		const template = await fs.readFile(path.join(buildDir, indexHtml), 'utf8');
 
 		return template;
 	}
@@ -50,9 +50,9 @@ export default abstract class Renderer {
 	protected async findPrecacheManifestFiles() {
 
 		const {
-			BUILD_DIR
+			buildDir
 		} = this;
-		const files = await fs.readdir(BUILD_DIR);
+		const files = await fs.readdir(buildDir);
 		const precacheManifestFile = files.filter(_ => /precache-manifest/.test(_));
 
 		if (!precacheManifestFile) {
@@ -65,14 +65,14 @@ export default abstract class Renderer {
 	protected async writeAndInjectShellIntoPrecacheManifest(shellContent: string) {
 
 		const {
-			BUILD_DIR
+			buildDir
 		} = this;
 		const hash = createHash('md5').update(shellContent).digest('hex');
 		const precacheManifestFiles = await this.findPrecacheManifestFiles();
 
 		for (const precacheManifestFile of precacheManifestFiles) {
 
-			const precacheManifestPath = path.join(BUILD_DIR, precacheManifestFile);
+			const precacheManifestPath = path.join(buildDir, precacheManifestFile);
 			const precacheManifestContent = await fs.readFile(precacheManifestPath, 'utf8');
 			const patchedPrecacheManifestContent = precacheManifestContent
 				.replace(
@@ -99,7 +99,7 @@ export default abstract class Renderer {
 	private async writeOutputs() {
 
 		const {
-			BUILD_DIR,
+			buildDir,
 			output
 		} = this;
 
@@ -112,12 +112,14 @@ export default abstract class Renderer {
 				const dirname = path.dirname(outputPath);
 
 				await fs.mkdir(
-					path.join(BUILD_DIR, dirname),
-					{ recursive: true }
+					path.join(buildDir, dirname),
+					{
+						recursive: true
+					}
 				);
 
 				await fs.writeFile(
-					path.join(BUILD_DIR, outputPath),
+					path.join(buildDir, outputPath),
 					content
 				);
 			})
@@ -134,6 +136,7 @@ export default abstract class Renderer {
 		} = this;
 		const view = renderToString(jsx);
 
+		// eslint-disable-next-line prefer-reflect
 		return Html.apply(
 			template,
 			Html.setViewContent(view)
@@ -144,12 +147,14 @@ export default abstract class Renderer {
 		this.template = await this.readTemplateFile();
 	}
 
-	protected async afterRender() {}
+	protected async afterRender() {
+		/* Method placeholder */
+	}
 
 	async renderRoutes(routes: string[]) {
 
 		const {
-			INDEX_HTML
+			indexHtml
 		} = this;
 
 		await this.beforeRender();
@@ -160,7 +165,7 @@ export default abstract class Renderer {
 				const html = this.renderTemplate(jsx, route);
 
 				this.write(
-					path.join(route, INDEX_HTML),
+					path.join(route, indexHtml),
 					html
 				);
 			})

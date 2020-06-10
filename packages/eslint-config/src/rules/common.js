@@ -93,7 +93,8 @@ module.exports = {
 		'no-restricted-globals': ['error', 'event'],
 		'no-undef-init': 'error',
 		'no-unused-vars': ['error', {
-			ignoreRestSiblings: true
+			ignoreRestSiblings: true,
+			argsIgnorePattern: '^_'
 		}],
 		'no-use-before-define': ['error', {
 			functions: false
@@ -129,7 +130,9 @@ module.exports = {
 		}],
 		'keyword-spacing': 'error',
 		'linebreak-style': 'error',
-		'lines-between-class-members': ['error', 'always'],
+		'lines-between-class-members': ['error', 'always', {
+			exceptAfterSingleLine: true
+		}],
 		'max-len': ['error', {
 			code: 140,
 			tabWidth: 4,

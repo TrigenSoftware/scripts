@@ -3,7 +3,8 @@
 	"extends": [
 		"./packages/eslint-config/src",
 		"./packages/eslint-config/src/commonjs",
-		"./packages/eslint-config/src/react"
+		"./packages/eslint-config/src/react",
+		"./packages/eslint-config/src/typescript"
 	],
 	"env": {
 		"node": true
