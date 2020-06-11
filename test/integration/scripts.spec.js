@@ -1,8 +1,11 @@
 const path = require('path');
 const fs = require('fs');
-const { execSync } = require('child_process');
+const {
+	execSync
+} = require('child_process');
 const chalk = require('chalk');
 const del = require('del');
+
 // Constants
 const PACKAGES_PATH = path.join(__dirname, '..', '..', 'packages');
 const PATCHES_PATH = path.join(__dirname, 'patches');
@@ -21,7 +24,7 @@ try {
 
 	execSync('git clone https://github.com/TrigenSoftware/weather.git', {
 		stdio: 'inherit',
-		cwd:   __dirname
+		cwd: __dirname
 	});
 
 	console.log(chalk.blue('\n> Patching...\n'));
@@ -42,7 +45,7 @@ try {
 
 		const currentVersion = execSync('git rev-parse --short HEAD', {
 			encoding: 'utf8',
-			cwd:      WEATHER_PATH
+			cwd: WEATHER_PATH
 		}).trim();
 
 		console.log(chalk.blue(`\n> Applying patches for ${currentVersion}...\n`));
@@ -65,34 +68,32 @@ try {
 
 	execSync('yarn', {
 		stdio: 'inherit',
-		cwd:   WEATHER_PATH
+		cwd: WEATHER_PATH
 	});
 
 	console.log(chalk.blue('\n> Testing...\n'));
 
 	execSync(`yarn jest --clearCache`, {
 		stdio: 'inherit',
-		cwd:   WEATHER_PATH
+		cwd: WEATHER_PATH
 	});
 	execSync(`yarn test`, {
 		stdio: 'inherit',
-		cwd:   WEATHER_PATH
+		cwd: WEATHER_PATH
 	});
 	execSync(`yarn build:storybook`, {
 		stdio: 'inherit',
-		cwd:   WEATHER_PATH
+		cwd: WEATHER_PATH
 	});
 	execSync(`yarn exec -- trigen-scripts build:docs`, {
 		stdio: 'inherit',
-		cwd:   WEATHER_PATH
+		cwd: WEATHER_PATH
 	});
 	execSync(`yarn exec -- lint-staged`, {
 		stdio: 'inherit',
-		cwd:   WEATHER_PATH
+		cwd: WEATHER_PATH
 	});
 
-} catch (err) {
-	throw err;
 } finally {
 
 	if (!shouldLeave) {

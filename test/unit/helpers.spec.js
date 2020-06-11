@@ -237,7 +237,7 @@ describe('@trigen/scripts-plugin-rollup', () => {
 			it('should use peerDependencies', () => {
 
 				const fn = external({
-					dependencies:     {
+					dependencies: {
 						react: 1
 					},
 					peerDependencies: {
@@ -261,7 +261,7 @@ describe('@trigen/scripts-plugin-rollup', () => {
 			it('should exclude internals', () => {
 
 				const fn = external({
-					dependencies:     {
+					dependencies: {
 						react: 1
 					},
 					peerDependencies: {

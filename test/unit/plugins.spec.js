@@ -11,7 +11,7 @@ const configs = [
 	'babel-preset'
 ];
 const plugins = fs.readdirSync(packages).filter(
-	_ => _ !== 'scripts' && _[0] != '.' && !configs.includes(_)
+	_ => _ !== 'scripts' && _[0] !== '.' && !configs.includes(_)
 );
 
 describe('@trigen/scripts-*', () => {
@@ -22,6 +22,7 @@ describe('@trigen/scripts-*', () => {
 
 			// eslint-disable-next-line import/no-dynamic-require
 			const scripts = require(path.join(packages, _, 'src', 'index.js')).default([], {});
+
 			let scriptsSnapshot = JSON.stringify(scripts, null, '\t');
 
 			while (scriptsSnapshot.includes(cwd)) {
@@ -39,8 +40,8 @@ describe('@trigen/scripts-*', () => {
 		expect(scripts.cleanPublish).toEqual([
 			'test',
 			{
-				cmd:   'clean-publish',
-				args:  []
+				cmd: 'clean-publish',
+				args: []
 			}
 		]);
 
@@ -51,9 +52,9 @@ describe('@trigen/scripts-*', () => {
 		expect(scripts.cleanPublish).toEqual([
 			'test',
 			{
-				cwd:   'packages',
-				cmd:   'clean-publish',
-				args:  []
+				cwd: 'packages',
+				cmd: 'clean-publish',
+				args: []
 			}
 		]);
 	});
