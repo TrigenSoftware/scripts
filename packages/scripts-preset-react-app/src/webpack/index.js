@@ -145,9 +145,11 @@ function base(params = {}) {
 					}
 				},
 				isFirstBuild && {
-					loader: 'tslint-loader',
+					loader: 'eslint-loader',
 					options: {
-						emitErrors: true
+						cache: true,
+						emitError: true,
+						emitWarning: true
 					}
 				}].filter(Boolean)
 			}]
@@ -300,9 +302,9 @@ export function build(params = {}) {
 								};
 
 								if (isFirstBuild) {
-									mutation[findIndex('loader', 'tslint-loader', use)] = {
+									mutation[findIndex('loader', 'eslint-loader', use)] = {
 										options: {
-											failOnHint: {
+											failOnError: {
 												$set: true
 											}
 										}
@@ -410,9 +412,9 @@ export function render(params = {}) {
 					[findIndex('test', typescriptTest, rules)]: {
 						use: {
 							$apply: use => update(use, {
-								[findIndex('loader', 'tslint-loader', use)]: {
+								[findIndex('loader', 'eslint-loader', use)]: {
 									options: {
-										failOnHint: {
+										failOnError: {
 											$set: true
 										}
 									}

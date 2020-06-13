@@ -43,20 +43,18 @@ yarn add -D @trigen/scripts-plugin-eslint
 3. Now you can run some script
 
 ```bash
-yarn exec -- trigen-scripts lint:js
+yarn exec -- trigen-scripts lint:scripts
 ```
 
 ## Options
 
 | Option | Type | Default | Description |
 |--------|------|---------|-------------|
-| lint | `string` | `'src/**/*.{js,jsx}'` | Files patterns to lint |
+| lint | `string` | `'src/**/*.{js,jsx,ts,tsx}'` | Files patterns to lint |
 
 ## Available scripts
 
 ```bash
-# Lint only javascript
-yarn lint:js
 # Lint only scripts
 yarn lint:scripts
 # Lint all sources

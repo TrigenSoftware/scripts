@@ -29,7 +29,11 @@ babelRegister({
 export function getWebpackHook() {
 
 	try {
-		return Object.assign({}, emptyHook, require(hookPath)); // eslint-disable-line
+		return {
+			...emptyHook,
+			// eslint-disable-next-line import/no-dynamic-require
+			...require(hookPath)
+		};
 	} catch (err) {
 		return emptyHook;
 	}

@@ -6,21 +6,20 @@ import {
 } from '@trigen/scripts/helpers';
 
 const scripts = {
-	'lint:js': {
+	'lint:scripts': {
 		cmd: 'eslint',
 		args: FILL_ME
 	},
-	'lint:scripts': ['lint:js'],
 	'lint': ['lint:scripts'],
 	'test': ['lint']
 };
 
 export default function getScripts(args, allScripts, {
-	lint = 'src/**/*.{js,jsx}'
+	lint = 'src/**/*.{js,jsx,ts,tsx}'
 } = {}) {
 	return update(allScripts, {
-		'lint:js': {
-			$set: update(scripts['lint:js'], {
+		'lint:scripts': {
+			$set: update(scripts['lint:scripts'], {
 				args: {
 					$push: [
 						'--cache',
@@ -29,9 +28,6 @@ export default function getScripts(args, allScripts, {
 					]
 				}
 			})
-		},
-		'lint:scripts': {
-			$apply: _ => addScripts(_, scripts['lint:scripts'])
 		},
 		'lint': {
 			$apply: _ => addScripts(_, scripts.lint)

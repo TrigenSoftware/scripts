@@ -128,7 +128,6 @@ export default abstract class Renderer {
 
 	protected abstract render(route: string): ReactElement|Promise<ReactElement>;
 
-	// tslint:disable-next-line: variable-name
 	protected renderTemplate(jsx: ReactElement, _route?: string): string {
 
 		const {

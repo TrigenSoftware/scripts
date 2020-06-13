@@ -6,17 +6,11 @@ import {
 } from '@trigen/scripts/helpers';
 
 const scripts = {
-	'lint:ts': {
-		cmd: 'tslint',
-		args: FILL_ME
-	},
-	'lint:scripts': ['lint:ts'],
-	'lint': ['lint:scripts'],
 	'typecheck': {
 		cmd: 'tsc',
 		args: ['--noEmit', '--pretty', '--skipLibCheck']
 	},
-	'test': ['typecheck', 'lint'],
+	'test': ['typecheck'],
 	'start': {
 		vars: {
 			NODE_ENV: 'development'
@@ -41,30 +35,8 @@ const scripts = {
 	}
 };
 
-export default function getScripts(args, allScripts, {
-	lint = 'src/**/*.{ts,tsx}'
-} = {}) {
+export default function getScripts(args, allScripts) {
 	return update(allScripts, {
-		'lint:ts': {
-			$set: update(scripts['lint:ts'], {
-				args: {
-					$push: [
-						'-p',
-						'.',
-						'-t',
-						'stylish',
-						...getScriptArg(args, 0, lint),
-						...args
-					]
-				}
-			})
-		},
-		'lint:scripts': {
-			$apply: _ => addScripts(_, scripts['lint:scripts'])
-		},
-		'lint': {
-			$apply: _ => addScripts(_, scripts.lint)
-		},
 		'typecheck': {
 			$set: update(scripts.typecheck, {
 				args: {

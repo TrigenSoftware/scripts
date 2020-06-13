@@ -46,24 +46,12 @@ yarn add -D @trigen/scripts-plugin-typescript
 yarn exec -- trigen-scripts start src/test.ts
 ```
 
-## Options
-
-| Option | Type | Default | Description |
-|--------|------|---------|-------------|
-| lint | `string` | `'src/**/*.{ts,tsx}'` | Files patterns to lint |
-
 ## Available scripts
 
 ```bash
-# Lint only typescript
-yarn lint:ts
-# Lint only scripts
-yarn lint:scripts
-# Lint all sources
-yarn lint
 # Run type checking
 yarn typecheck
-# Run lint
+# Run type checking and lint
 yarn test
 # Generate docs for typescript sources
 yarn build:docs

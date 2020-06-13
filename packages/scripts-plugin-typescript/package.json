@@ -23,8 +23,6 @@
     "@trigen/scripts": "file:../scripts",
     "ts-node-dev": "^1.0.0-pre.39",
     "tsconfig-paths": "^3.8.0",
-    "tslint": "^6.0.0",
-    "tslint-config-trigen": "^3.0.7",
     "typedoc": "^0.17.0",
     "typescript": "3.9.3"
   },
