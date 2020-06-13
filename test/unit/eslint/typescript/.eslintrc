@@ -1,0 +1,10 @@
+{
+	"root": true,
+	"extends": [
+		"../../../../packages/eslint-config/src/index",
+		"../../../../packages/eslint-config/src/typescript"
+	],
+	"env": {
+		"node": true
+	}
+}

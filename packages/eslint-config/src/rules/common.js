@@ -88,7 +88,6 @@ module.exports = {
 
 		// Variables
 		'init-declarations': ['error', 'always'],
-		'no-catch-shadow': 'error',
 		'no-label-var': 'error',
 		'no-restricted-globals': ['error', 'event'],
 		'no-undef-init': 'error',

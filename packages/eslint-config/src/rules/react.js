@@ -14,7 +14,9 @@ module.exports = {
 	},
 	rules: {
 		// React
-		'react/destructuring-assignment': 'error',
+		'react/destructuring-assignment': ['error', 'always', {
+			ignoreClassFields: true
+		}],
 		'react/function-component-definition': ['error', {
 			namedComponents: 'function-declaration',
 			unnamedComponents: 'arrow-function'
