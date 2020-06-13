@@ -18,5 +18,8 @@
 			"esnext",
 			"dom"
 		]
-	}
+	},
+	"exclude": [
+		"test/**/*"
+	]
 }
