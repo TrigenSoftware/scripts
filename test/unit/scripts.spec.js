@@ -40,11 +40,10 @@ describe('@trigen/scripts', () => {
 			);
 
 			expect(result).toEqual({
-				'lint:js': {
+				'lint:scripts': {
 					cmd: 'eslint',
-					args: ['--cache', 'src/**/*.{js,jsx}']
+					args: ['--cache', 'src/**/*.{js,jsx,ts,tsx}']
 				},
-				'lint:scripts': ['lint:js'],
 				'lint': ['lint:scripts'],
 				'test': ['lint']
 			});
@@ -60,11 +59,10 @@ describe('@trigen/scripts', () => {
 			);
 
 			expect(result).toEqual({
-				'lint:js': {
+				'lint:scripts': {
 					cmd: 'eslint',
 					args: ['--cache', 'packages/*/src/**/*.js']
 				},
-				'lint:scripts': ['lint:js'],
 				'lint': ['lint:scripts'],
 				'test': ['lint']
 			});
@@ -77,11 +75,10 @@ describe('@trigen/scripts', () => {
 			);
 
 			expect(result).toEqual({
-				'lint:js': {
+				'lint:scripts': {
 					cmd: 'eslint',
-					args: ['--cache', 'src/**/*.{js,jsx}', '-v']
+					args: ['--cache', 'src/**/*.{js,jsx,ts,tsx}', '-v']
 				},
-				'lint:scripts': ['lint:js'],
 				'lint': ['lint:scripts'],
 				'test': ['lint']
 			});
@@ -101,10 +98,6 @@ describe('@trigen/scripts', () => {
 				}
 			);
 
-			expect(result['lint:scripts']).toEqual(
-				['lint:js', 'lint:ts']
-			);
-
 			expect(result.lint).toEqual(
 				['lint:scripts']
 			);
@@ -118,6 +111,7 @@ describe('@trigen/scripts', () => {
 
 			writeRC([
 				'plugin-typescript',
+				'plugin-eslint',
 				'plugin-jest',
 				'plugin-rollup',
 				'preset-lib',
@@ -129,14 +123,6 @@ describe('@trigen/scripts', () => {
 				{
 					cwd: __dirname
 				}
-			);
-
-			expect(result['lint:scripts']).toEqual(
-				['lint:ts']
-			);
-
-			expect(result.lint).toEqual(
-				['lint:scripts']
 			);
 
 			expect(result.test).toEqual(

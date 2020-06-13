@@ -29,16 +29,13 @@ exports[`@trigen/scripts-* scripts-plugin-babel should return correct scripts ob
 
 exports[`@trigen/scripts-* scripts-plugin-eslint should return correct scripts object 1`] = `
 "{
-	\\"lint:js\\": {
+	\\"lint:scripts\\": {
 		\\"cmd\\": \\"eslint\\",
 		\\"args\\": [
 			\\"--cache\\",
-			\\"src/**/*.{js,jsx}\\"
+			\\"src/**/*.{js,jsx,ts,tsx}\\"
 		]
 	},
-	\\"lint:scripts\\": [
-		\\"lint:js\\"
-	],
 	\\"lint\\": [
 		\\"lint:scripts\\"
 	],
@@ -167,22 +164,6 @@ exports[`@trigen/scripts-* scripts-plugin-storybook should return correct script
 
 exports[`@trigen/scripts-* scripts-plugin-typescript should return correct scripts object 1`] = `
 "{
-	\\"lint:ts\\": {
-		\\"cmd\\": \\"tslint\\",
-		\\"args\\": [
-			\\"-p\\",
-			\\".\\",
-			\\"-t\\",
-			\\"stylish\\",
-			\\"src/**/*.{ts,tsx}\\"
-		]
-	},
-	\\"lint:scripts\\": [
-		\\"lint:ts\\"
-	],
-	\\"lint\\": [
-		\\"lint:scripts\\"
-	],
 	\\"typecheck\\": {
 		\\"cmd\\": \\"tsc\\",
 		\\"args\\": [
@@ -192,8 +173,7 @@ exports[`@trigen/scripts-* scripts-plugin-typescript should return correct scrip
 		]
 	},
 	\\"test\\": [
-		\\"typecheck\\",
-		\\"lint\\"
+		\\"typecheck\\"
 	],
 	\\"start\\": {
 		\\"vars\\": {
@@ -344,23 +324,6 @@ exports[`@trigen/scripts-* scripts-preset-react-app should return correct script
 			\\"/packages/scripts-preset-react-app/src/build.js\\"
 		]
 	},
-	\\"lint:ts\\": {
-		\\"cmd\\": \\"tslint\\",
-		\\"args\\": [
-			\\"-p\\",
-			\\".\\",
-			\\"-t\\",
-			\\"stylish\\",
-			\\"src/**/*.{ts,tsx}\\"
-		]
-	},
-	\\"lint:scripts\\": [
-		\\"lint:ts\\"
-	],
-	\\"lint\\": [
-		\\"lint:styles\\",
-		\\"lint:scripts\\"
-	],
 	\\"typecheck\\": {
 		\\"cmd\\": \\"tsc\\",
 		\\"args\\": [
@@ -371,7 +334,6 @@ exports[`@trigen/scripts-* scripts-preset-react-app should return correct script
 	},
 	\\"test\\": [
 		\\"typecheck\\",
-		\\"lint\\",
 		\\"jest\\",
 		\\"build\\"
 	],
@@ -471,6 +433,9 @@ exports[`@trigen/scripts-* scripts-preset-react-app should return correct script
 			\\"src/**/*.css\\"
 		]
 	},
+	\\"lint\\": [
+		\\"lint:styles\\"
+	],
 	\\"build:favicons\\": {
 		\\"cmd\\": \\"favicons\\",
 		\\"args\\": [
