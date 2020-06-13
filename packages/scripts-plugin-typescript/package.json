@@ -24,7 +24,7 @@
     "ts-node-dev": "^1.0.0-pre.39",
     "tsconfig-paths": "^3.8.0",
     "typedoc": "^0.17.0",
-    "typescript": "3.9.3"
+    "typescript": "3.9.5"
   },
   "publishConfig": {
     "access": "public"

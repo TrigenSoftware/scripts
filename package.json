@@ -58,6 +58,6 @@
     "lerna-update-wizard": "^0.17.7",
     "lint-staged": "^10.0.0",
     "react": "^16.8.6",
-    "typescript": "3.9.3"
+    "typescript": "3.9.5"
   }
 }
