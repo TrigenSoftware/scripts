@@ -111,10 +111,9 @@ describe('@trigen/scripts', () => {
 
 			writeRC([
 				'plugin-typescript',
-				'plugin-eslint',
-				'plugin-jest',
 				'plugin-rollup',
 				'preset-lib',
+				'plugin-jest',
 				'plugin-size-limit'
 			]);
 
@@ -126,7 +125,7 @@ describe('@trigen/scripts', () => {
 			);
 
 			expect(result.test).toEqual(
-				['typecheck', 'lint', 'jest', 'build', 'checkSize']
+				['typecheck', 'lint', 'build', 'jest', 'checkSize']
 			);
 		});
 

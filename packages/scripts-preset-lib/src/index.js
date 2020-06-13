@@ -3,6 +3,7 @@ import {
 	FILL_ME,
 	addScripts
 } from '@trigen/scripts/helpers';
+import eslint from '@trigen/scripts-plugin-eslint';
 
 const scripts = {
 	test: ['build'],
@@ -15,10 +16,15 @@ const scripts = {
 	]
 };
 
-export default function getScripts(args, allScripts, {
+export default function getScripts(args, inputAllScripts, {
 	publish = false,
 	testSkipBuild = false
 } = {}) {
+
+	let allScripts = inputAllScripts;
+
+	allScripts = eslint(args, allScripts);
+
 	return update(allScripts, {
 		test: {
 			$apply: _ => (

@@ -23,6 +23,7 @@
     "@trigen/browserslist-config": "file:../browserslist-config",
     "@trigen/scripts": "file:../scripts",
     "@trigen/scripts-plugin-babel": "file:../scripts-plugin-babel",
+    "@trigen/scripts-plugin-eslint": "file:../scripts-plugin-eslint",
     "@trigen/scripts-plugin-jest": "file:../scripts-plugin-jest",
     "@trigen/scripts-plugin-rollup": "file:../scripts-plugin-rollup",
     "husky": "^4.0.9",

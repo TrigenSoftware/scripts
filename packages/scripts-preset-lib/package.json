@@ -22,6 +22,7 @@
     "@babel/runtime-corejs3": "^7.9.6",
     "@trigen/browserslist-config": "file:../browserslist-config",
     "@trigen/scripts": "file:../scripts",
+    "@trigen/scripts-plugin-eslint": "file:../scripts-plugin-eslint",
     "clean-publish": "^1.1.0",
     "coveralls": "^3.0.0",
     "husky": "^4.0.9",

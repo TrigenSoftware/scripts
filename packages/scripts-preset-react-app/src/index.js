@@ -7,6 +7,7 @@ import {
 } from '@trigen/scripts/helpers';
 import babel from '@trigen/scripts-plugin-babel';
 import typescript from '@trigen/scripts-plugin-typescript';
+import eslint from '@trigen/scripts-plugin-eslint';
 import jest from '@trigen/scripts-plugin-jest';
 import storybook from '@trigen/scripts-plugin-storybook';
 
@@ -70,6 +71,7 @@ export default function getScripts(args, inputAllScripts, {
 
 	allScripts = babel(args, allScripts);
 	allScripts = typescript(args, allScripts);
+	allScripts = eslint(args, allScripts);
 	allScripts = storybook(args, allScripts, {
 		storybookConfigs
 	});

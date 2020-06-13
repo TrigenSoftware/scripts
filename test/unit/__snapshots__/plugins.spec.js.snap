@@ -230,7 +230,19 @@ exports[`@trigen/scripts-* scripts-plugin-typescript should return correct scrip
 
 exports[`@trigen/scripts-* scripts-preset-lib should return correct scripts object 1`] = `
 "{
-	\\"test\\": [],
+	\\"lint:scripts\\": {
+		\\"cmd\\": \\"eslint\\",
+		\\"args\\": [
+			\\"--cache\\",
+			\\"src/**/*.{js,jsx,ts,tsx}\\"
+		]
+	},
+	\\"lint\\": [
+		\\"lint:scripts\\"
+	],
+	\\"test\\": [
+		\\"lint\\"
+	],
 	\\"cleanPublish\\": [
 		\\"test\\",
 		{
@@ -261,6 +273,21 @@ exports[`@trigen/scripts-* scripts-preset-node-app should return correct scripts
 			\\"-c\\"
 		]
 	},
+	\\"lint:scripts\\": {
+		\\"cmd\\": \\"eslint\\",
+		\\"args\\": [
+			\\"--cache\\",
+			\\"src/**/*.{js,jsx,ts,tsx}\\"
+		]
+	},
+	\\"lint\\": [
+		\\"lint:scripts\\"
+	],
+	\\"test\\": [
+		\\"lint\\",
+		\\"jest\\",
+		\\"build\\"
+	],
 	\\"jest\\": {
 		\\"vars\\": {
 			\\"NODE_ENV\\": \\"test\\"
@@ -277,10 +304,6 @@ exports[`@trigen/scripts-* scripts-preset-node-app should return correct scripts
 			\\"/packages/scripts-plugin-jest/src/artifacts.js\\"
 		]
 	},
-	\\"test\\": [
-		\\"jest\\",
-		\\"build\\"
-	],
 	\\"eject\\": [
 		{
 			\\"cmd\\": \\"cp\\",
@@ -334,6 +357,7 @@ exports[`@trigen/scripts-* scripts-preset-react-app should return correct script
 	},
 	\\"test\\": [
 		\\"typecheck\\",
+		\\"lint\\",
 		\\"jest\\",
 		\\"build\\"
 	],
@@ -357,6 +381,17 @@ exports[`@trigen/scripts-* scripts-preset-react-app should return correct script
 				\\"docs/.nojekyll\\"
 			]
 		}
+	],
+	\\"lint:scripts\\": {
+		\\"cmd\\": \\"eslint\\",
+		\\"args\\": [
+			\\"--cache\\",
+			\\"src/**/*.{js,jsx,ts,tsx}\\"
+		]
+	},
+	\\"lint\\": [
+		\\"lint:styles\\",
+		\\"lint:scripts\\"
 	],
 	\\"start:storybook\\": {
 		\\"vars\\": {
@@ -433,9 +468,6 @@ exports[`@trigen/scripts-* scripts-preset-react-app should return correct script
 			\\"src/**/*.css\\"
 		]
 	},
-	\\"lint\\": [
-		\\"lint:styles\\"
-	],
 	\\"build:favicons\\": {
 		\\"cmd\\": \\"favicons\\",
 		\\"args\\": [
