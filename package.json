@@ -38,7 +38,8 @@
     "@trigen/scripts-plugin-typescript": "file:packages/scripts-plugin-typescript",
     "@trigen/scripts-preset-lib": "file:packages/scripts-preset-lib",
     "@trigen/scripts-preset-node-app": "file:packages/scripts-preset-node-app",
-    "@trigen/scripts-preset-react-app": "file:packages/scripts-preset-react-app"
+    "@trigen/scripts-preset-react-app": "file:packages/scripts-preset-react-app",
+    "@trigen/stylelint-config": "file:packages/stylelint-config"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",

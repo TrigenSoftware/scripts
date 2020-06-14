@@ -1,0 +1,39 @@
+{
+  "name": "@trigen/stylelint-config",
+  "version": "6.0.0",
+  "description": "Trigen's Stylelint config",
+  "author": "dangreen",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TrigenSoftware/scripts/packages/stylelint-config#readme"
+  },
+  "bugs": {
+    "url": "https://github.com/TrigenSoftware/scripts/issues"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "scripts": {
+    "build": "../../scripts/buildPackage.sh",
+    "prepublishOnly": "yarn build"
+  },
+  "keywords": [
+    "stylelint",
+    "stylelint-config",
+    "css",
+    "scss",
+    "stylable"
+  ],
+  "peerDependencies": {
+    "stylelint": ">=12.0.0"
+  },
+  "dependencies": {
+    "stylelint-a11y": "^1.2.0",
+    "stylelint-csstree-validator": "^1.3.0",
+    "stylelint-declaration-strict-value": "^1.1.3",
+    "stylelint-high-performance-animation": "^1.5.1",
+    "stylelint-order": "^4.0.0",
+    "stylelint-scss": "^3.13.0"
+  }
+}

@@ -1,0 +1,3 @@
+{
+	"extends": "@trigen/stylelint-config/stylable"
+}

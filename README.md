@@ -62,6 +62,7 @@ yarn exec -- trigen-scripts lint
 | [`@trigen/browserslist-config`](packages/browserslist-config#readme) | [![NPM version][browserslist-config-npm]][browserslist-config-npm-url] | |
 | [`@trigen/babel-preset`](packages/babel-preset#readme) | [![NPM version][babel-preset-npm]][babel-preset-npm-url] | [![Dependencies status][babel-preset-deps]][babel-preset-deps-url] |
 | [`@trigen/eslint-config`](packages/eslint-config#readme) | [![NPM version][eslint-config-npm]][eslint-config-npm-url] | [![Dependencies status][eslint-config-deps]][eslint-config-deps-url] |
+| [`@trigen/stylelint-config`](packages/stylelint-config#readme) | [![NPM version][stylelint-config-npm]][stylelint-config-npm-url] | [![Dependencies status][stylelint-config-deps]][stylelint-config-deps-url] |
 | [`@trigen/scripts-plugin-eslint`](packages/scripts-plugin-eslint#readme) | [![NPM version][plugin-eslint-npm]][plugin-eslint-npm-url] | [![Dependencies status][plugin-eslint-deps]][plugin-eslint-deps-url] |
 | [`@trigen/scripts-plugin-babel`](packages/scripts-plugin-babel#readme) | [![NPM version][plugin-babel-npm]][plugin-babel-npm-url] | [![Dependencies status][plugin-babel-deps]][plugin-babel-deps-url] |
 | [`@trigen/scripts-plugin-typescript`](packages/scripts-plugin-typescript#readme) | [![NPM version][plugin-typescript-npm]][plugin-typescript-npm-url] | [![Dependencies status][plugin-typescript-deps]][plugin-typescript-deps-url] |
@@ -87,6 +88,12 @@ yarn exec -- trigen-scripts lint
 
 [eslint-config-deps]: https://david-dm.org/TrigenSoftware/scripts.svg?path=packages/eslint-config
 [eslint-config-deps-url]: https://david-dm.org/TrigenSoftware/scripts?path=packages/eslint-config
+
+[stylelint-config-npm]: https://img.shields.io/npm/v/%40trigen/stylelint-config.svg
+[stylelint-config-npm-url]: https://www.npmjs.com/package/@trigen/stylelint-config
+
+[stylelint-config-deps]: https://david-dm.org/TrigenSoftware/scripts.svg?path=packages/stylelint-config
+[stylelint-config-deps-url]: https://david-dm.org/TrigenSoftware/scripts?path=packages/stylelint-config
 
 [plugin-eslint-npm]: https://img.shields.io/npm/v/%40trigen/scripts-plugin-eslint.svg
 [plugin-eslint-npm-url]: https://www.npmjs.com/package/@trigen/scripts-plugin-eslint
