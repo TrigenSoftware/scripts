@@ -52,7 +52,7 @@
     "eslint-loader": "^4.0.0",
     "file-loader": "^6.0.0",
     "filter-chunk-webpack-plugin": "^2.1.0",
-    "fork-ts-checker-webpack-plugin": "^4.0.4",
+    "fork-ts-checker-webpack-plugin": "^6.1.0",
     "hmr-filter-webpack-plugin": "^1.0.0",
     "html-webpack-plugin": "^4.3.0",
     "html-webpack-skip-assets-plugin": "^0.0.2",
