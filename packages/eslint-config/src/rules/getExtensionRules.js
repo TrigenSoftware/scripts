@@ -6,9 +6,11 @@ const rules = {
 	...es6Rules
 };
 
-module.exports = extensionNames => extensionNames.reduce((extensionRules, name) => ({
-	...extensionRules,
-	[name]: 'off',
-	[`@typescript-eslint/${name}`]: rules[name]
-}), {});
-
+module.exports = (prefix, extensionNames) => extensionNames.reduce(
+	(extensionRules, name) => ({
+		...extensionRules,
+		[name]: 'off',
+		[`${prefix}/${name}`]: rules[name]
+	}),
+	{}
+);

@@ -3,6 +3,7 @@
  */
 
 const getExtensionRules = require('./getExtensionRules');
+const commonRules = require('./common').rules;
 
 module.exports = {
 	plugins: [
@@ -114,10 +115,9 @@ module.exports = {
 		'@typescript-eslint/unified-signatures': 'error',
 
 		// Extension
-		...getExtensionRules([
+		...getExtensionRules('@typescript-eslint', [
 			'brace-style',
 			'comma-spacing',
-			'default-param-last',
 			'func-call-spacing',
 			'indent',
 			'init-declarations',
@@ -139,6 +139,16 @@ module.exports = {
 		'no-dupe-class-members': 'off',
 		'@typescript-eslint/no-dupe-class-members': 'error',
 		'no-extra-semi': 'off',
-		'@typescript-eslint/no-extra-semi': 'error'
+		'@typescript-eslint/no-extra-semi': 'error',
+		// Extend rules
+		'indent': 'off',
+		'@typescript-eslint/indent': [
+			commonRules.indent[0],
+			commonRules.indent[1],
+			{
+				...commonRules.indent[2],
+				ignoredNodes: ['TSTypeParameterInstantiation', 'TSIntersectionType']
+			}
+		]
 	}
 };

@@ -3,6 +3,7 @@
  */
 
 module.exports = {
+	plugins: ['babel'],
 	rules: {
 		// Possible Errors
 		'no-console': ['warn', {
@@ -19,6 +20,12 @@ module.exports = {
 		'no-template-curly-in-string': 'error',
 		'no-useless-backreference': 'error',
 		'require-atomic-updates': 'error',
+		'valid-typeof': [
+			'error',
+			{
+				requireStringLiterals: true
+			}
+		],
 
 		// Best Practices
 		'array-callback-return': 'error',
@@ -27,7 +34,6 @@ module.exports = {
 		'curly': 'error',
 		'default-case': 'error',
 		'default-case-last': 'error',
-		'default-param-last': 'error',
 		'dot-location': ['error', 'property'],
 		'dot-notation': 'error',
 		'eqeqeq': 'error',
@@ -51,14 +57,11 @@ module.exports = {
 		'no-lone-blocks': 'error',
 		'no-loop-func': 'error',
 		'no-magic-numbers': ['error', {
-			ignore: [-1, 0, 1, 2, 100],
-			ignoreArrayIndexes: true
+			ignore: [-1, 0, .5, 1, 2, 100],
+			ignoreArrayIndexes: true,
+			detectObjects: false
 		}],
-		'no-multi-spaces': ['error', {
-			exceptions: {
-				Property: true
-			}
-		}],
+		'no-multi-spaces': 'error',
 		'no-multi-str': 'error',
 		'no-new': 'error',
 		'no-new-func': 'error',
@@ -187,6 +190,16 @@ module.exports = {
 			},
 			{
 				blankLine: 'always',
+				prev: '*',
+				next: 'block-like'
+			},
+			{
+				blankLine: 'always',
+				prev: '*',
+				next: ['const', 'let']
+			},
+			{
+				blankLine: 'always',
 				prev: ['const', 'let'],
 				next: '*'
 			},
@@ -204,11 +217,6 @@ module.exports = {
 				blankLine: 'never',
 				prev: ['cjs-import'],
 				next: ['cjs-import']
-			},
-			{
-				blankLine: 'always',
-				prev: '*',
-				next: 'block-like'
 			}
 		],
 		'prefer-object-spread': 'error',

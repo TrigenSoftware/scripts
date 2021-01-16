@@ -40,6 +40,7 @@ module.exports = {
 			allowArrowFunction: false,
 			allowAnonymousClass: false,
 			allowAnonymousFunction: false,
+			allowCallExpression: false,
 			allowLiteral: false,
 			allowObject: true
 		}],
@@ -96,7 +97,6 @@ module.exports = {
 		'rest-spread-spacing': ['error', 'never'],
 		'symbol-description': 'error',
 		'template-curly-spacing': 'error',
-		'yield-star-spacing': ['error', 'before'],
-		'prefer-reflect': 'error'
+		'yield-star-spacing': ['error', 'before']
 	}
 };
