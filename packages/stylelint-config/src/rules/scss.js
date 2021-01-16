@@ -3,6 +3,9 @@
  */
 
 const {
+	rules: commonRules
+} = require('./common');
+const {
 	camelCaseMatcher
 } = require('./cases');
 
@@ -16,12 +19,31 @@ module.exports = {
 		'scss/at-else-closing-brace-newline-after': 'always-last-in-chain',
 		'scss/at-else-closing-brace-space-after': 'always-intermediate',
 		'scss/at-else-empty-line-before': 'never',
+		'at-rule-empty-line-before': [
+			commonRules['at-rule-empty-line-before'][0],
+			{
+				...commonRules['at-rule-empty-line-before'][1],
+				ignoreAtRules: ['else']
+			}
+		],
 		'scss/at-else-if-parentheses-space-before': 'always',
 		'scss/at-extend-no-missing-placeholder': true,
 		'scss/at-function-parentheses-space-before': 'never',
 		'scss/at-function-pattern': camelCaseMatcher,
+		'function-name-case': [
+			commonRules['function-name-case'],
+			{
+				ignoreFunctions: [camelCaseMatcher]
+			}
+		],
 		'scss/at-if-closing-brace-newline-after': 'always-last-in-chain',
 		'scss/at-if-closing-brace-space-after': 'always-intermediate',
+		'block-closing-brace-newline-after': [
+			commonRules['block-closing-brace-newline-after'],
+			{
+				ignoreAtRules: ['if', 'else']
+			}
+		],
 		'scss/at-if-no-null': true,
 		'scss/at-import-no-partial-leading-underscore': true,
 		'scss/at-import-partial-extension': 'never',
@@ -30,7 +52,7 @@ module.exports = {
 		'scss/at-mixin-pattern': camelCaseMatcher,
 		'scss/at-rule-conditional-no-parentheses': true,
 		'at-rule-no-unknown': null,
-		'scss/at-rule-no-unknown': true,
+		'scss/at-rule-no-unknown': commonRules['at-rule-no-unknown'],
 		// $
 		'scss/dollar-variable-colon-newline-after': 'always-multi-line',
 		'scss/dollar-variable-colon-space-after': 'always-single-line',

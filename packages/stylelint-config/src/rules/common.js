@@ -72,7 +72,12 @@ module.exports = {
 		// Unit
 		'unit-no-unknown': true,
 		// Property
-		'property-no-unknown': true,
+		'property-no-unknown': [
+			true,
+			{
+				ignoreProperties: ['composes']
+			}
+		],
 		// Keyframe declaration
 		'keyframe-declaration-no-important': true,
 		// Declaration block
@@ -89,7 +94,12 @@ module.exports = {
 		// Media feature
 		'media-feature-name-no-unknown': true,
 		// At-rule
-		'at-rule-no-unknown': true,
+		'at-rule-no-unknown': [
+			true,
+			{
+				ignoreAtRules: ['value']
+			}
+		],
 		// Comment
 		'comment-no-empty': true,
 		// General / Sheet
@@ -255,9 +265,9 @@ module.exports = {
 		'media-feature-range-operator-space-after': 'always',
 		'media-feature-range-operator-space-before': 'always',
 		// Media query list
-		'media-query-list-comma-newline-after': 'never-multi-line',
+		'media-query-list-comma-newline-after': 'always-multi-line',
 		'media-query-list-comma-newline-before': 'never-multi-line',
-		'media-query-list-comma-space-after': 'always',
+		'media-query-list-comma-space-after': 'always-single-line',
 		'media-query-list-comma-space-before': 'never',
 		// At-rule
 		'at-rule-empty-line-before': ['always', {
@@ -266,7 +276,7 @@ module.exports = {
 		}],
 		'at-rule-name-case': 'lower',
 		'at-rule-name-newline-after': 'always-multi-line',
-		'at-rule-name-space-after': 'always',
+		'at-rule-name-space-after': 'always-single-line',
 		'at-rule-semicolon-newline-after': 'always',
 		'at-rule-semicolon-space-before': 'never',
 		// Comment

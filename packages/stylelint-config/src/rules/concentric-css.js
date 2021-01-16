@@ -4,6 +4,9 @@
  */
 
 module.exports = [
+	// CSS Modules
+	['composes'],
+
 	// `all` property
 	[
 		'all'
@@ -17,7 +20,6 @@ module.exports = [
 
 	// Placement
 	[
-		'composes',
 		'display',
 		'position',
 		'top',
