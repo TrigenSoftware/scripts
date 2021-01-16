@@ -20,7 +20,8 @@
   "scripts": {
     "lint": "eslint 'packages/*/src/**/*.{js,jsx,ts,tsx}' 'test/**/*.{js,jsx,ts,tsx}' --ignore-pattern 'test/unit/eslint/**/*'",
     "jest": "NODE_ENV=test jest -c jest.config.json",
-    "test": "yarn build && yarn jest && node test/integration/scripts.spec",
+    "test": "yarn build && yarn jest",
+    "test--disabled": "yarn build && yarn jest && node test/integration/scripts.spec",
     "build": "yarn lint && lerna run build",
     "publishAll": "yarn test && lerna publish --contents package"
   },

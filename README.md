@@ -158,3 +158,7 @@ yarn exec -- trigen-scripts lint
 ## Roadmap
 
 - [ ] Move to [`webpack-chain`](https://github.com/neutrinojs/webpack-chain)
+- [ ] Check hashes
+- [ ] Storybook theme
+- [ ] esModules in loaders
+- [ ] storyshots with parameters

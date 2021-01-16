@@ -38,7 +38,7 @@ describe('@trigen/eslint-config', () => {
 				ESLint.getErrorResults(results)
 			);
 
-			expect(messages.length).toBe(20);
+			expect(messages.length).toBe(19);
 		});
 	});
 
