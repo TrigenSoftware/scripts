@@ -19,7 +19,6 @@ function EmptyDecorator() {
 }
 
 export class TestMemberOrdering {
-
 	static method() {
 		console.info(this);
 	}

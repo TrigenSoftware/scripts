@@ -18,7 +18,6 @@ if (testConst === testLet) {
 }
 
 switch (testLet) {
-
 	case NOT_FOUND:
 		myTest();
 		break;

@@ -173,11 +173,7 @@ function base(params = {}) {
 				}]
 			}),
 			isFirstBuild && new ForkTsCheckerPlugin({
-				async: false,
-				reportFiles: [
-					'src/**/*.{ts,tsx}',
-					'!globals.d.ts'
-				]
+				async: false
 			})
 		].filter(Boolean)
 	});
