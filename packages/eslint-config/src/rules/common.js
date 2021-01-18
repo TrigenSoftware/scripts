@@ -176,6 +176,7 @@ module.exports = {
 				'=': 'after'
 			}
 		}],
+		'padded-blocks': ['error', 'never'],
 		'padding-line-between-statements': [
 			'error',
 			{

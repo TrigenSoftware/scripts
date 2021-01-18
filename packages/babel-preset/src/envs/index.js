@@ -5,7 +5,6 @@ const envs = [
 ];
 
 module.exports = (env) => {
-
 	const envOptions = envs.find(
 		envOptions => envOptions.env === env
 	);

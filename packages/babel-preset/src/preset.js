@@ -1,8 +1,9 @@
 function isCommonJS(api, defaults) {
-
-	const supportsStaticESM = api.caller(({
-		supportsStaticESM
-	}) => supportsStaticESM);
+	const supportsStaticESM = api.caller(
+		({
+			supportsStaticESM
+		}) => supportsStaticESM
+	);
 
 	return typeof supportsStaticESM === 'undefined'
 		? defaults
@@ -10,7 +11,6 @@ function isCommonJS(api, defaults) {
 }
 
 module.exports = (api, envOptions, options) => {
-
 	const {
 		targets,
 		useBuiltIns,
@@ -19,7 +19,6 @@ module.exports = (api, envOptions, options) => {
 		typescript,
 		react,
 		transformDynamicImport,
-		transformRuntime,
 		requireContextHook,
 		reactConstantElements,
 		reactRemovePropTypes: inputReactRemovePropTypes
@@ -31,7 +30,6 @@ module.exports = (api, envOptions, options) => {
 		typescript: false,
 		react: false,
 		transformDynamicImport: false,
-		transformRuntime: false,
 		requireContextHook: false,
 		reactConstantElements: {},
 		reactRemovePropTypes: {},
@@ -44,9 +42,9 @@ module.exports = (api, envOptions, options) => {
 		ignoreFilenames: ['node_modules'],
 		...inputReactRemovePropTypes
 	};
-	const presetEnvOptions = {};
-	const transformRuntimeOptions = {
-		useESModules: false
+	const presetEnvOptions = {
+		useBuiltIns,
+		corejs
 	};
 	const presets = [
 		['@babel/preset-env', presetEnvOptions]
@@ -65,22 +63,14 @@ module.exports = (api, envOptions, options) => {
 		'@babel/plugin-proposal-throw-expressions',
 		'@babel/plugin-proposal-export-default-from',
 		'@babel/plugin-proposal-async-generator-functions',
-		['@babel/plugin-transform-runtime', transformRuntimeOptions]
-	];
-
-	if (transformRuntime) {
-		transformRuntimeOptions.corejs = corejs;
-	} else {
-		presetEnvOptions.useBuiltIns = useBuiltIns;
-		presetEnvOptions.corejs = corejs;
-
-		plugins.push([
+		'@babel/plugin-transform-runtime',
+		[
 			'babel-plugin-transform-remove-imports',
 			{
 				test: /^regenerator-runtime\/runtime/
 			}
-		]);
-	}
+		]
+	];
 
 	if (targets) {
 		presetEnvOptions.targets = targets;
@@ -95,9 +85,7 @@ module.exports = (api, envOptions, options) => {
 	}
 
 	if (react) {
-
 		switch (process.env.NODE_ENV) {
-
 			case 'production':
 				presets.push('@babel/preset-react');
 				plugins.push(

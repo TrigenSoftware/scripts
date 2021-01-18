@@ -5,6 +5,5 @@ module.exports = {
 	},
 	commonjs: true,
 	transformDynamicImport: true,
-	transformRuntime: false,
 	requireContextHook: true
 };
