@@ -4,7 +4,6 @@ import resolve from 'resolve-cwd';
 
 export function getPlugins(plugins, prefix) {
 	return plugins.map((_) => {
-
 		let name = '';
 		let params = {};
 		let plugin = null;
@@ -28,7 +27,6 @@ export function getPlugins(plugins, prefix) {
 
 export function getPluginsDependencies(plugins, prefix) {
 	return plugins.map((_) => {
-
 		let name = '';
 		let pkg = null;
 

@@ -4,7 +4,6 @@ import {
 } from './notify';
 
 export function reporter(error, stats) {
-
 	if (error) {
 		notifyError(error);
 		console.error(error);
@@ -18,12 +17,10 @@ export function reporter(error, stats) {
 	})}\n`);
 
 	if (stats.hasErrors()) {
-
 		const error = new Error('Compilation has failed.');
 
 		notifyError(error);
 		process.exit(1);
-
 	} else {
 		notify('Compilation was done.');
 	}

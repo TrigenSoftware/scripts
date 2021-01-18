@@ -15,7 +15,6 @@ const scripts = {
 export default function getScripts(args, inputAllScripts, {
 	testSkipBuild = false
 } = {}) {
-
 	let allScripts = inputAllScripts;
 
 	allScripts = saveScripts(['start'], babel(args, allScripts), allScripts);

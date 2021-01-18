@@ -23,12 +23,11 @@ function runtimeGenerator({
 	symbol,
 	config
 }) {
-
 	const {
 		spriteModule,
 		symbolModule,
 		runtimeOptions,
-		esModule
+		esModule // ?
 	} = config;
 	const {
 		iconModule,

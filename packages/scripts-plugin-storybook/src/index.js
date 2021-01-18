@@ -40,7 +40,6 @@ const scripts = {
 export default function getScripts(args, allScripts, {
 	storybookConfigs: inputStorybookConfigs
 } = {}) {
-
 	const storybookConfigsArgs = getScriptArg(args, '-c', inputStorybookConfigs || storybookConfigs);
 	const storybookAutoConfigure = Boolean(!inputStorybookConfigs && storybookConfigsArgs.length);
 

@@ -36,7 +36,6 @@ addDecorator(withKnobs);
 addDecorator(withA11y);
 
 export function configure(module, inputStories) {
-
 	let stories = inputStories;
 
 	if (!stories) {

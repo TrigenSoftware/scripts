@@ -6,7 +6,6 @@ module.exports = configureStorybook;
 function configureStorybook({
 	config: storybookBaseConfig
 }) {
-
 	const projectRoot = process.cwd();
 	const pkg = JSON.parse(
 		fs.readFileSync(

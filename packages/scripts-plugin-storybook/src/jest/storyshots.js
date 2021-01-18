@@ -23,7 +23,6 @@ export function getMatchOptions({
 		story
 	}
 }) {
-
 	if (isCi) {
 		process.stdout.write(`📷  ${kind} ${story}\n`);
 	}
@@ -34,7 +33,6 @@ export function getMatchOptions({
 }
 
 export async function closeWebsockets(page) {
-
 	if (page._frameManager.networkManager()._userRequestInterceptionEnabled) {
 		return;
 	}
@@ -42,7 +40,6 @@ export async function closeWebsockets(page) {
 	await page.setRequestInterception(true);
 
 	page.on('request', (interceptedRequest) => {
-
 		const url = interceptedRequest.url();
 
 		if (url.includes('socket.io') || url.includes('__webpack_hmr')) {
@@ -55,7 +52,6 @@ export async function closeWebsockets(page) {
 }
 
 export default function init(options = {}, srcDir = false, url = false) {
-
 	process.env.PROJECT_SRC = srcDir || path.join(process.cwd(), 'src');
 
 	const finalOptions = {

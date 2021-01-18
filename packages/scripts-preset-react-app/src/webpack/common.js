@@ -2,7 +2,6 @@
 export const excludeAssets = [{
 	constructor: RegExp,
 	test(asset) {
-
 		if (/index\..*\.css$/.test(asset)) {
 			return false;
 		}

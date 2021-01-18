@@ -15,7 +15,6 @@ const shouldLeave = process.argv.includes('--leave');
 const noLock = process.argv.includes('--no-lock');
 
 try {
-
 	console.log(chalk.blue('\n> Cleaning...\n'));
 
 	del.sync([WEATHER_PATH]);
@@ -42,7 +41,6 @@ try {
 	}
 
 	try {
-
 		const currentVersion = execSync('git rev-parse --short HEAD', {
 			encoding: 'utf8',
 			cwd: WEATHER_PATH
@@ -59,7 +57,6 @@ try {
 				path.join(WEATHER_PATH, patch)
 			);
 		});
-
 	} catch (err) {
 		// ignore
 	}
@@ -93,9 +90,7 @@ try {
 		stdio: 'inherit',
 		cwd: WEATHER_PATH
 	});
-
 } finally {
-
 	if (!shouldLeave) {
 		console.log(chalk.blue('\n> Cleaning...\n'));
 		del.sync([WEATHER_PATH]);

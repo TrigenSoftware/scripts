@@ -14,9 +14,7 @@ const configFiles = [
 ];
 
 export default function getBabelConfig(browserslistEnv) {
-
 	const babelConfig = configFiles.reduce((babelConfig, filename) => {
-
 		if (babelConfig) {
 			return babelConfig;
 		}
@@ -24,7 +22,6 @@ export default function getBabelConfig(browserslistEnv) {
 		const configPath = path.join(process.cwd(), filename);
 
 		try {
-
 			if (/\.js/.test(filename)) {
 				return require(configPath);
 			}
@@ -38,7 +35,6 @@ export default function getBabelConfig(browserslistEnv) {
 	}, undefined) || {};
 
 	if (browserslistEnv && Array.isArray(babelConfig.presets)) {
-
 		const trigenPreset = babelConfig.presets.find(
 			([preset]) => preset === 'babel-preset-trigen'
 				|| preset === '@trigen/babel-preset'

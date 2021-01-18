@@ -23,7 +23,6 @@ interface IOutput {
 }
 
 export default abstract class Renderer {
-
 	protected buildDir = 'build';
 	protected indexHtml = 'index.html';
 	protected template = '';
@@ -37,7 +36,6 @@ export default abstract class Renderer {
 	}
 
 	protected async readTemplateFile() {
-
 		const {
 			buildDir,
 			indexHtml
@@ -48,7 +46,6 @@ export default abstract class Renderer {
 	}
 
 	protected async findPrecacheManifestFiles() {
-
 		const {
 			buildDir
 		} = this;
@@ -63,7 +60,6 @@ export default abstract class Renderer {
 	}
 
 	protected async writeAndInjectShellIntoPrecacheManifest(shellContent: string) {
-
 		const {
 			buildDir
 		} = this;
@@ -71,7 +67,6 @@ export default abstract class Renderer {
 		const precacheManifestFiles = await this.findPrecacheManifestFiles();
 
 		for (const precacheManifestFile of precacheManifestFiles) {
-
 			const precacheManifestPath = path.join(buildDir, precacheManifestFile);
 			const precacheManifestContent = await fs.readFile(precacheManifestPath, 'utf8');
 			const patchedPrecacheManifestContent = precacheManifestContent
@@ -97,7 +92,6 @@ export default abstract class Renderer {
 	}
 
 	private async writeOutputs() {
-
 		const {
 			buildDir,
 			output
@@ -108,7 +102,6 @@ export default abstract class Renderer {
 				path: outputPath,
 				content
 			}) => {
-
 				const dirname = path.dirname(outputPath);
 
 				await fs.mkdir(
@@ -129,7 +122,6 @@ export default abstract class Renderer {
 	protected abstract render(route: string): ReactElement|Promise<ReactElement>;
 
 	protected renderTemplate(jsx: ReactElement, _route?: string): string {
-
 		const {
 			template
 		} = this;
@@ -151,7 +143,6 @@ export default abstract class Renderer {
 	}
 
 	async renderRoutes(routes: string[]) {
-
 		const {
 			indexHtml
 		} = this;
@@ -159,7 +150,6 @@ export default abstract class Renderer {
 		await this.beforeRender();
 		await Promise.all(
 			routes.map(async (route) => {
-
 				const jsx = await this.render(route);
 				const html = this.renderTemplate(jsx, route);
 

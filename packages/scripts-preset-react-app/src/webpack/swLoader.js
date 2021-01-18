@@ -42,7 +42,6 @@ export function dev(config) {
 		plugins: {
 			$unshift: [
 				new HotModuleReplacementFilterPlugin((compilation) => {
-
 					const {
 						name
 					} = compilation.compiler;
@@ -57,7 +56,6 @@ export function dev(config) {
 export function build(config, {
 	browserslistEnv
 }) {
-
 	if (typeof browserslistEnv !== 'string') {
 		return config;
 	}

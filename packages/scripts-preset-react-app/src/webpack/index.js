@@ -50,7 +50,6 @@ const renderLoaders = loaders.map(_ => _.render);
 const ignoreWarnings = loaders.reduce((all, {
 	ignoreWarnings
 }) => {
-
 	if (ignoreWarnings) {
 		return all.concat(ignoreWarnings);
 	}
@@ -75,7 +74,6 @@ const preactAlias = {
 };
 
 function base(params = {}) {
-
 	const {
 		isFirstBuild = true,
 		envify = {},
@@ -101,9 +99,9 @@ function base(params = {}) {
 				'.es.js',
 				'.js',
 				'.jsx',
-				'.json',
 				'.ts',
-				'.tsx'
+				'.tsx',
+				'.json'
 			],
 			alias: {
 				'~': path.join(cwd, 'src/App'),
@@ -186,7 +184,6 @@ function base(params = {}) {
 }
 
 export function dev(params = {}) {
-
 	const {
 		preact
 	} = params;
@@ -224,7 +221,6 @@ export function dev(params = {}) {
 }
 
 export function build(params = {}) {
-
 	const config = base(params);
 	const {
 		isFirstBuild = true,
@@ -292,7 +288,6 @@ export function build(params = {}) {
 						},
 						use: {
 							$apply: (use) => {
-
 								const mutation = {
 									[findIndex('loader', 'babel-loader', use)]: {
 										options: {
@@ -334,7 +329,6 @@ export function build(params = {}) {
 							priority: 10,
 							enforce: true,
 							test(module) {
-
 								if (module.resource && !/\.(j|t)sx?$/.test(module.resource)) {
 									return false;
 								}
@@ -373,7 +367,6 @@ export function build(params = {}) {
 }
 
 export function render(params = {}) {
-
 	const config = base(params);
 
 	return applyReducers(renderLoaders, params, update(config, {
@@ -435,7 +428,6 @@ export function render(params = {}) {
 }
 
 export function dslBuild(params) {
-
 	const webpackBuildConfigs = [
 		...getBrowserslistEnvList(),
 		undefined

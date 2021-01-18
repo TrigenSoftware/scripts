@@ -2,9 +2,7 @@ import path from 'path';
 import del from 'del';
 
 export class CleanPlugin {
-
 	apply(compiler) {
-
 		const {
 			path: outputPath
 		} = compiler.options.output;

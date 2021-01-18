@@ -7,7 +7,6 @@ export function createDependenciesRegExp({
 	dependencies = [],
 	extensions = []
 } = {}) {
-
 	const dependencisPatterns = dependencies.map(
 		_ => escape(`node_modules/${_}`)
 	);

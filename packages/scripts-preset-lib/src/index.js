@@ -20,7 +20,6 @@ export default function getScripts(args, inputAllScripts, {
 	publish = false,
 	testSkipBuild = false
 } = {}) {
-
 	let allScripts = inputAllScripts;
 
 	allScripts = eslint(args, allScripts);

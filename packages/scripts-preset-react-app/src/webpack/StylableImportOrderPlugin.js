@@ -3,7 +3,6 @@ import {
 } from '@stylable/webpack-plugin';
 
 export class StylableImportOrderPlugin {
-
 	constructor({
 		fullControl = false
 	} = {}) {

@@ -10,7 +10,6 @@ export default function spawn({
 	args,
 	ignoreResult
 }) {
-
 	const cd = cwd
 		? path.join(process.cwd(), cwd)
 		: process.cwd();
@@ -33,7 +32,6 @@ export default function spawn({
 	}
 
 	switch (signal) {
-
 		case 'SIGKILL':
 		case 'SIGTERM':
 			console.error(

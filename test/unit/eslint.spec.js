@@ -12,13 +12,10 @@ function getMessages(errors) {
 }
 
 describe('@trigen/eslint-config', () => {
-
 	const eslint = new ESLint();
 
 	describe('javascript', () => {
-
 		it('should validate', async () => {
-
 			const results = await eslint.lintFiles([
 				join(__dirname, 'eslint', 'javascript', 'valid.js')
 			]);
@@ -30,7 +27,6 @@ describe('@trigen/eslint-config', () => {
 		});
 
 		it('should invalidate', async () => {
-
 			const results = await eslint.lintFiles([
 				join(__dirname, 'eslint', 'javascript', 'invalid.js')
 			]);
@@ -43,9 +39,7 @@ describe('@trigen/eslint-config', () => {
 	});
 
 	describe('commonjs', () => {
-
 		it('should validate', async () => {
-
 			const results = await eslint.lintFiles([
 				join(__dirname, 'eslint', 'commonjs', 'valid.js')
 			]);
@@ -58,9 +52,7 @@ describe('@trigen/eslint-config', () => {
 	});
 
 	describe('typescript', () => {
-
 		it('should validate', async () => {
-
 			const results = await eslint.lintFiles([
 				join(__dirname, 'eslint', 'typescript', 'valid.ts')
 			]);
@@ -72,7 +64,6 @@ describe('@trigen/eslint-config', () => {
 		});
 
 		it('should invalidate', async () => {
-
 			const results = await eslint.lintFiles([
 				join(__dirname, 'eslint', 'typescript', 'invalid.ts')
 			]);

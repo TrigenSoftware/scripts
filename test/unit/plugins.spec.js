@@ -15,11 +15,8 @@ const plugins = fs.readdirSync(packages).filter(
 );
 
 describe('@trigen/scripts-*', () => {
-
 	plugins.forEach((_) => {
-
 		it(`${_} should return correct scripts object`, () => {
-
 			// eslint-disable-next-line import/no-dynamic-require
 			const scripts = require(path.join(packages, _, 'src', 'index.js')).default([], {});
 
@@ -34,7 +31,6 @@ describe('@trigen/scripts-*', () => {
 	});
 
 	it('`scripts-preset-lib` should add cwd to publish subdir', () => {
-
 		let scripts = lib([], {});
 
 		expect(scripts.cleanPublish).toEqual([

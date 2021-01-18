@@ -4,7 +4,6 @@ import * as webpackConfig from '../webpack';
 module.exports = configureStorybook;
 
 function configureStorybook(input) {
-
 	const storybookBaseConfig = configure(input);
 	const webpackSbConfig = input.mode === 'PRODUCTION'
 		? webpackConfig.build()
@@ -20,11 +19,9 @@ function configureStorybook(input) {
 
 	storybookBaseConfig.module.rules = [
 		...storybookBaseConfig.module.rules.filter((rule) => {
-
 			const test = String(rule.test);
 
 			switch (true) {
-
 				case /svg/.test(test):
 					return false;
 
@@ -41,9 +38,7 @@ function configureStorybook(input) {
 
 	storybookBaseConfig.plugins.push(
 		...webpackSbConfig.plugins.filter((plugin) => {
-
 			switch (plugin.constructor.name) {
-
 				case 'HashedModuleIdsPlugin':
 				case 'HtmlWebpackPlugin':
 				case 'ScriptExtHtmlWebpackPlugin':

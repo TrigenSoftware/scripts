@@ -8,13 +8,9 @@ import {
 } from '../../packages/scripts-plugin-rollup/src/helpers';
 
 describe('@trigen/scripts', () => {
-
 	describe('helpers', () => {
-
 		describe('getScriptArg', () => {
-
 			it('should return param', () => {
-
 				expect(
 					getScriptArg([], 0, 'test')
 				).toEqual(
@@ -29,7 +25,6 @@ describe('@trigen/scripts', () => {
 			});
 
 			it('shouldn\'t return param', () => {
-
 				expect(
 					getScriptArg(['param'], 0, 'test')
 				).toEqual(
@@ -44,7 +39,6 @@ describe('@trigen/scripts', () => {
 			});
 
 			it('should return flag', () => {
-
 				expect(
 					getScriptArg([], '--flag', 'test')
 				).toEqual(
@@ -59,7 +53,6 @@ describe('@trigen/scripts', () => {
 			});
 
 			it('shouldn\'t return flag', () => {
-
 				expect(
 					getScriptArg(['--flag'], '--flag', 'test')
 				).toEqual(
@@ -69,9 +62,7 @@ describe('@trigen/scripts', () => {
 		});
 
 		describe('addScripts', () => {
-
 			it('should add to `undefined`', () => {
-
 				expect(
 					addScripts(undefined, 'script')
 				).toEqual(
@@ -92,7 +83,6 @@ describe('@trigen/scripts', () => {
 			});
 
 			it('should add to item', () => {
-
 				expect(
 					addScripts('item', 'script')
 				).toEqual(
@@ -113,7 +103,6 @@ describe('@trigen/scripts', () => {
 			});
 
 			it('should add to items', () => {
-
 				expect(
 					addScripts(['item'], 'script')
 				).toEqual(
@@ -134,7 +123,6 @@ describe('@trigen/scripts', () => {
 			});
 
 			it('should not add existing item', () => {
-
 				expect(
 					addScripts(['item'], 'item')
 				).toEqual(
@@ -143,7 +131,6 @@ describe('@trigen/scripts', () => {
 			});
 
 			it('should filter scripts', () => {
-
 				expect(
 					addScripts(null, 'script', {})
 				).toEqual(
@@ -166,7 +153,6 @@ describe('@trigen/scripts', () => {
 			});
 
 			it('should unshift', () => {
-
 				expect(
 					addScripts('item', 'script', null, true)
 				).toEqual(
@@ -188,9 +174,7 @@ describe('@trigen/scripts', () => {
 		});
 
 		describe('saveScripts', () => {
-
 			it('should save scripts', () => {
-
 				const scripts = saveScripts(['start', 'build'], {
 					start: 'nextStart',
 					build: 'nextBuild'
@@ -208,13 +192,9 @@ describe('@trigen/scripts', () => {
 });
 
 describe('@trigen/scripts-plugin-rollup', () => {
-
 	describe('helpers', () => {
-
 		describe('external', () => {
-
 			it('should use dependencies', () => {
-
 				const fn = external({
 					dependencies: {
 						react: 1
@@ -235,7 +215,6 @@ describe('@trigen/scripts-plugin-rollup', () => {
 			});
 
 			it('should use peerDependencies', () => {
-
 				const fn = external({
 					dependencies: {
 						react: 1
@@ -259,7 +238,6 @@ describe('@trigen/scripts-plugin-rollup', () => {
 			});
 
 			it('should exclude internals', () => {
-
 				const fn = external({
 					dependencies: {
 						react: 1

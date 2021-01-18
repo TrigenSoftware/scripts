@@ -1,6 +1,5 @@
 
 export function external(pkg, useInternals) {
-
 	const dependencies = [];
 
 	if (useInternals) {

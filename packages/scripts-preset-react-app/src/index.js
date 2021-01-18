@@ -64,7 +64,6 @@ export default function getScripts(args, inputAllScripts, {
 	bdsl = {},
 	preact = false
 } = {}) {
-
 	const storybookConfigsArgs = getScriptArg(args, '-c', storybookConfigs);
 	const storybookAutoConfigure = Boolean(storybookConfigsArgs.length);
 	let allScripts = inputAllScripts;

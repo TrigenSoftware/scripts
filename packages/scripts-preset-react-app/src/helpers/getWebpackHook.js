@@ -27,7 +27,6 @@ babelRegister({
 });
 
 export function getWebpackHook() {
-
 	try {
 		return {
 			...emptyHook,

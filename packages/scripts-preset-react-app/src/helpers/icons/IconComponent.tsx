@@ -23,7 +23,6 @@ export function setIconClassName(className: string) {
 }
 
 export default class Icon extends PureComponent<IProps> {
-
 	static propTypes = {
 		'className': PropTypes.string,
 		'style': PropTypes.object,
@@ -47,7 +46,6 @@ export default class Icon extends PureComponent<IProps> {
 	} : null;
 
 	render() {
-
 		const {
 			className,
 			style,
@@ -95,7 +93,6 @@ export default class Icon extends PureComponent<IProps> {
 	}
 
 	componentDidMount() {
-
 		if (shoudlPrepandPathname) {
 			this.setHref();
 			this.hrefListenerRemover = addHrefListener(
@@ -105,7 +102,6 @@ export default class Icon extends PureComponent<IProps> {
 	}
 
 	componentWillUnmount() {
-
 		const {
 			hrefListenerRemover
 		} = this;
@@ -119,7 +115,6 @@ export default class Icon extends PureComponent<IProps> {
 
 	// https://gist.github.com/leonderijke/c5cf7c5b2e424c0061d2
 	private getPathname() {
-
 		if (shoudlPrepandPathname) {
 			return `${location.pathname}${location.search}`;
 		}
@@ -128,7 +123,6 @@ export default class Icon extends PureComponent<IProps> {
 	}
 
 	private getHref() {
-
 		const {
 			glyph
 		} = this.props;
@@ -137,13 +131,11 @@ export default class Icon extends PureComponent<IProps> {
 	}
 
 	private setHref() {
-
 		const {
 			useRef
 		} = this;
 
 		if (useRef) {
-
 			const href = this.getHref();
 
 			useRef.setAttribute('xlink:href', href);
@@ -164,18 +156,15 @@ function addHrefListener(listener) {
 }
 
 if (shoudlPrepandPathname) {
-
 	const hrefListenerTimeout = 1500;
 	let prevHref = location.href;
 
 	setInterval(() => {
-
 		if (prevHref !== location.href) {
 			prevHref = location.href;
 			hrefListeners.forEach((listener) => {
 				listener();
 			});
 		}
-
 	}, hrefListenerTimeout);
 }

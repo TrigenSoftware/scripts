@@ -21,13 +21,10 @@ function deleteRC() {
 }
 
 describe('@trigen/scripts', () => {
-
 	afterAll(deleteRC);
 
 	describe('getScripts', () => {
-
 		it('should get scripts by rc file', () => {
-
 			writeRC([
 				'plugin-eslint'
 			]);
@@ -50,7 +47,6 @@ describe('@trigen/scripts', () => {
 		});
 
 		it('should pass args', () => {
-
 			let result = getScripts(
 				['packages/*/src/**/*.js'],
 				{
@@ -85,7 +81,6 @@ describe('@trigen/scripts', () => {
 		});
 
 		it('should combine plugins', () => {
-
 			writeRC([
 				'plugin-eslint',
 				'plugin-typescript'
@@ -108,7 +103,6 @@ describe('@trigen/scripts', () => {
 		});
 
 		it('should combine plugins and preset', () => {
-
 			writeRC([
 				'plugin-typescript',
 				'plugin-rollup',
@@ -130,7 +124,6 @@ describe('@trigen/scripts', () => {
 		});
 
 		it('should save scripts from plugin', () => {
-
 			writeRC([
 				'preset-node-app'
 			]);
@@ -162,7 +155,6 @@ describe('@trigen/scripts', () => {
 		});
 
 		it('should check scripts', () => {
-
 			writeRC([
 				'preset-lib'
 			]);

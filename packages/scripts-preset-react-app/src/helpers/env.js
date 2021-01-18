@@ -1,6 +1,5 @@
 
 export function getConfigFromEnv(name, defaultsOrMutator) {
-
 	const envConfig = JSON.parse(process.env[name] || '{}');
 
 	if (typeof defaultsOrMutator === 'function') {
@@ -14,7 +13,6 @@ export function getConfigFromEnv(name, defaultsOrMutator) {
 }
 
 export function getParamFromEnv(name, defaults) {
-
 	try {
 		return JSON.parse(process.env[name]);
 	} catch (err) {

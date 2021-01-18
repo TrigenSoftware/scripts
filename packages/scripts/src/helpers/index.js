@@ -2,9 +2,7 @@
 export const FILL_ME = [/* FILL ME */];
 
 export function getScriptArg(args, arg, value) {
-
 	if (typeof arg === 'number') {
-
 		if (arg >= args.length || args[arg][0] === '-') {
 			return [value];
 		}
@@ -19,7 +17,6 @@ export function getScriptArg(args, arg, value) {
 }
 
 export function addScripts(items, add, scripts, unshift) {
-
 	let addList = Array.isArray(add)
 		? add.slice()
 		: [add];
@@ -41,9 +38,7 @@ export function addScripts(items, add, scripts, unshift) {
 	}
 
 	addList.forEach((add) => {
-
 		if (!itemsList.includes(add)) {
-
 			if (unshift) {
 				itemsList.unshift(add);
 			} else {
@@ -57,7 +52,6 @@ export function addScripts(items, add, scripts, unshift) {
 
 export function saveScripts(scriptNames, nextScripts, prevScripts) {
 	return scriptNames.reduce((scripts, name) => {
-
 		if (prevScripts[name]) {
 			return {
 				...scripts,

@@ -22,7 +22,6 @@ function humanize(script) {
 }
 
 function run(script, ignoreTitle) {
-
 	const command = scripts[script] || script;
 
 	if (!ignoreTitle
@@ -37,7 +36,6 @@ function run(script, ignoreTitle) {
 	}
 
 	if (Array.isArray(command)) {
-
 		const onlyOneCommand = command.length <= 1;
 
 		command.forEach(_ => run(_, onlyOneCommand));
@@ -50,7 +48,6 @@ function run(script, ignoreTitle) {
 	}
 
 	if (!command) {
-
 		if (typeof script === 'string') {
 			throw new Error(`Unknown script "${script}"`);
 		}
@@ -66,7 +63,6 @@ function run(script, ignoreTitle) {
 }
 
 if (exec === 'eject') {
-
 	try {
 		run(exec);
 	} catch (err) {
@@ -74,7 +70,6 @@ if (exec === 'eject') {
 	}
 
 	eject(scripts);
-
 } else
 if (scripts[exec]) {
 	run(exec);

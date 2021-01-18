@@ -24,7 +24,6 @@ archive.directory(dir, false);
 archive.finalize();
 
 async function sendToEthereal() {
-
 	const testAccount = await nodemailer.createTestAccount();
 	const transporter = nodemailer.createTransport({
 		host: 'smtp.ethereal.email',
@@ -47,7 +46,6 @@ async function sendToEthereal() {
 }
 
 function sendToFileio() {
-
 	const form = new FormData();
 
 	form.append('file', archive, {
@@ -59,12 +57,10 @@ function sendToFileio() {
 		method: 'POST',
 		headers: form.getHeaders()
 	}, (response) => {
-
 		const chunks = [];
 
 		response.on('data', _ => chunks.push(_));
 		response.on('end', () => {
-
 			const result = JSON.parse(Buffer.concat(chunks).toString());
 
 			console.log('Artifacts: %s', result.link);

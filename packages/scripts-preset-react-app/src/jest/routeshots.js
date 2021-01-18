@@ -34,7 +34,6 @@ const defaultConfig = {
 };
 
 export default function initRouteshots(routes, customConfig = {}) {
-
 	const server = start('start');
 	const {
 		url,
@@ -64,9 +63,7 @@ export default function initRouteshots(routes, customConfig = {}) {
 	let page = null; // Hold ref to the page to screenshot.
 
 	describe('Routeshots', () => {
-
 		beforeAll(async () => {
-
 			await server.wait();
 
 			if (getCustomBrowser) {
@@ -81,7 +78,6 @@ export default function initRouteshots(routes, customConfig = {}) {
 		});
 
 		afterAll(() => {
-
 			server.kill();
 
 			if (getCustomBrowser && page) {
@@ -92,9 +88,7 @@ export default function initRouteshots(routes, customConfig = {}) {
 		});
 
 		routes.forEach((route) => {
-
 			it(route, async () => {
-
 				if (!browser || !page) {
 					throw new Error('no-headless-browser-running');
 				}

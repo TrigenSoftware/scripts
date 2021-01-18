@@ -21,7 +21,6 @@ const STYLABLE_OPTIMIZE = Boolean(process.env.STYLABLE_OPTIMIZE);
 const stylableOptimizer = new StylableOptimizer();
 
 function createPostProcessor(browserslistEnv) {
-
 	const stylesProcessor = postcss(
 		getPostcssConfig(browserslistEnv)
 	);
@@ -88,7 +87,6 @@ export function build(config, {
 	isFirstBuild = true,
 	browserslistEnv
 }) {
-
 	const filenameTemplate = pasteBrowserslistEnv('[name].[env].[hash:10].css', browserslistEnv);
 
 	return update(config, {

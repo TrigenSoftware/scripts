@@ -6,7 +6,6 @@ import {
 } from './scripts';
 
 export default async function eject(scripts) {
-
 	try {
 		await fs.mkdir('scripts');
 	} catch (err) {
@@ -14,7 +13,6 @@ export default async function eject(scripts) {
 	}
 
 	const tasks = Object.entries(scripts).map(async ([name, script]) => {
-
 		if (name === 'eject') {
 			return;
 		}
@@ -31,7 +29,6 @@ export default async function eject(scripts) {
 }
 
 async function ejectPackages() {
-
 	const pluginsDependencies = getDependencies();
 	const pkg = JSON.parse(await fs.readFile('package.json'));
 	const {
@@ -39,11 +36,9 @@ async function ejectPackages() {
 	} = pkg;
 
 	for (const scriptName in scripts) {
-
 		const cmd = scripts[scriptName];
 
 		if (cmd.startsWith('trigen-scripts')) {
-
 			const [
 				,
 				script,
@@ -104,7 +99,6 @@ function scriptToRunScript(script) {
 }
 
 function scriptToString(script) {
-
 	if (Array.isArray(script)) {
 		return script.map(scriptToString).join('\n');
 	}
