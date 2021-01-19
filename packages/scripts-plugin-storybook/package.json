@@ -39,7 +39,7 @@
     "babel-plugin-require-context-hook": "^1.0.0",
     "core-js": "^3.8.2",
     "env-ci": "^5.0.2",
-    "react-test-renderer": "^16.9.0"
+    "react-test-renderer": "^17.0.1"
   },
   "publishConfig": {
     "access": "public"
