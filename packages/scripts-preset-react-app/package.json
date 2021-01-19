@@ -32,7 +32,7 @@
     "@flexis/srcset-loader": "^3.3.1",
     "@flexis/workbox-webpack-plugin": "^1.2.1",
     "@stylable/core": "^2.1.4",
-    "@stylable/webpack-plugin": "^2.1.7",
+    "@stylable/webpack-plugin": "^3.11.13",
     "@trigen/browserslist-config": "file:../browserslist-config",
     "@trigen/scripts": "file:../scripts",
     "@trigen/scripts-plugin-babel": "file:../scripts-plugin-babel",
