@@ -58,9 +58,9 @@
     "husky": "^4.0.9",
     "jest": "^26.6.3",
     "lerna": "^3.13.3",
-    "lerna-update-wizard": "^0.17.7",
     "lint-staged": "^10.0.0",
     "react": "^16.8.6",
+    "stylelint": "^13.9.0",
     "typescript": "3.9.5"
   }
 }
