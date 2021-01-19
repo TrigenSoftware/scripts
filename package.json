@@ -15,7 +15,7 @@
     "trigen-scripts": "./index.js"
   },
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=12.0.0"
   },
   "scripts": {
     "lint": "eslint 'packages/*/src/**/*.{js,jsx,ts,tsx}' 'test/**/*.{js,jsx,ts,tsx}' --ignore-pattern 'test/unit/eslint/**/*'",

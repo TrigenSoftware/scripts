@@ -12,7 +12,7 @@
     "url": "https://github.com/TrigenSoftware/scripts/issues"
   },
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=12.0.0"
   },
   "scripts": {
     "build": "../../scripts/buildPackage.sh",
