@@ -4355,7 +4355,7 @@
     loader-utils "^1.2.3"
 
 "@trigen/babel-preset@file:packages/babel-preset":
-  version "7.0.2"
+  version "7.1.0"
   dependencies:
     "@babel/helper-plugin-utils" "^7.8.3"
     "@babel/plugin-proposal-async-generator-functions" "^7.8.3"
@@ -4381,10 +4381,10 @@
     babel-plugin-transform-remove-imports "^1.5.2"
 
 "@trigen/browserslist-config@file:packages/browserslist-config":
-  version "7.0.2"
+  version "7.1.0"
 
 "@trigen/eslint-config@file:packages/eslint-config":
-  version "7.0.6"
+  version "7.3.4"
   dependencies:
     "@babel/eslint-parser" "^7.12.1"
     "@typescript-eslint/eslint-plugin" "^4.13.0"
@@ -4398,7 +4398,7 @@
     eslint-plugin-react-hooks "^4.0.4"
 
 "@trigen/scripts-plugin-babel@file:packages/scripts-plugin-babel":
-  version "7.0.2"
+  version "7.3.1"
   dependencies:
     "@babel/cli" "^7.2.3"
     "@babel/core" "^7.4.0"
@@ -4409,7 +4409,7 @@
     core-js "^3.8.2"
 
 "@trigen/scripts-plugin-eslint@file:packages/scripts-plugin-eslint":
-  version "7.0.6"
+  version "7.3.4"
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@trigen/eslint-config" "file:packages/eslint-config"
@@ -4418,7 +4418,7 @@
     eslint "^7.0.0"
 
 "@trigen/scripts-plugin-jest@file:packages/scripts-plugin-jest":
-  version "7.0.2"
+  version "7.3.1"
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@trigen/babel-preset" "file:packages/babel-preset"
@@ -4432,7 +4432,7 @@
     nodemailer "^6.3.0"
 
 "@trigen/scripts-plugin-rollup@file:packages/scripts-plugin-rollup":
-  version "7.0.2"
+  version "7.1.0"
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@rollup/plugin-babel" "^5.0.2"
@@ -4442,7 +4442,7 @@
     rollup "^2.6.1"
 
 "@trigen/scripts-plugin-size-limit@file:packages/scripts-plugin-size-limit":
-  version "7.0.2"
+  version "7.3.1"
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@trigen/scripts" "file:packages/scripts"
@@ -4450,7 +4450,7 @@
     size-limit "^4.1.1"
 
 "@trigen/scripts-plugin-storybook@file:packages/scripts-plugin-storybook":
-  version "7.0.3"
+  version "7.3.1"
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@storybook/addon-a11y" "^6.1.14"
@@ -4471,7 +4471,7 @@
     react-test-renderer "^17.0.1"
 
 "@trigen/scripts-plugin-typescript@file:packages/scripts-plugin-typescript":
-  version "7.0.2"
+  version "7.3.2"
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@trigen/scripts" "file:packages/scripts"
@@ -4482,7 +4482,7 @@
     typescript "4.1.3"
 
 "@trigen/scripts-preset-lib@file:packages/scripts-preset-lib":
-  version "7.0.6"
+  version "7.3.4"
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@trigen/browserslist-config" "file:packages/browserslist-config"
@@ -4495,7 +4495,7 @@
     lint-staged "^10.0.0"
 
 "@trigen/scripts-preset-node-app@file:packages/scripts-preset-node-app":
-  version "7.0.6"
+  version "7.3.4"
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@trigen/browserslist-config" "file:packages/browserslist-config"
@@ -4509,7 +4509,7 @@
     lint-staged "^10.0.0"
 
 "@trigen/scripts-preset-react-app@file:packages/scripts-preset-react-app":
-  version "7.0.6"
+  version "7.3.4"
   dependencies:
     "@babel/register" "^7.4.0"
     "@babel/runtime" "^7.12.5"
@@ -4569,7 +4569,7 @@
     webpack-node-externals "^2.5.2"
 
 "@trigen/scripts@file:packages/scripts":
-  version "7.0.2"
+  version "7.3.1"
   dependencies:
     "@babel/runtime" "^7.12.5"
     chalk "^4.0.0"
@@ -4579,7 +4579,7 @@
     resolve-cwd "^3.0.0"
 
 "@trigen/stylelint-config@file:packages/stylelint-config":
-  version "7.0.2"
+  version "7.1.0"
   dependencies:
     stylelint-a11y "^1.2.0"
     stylelint-csstree-validator "^1.3.0"
@@ -17877,9 +17877,9 @@ querystring@0.2.0, querystring@^0.2.0:
   integrity sha1-sgmEkgO7Jd+CDadW50cAWHhSFiA=
 
 querystringify@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/querystringify/-/querystringify-2.1.1.tgz#60e5a5fd64a7f8bfa4d2ab2ed6fdf4c85bad154e"
-  integrity sha512-w7fLxIRCRT7U8Qu53jQnJyPkYZIaR4n5151KMfcJlO/A9397Wxb1amJvROTK6TOnp7PfoAmg/qXiNHI+08jRfA==
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/querystringify/-/querystringify-2.2.0.tgz#3345941b4153cb9d082d8eee4cda2016a9aef7f6"
+  integrity sha512-FIqgj2EUvTa7R50u0rGsyTftzjYmv/a3hO345bZNrqabNqjtgiDMgmo4mkUjd+nzU5oF3dClKqFIPUKybUyqoQ==
 
 quick-lru@^1.0.0:
   version "1.1.0"
@@ -21972,9 +21972,9 @@ url-parse-lax@^3.0.0:
     prepend-http "^2.0.0"
 
 url-parse@^1.4.3:
-  version "1.4.7"
-  resolved "https://registry.yarnpkg.com/url-parse/-/url-parse-1.4.7.tgz#a8a83535e8c00a316e403a5db4ac1b9b853ae278"
-  integrity sha512-d3uaVyzDB9tQoSXFvuSUNFibTd9zxd2bkVrDRvF5TmvWWQwqE4lgYJ5m+x1DbecWkw+LK4RNl2CU1hHuOKPVlg==
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/url-parse/-/url-parse-1.5.1.tgz#d5fa9890af8a5e1f274a2c98376510f6425f6e3b"
+  integrity sha512-HOfCOUJt7iSYzEx/UqgtwKRMC6EU91NFhsCHMv9oM03VJcVo2Qrp8T8kI9D7amFf1cu+/3CEhgb3rF9zL7k85Q==
   dependencies:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
