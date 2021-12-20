@@ -2,7 +2,6 @@
 
 [![NPM version][npm]][npm-url]
 [![Node version][node]][node-url]
-[![Peer dependencies status][peer-deps]][peer-deps-url]
 [![Dependencies status][deps]][deps-url]
 [![Build status][build]][build-url]
 
@@ -11,9 +10,6 @@
 
 [node]: https://img.shields.io/node/v/%40trigen/eslint-config.svg
 [node-url]: https://nodejs.org
-
-[peer-deps]: https://david-dm.org/TrigenSoftware/scripts/peer-status.svg?path=packages/eslint-config
-[peer-deps-url]: https://david-dm.org/TrigenSoftware/scripts?type=peer&path=packages/eslint-config
 
 [deps]: https://img.shields.io/librariesio/release/npm/@trigen/eslint-config
 [deps-url]: https://libraries.io/npm/@trigen%2Feslint-config/tree

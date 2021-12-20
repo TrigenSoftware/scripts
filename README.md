@@ -92,7 +92,6 @@ yarn exec -- trigen-scripts test
 [babel-preset-deps]: https://img.shields.io/librariesio/release/npm/@trigen/babel-preset
 [babel-preset-deps-url]: https://libraries.io/npm/@trigen%2Fbabel-preset/tree
 
-
 <!-- browserslist-config -->
 
 [browserslist-config-npm]: https://img.shields.io/npm/v/%40trigen/browserslist-config.svg
