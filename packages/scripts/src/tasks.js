@@ -15,6 +15,7 @@ export function sh(...args) {
   return async (/** @type {IScriptTaskContext} */ ctx = {}, $spawn = spawn) => {
     const { stdio = true } = ctx
     const env = {
+      FORCE_COLOR: true,
       ...process.env
     }
     const options = {
