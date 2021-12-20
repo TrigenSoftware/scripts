@@ -9622,14 +9622,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nano-staged@npm:^0.4.5":
-  version: 0.4.5
-  resolution: "nano-staged@npm:0.4.5"
+"nano-staged@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "nano-staged@npm:0.5.0"
   dependencies:
     picocolors: ^1.0.0
   bin:
     nano-staged: lib/bin.js
-  checksum: 277273941fd407492c54b17658506893bcafbd13b6aba2b36a76bc0422f0bef0ebdef3e5c882536b0668a1b827388e020c988569584826742686b3dc9612f42f
+  checksum: 452a73347ddc72226293536a00ce03c9335541f484c99c382506f2daf919ea476d22902887ff3fa315944983f245b8f8c6defe7a26b363d673b374ce032c2e44
   languageName: node
   linkType: hard
 
@@ -11476,7 +11476,7 @@ __metadata:
     jest: ^27.4.5
     jest-diff: ^27.2.4
     lerna: ^4.0.0
-    nano-staged: ^0.4.5
+    nano-staged: ^0.5.0
     simple-git-hooks: ^2.7.0
     standard-version: ^9.3.2
     typescript: ^4.4.3
