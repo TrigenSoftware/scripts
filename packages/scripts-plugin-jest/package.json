@@ -1,0 +1,32 @@
+{
+  "name": "@trigen/scripts-plugin-jest",
+  "type": "module",
+  "version": "8.0.0",
+  "description": "Jest scripts.",
+  "author": "dangreen",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TrigenSoftware/scripts.git",
+    "directory": "packages/scripts-plugin-jest"
+  },
+  "bugs": {
+    "url": "https://github.com/TrigenSoftware/scripts/issues"
+  },
+  "main": "./src/index.js",
+  "exports": {
+    "import": {
+      "default": "./src/index.js"
+    }
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "dependencies": {
+    "@trigen/scripts": "^8.0.0",
+    "jest": "^27.2.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

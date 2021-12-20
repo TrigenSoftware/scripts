@@ -1,0 +1,56 @@
+{
+  "name": "scripts",
+  "type": "module",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Scripts and configs for TrigenSoftware's projects.",
+  "author": "dangreen",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TrigenSoftware/scripts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TrigenSoftware/scripts/issues"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "scripts": {
+    "diff": "trigen-scripts diff",
+    "lint": "trigen-scripts lint",
+    "jest": "trigen-scripts jest",
+    "test": "trigen-scripts test",
+    "clean": "trigen-scripts clean",
+    "commit": "cz",
+    "release": "standard-version",
+    "enableGitHooks": "simple-git-hooks"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "@commitlint/config-lerna-scopes": "^15.0.0",
+    "@commitlint/cz-commitlint": "^15.0.0",
+    "@swc/core": "^1.2.119",
+    "@swc/jest": "^0.2.14",
+    "@trigen/browserslist-config": "workspace:packages/browserslist-config",
+    "@trigen/scripts": "workspace:packages/scripts",
+    "@trigen/scripts-plugin-eslint": "workspace:packages/scripts-plugin-eslint",
+    "@trigen/scripts-plugin-jest": "workspace:packages/scripts-plugin-jest",
+    "clean-publish": "^3.4.0",
+    "commitizen": "^4.2.4",
+    "eslint": "^7.32.0",
+    "jest": "^27.4.5",
+    "jest-diff": "^27.2.4",
+    "lerna": "^4.0.0",
+    "nano-staged": "^0.4.5",
+    "simple-git-hooks": "^2.7.0",
+    "standard-version": "^9.3.2",
+    "typescript": "^4.4.3"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "packageManager": "yarn@3.1.1"
+}

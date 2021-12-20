@@ -1,0 +1,34 @@
+{
+  "name": "@trigen/scripts-plugin-rollup",
+  "type": "module",
+  "version": "8.0.0",
+  "description": "Rollup scripts.",
+  "author": "dangreen",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TrigenSoftware/scripts.git",
+    "directory": "packages/scripts-plugin-rollup"
+  },
+  "bugs": {
+    "url": "https://github.com/TrigenSoftware/scripts/issues"
+  },
+  "main": "./src/index.js",
+  "exports": {
+    ".": {
+      "import": {
+        "development": "./src/index.js",
+        "default": "./src/index.js"
+      }
+    }
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "dependencies": {
+    "rollup": "^2.58.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

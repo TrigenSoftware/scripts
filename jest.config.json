@@ -1,0 +1,22 @@
+{
+  "testEnvironment": "node",
+  "testRegex": "packages/.*\\.spec\\.(jsx?|tsx?)$",
+  "modulePathIgnorePatterns": [
+    "<rootDir>/packages/.*/dist/"
+  ],
+  "transform": {
+    "^.+\\.(t|j)sx?$": "@swc/jest"
+  },
+  "collectCoverage": true,
+  "collectCoverageFrom": [
+    "packages/(scripts)/**/*.{js,jsx,ts,tsx}",
+    "!packages/**/cli.*",
+    "!packages/*/dist/**/*",
+    "!**/*.d.ts",
+    "!**/node_modules/**"
+  ],
+  "coverageReporters": [
+    "lcovonly",
+    "text"
+  ]
+}

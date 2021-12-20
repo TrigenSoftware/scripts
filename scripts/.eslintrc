@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "@trigen/eslint-config/esm"
+  ],
+  "rules": {
+    "no-magic-numbers": "off",
+    "import/no-default-export": "off"
+  }
+}

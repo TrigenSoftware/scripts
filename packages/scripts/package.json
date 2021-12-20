@@ -1,0 +1,46 @@
+{
+  "name": "@trigen/scripts",
+  "type": "module",
+  "version": "8.0.0",
+  "description": "CLI tool for running scripts.",
+  "author": "dangreen",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TrigenSoftware/scripts.git",
+    "directory": "packages/scripts"
+  },
+  "bugs": {
+    "url": "https://github.com/TrigenSoftware/scripts/issues"
+  },
+  "bin": {
+    "trigen-scripts": "./src/cli.js"
+  },
+  "main": "./src/index.js",
+  "exports": {
+    "import": {
+      "default": "./src/index.js"
+    }
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "keywords": [
+    "scripts",
+    "tasks",
+    "runner"
+  ],
+  "dependencies": {
+    "camel-case": "^4.1.2",
+    "cpy": "^8.1.2",
+    "del": "^6.0.0",
+    "dotenv": "^10.0.0",
+    "fast-glob": "^3.2.7",
+    "p-limit": "^4.0.0",
+    "param-case": "^3.0.4",
+    "picocolors": "^1.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

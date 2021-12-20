@@ -1,0 +1,48 @@
+{
+  "name": "@trigen/eslint-config",
+  "version": "8.0.0",
+  "description": "Trigen's ESLint config",
+  "author": "dangreen",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TrigenSoftware/scripts.git",
+    "directory": "packages/eslint-config"
+  },
+  "bugs": {
+    "url": "https://github.com/TrigenSoftware/scripts/issues"
+  },
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./*": "./src/*.js"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "keywords": [
+    "eslint",
+    "eslint-config"
+  ],
+  "peerDependencies": {
+    "@babel/core": "^7.15.5",
+    "eslint": ">=7.0.0"
+  },
+  "dependencies": {
+    "@babel/eslint-parser": "^7.15.7",
+    "@babel/eslint-plugin": "^7.14.5",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jest": "^24.7.0",
+    "eslint-plugin-jest-dom": "^3.9.2",
+    "eslint-plugin-jsdoc": "^36.1.1",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-testing-library": "^4.12.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
