@@ -11,8 +11,8 @@
 [node]: https://img.shields.io/node/v/%40trigen/scripts.svg
 [node-url]: https://nodejs.org
 
-[deps]: https://david-dm.org/TrigenSoftware/scripts.svg?path=packages/scripts
-[deps-url]: https://david-dm.org/TrigenSoftware/scripts?path=packages/scripts
+[deps]: https://img.shields.io/librariesio/release/npm/@trigen/scripts
+[deps-url]: https://libraries.io/npm/@trigen%2Fscripts/tree
 
 [build]: https://img.shields.io/github/workflow/status/TrigenSoftware/scripts/CI.svg
 [build-url]: https://github.com/TrigenSoftware/scripts/actions
@@ -89,8 +89,9 @@ yarn exec -- trigen-scripts test
 [babel-preset-npm]: https://img.shields.io/npm/v/%40trigen/babel-preset.svg
 [babel-preset-npm-url]: https://www.npmjs.com/package/@trigen/babel-preset
 
-[babel-preset-deps]: https://david-dm.org/TrigenSoftware/scripts.svg?path=packages/babel-preset
-[babel-preset-deps-url]: https://david-dm.org/TrigenSoftware/scripts?path=packages/babel-preset
+[babel-preset-deps]: https://img.shields.io/librariesio/release/npm/@trigen/babel-preset
+[babel-preset-deps-url]: https://libraries.io/npm/@trigen%2Fbabel-preset/tree
+
 
 <!-- browserslist-config -->
 
@@ -102,53 +103,53 @@ yarn exec -- trigen-scripts test
 [eslint-config-npm]: https://img.shields.io/npm/v/%40trigen/eslint-config.svg
 [eslint-config-npm-url]: https://www.npmjs.com/package/@trigen/eslint-config
 
-[eslint-config-deps]: https://david-dm.org/TrigenSoftware/scripts.svg?path=packages/eslint-config
-[eslint-config-deps-url]: https://david-dm.org/TrigenSoftware/scripts?path=packages/eslint-config
+[eslint-config-deps]: https://img.shields.io/librariesio/release/npm/@trigen/eslint-config
+[eslint-config-deps-url]: https://libraries.io/npm/@trigen%2Feslint-config/tree
 
 <!-- scripts-plugin-babel -->
 
 [plugin-babel-npm]: https://img.shields.io/npm/v/%40trigen/scripts-plugin-babel.svg
 [plugin-babel-npm-url]: https://www.npmjs.com/package/@trigen/scripts-plugin-babel
 
-[plugin-babel-deps]: https://david-dm.org/TrigenSoftware/scripts.svg?path=packages/scripts-plugin-babel
-[plugin-babel-deps-url]: https://david-dm.org/TrigenSoftware/scripts?path=packages/scripts-plugin-babel
+[plugin-babel-deps]: https://img.shields.io/librariesio/release/npm/@trigen/scripts-plugin-babel
+[plugin-babel-deps-url]: https://libraries.io/npm/@trigen%2Fscripts-plugin-babel/tree
 
 <!-- scripts-plugin-eslint -->
 
 [plugin-eslint-npm]: https://img.shields.io/npm/v/%40trigen/scripts-plugin-eslint.svg
 [plugin-eslint-npm-url]: https://www.npmjs.com/package/@trigen/scripts-plugin-eslint
 
-[plugin-eslint-deps]: https://david-dm.org/TrigenSoftware/scripts.svg?path=packages/scripts-plugin-eslint
-[plugin-eslint-deps-url]: https://david-dm.org/TrigenSoftware/scripts?path=packages/scripts-plugin-eslint
+[plugin-eslint-deps]: https://img.shields.io/librariesio/release/npm/@trigen/scripts-plugin-eslint
+[plugin-eslint-deps-url]: https://libraries.io/npm/@trigen%2Fscripts-plugin-eslint/tree
 
 <!-- bscripts-plugin-jest -->
 
 [plugin-jest-npm]: https://img.shields.io/npm/v/%40trigen/scripts-plugin-jest.svg
 [plugin-jest-npm-url]: https://www.npmjs.com/package/@trigen/scripts-plugin-jest
 
-[plugin-jest-deps]: https://david-dm.org/TrigenSoftware/scripts.svg?path=packages/scripts-plugin-jest
-[plugin-jest-deps-url]: https://david-dm.org/TrigenSoftware/scripts?path=packages/scripts-plugin-jest
+[plugin-jest-deps]: https://img.shields.io/librariesio/release/npm/@trigen/scripts-plugin-jest
+[plugin-jest-deps-url]: https://libraries.io/npm/@trigen%2Fscripts-plugin-jest/tree
 
 <!-- scripts-plugin-rollup -->
 
 [plugin-rollup-npm]: https://img.shields.io/npm/v/%40trigen/scripts-plugin-rollup.svg
 [plugin-rollup-npm-url]: https://www.npmjs.com/package/@trigen/scripts-plugin-rollup
 
-[plugin-rollup-deps]: https://david-dm.org/TrigenSoftware/scripts.svg?path=packages/scripts-plugin-rollup
-[plugin-rollup-deps-url]: https://david-dm.org/TrigenSoftware/scripts?path=packages/scripts-plugin-rollup
+[plugin-rollup-deps]: https://img.shields.io/librariesio/release/npm/@trigen/scripts-plugin-rollup
+[plugin-rollup-deps-url]: https://libraries.io/npm/@trigen%2Fscripts-plugin-rollup/tree
 
 <!-- scripts-plugin-swc -->
 
 [plugin-swc-npm]: https://img.shields.io/npm/v/%40trigen/scripts-plugin-swc.svg
 [plugin-swc-npm-url]: https://www.npmjs.com/package/@trigen/scripts-plugin-swc
 
-[plugin-swc-deps]: https://david-dm.org/TrigenSoftware/scripts.svg?path=packages/scripts-plugin-swc
-[plugin-swc-deps-url]: https://david-dm.org/TrigenSoftware/scripts?path=packages/scripts-plugin-swc
+[plugin-swc-deps]: https://img.shields.io/librariesio/release/npm/@trigen/scripts-plugin-swc
+[plugin-swc-deps-url]: https://libraries.io/npm/@trigen%2Fscripts-plugin-swc/tree
 
 <!-- scripts-plugin-typescript -->
 
 [plugin-typescript-npm]: https://img.shields.io/npm/v/%40trigen/scripts-plugin-typescript.svg
 [plugin-typescript-npm-url]: https://www.npmjs.com/package/@trigen/scripts-plugin-typescript
 
-[plugin-typescript-deps]: https://david-dm.org/TrigenSoftware/scripts.svg?path=packages/scripts-plugin-typescript
-[plugin-typescript-deps-url]: https://david-dm.org/TrigenSoftware/scripts?path=packages/scripts-plugin-typescript
+[plugin-typescript-deps]: https://img.shields.io/librariesio/release/npm/@trigen/scripts-plugin-typescript
+[plugin-typescript-deps-url]: https://libraries.io/npm/@trigen%2Fscripts-plugin-typescript/tree

@@ -11,8 +11,8 @@
 [node]: https://img.shields.io/node/v/%40trigen/scripts-plugin-swc.svg
 [node-url]: https://nodejs.org
 
-[deps]: https://david-dm.org/TrigenSoftware/scripts.svg?path=packages/scripts-plugin-swc
-[deps-url]: https://david-dm.org/TrigenSoftware/scripts?path=packages/scripts-plugin-swc
+[deps]: https://img.shields.io/librariesio/release/npm/@trigen/scripts-plugin-swc
+[deps-url]: https://libraries.io/npm/@trigen%2Fscripts-plugin-swc/tree
 
 [build]: https://img.shields.io/github/workflow/status/TrigenSoftware/scripts/CI.svg
 [build-url]: https://github.com/TrigenSoftware/scripts/actions

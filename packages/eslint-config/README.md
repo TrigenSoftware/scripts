@@ -15,8 +15,8 @@
 [peer-deps]: https://david-dm.org/TrigenSoftware/scripts/peer-status.svg?path=packages/eslint-config
 [peer-deps-url]: https://david-dm.org/TrigenSoftware/scripts?type=peer&path=packages/eslint-config
 
-[deps]: https://david-dm.org/TrigenSoftware/scripts.svg?path=packages/eslint-config
-[deps-url]: https://david-dm.org/TrigenSoftware/scripts?path=packages/eslint-config
+[deps]: https://img.shields.io/librariesio/release/npm/@trigen/eslint-config
+[deps-url]: https://libraries.io/npm/@trigen%2Feslint-config/tree
 
 [build]: https://img.shields.io/github/workflow/status/TrigenSoftware/scripts/CI.svg
 [build-url]: https://github.com/TrigenSoftware/scripts/actions

@@ -15,8 +15,8 @@
 [peer-deps]: https://david-dm.org/TrigenSoftware/scripts/peer-status.svg?path=packages/babel-preset
 [peer-deps-url]: https://david-dm.org/TrigenSoftware/scripts?type=peer&path=packages/babel-preset
 
-[deps]: https://david-dm.org/TrigenSoftware/scripts.svg?path=packages/babel-preset
-[deps-url]: https://david-dm.org/TrigenSoftware/scripts?path=packages/babel-preset
+[deps]: https://img.shields.io/librariesio/release/npm/@trigen/babel-preset
+[deps-url]: https://libraries.io/npm/@trigen%2Fbabel-preset/tree
 
 [build]: https://img.shields.io/github/workflow/status/TrigenSoftware/scripts/CI.svg
 [build-url]: https://github.com/TrigenSoftware/scripts/actions
