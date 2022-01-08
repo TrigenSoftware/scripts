@@ -23,7 +23,7 @@
     "node": ">=14"
   },
   "dependencies": {
-    "@trigen/scripts": "^8.0.0",
+    "@trigen/scripts": "workspace:*",
     "jest": "^27.2.4"
   },
   "publishConfig": {

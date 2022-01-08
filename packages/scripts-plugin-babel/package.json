@@ -25,8 +25,8 @@
   "dependencies": {
     "@babel/cli": "^7.15.7",
     "@babel/core": "^7.15.5",
-    "@trigen/babel-preset": "^8.0.0",
-    "@trigen/scripts": "^8.0.0"
+    "@trigen/babel-preset": "workspace:*",
+    "@trigen/scripts": "workspace:*"
   },
   "publishConfig": {
     "access": "public"

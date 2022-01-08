@@ -26,8 +26,8 @@
     "@babel/core": "^7.15.5"
   },
   "dependencies": {
-    "@trigen/eslint-config": "^8.0.0",
-    "@trigen/scripts": "^8.0.0",
+    "@trigen/eslint-config": "workspace:*",
+    "@trigen/scripts": "workspace:*",
     "eslint": "^7.32.0"
   },
   "publishConfig": {

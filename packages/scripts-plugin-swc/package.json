@@ -25,7 +25,7 @@
   "dependencies": {
     "@swc/cli": "^0.1.54",
     "@swc/core": "^1.2.119",
-    "@trigen/scripts": "^8.0.0"
+    "@trigen/scripts": "workspace:*"
   },
   "publishConfig": {
     "access": "public"
