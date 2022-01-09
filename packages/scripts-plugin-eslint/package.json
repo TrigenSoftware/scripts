@@ -1,7 +1,7 @@
 {
   "name": "@trigen/scripts-plugin-eslint",
   "type": "module",
-  "version": "8.0.0",
+  "version": "7.3.4",
   "description": "ESLint scripts.",
   "author": "dangreen",
   "license": "MIT",
@@ -26,8 +26,8 @@
     "@babel/core": "^7.15.5"
   },
   "dependencies": {
-    "@trigen/eslint-config": "workspace:*",
-    "@trigen/scripts": "workspace:*",
+    "@trigen/eslint-config": "^7.3.4",
+    "@trigen/scripts": "^7.3.4",
     "eslint": "^7.32.0"
   },
   "publishConfig": {

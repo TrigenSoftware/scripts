@@ -1,7 +1,7 @@
 {
   "name": "@trigen/scripts-plugin-typescript",
   "type": "module",
-  "version": "8.0.0",
+  "version": "7.3.4",
   "description": "TypeScript scripts.",
   "author": "dangreen",
   "license": "MIT",
@@ -23,7 +23,7 @@
     "node": ">=14"
   },
   "dependencies": {
-    "@trigen/scripts": "workspace:*",
+    "@trigen/scripts": "^7.3.4",
     "ts-node-dev": "^1.1.8",
     "tsconfig-paths": "^3.11.0",
     "typedoc": "^0.22.5",
