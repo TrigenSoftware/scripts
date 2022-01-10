@@ -30,6 +30,10 @@
     "tasks",
     "runner"
   ],
+  "scripts": {
+    "prepublishOnly": "del ./package && clean-publish",
+    "postpublish": "del ./package"
+  },
   "dependencies": {
     "camel-case": "^4.1.2",
     "cpy": "^8.1.2",
@@ -41,6 +45,7 @@
     "picocolors": "^1.0.0"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "directory": "package"
   }
 }

@@ -22,6 +22,10 @@
   "engines": {
     "node": ">=14"
   },
+  "scripts": {
+    "prepublishOnly": "del ./package && clean-publish",
+    "postpublish": "del ./package"
+  },
   "dependencies": {
     "@babel/cli": "^7.15.7",
     "@babel/core": "^7.15.5",
@@ -29,6 +33,7 @@
     "@trigen/scripts": "^7.3.4"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "directory": "package"
   }
 }

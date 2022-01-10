@@ -23,7 +23,7 @@
     "test": "trigen-scripts test",
     "clean": "trigen-scripts clean",
     "commit": "cz",
-    "version": "pnpm install",
+    "version": "pnpm install && git add ./pnpm-lock.yaml",
     "release": "lerna version",
     "updateGitHooks": "simple-git-hooks"
   },

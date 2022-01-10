@@ -1,0 +1,6 @@
+{
+  "withoutPublish": true,
+  "tempDir": "package",
+  "fields": ["publishConfig"],
+  "files": [".eslintrc"]
+}

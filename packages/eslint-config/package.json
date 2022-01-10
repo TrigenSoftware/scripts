@@ -24,6 +24,10 @@
     "eslint",
     "eslint-config"
   ],
+  "scripts": {
+    "prepublishOnly": "del ./package && clean-publish",
+    "postpublish": "del ./package"
+  },
   "peerDependencies": {
     "@babel/core": "^7.15.5",
     "eslint": ">=7.0.0"
@@ -43,6 +47,7 @@
     "eslint-plugin-testing-library": "^5.0.0"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "directory": "package"
   }
 }

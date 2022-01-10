@@ -22,11 +22,16 @@
   "engines": {
     "node": ">=14"
   },
+  "scripts": {
+    "prepublishOnly": "del ./package && clean-publish",
+    "postpublish": "del ./package"
+  },
   "dependencies": {
     "@trigen/scripts": "^7.3.4",
     "jest": "^27.2.4"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "directory": "package"
   }
 }

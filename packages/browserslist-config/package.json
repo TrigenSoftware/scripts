@@ -24,7 +24,12 @@
     "browserslist",
     "browserslist-config"
   ],
+  "scripts": {
+    "prepublishOnly": "del ./package && clean-publish",
+    "postpublish": "del ./package"
+  },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "directory": "package"
   }
 }

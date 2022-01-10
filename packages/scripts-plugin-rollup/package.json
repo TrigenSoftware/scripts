@@ -25,10 +25,15 @@
   "engines": {
     "node": ">=14"
   },
+  "scripts": {
+    "prepublishOnly": "del ./package && clean-publish",
+    "postpublish": "del ./package"
+  },
   "dependencies": {
     "rollup": "^2.58.0"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "directory": "package"
   }
 }
