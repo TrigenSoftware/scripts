@@ -155,8 +155,8 @@ importers:
     specifiers:
       '@babel/cli': ^7.15.7
       '@babel/core': ^7.15.5
-      '@trigen/babel-preset': ^8.0.0-alpha.0
-      '@trigen/scripts': ^8.0.0-alpha.0
+      '@trigen/babel-preset': ^8.0.0-alpha.1
+      '@trigen/scripts': ^8.0.0-alpha.1
     dependencies:
       '@babel/cli': 7.16.7_@babel+core@7.16.7
       '@babel/core': 7.16.7
@@ -165,8 +165,8 @@ importers:
 
   packages/scripts-plugin-eslint:
     specifiers:
-      '@trigen/eslint-config': ^8.0.0-alpha.0
-      '@trigen/scripts': ^8.0.0-alpha.0
+      '@trigen/eslint-config': ^8.0.0-alpha.1
+      '@trigen/scripts': ^8.0.0-alpha.1
       eslint: ^7.32.0
     dependencies:
       '@trigen/eslint-config': link:../eslint-config
@@ -175,7 +175,7 @@ importers:
 
   packages/scripts-plugin-jest:
     specifiers:
-      '@trigen/scripts': ^8.0.0-alpha.0
+      '@trigen/scripts': ^8.0.0-alpha.1
       jest: ^27.2.4
     dependencies:
       '@trigen/scripts': link:../scripts
@@ -191,7 +191,7 @@ importers:
     specifiers:
       '@swc/cli': ^0.1.54
       '@swc/core': ^1.2.119
-      '@trigen/scripts': ^8.0.0-alpha.0
+      '@trigen/scripts': ^8.0.0-alpha.1
     dependencies:
       '@swc/cli': 0.1.55_@swc+core@1.2.127
       '@swc/core': 1.2.127
@@ -199,7 +199,7 @@ importers:
 
   packages/scripts-plugin-typescript:
     specifiers:
-      '@trigen/scripts': ^8.0.0-alpha.0
+      '@trigen/scripts': ^8.0.0-alpha.1
       ts-node-dev: ^1.1.8
       tsconfig-paths: ^3.11.0
       typedoc: ^0.22.5
