@@ -35,5 +35,6 @@
   "publishConfig": {
     "access": "public",
     "directory": "package"
-  }
+  },
+  "readme": ""
 }
