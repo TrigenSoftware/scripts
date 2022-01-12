@@ -1,7 +1,7 @@
 {
   "name": "@trigen/scripts-plugin-babel",
   "type": "module",
-  "version": "7.3.4",
+  "version": "8.0.0-alpha.0",
   "description": "Babel scripts.",
   "author": "dangreen",
   "license": "MIT",
@@ -29,8 +29,8 @@
   "dependencies": {
     "@babel/cli": "^7.15.7",
     "@babel/core": "^7.15.5",
-    "@trigen/babel-preset": "^7.3.4",
-    "@trigen/scripts": "^7.3.4"
+    "@trigen/babel-preset": "^8.0.0-alpha.0",
+    "@trigen/scripts": "^8.0.0-alpha.0"
   },
   "publishConfig": {
     "access": "public",

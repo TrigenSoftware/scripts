@@ -1,6 +1,6 @@
 {
   "name": "@trigen/babel-preset",
-  "version": "7.3.4",
+  "version": "8.0.0-alpha.0",
   "description": "Trigen's Babel preset.",
   "author": "dangreen",
   "license": "MIT",
