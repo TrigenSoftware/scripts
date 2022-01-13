@@ -136,7 +136,7 @@ importers:
       camel-case: ^4.1.2
       cpy: ^8.1.2
       del: ^6.0.0
-      dotenv: ^10.0.0
+      dotenv: ^11.0.0
       fast-glob: ^3.2.7
       p-limit: ^4.0.0
       param-case: ^3.0.4
@@ -145,7 +145,7 @@ importers:
       camel-case: 4.1.2
       cpy: 8.1.2
       del: 6.0.0
-      dotenv: 10.0.0
+      dotenv: 11.0.0
       fast-glob: 3.2.7
       p-limit: 4.0.0
       param-case: 3.0.4
@@ -4866,9 +4866,9 @@ packages:
       is-obj: 2.0.0
     dev: true
 
-  /dotenv/10.0.0:
-    resolution: {integrity: sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q==}
-    engines: {node: '>=10'}
+  /dotenv/11.0.0:
+    resolution: {integrity: sha512-Fp/b504Y5W+e+FpCxTFMUZ7ZEQkQYF0rx+KZtmwixJxGQbLHrhCwo3FjZgNC8vIfrSi29PABNbMoCGD9YoiXbQ==}
+    engines: {node: '>=12'}
     dev: false
 
   /duplexer/0.1.2:
