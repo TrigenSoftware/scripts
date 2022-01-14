@@ -6,7 +6,7 @@
       "allowBranch": "main",
       "conventionalCommits": true,
       "push": false,
-      "message": "chore: release %s"
+      "message": "chore(release): %v"
     }
   }
 }
