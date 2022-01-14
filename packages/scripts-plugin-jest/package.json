@@ -1,7 +1,7 @@
 {
   "name": "@trigen/scripts-plugin-jest",
   "type": "module",
-  "version": "8.0.0-alpha.1",
+  "version": "8.0.0-alpha.2",
   "description": "Jest scripts.",
   "author": "dangreen",
   "license": "MIT",
@@ -27,7 +27,7 @@
     "postpublish": "del ./package"
   },
   "dependencies": {
-    "@trigen/scripts": "^8.0.0-alpha.1",
+    "@trigen/scripts": "^8.0.0-alpha.2",
     "jest": "^27.2.4"
   },
   "publishConfig": {

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.2](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.1...v8.0.0-alpha.2) (2022-01-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-plugin-jest-dom to v4 ([#15](https://github.com/TrigenSoftware/scripts/issues/15)) ([8133db1](https://github.com/TrigenSoftware/scripts/commit/8133db151811134b8fc2a22df5efd63bb8d51387))
+* **deps:** update typescript-eslint monorepo to v5 ([#18](https://github.com/TrigenSoftware/scripts/issues/18)) ([87f8d42](https://github.com/TrigenSoftware/scripts/commit/87f8d42f749665b8df0daa1c1631b9ac9ca57048))
+
+
+
+
+
 # [8.0.0-alpha.1](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.0...v8.0.0-alpha.1) (2022-01-12)
 
 **Note:** Version bump only for package @trigen/eslint-config
