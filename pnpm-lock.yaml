@@ -181,12 +181,6 @@ importers:
       '@trigen/scripts': link:../scripts
       jest: 27.4.7
 
-  packages/scripts-plugin-rollup:
-    specifiers:
-      rollup: ^2.58.0
-    dependencies:
-      rollup: 2.63.0
-
   packages/scripts-plugin-swc:
     specifiers:
       '@swc/cli': ^0.1.54
@@ -8727,14 +8721,6 @@ packages:
     hasBin: true
     dependencies:
       glob: 7.2.0
-
-  /rollup/2.63.0:
-    resolution: {integrity: sha512-nps0idjmD+NXl6OREfyYXMn/dar3WGcyKn+KBzPdaLecub3x/LrId0wUcthcr8oZUAcZAR8NKcfGGFlNgGL1kQ==}
-    engines: {node: '>=10.0.0'}
-    hasBin: true
-    optionalDependencies:
-      fsevents: 2.3.2
-    dev: false
 
   /run-async/2.4.1:
     resolution: {integrity: sha512-tvVnVv01b8c1RrA6Ep7JkStj85Guv/YrMcwqYQnwjsAS2cTmmPGBBjAjpCW7RrSodNSoE2/qg9O4bceNvUuDgQ==}
