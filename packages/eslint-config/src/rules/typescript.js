@@ -111,8 +111,7 @@ module.exports = {
       },
       {
         selector: 'interface',
-        format: ['PascalCase'],
-        prefix: ['I']
+        format: ['PascalCase']
       },
       {
         selector: 'enumMember',
