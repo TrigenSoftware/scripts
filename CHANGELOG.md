@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.3](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.2...v8.0.0-alpha.3) (2022-01-15)
+
+
+### Features
+
+* **eslint-config:** remove prefix for interfaces ([e20f481](https://github.com/TrigenSoftware/scripts/commit/e20f481c2c4995592e416b3571e364ea864a6f78))
+
+
+
+
+
 # [8.0.0-alpha.2](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.1...v8.0.0-alpha.2) (2022-01-14)
 
 

@@ -165,7 +165,7 @@ importers:
 
   packages/scripts-plugin-eslint:
     specifiers:
-      '@trigen/eslint-config': ^8.0.0-alpha.2
+      '@trigen/eslint-config': ^8.0.0-alpha.3
       '@trigen/scripts': ^8.0.0-alpha.2
       eslint: ^8.0.0
     dependencies:
