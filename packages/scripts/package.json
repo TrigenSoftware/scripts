@@ -31,7 +31,7 @@
     "runner"
   ],
   "scripts": {
-    "prepublishOnly": "del ./package && clean-publish",
+    "prepublishOnly": "del ./package && clean-publish && del './package/**/*.spec.js'",
     "postpublish": "del ./package"
   },
   "dependencies": {
