@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.4](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.3...v8.0.0-alpha.4) (2022-01-18)
+
+
+### Bug Fixes
+
+* **deps:** update dependency dotenv to v14 ([#21](https://github.com/TrigenSoftware/scripts/issues/21)) ([934f1a2](https://github.com/TrigenSoftware/scripts/commit/934f1a2f1fdd3035db1ab6916fafaad076e44190))
+* **scripts:** remove specs from package ([ed1e3d9](https://github.com/TrigenSoftware/scripts/commit/ed1e3d9b20d0cd9c912a46d8cef443882e1f93e5))
+
+
+
+
+
 # [8.0.0-alpha.2](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.1...v8.0.0-alpha.2) (2022-01-14)
 
 
