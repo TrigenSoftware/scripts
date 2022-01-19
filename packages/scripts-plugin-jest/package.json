@@ -13,12 +13,7 @@
   "bugs": {
     "url": "https://github.com/TrigenSoftware/scripts/issues"
   },
-  "main": "./src/index.js",
-  "exports": {
-    "import": {
-      "default": "./src/index.js"
-    }
-  },
+  "exports": "./src/index.js",
   "engines": {
     "node": ">=14"
   },
