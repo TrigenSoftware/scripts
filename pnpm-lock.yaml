@@ -5,10 +5,10 @@ importers:
   .:
     specifiers:
       '@babel/core': ^7.15.5
-      '@commitlint/cli': ^16.0.0
+      '@commitlint/cli': ^16.0.3
       '@commitlint/config-conventional': ^16.0.0
       '@commitlint/config-lerna-scopes': ^16.0.0
-      '@commitlint/cz-commitlint': ^16.0.0
+      '@commitlint/cz-commitlint': ^16.0.3
       '@swc/core': ^1.2.119
       '@swc/jest': ^0.2.14
       '@trigen/browserslist-config': workspace:*
@@ -30,10 +30,10 @@ importers:
       typescript: ^4.4.3
     devDependencies:
       '@babel/core': 7.16.7
-      '@commitlint/cli': 16.0.2_4f433850dbc88ce5930c16fc5bb8861e
+      '@commitlint/cli': 16.0.3_4f433850dbc88ce5930c16fc5bb8861e
       '@commitlint/config-conventional': 16.0.0
       '@commitlint/config-lerna-scopes': 16.0.0_lerna@4.0.0
-      '@commitlint/cz-commitlint': 16.0.0_22ce7201831eb1ab8306a4ef035c1955
+      '@commitlint/cz-commitlint': 16.0.3_22ce7201831eb1ab8306a4ef035c1955
       '@swc/core': 1.2.127
       '@swc/jest': 0.2.15_@swc+core@1.2.127
       '@trigen/browserslist-config': link:packages/browserslist-config
@@ -1591,8 +1591,8 @@ packages:
   /@bcoe/v8-coverage/0.2.3:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
 
-  /@commitlint/cli/16.0.2_4f433850dbc88ce5930c16fc5bb8861e:
-    resolution: {integrity: sha512-Jt7iaBjoLGC5Nq4dHPTvTYnqPGkElFPBtTXTvBpTgatZApczyjI2plE0oG4GYWPp1suHIS/VdVDOMpPZjGVusg==}
+  /@commitlint/cli/16.0.3_4f433850dbc88ce5930c16fc5bb8861e:
+    resolution: {integrity: sha512-SB1od4/1ek5SShNKjKgUdpqiVNulNVgCkjkV4Zz9zLKrxn3sPcgvXMQNh/wy0/T4WPUVgHrHGcxWYOYXxrGwpg==}
     engines: {node: '>=v12'}
     hasBin: true
     dependencies:
@@ -1642,8 +1642,8 @@ packages:
       ajv: 6.12.6
     dev: true
 
-  /@commitlint/cz-commitlint/16.0.0_22ce7201831eb1ab8306a4ef035c1955:
-    resolution: {integrity: sha512-kUYfM4OyXtZubD3wrCbfpkUbFSudHTaHkY4jxt00RofsaKWtKDVrOdhjGqdQzp06KItyRU+1BuNoW/SJ3t+ytQ==}
+  /@commitlint/cz-commitlint/16.0.3_22ce7201831eb1ab8306a4ef035c1955:
+    resolution: {integrity: sha512-/jPNTFF3FN97s/l9wZts+2HKbkcUkOp+mTF6nKoo7Rwm3nGBtqCsb6LQ6w2FW4PBEZy53Ndxev4A4T1qUL7mfA==}
     engines: {node: '>= 10'}
     peerDependencies:
       commitizen: ^4.0.3
