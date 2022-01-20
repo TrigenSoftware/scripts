@@ -17,7 +17,7 @@ importers:
       '@trigen/scripts-plugin-eslint': workspace:*
       '@trigen/scripts-plugin-jest': workspace:*
       '@types/node': ^17.0.8
-      clean-publish: ^3.4.0
+      clean-publish: ^4.0.0
       commitizen: ^4.2.4
       del-cli: ^4.0.1
       eslint: ^8.0.0
@@ -42,7 +42,7 @@ importers:
       '@trigen/scripts-plugin-eslint': link:packages/scripts-plugin-eslint
       '@trigen/scripts-plugin-jest': link:packages/scripts-plugin-jest
       '@types/node': 17.0.8
-      clean-publish: 3.4.5
+      clean-publish: 4.0.0
       commitizen: 4.2.4_4f433850dbc88ce5930c16fc5bb8861e
       del-cli: 4.0.1
       eslint: 8.6.0
@@ -4133,16 +4133,14 @@ packages:
       static-extend: 0.1.2
     dev: false
 
-  /clean-publish/3.4.5:
-    resolution: {integrity: sha512-wxtaEqCy/B7lch+bpTPmx9wI8owTODa619UOVA1XfyNaM2bjwv1SkR1IJNDA6rtf89bjiz6UkpfU5HcEL8YJIw==}
-    engines: {node: ^12.0.0 || ^14.0.0 || >= 16.0.0}
+  /clean-publish/4.0.0:
+    resolution: {integrity: sha512-PcOxJSnPgncx/ANmgPw8hj9DDtdLHTxIc6Vh/yXCX7IA9w1oUSx2POL0Vno/7omhyrKxMKTpnRh2wlzwH5zaCw==}
     hasBin: true
     dependencies:
       cross-spawn: 7.0.3
-      fast-glob: 3.2.7
-      fs-extra: 10.0.0
-      hosted-git-info: 4.1.0
+      fast-glob: 3.2.11
       lilconfig: 2.0.4
+      micromatch: 4.0.4
     dev: true
 
   /clean-stack/2.2.0:
@@ -5308,6 +5306,17 @@ packages:
       merge2: 1.4.1
       micromatch: 3.1.10
     dev: false
+
+  /fast-glob/3.2.11:
+    resolution: {integrity: sha512-xrO3+1bxSo3ZVHAnqzyuewYT6aMFHRAd4Kcs92MAonjwQZLsK9d0SF1IyQ3k5PoirxTW0Oe/RqFgMQ6TcNE5Ew==}
+    engines: {node: '>=8.6.0'}
+    dependencies:
+      '@nodelib/fs.stat': 2.0.5
+      '@nodelib/fs.walk': 1.2.8
+      glob-parent: 5.1.2
+      merge2: 1.4.1
+      micromatch: 4.0.4
+    dev: true
 
   /fast-glob/3.2.7:
     resolution: {integrity: sha512-rYGMRwip6lUMvYD3BTScMwT1HtAs2d71SMv66Vrxs0IekGZEjhM0pcMfjQPnknBt2zeCwQMEupiN02ZP4DiT1Q==}
