@@ -14,7 +14,7 @@
     "url": "https://github.com/TrigenSoftware/scripts/issues"
   },
   "bin": {
-    "trigen-scripts": "./src/cli.js"
+    "run": "./src/run.js"
   },
   "exports": "./src/index.js",
   "engines": {
@@ -30,14 +30,9 @@
     "postpublish": "del ./package"
   },
   "dependencies": {
-    "camel-case": "^4.1.2",
-    "cpy": "^8.1.2",
-    "del": "^6.0.0",
+    "argue-cli": "^2.0.0",
     "dotenv": "^14.0.0",
-    "fast-glob": "^3.2.7",
-    "p-limit": "^4.0.0",
-    "param-case": "^3.0.4",
-    "picocolors": "^1.0.0"
+    "p-limit": "^4.0.0"
   },
   "publishConfig": {
     "access": "public",

@@ -1,30 +1,32 @@
 import { spawn as spawnChild } from 'child_process'
-import { OutputError } from '../errors/index.js'
 
 /**
  * Spawn child process.
  * @param {string} cmd
  * @param {string[]} args
- * @param {object} options
- * @returns {Promise<string>} Output.
+ * @param {boolean} stdio
+ * @returns {Promise<{ exitCode: number, output?: string | Error }>} Output.
  */
-export function spawn(cmd, args, options) {
-  return new Promise((resolve, reject) => {
+export function spawn(cmd, args, stdio = true) {
+  return new Promise((resolve) => {
+    const env = {
+      FORCE_COLOR: true,
+      ...process.env
+    }
+    const options = {
+      env,
+      stdio: stdio ? 'inherit' : 'pipe'
+    }
     const child = spawnChild(cmd, args, options)
     let output = ''
     const onData = (data) => {
       output += data.toString()
     }
     const onDone = (error) => {
-      if (error) {
-        reject(
-          error instanceof Error
-            ? error
-            : new OutputError(output)
-        )
-      } else {
-        resolve(output)
-      }
+      resolve({
+        exitCode: child.exitCode,
+        output: output || error
+      })
     }
 
     child.stdout?.on('data', onData)

@@ -22,6 +22,8 @@ Trigen's Babel preset.
 ## Install
 
 ```bash
+pnpm add -D @trigen/babel-preset
+# or
 yarn add -D @trigen/babel-preset
 # or
 npm i -D @trigen/babel-preset
