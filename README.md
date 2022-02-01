@@ -74,15 +74,10 @@ yarn exec -- trigen-scripts test
 
 | Package | Version | Dependencies |
 |---------|---------|--------------|
+| [`@trigen/scripts`](packages/scripts#readme) | [![NPM version][npm]][npm-url] | [![Dependencies status][deps]][deps-url] |
 | [`@trigen/babel-preset`](packages/babel-preset#readme) | [![NPM version][babel-preset-npm]][babel-preset-npm-url] | [![Dependencies status][babel-preset-deps]][babel-preset-deps-url] |
 | [`@trigen/browserslist-config`](packages/browserslist-config#readme) | [![NPM version][browserslist-config-npm]][browserslist-config-npm-url] | |
 | [`@trigen/eslint-config`](packages/eslint-config#readme) | [![NPM version][eslint-config-npm]][eslint-config-npm-url] | [![Dependencies status][eslint-config-deps]][eslint-config-deps-url] |
-| [`@trigen/scripts-plugin-babel`](packages/scripts-plugin-babel#readme) | [![NPM version][plugin-babel-npm]][plugin-babel-npm-url] | [![Dependencies status][plugin-babel-deps]][plugin-babel-deps-url] |
-| [`@trigen/scripts-plugin-eslint`](packages/scripts-plugin-eslint#readme) | [![NPM version][plugin-eslint-npm]][plugin-eslint-npm-url] | [![Dependencies status][plugin-eslint-deps]][plugin-eslint-deps-url] |
-| [`@trigen/scripts-plugin-jest`](packages/scripts-plugin-jest#readme) | [![NPM version][plugin-jest-npm]][plugin-jest-npm-url] | [![Dependencies status][plugin-jest-deps]][plugin-jest-deps-url] |
-| [`@trigen/scripts-plugin-rollup`](packages/scripts-plugin-rollup#readme) | [![NPM version][plugin-rollup-npm]][plugin-rollup-npm-url] | [![Dependencies status][plugin-rollup-deps]][plugin-rollup-deps-url] |
-| [`@trigen/scripts-plugin-swc`](packages/scripts-plugin-swc#readme) | [![NPM version][plugin-swc-npm]][plugin-swc-npm-url] | [![Dependencies status][plugin-swc-deps]][plugin-swc-deps-url] |
-| [`@trigen/scripts-plugin-typescript`](packages/scripts-plugin-typescript#readme) | [![NPM version][plugin-typescript-npm]][plugin-typescript-npm-url] | [![Dependencies status][plugin-typescript-deps]][plugin-typescript-deps-url] |
 
 <!-- babel-preset -->
 
@@ -104,51 +99,3 @@ yarn exec -- trigen-scripts test
 
 [eslint-config-deps]: https://img.shields.io/librariesio/release/npm/@trigen/eslint-config
 [eslint-config-deps-url]: https://libraries.io/npm/@trigen%2Feslint-config/tree
-
-<!-- scripts-plugin-babel -->
-
-[plugin-babel-npm]: https://img.shields.io/npm/v/%40trigen/scripts-plugin-babel.svg
-[plugin-babel-npm-url]: https://www.npmjs.com/package/@trigen/scripts-plugin-babel
-
-[plugin-babel-deps]: https://img.shields.io/librariesio/release/npm/@trigen/scripts-plugin-babel
-[plugin-babel-deps-url]: https://libraries.io/npm/@trigen%2Fscripts-plugin-babel/tree
-
-<!-- scripts-plugin-eslint -->
-
-[plugin-eslint-npm]: https://img.shields.io/npm/v/%40trigen/scripts-plugin-eslint.svg
-[plugin-eslint-npm-url]: https://www.npmjs.com/package/@trigen/scripts-plugin-eslint
-
-[plugin-eslint-deps]: https://img.shields.io/librariesio/release/npm/@trigen/scripts-plugin-eslint
-[plugin-eslint-deps-url]: https://libraries.io/npm/@trigen%2Fscripts-plugin-eslint/tree
-
-<!-- bscripts-plugin-jest -->
-
-[plugin-jest-npm]: https://img.shields.io/npm/v/%40trigen/scripts-plugin-jest.svg
-[plugin-jest-npm-url]: https://www.npmjs.com/package/@trigen/scripts-plugin-jest
-
-[plugin-jest-deps]: https://img.shields.io/librariesio/release/npm/@trigen/scripts-plugin-jest
-[plugin-jest-deps-url]: https://libraries.io/npm/@trigen%2Fscripts-plugin-jest/tree
-
-<!-- scripts-plugin-rollup -->
-
-[plugin-rollup-npm]: https://img.shields.io/npm/v/%40trigen/scripts-plugin-rollup.svg
-[plugin-rollup-npm-url]: https://www.npmjs.com/package/@trigen/scripts-plugin-rollup
-
-[plugin-rollup-deps]: https://img.shields.io/librariesio/release/npm/@trigen/scripts-plugin-rollup
-[plugin-rollup-deps-url]: https://libraries.io/npm/@trigen%2Fscripts-plugin-rollup/tree
-
-<!-- scripts-plugin-swc -->
-
-[plugin-swc-npm]: https://img.shields.io/npm/v/%40trigen/scripts-plugin-swc.svg
-[plugin-swc-npm-url]: https://www.npmjs.com/package/@trigen/scripts-plugin-swc
-
-[plugin-swc-deps]: https://img.shields.io/librariesio/release/npm/@trigen/scripts-plugin-swc
-[plugin-swc-deps-url]: https://libraries.io/npm/@trigen%2Fscripts-plugin-swc/tree
-
-<!-- scripts-plugin-typescript -->
-
-[plugin-typescript-npm]: https://img.shields.io/npm/v/%40trigen/scripts-plugin-typescript.svg
-[plugin-typescript-npm-url]: https://www.npmjs.com/package/@trigen/scripts-plugin-typescript
-
-[plugin-typescript-deps]: https://img.shields.io/librariesio/release/npm/@trigen/scripts-plugin-typescript
-[plugin-typescript-deps-url]: https://libraries.io/npm/@trigen%2Fscripts-plugin-typescript/tree

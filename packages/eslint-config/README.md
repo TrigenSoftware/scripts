@@ -22,6 +22,8 @@ Trigen's ESLint config.
 ## Install
 
 ```bash
+pnpm add -D @trigen/eslint-config
+# or
 yarn add -D @trigen/eslint-config
 # or
 npm i -D @trigen/eslint-config

@@ -1,55 +1,100 @@
-import { parseArgs, stringifyArgs } from './args.js'
+/* eslint-disable camelcase */
+import { setArgs } from 'argue-cli'
+import { detectPackageManager, getRunArgs, readScripts } from './args.js'
 
 describe('scripts', () => {
   describe('utils', () => {
-    describe('parseArgs', () => {
-      it('should parse positional and key-value arguments', () => {
-        expect(parseArgs([
-          'pos1',
-          '--enabled',
-          'pos2',
-          '--key',
-          'value',
-          '--camel-case'
-        ], ['key'])).toEqual([
-          ['pos1', 'pos2'],
-          {
-            enabled: true,
-            key: 'value',
-            camelCase: true
-          }
+    describe('detectPackageManager', () => {
+      it('should return npm by default', () => {
+        process.env.npm_config_user_agent = ''
+        process.env.npm_execpath = ''
+        expect(detectPackageManager()).toBe('npm')
+      })
+
+      it('should find package manager in npm_config_user_agent', () => {
+        process.env.npm_config_user_agent = 'yarn etc'
+        process.env.npm_execpath = ''
+        expect(detectPackageManager()).toBe('yarn')
+      })
+
+      it('should find package manager in npm_execpath', () => {
+        process.env.npm_config_user_agent = ''
+        process.env.npm_execpath = 'node_modules/pnpm/cli.js'
+        expect(detectPackageManager()).toBe('pnpm')
+      })
+    })
+
+    describe('getRunArgs', () => {
+      it('should return run command', () => {
+        expect(
+          getRunArgs('npm', ['lint'])
+        ).toEqual(['run', 'lint'])
+        expect(
+          getRunArgs('yarn', ['lint'])
+        ).toEqual(['run', 'lint'])
+      })
+
+      it('should not add dashes for yarn', () => {
+        expect(
+          getRunArgs('yarn', ['lint', '--fix'])
+        ).toEqual([
+          'run',
+          'lint',
+          '--fix'
+        ])
+      })
+
+      it('should add dashes', () => {
+        expect(
+          getRunArgs('pnpm', ['lint', '--fix'])
+        ).toEqual([
+          'run',
+          'lint',
+          '--',
+          '--fix'
         ])
       })
     })
 
-    describe('stringifyArgs', () => {
-      it('should stringify arguments', () => {
+    describe('readScripts', () => {
+      it('should read scripts without args', () => {
+        setArgs('a', 'b', '[', 'c', ']')
         expect(
-          stringifyArgs(
-            [
-              'pos1',
-              'pos2',
-              undefined
-            ],
-            {
-              enabled: true,
-              key: 'value',
-              camelCase: true,
-              undef: undefined,
-              files: ['a.js', 'b.js']
-            }
-          )
+          readScripts()
         ).toEqual([
-          'pos1',
-          'pos2',
-          '--enabled',
-          '--key',
-          'value',
-          '--camel-case',
-          '--files',
-          'a.js',
-          '--files',
-          'b.js'
+          ['a'],
+          ['b'],
+          ['c']
+        ])
+      })
+
+      it('should read scripts with args', () => {
+        setArgs('[', 'a', 'opt1', ']', '[', 'b', 'opt1', 'opt2', ']')
+        expect(
+          readScripts()
+        ).toEqual([
+          ['a', 'opt1'],
+          [
+            'b',
+            'opt1',
+            'opt2'
+          ]
+        ])
+      })
+
+      it('should read mixed scripts', () => {
+        setArgs('c', '[', 'a', 'opt1', ']', '[', 'b', 'opt1', 'opt2', ']', 'd')
+        expect(
+          readScripts()
+        ).toEqual([
+          ['c'],
+          ['a', 'opt1'],
+          [
+            'b',
+            'opt1',
+            'opt2'
+          ],
+          ['d']
         ])
       })
     })

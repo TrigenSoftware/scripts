@@ -1,5 +1,0 @@
-{
-  "extends": [
-    "@trigen/eslint-config/esm"
-  ]
-}

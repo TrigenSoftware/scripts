@@ -18,6 +18,8 @@ Trigen's Browserslist config.
 ## Install
 
 ```bash
+pnpm add -D @trigen/browserslist-config
+# or
 yarn add -D @trigen/browserslist-config
 # or
 npm i -D @trigen/browserslist-config

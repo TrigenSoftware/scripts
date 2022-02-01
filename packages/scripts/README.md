@@ -21,51 +21,29 @@ CLI tool for running scripts.
 
 ## Usage
 
-1. Install `scripts` package
+### Install
 
 ```bash
-yarn add -D @trigen/scripts
+pnpm add -D @trigen/scripts
 ```
 
-2. Install any plugin package
+### `run`
+
+Using `run` you can run scripts from package.json serial:
 
 ```bash
-yarn add -D @trigen/scripts-plugin-jest @trigen/scripts-plugin-eslint
+pnpm exec -- run lint:code lint:styles
 ```
 
-3. Create `scripts.js` file (or `scripts/index.js`) and define tasks
-
-```js
-import { rm } from '@trigen/scripts'
-import { jest } from '@trigen/scripts-plugin-jest'
-import { eslint } from '@trigen/scripts-plugin-eslint'
-
-export default {
-  lint: {
-    title: 'Lint',
-    run: eslint()
-  },
-  jest: {
-    title: 'Jest',
-    run: jest()
-  },
-  test: {
-    title: 'Test',
-    run: ['lint', 'jest'],
-    parallel: true
-  },
-  clean: {
-    title: 'Clean',
-    run: rm([
-      './coverage',
-      './node_modules/.cache'
-    ])
-  }
-}
-```
-
-4. Now you can run one of defined task
+or parallel:
 
 ```bash
-yarn exec -- trigen-scripts test
+pnpm exec -- run --parallel lint:code lint:styles
+# also available -p alias for --parallel option
+```
+
+also you can pass arguments to scripts:
+
+```bash
+pnpm exec -- run [ lint:code --fix ] [ lint:styles --fix ]
 ```
