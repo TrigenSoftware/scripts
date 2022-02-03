@@ -3,7 +3,12 @@
  */
 
 module.exports = {
-  extends: ['eslint:recommended', 'plugin:jsdoc/recommended'].concat([
+  plugins: ['security'],
+  extends: [
+    'eslint:recommended',
+    'plugin:jsdoc/recommended',
+    'plugin:security/recommended'
+  ].concat([
     './rules/common',
     './rules/es6',
     './rules/jsdoc'

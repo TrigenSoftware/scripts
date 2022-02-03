@@ -114,6 +114,7 @@ importers:
       eslint-plugin-jsdoc: ^37.0.0
       eslint-plugin-react: ^7.27.1
       eslint-plugin-react-hooks: ^4.3.0
+      eslint-plugin-security: ^1.4.0
       eslint-plugin-testing-library: ^5.0.0
     dependencies:
       '@babel/eslint-parser': 7.16.5_@babel+core@7.16.7+eslint@8.6.0
@@ -127,6 +128,7 @@ importers:
       eslint-plugin-jsdoc: 37.5.1_eslint@8.6.0
       eslint-plugin-react: 7.28.0_eslint@8.6.0
       eslint-plugin-react-hooks: 4.3.0_eslint@8.6.0
+      eslint-plugin-security: 1.4.0
       eslint-plugin-testing-library: 5.0.1_eslint@8.6.0+typescript@4.5.4
 
   packages/scripts:
@@ -4824,6 +4826,12 @@ packages:
       string.prototype.matchall: 4.0.6
     dev: false
 
+  /eslint-plugin-security/1.4.0:
+    resolution: {integrity: sha512-xlS7P2PLMXeqfhyf3NpqbvbnW04kN8M9NtmhpR3XGyOvt/vNKS7XPXT5EDbwKW9vCjWH4PpfQvgD/+JgN0VJKA==}
+    dependencies:
+      safe-regex: 1.1.0
+    dev: false
+
   /eslint-plugin-testing-library/5.0.1_eslint@8.6.0+typescript@4.5.4:
     resolution: {integrity: sha512-8ZV4HbbacvOwu+adNnGpYd8E64NRcil2a11aFAbc/TZDUB/xxK2c8Z+LoeoHUbxNBGbTUdpAE4YUugxK85pcwQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0, npm: '>=6'}
@@ -8257,6 +8265,11 @@ packages:
       signal-exit: 3.0.6
     dev: true
 
+  /ret/0.1.15:
+    resolution: {integrity: sha512-TTlYpa+OL+vMMNG24xSlQGEJ3B/RzEfUlLct7b5G/ytav+wPrplCpVMFuwzXbkecJrb6IYo1iFb0S9v37754mg==}
+    engines: {node: '>=0.12'}
+    dev: false
+
   /retry/0.12.0:
     resolution: {integrity: sha1-G0KmJmoh8HQh0bC1S33BZ7AcATs=}
     engines: {node: '>= 4'}
@@ -8310,6 +8323,12 @@ packages:
   /safe-buffer/5.2.1:
     resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
     dev: true
+
+  /safe-regex/1.1.0:
+    resolution: {integrity: sha1-QKNmnzsHfR6UPURinhV91IAjvy4=}
+    dependencies:
+      ret: 0.1.15
+    dev: false
 
   /safer-buffer/2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
