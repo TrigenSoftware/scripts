@@ -27,6 +27,7 @@ Scripts and configs for TrigenSoftware's projects.
 | [`@trigen/babel-preset`](packages/babel-preset#readme) | [![NPM version][babel-preset-npm]][babel-preset-npm-url] | [![Dependencies status][babel-preset-deps]][babel-preset-deps-url] |
 | [`@trigen/browserslist-config`](packages/browserslist-config#readme) | [![NPM version][browserslist-config-npm]][browserslist-config-npm-url] | |
 | [`@trigen/eslint-config`](packages/eslint-config#readme) | [![NPM version][eslint-config-npm]][eslint-config-npm-url] | [![Dependencies status][eslint-config-deps]][eslint-config-deps-url] |
+| [`@trigen/lint-package-json`](packages/lint-package-json#readme) | [![NPM version][lint-package-json-npm]][lint-package-json-npm-url] | [![Dependencies status][lint-package-json-deps]][lint-package-json-deps-url] |
 | [`@trigen/npm-package-json-lint-config`](packages/npm-package-json-lint-config#readme) | [![NPM version][npm-package-json-lint-config-npm]][npm-package-json-lint-config-npm-url] | [![Dependencies status][npm-package-json-lint-config-deps]][npm-package-json-lint-config-deps-url] |
 
 <!-- babel-preset -->
@@ -49,6 +50,14 @@ Scripts and configs for TrigenSoftware's projects.
 
 [eslint-config-deps]: https://img.shields.io/librariesio/release/npm/@trigen/eslint-config
 [eslint-config-deps-url]: https://libraries.io/npm/@trigen%2Feslint-config/tree
+
+<!-- lint-package-json -->
+
+[lint-package-json-npm]: https://img.shields.io/npm/v/%40trigen/lint-package-json.svg
+[lint-package-json-npm-url]: https://www.npmjs.com/package/@trigen/lint-package-json
+
+[lint-package-json-deps]: https://img.shields.io/librariesio/release/npm/@trigen/lint-package-json
+[lint-package-json-deps-url]: https://libraries.io/npm/@trigen%2Fnpm-package-json-lint-config/tree
 
 <!-- npm-package-json-lint-config -->
 

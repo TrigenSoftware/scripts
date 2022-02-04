@@ -17,7 +17,7 @@
     "node": ">=14"
   },
   "scripts": {
-    "lint:package-json": "npmPkgJsonLint .",
+    "lint:package-json": "lint-package-json --monorepo",
     "lint": "eslint 'packages/**/*.{js,jsx,ts,tsx}'",
     "jest": "NODE_OPTIONS=--experimental-vm-modules jest -c jest.config.json",
     "test": "run -p lint jest",
@@ -37,7 +37,7 @@
     "@swc/jest": "^0.2.14",
     "@trigen/browserslist-config": "workspace:*",
     "@trigen/eslint-config": "workspace:*",
-    "@trigen/npm-package-json-lint-config": "workspace:*",
+    "@trigen/lint-package-json": "workspace:*",
     "@trigen/scripts": "workspace:*",
     "@types/node": "^17.0.8",
     "clean-publish": "^4.0.0",

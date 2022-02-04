@@ -1,0 +1,39 @@
+{
+  "name": "@trigen/lint-package-json",
+  "type": "module",
+  "version": "8.0.0-alpha.4",
+  "description": "Shortcut to run npm-package-json-lint with @trigen/npm-package-json-lint-config.",
+  "author": "dangreen",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TrigenSoftware/scripts.git",
+    "directory": "packages/lint-package-json"
+  },
+  "bugs": {
+    "url": "https://github.com/TrigenSoftware/scripts/issues"
+  },
+  "keywords": [
+    "npm-package-json-lint",
+    "dlx"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
+  "bin": {
+    "lint-package-json": "./src/index.js"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "package"
+  },
+  "scripts": {
+    "prepublishOnly": "del ./package && clean-publish",
+    "postpublish": "del ./package"
+  },
+  "dependencies": {
+    "@trigen/npm-package-json-lint-config": "8.0.0-alpha.3",
+    "npm-package-json-lint": "^5.4.2"
+  },
+  "readme": ""
+}

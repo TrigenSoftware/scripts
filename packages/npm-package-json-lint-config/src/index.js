@@ -1,5 +1,5 @@
 module.exports = {
-  extends: 'npm-package-json-lint-config-default',
+  extends: require.resolve('npm-package-json-lint-config-default'),
   rules: {
     'require-author': 'error',
     'require-bugs': 'error',

@@ -1,4 +1,3 @@
-/* eslint-disable security/detect-object-injection */
 const commonRules = require('./common').rules
 const es6Rules = require('./es6').rules
 
