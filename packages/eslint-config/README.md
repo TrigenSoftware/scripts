@@ -31,7 +31,7 @@ npm i -D @trigen/eslint-config
 
 ## Configure
 
-Create `.eslintrc` with next content:
+Create `.eslintrc.json` with next content:
 
 ```json
 {

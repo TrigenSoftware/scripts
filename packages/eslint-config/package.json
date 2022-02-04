@@ -1,7 +1,7 @@
 {
   "name": "@trigen/eslint-config",
   "version": "8.0.0-alpha.3",
-  "description": "Trigen's ESLint config",
+  "description": "Trigen's ESLint config.",
   "author": "dangreen",
   "license": "MIT",
   "repository": {
@@ -12,18 +12,22 @@
   "bugs": {
     "url": "https://github.com/TrigenSoftware/scripts/issues"
   },
+  "keywords": [
+    "eslint",
+    "eslint-config"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
   "main": "./src/index.js",
   "exports": {
     ".": "./src/index.js",
     "./*": "./src/*.js"
   },
-  "engines": {
-    "node": ">=10"
+  "publishConfig": {
+    "access": "public",
+    "directory": "package"
   },
-  "keywords": [
-    "eslint",
-    "eslint-config"
-  ],
   "scripts": {
     "prepublishOnly": "del ./package && clean-publish",
     "postpublish": "del ./package"
@@ -44,12 +48,7 @@
     "eslint-plugin-jsdoc": "^37.0.0",
     "eslint-plugin-react": "^7.27.1",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "eslint-plugin-security": "^1.4.0",
     "eslint-plugin-testing-library": "^5.0.0"
-  },
-  "publishConfig": {
-    "access": "public",
-    "directory": "package"
   },
   "readme": ""
 }
