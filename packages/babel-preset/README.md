@@ -31,7 +31,7 @@ npm i -D @trigen/babel-preset
 
 ## Configure
 
-Add `@trigen/babel-preset` to your presets in `.babelrc`.
+Add `@trigen/babel-preset` to your presets in `.babelrc.json`.
 
 ## Options
 
