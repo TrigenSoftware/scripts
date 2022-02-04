@@ -1,7 +1,7 @@
 {
   "name": "@trigen/browserslist-config",
   "version": "8.0.0-alpha.2",
-  "description": "Trigen's Browserslist config",
+  "description": "Trigen's Browserslist config.",
   "author": "dangreen",
   "license": "MIT",
   "repository": {
@@ -12,25 +12,25 @@
   "bugs": {
     "url": "https://github.com/TrigenSoftware/scripts/issues"
   },
+  "keywords": [
+    "browserslist",
+    "browserslist-config"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
   "main": "./src/index.js",
   "exports": {
     ".": "./src/index.js",
     "./*": "./src/*.js"
   },
-  "engines": {
-    "node": ">=10"
-  },
-  "keywords": [
-    "browserslist",
-    "browserslist-config"
-  ],
-  "scripts": {
-    "prepublishOnly": "del ./package && clean-publish",
-    "postpublish": "del ./package"
-  },
   "publishConfig": {
     "access": "public",
     "directory": "package"
+  },
+  "scripts": {
+    "prepublishOnly": "del ./package && clean-publish",
+    "postpublish": "del ./package"
   },
   "readme": ""
 }

@@ -1,30 +1,29 @@
 {
-  "name": "@trigen/scripts",
-  "type": "module",
-  "version": "8.0.0-alpha.4",
-  "description": "CLI tool for running scripts.",
+  "name": "@trigen/npm-package-json-lint-config",
+  "version": "8.0.0-alpha.3",
+  "description": "Trigen's npm-package-json-lint config.",
   "author": "dangreen",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/TrigenSoftware/scripts.git",
-    "directory": "packages/scripts"
+    "directory": "packages/npm-package-json-lint-config"
   },
   "bugs": {
     "url": "https://github.com/TrigenSoftware/scripts/issues"
   },
   "keywords": [
-    "scripts",
-    "tasks",
-    "runner"
+    "npm-package-json-lint",
+    "npm-package-json-lint-config"
   ],
   "engines": {
-    "node": ">=14"
+    "node": ">=10"
   },
-  "bin": {
-    "run": "./src/run.js"
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./*": "./src/*.js"
   },
-  "exports": "./src/index.js",
   "publishConfig": {
     "access": "public",
     "directory": "package"
@@ -33,10 +32,11 @@
     "prepublishOnly": "del ./package && clean-publish",
     "postpublish": "del ./package"
   },
+  "peerDependencies": {
+    "npm-package-json-lint": ">= 2"
+  },
   "dependencies": {
-    "argue-cli": "^2.0.0",
-    "dotenv": "^14.0.0",
-    "p-limit": "^4.0.0"
+    "npm-package-json-lint-config-default": "^3.0.0"
   },
   "readme": ""
 }

@@ -12,18 +12,22 @@
   "bugs": {
     "url": "https://github.com/TrigenSoftware/scripts/issues"
   },
+  "keywords": [
+    "babel",
+    "babel-preset"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
   "main": "./src/index.js",
   "exports": {
     ".": "./src/index.js",
     "./*": "./src/*.js"
   },
-  "engines": {
-    "node": ">=10"
+  "publishConfig": {
+    "access": "public",
+    "directory": "package"
   },
-  "keywords": [
-    "babel",
-    "babel-preset"
-  ],
   "scripts": {
     "prepublishOnly": "del ./package && clean-publish",
     "postpublish": "del ./package"
@@ -54,10 +58,6 @@
     "babel-plugin-transform-react-class-to-function": "^1.2.2",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "babel-plugin-transform-remove-imports": "^1.5.2"
-  },
-  "publishConfig": {
-    "access": "public",
-    "directory": "package"
   },
   "readme": ""
 }

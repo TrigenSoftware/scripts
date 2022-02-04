@@ -1,0 +1,6 @@
+{
+  "extends": [
+    "@trigen/npm-package-json-lint-config",
+    "@trigen/npm-package-json-lint-config/monorepo"
+  ]
+}
