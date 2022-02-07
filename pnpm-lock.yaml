@@ -135,7 +135,7 @@ importers:
 
   packages/lint-package-json:
     specifiers:
-      '@trigen/npm-package-json-lint-config': 8.0.0-alpha.3
+      '@trigen/npm-package-json-lint-config': ^8.0.0-alpha.5
       npm-package-json-lint: ^5.4.2
     dependencies:
       '@trigen/npm-package-json-lint-config': link:../npm-package-json-lint-config

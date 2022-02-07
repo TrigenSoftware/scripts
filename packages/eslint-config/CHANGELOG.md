@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.5](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.4...v8.0.0-alpha.5) (2022-02-07)
+
+
+### Bug Fixes
+
+* **eslint-config:** fix rules for lint .d.ts files ([078da34](https://github.com/TrigenSoftware/scripts/commit/078da34146d17b111cea6c75cbd6dc0e782be24f))
+
+
+### Features
+
+* **eslint-config:** eslint-plugin-security was added ([23d596a](https://github.com/TrigenSoftware/scripts/commit/23d596a44f58292595e71f74d5c5e140f5bf77b2))
+* **eslint-config:** remove eslint-plugin-security ([93993be](https://github.com/TrigenSoftware/scripts/commit/93993bec7448a7d226999bef07fd282d35877f84))
+* **lint-package-json:** lint-package-json util ([0ec0b35](https://github.com/TrigenSoftware/scripts/commit/0ec0b35321a7b2281cc69f08afcf7a6770d6025f))
+* new `run` cli ([#24](https://github.com/TrigenSoftware/scripts/issues/24)) ([05f820a](https://github.com/TrigenSoftware/scripts/commit/05f820a6396b5f57ab2b645de71d4b2f7f9c58cf))
+
+
+### BREAKING CHANGES
+
+* Use `run` cli to run scripts from package.json, instead of using custom file with
+plugins.
+
+
+
+
+
 # [8.0.0-alpha.3](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.2...v8.0.0-alpha.3) (2022-01-15)
 
 
