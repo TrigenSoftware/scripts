@@ -2,7 +2,7 @@ name: Commit
 on:
   push:
 jobs:
-  conventional-commit:
+  conventional-commits:
     runs-on: ubuntu-latest
     name: Checking commit name
     steps:
