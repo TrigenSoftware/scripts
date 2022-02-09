@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.7](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.6...v8.0.0-alpha.7) (2022-02-09)
+
+
+### Features
+
+* **eslint-config:** disable @typescript-eslint/prefer-nullish-coalescing ([f438810](https://github.com/TrigenSoftware/scripts/commit/f4388109e6edf609ce6d0eaaef7d6c262d702488))
+
+
+
+
+
 # [8.0.0-alpha.6](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.5...v8.0.0-alpha.6) (2022-02-07)
 
 
