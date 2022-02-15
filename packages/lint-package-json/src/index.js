@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 import NpmPackageJsonLint from 'npm-package-json-lint/src/NpmPackageJsonLint.js'
 import Reporter from 'npm-package-json-lint/src/Reporter.js'
+import configs from './configs.cjs'
 
 const monorepo = process.argv.includes('--monorepo')
 const config = {
   extends: monorepo
-    ? ['@trigen/npm-package-json-lint-config', '@trigen/npm-package-json-lint-config/monorepo']
-    : '@trigen/npm-package-json-lint-config'
+    ? [configs.base, configs.monorepo]
+    : configs.base
 }
 const npmPackageJsonLint = new NpmPackageJsonLint({
   cwd: process.cwd(),
