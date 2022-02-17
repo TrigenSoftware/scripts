@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.12](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.11...v8.0.0-alpha.12) (2022-02-17)
+
+
+### Bug Fixes
+
+* **eslint-config:** remove naming-convention rule ([84d736b](https://github.com/TrigenSoftware/scripts/commit/84d736b25c224e18fb65ec986b4fd07ebbe9e427))
+
+
+
+
+
 # [8.0.0-alpha.11](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.10...v8.0.0-alpha.11) (2022-02-17)
 
 
