@@ -1,5 +1,5 @@
 /**
- * Jest override
+ * Storybook override
  */
 const { makePatterns } = require('./utils')
 

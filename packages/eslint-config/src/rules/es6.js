@@ -39,16 +39,6 @@ module.exports = {
     // Style guide
     'import/first': 'error',
     'import/no-duplicates': 'error',
-    'import/extensions': [
-      'error',
-      {
-        js: 'never',
-        jsx: 'never',
-        ts: 'never',
-        tsx: 'never',
-        json: 'always'
-      }
-    ],
     'import/order': [
       'error',
       {
