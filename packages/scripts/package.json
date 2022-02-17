@@ -1,7 +1,7 @@
 {
   "name": "@trigen/scripts",
   "type": "module",
-  "version": "8.0.0-alpha.5",
+  "version": "8.0.0-alpha.9",
   "description": "CLI tool for running scripts.",
   "author": "dangreen",
   "license": "MIT",
