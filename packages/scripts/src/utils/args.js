@@ -34,6 +34,23 @@ export function getRunArgs(pm, args) {
 }
 
 /**
+ * Get args to run command.
+ * @param {string} pm - Package manager name.
+ * @param {string[]} args - Command args.
+ * @param {{ scripts?: Record<string, string> }} pkg - package.json
+ * @returns {[string, string[]]} - Bin and commands.
+ */
+export function getArgs(pm, args, pkg) {
+  if (pkg.scripts && (args[0] in pkg.scripts)) {
+    return [pm, getRunArgs(pm, args)]
+  }
+
+  const [bin, ...restArgs] = args
+
+  return [bin, restArgs]
+}
+
+/**
  * Read scripts from argv to run with package manager.
  * @returns Package manager scripts to run.
  */

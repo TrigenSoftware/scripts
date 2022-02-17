@@ -1,20 +1,21 @@
 import { cpus } from 'os'
 import pLimit from 'p-limit'
 import { spawn } from './spawn.js'
-import { getRunArgs } from './args.js'
+import { getArgs } from './args.js'
 
 /**
  * Run package manager scripts serial.
  * @param {string} pm
  * @param {string[][]} scripts
+ * @param {{ scripts?: Record<string, string> }} pkg - package.json
  * @returns Exit code
  */
-export async function runSerial(pm, scripts) {
-  const pmScripts = scripts.map(script => getRunArgs(pm, script))
+export async function runSerial(pm, scripts, pkg) {
+  const cmds = scripts.map(script => getArgs(pm, script, pkg))
   let exitCode = 0
 
-  for (const pmScript of pmScripts) {
-    exitCode = exitCode || (await spawn(pm, pmScript)).exitCode
+  for (const [bin, args] of cmds) {
+    exitCode = exitCode || (await spawn(bin, args)).exitCode
   }
 
   return exitCode
@@ -24,12 +25,13 @@ export async function runSerial(pm, scripts) {
  * Run package manager scripts parallel.
  * @param {string} pm
  * @param {string[][]} scripts
+ * @param {{ scripts?: Record<string, string> }} pkg - package.json
  * @returns Exit code.
  */
-export async function runParallel(pm, scripts) {
+export async function runParallel(pm, scripts, pkg) {
   const limit = pLimit(cpus().length)
-  const pmScripts = scripts.map(script => getRunArgs(pm, script))
-  const tasks = pmScripts.map(pmScript => limit(() => spawn(pm, pmScript, false)))
+  const cmds = scripts.map(script => getArgs(pm, script, pkg))
+  const tasks = cmds.map(([bin, args]) => limit(() => spawn(bin, args, false)))
   let exitCode = 0
   /** @type {{ exitCode: number, output?: string | Error }} */
   let result
