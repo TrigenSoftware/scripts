@@ -6,9 +6,7 @@ on:
 jobs:
   editorconfig:
     runs-on: ubuntu-latest
-    name: Checking editorconfig
-    env:
-      CI_JOB_NUMBER: 1
+    name: editorconfig
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v2
@@ -16,7 +14,7 @@ jobs:
         uses: editorconfig-checker/action-editorconfig-checker@v1
   package-json:
     runs-on: ubuntu-latest
-    name: Checking package.json files
+    name: package.json
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v2
