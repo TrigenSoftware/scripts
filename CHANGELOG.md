@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.11](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.10...v8.0.0-alpha.11) (2022-02-17)
+
+
+### Bug Fixes
+
+* **eslint-config:** remove import/extensions rule ([541a3f9](https://github.com/TrigenSoftware/scripts/commit/541a3f95b9d863427434a462d34d67d0778f831d))
+
+
+
+
+
 # [8.0.0-alpha.10](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.9...v8.0.0-alpha.10) (2022-02-17)
 
 
