@@ -11,14 +11,6 @@ module.exports = {
     '@typescript-eslint/no-base-to-string': 'error',
     '@typescript-eslint/no-throw-literal': 'error',
     '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error',
-    '@typescript-eslint/no-unnecessary-condition': [
-      // https://github.com/typescript-eslint/typescript-eslint/issues/2333 : `strictNullChecks` compiler option needed
-      // `strictNullChecks` is very strcit (┛◉Д◉)┛彡┻━┻
-      'error',
-      {
-        allowConstantLoopConditions: true
-      }
-    ],
     '@typescript-eslint/no-unnecessary-qualifier': 'error',
     '@typescript-eslint/no-unnecessary-type-arguments': 'error',
     '@typescript-eslint/prefer-includes': 'error',
