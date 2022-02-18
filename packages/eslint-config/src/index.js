@@ -24,6 +24,12 @@ module.exports = {
   },
   overrides: [
     {
+      files: 'rollup.config.js',
+      rules: {
+        'import/no-default-export': 'off'
+      }
+    },
+    {
       files: ['*.js', '*.jsx'],
       extends: ['./rules/babel'].map(require.resolve)
     }
