@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.13](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.12...v8.0.0-alpha.13) (2022-02-18)
+
+
+### Features
+
+* **eslint-config:** remove no-unnecessary-condition rule ([67961bc](https://github.com/TrigenSoftware/scripts/commit/67961bc0d2f96438a8642bfa7df86ff0619f9f52))
+
+
+
+
+
 # [8.0.0-alpha.12](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.11...v8.0.0-alpha.12) (2022-02-17)
 
 
