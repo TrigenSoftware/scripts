@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.14](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.13...v8.0.0-alpha.14) (2022-02-18)
+
+
+### Bug Fixes
+
+* **eslint-config:** overrides for rollup.config.js ([0e7aa61](https://github.com/TrigenSoftware/scripts/commit/0e7aa61b693e91906c6b78e17a2352a7b7238511))
+
+
+
+
+
 # [8.0.0-alpha.13](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.12...v8.0.0-alpha.13) (2022-02-18)
 
 
