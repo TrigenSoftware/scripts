@@ -143,9 +143,9 @@ importers:
 
   packages/npm-package-json-lint-config:
     specifiers:
-      npm-package-json-lint-config-default: ^3.0.0
+      npm-package-json-lint-config-default: ^4.0.0
     dependencies:
-      npm-package-json-lint-config-default: 3.0.0_npm-package-json-lint@5.4.2
+      npm-package-json-lint-config-default: 4.0.0_npm-package-json-lint@5.4.2
 
   packages/scripts:
     specifiers:
@@ -7332,9 +7332,9 @@ packages:
       validate-npm-package-name: 3.0.0
     dev: true
 
-  /npm-package-json-lint-config-default/3.0.0_npm-package-json-lint@5.4.2:
-    resolution: {integrity: sha512-1eOHUSg4Pg1lDp75NJ/pTnYU3/vn7WIL+3MG5KWtrUEFtIuBX/yLGABTFZ4+sP73bQYu/Nla07icJjezQP6SnA==}
-    engines: {node: '>=10.0.0', npm: '>=6.0.0'}
+  /npm-package-json-lint-config-default/4.0.0_npm-package-json-lint@5.4.2:
+    resolution: {integrity: sha512-7zDAp/RVGdnAkclDkNxTU9QeBUE8wDVnhINWv2I0EVPdHHY3I8Qfu815rAJv8B/Yy0lz0UnMlsd3NcmFW7ZwCw==}
+    engines: {node: '>=14.0.0', npm: '>=6.0.0'}
     peerDependencies:
       npm-package-json-lint: ^5.0.0
     dependencies:
