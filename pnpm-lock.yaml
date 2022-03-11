@@ -115,7 +115,7 @@ importers:
       eslint-plugin-import: ^2.25.3
       eslint-plugin-jest: ^25.0.0
       eslint-plugin-jest-dom: ^4.0.0
-      eslint-plugin-jsdoc: ^37.0.0
+      eslint-plugin-jsdoc: ^38.0.0
       eslint-plugin-react: ^7.27.1
       eslint-plugin-react-hooks: ^4.3.0
       eslint-plugin-testing-library: ^5.0.0
@@ -128,7 +128,7 @@ importers:
       eslint-plugin-import: 2.25.4_eslint@8.6.0
       eslint-plugin-jest: 25.3.4_296d48ab5a8c24dcd54e3205c98c34b8
       eslint-plugin-jest-dom: 4.0.1_eslint@8.6.0
-      eslint-plugin-jsdoc: 37.5.1_eslint@8.6.0
+      eslint-plugin-jsdoc: 38.0.0_eslint@8.6.0
       eslint-plugin-react: 7.28.0_eslint@8.6.0
       eslint-plugin-react-hooks: 4.3.0_eslint@8.6.0
       eslint-plugin-testing-library: 5.0.1_eslint@8.6.0+typescript@4.5.4
@@ -1735,13 +1735,13 @@ packages:
       '@cspotcode/source-map-consumer': 0.8.0
     dev: true
 
-  /@es-joy/jsdoccomment/0.14.2:
-    resolution: {integrity: sha512-812igKXDcLEdkwUbJvnhzMy88dBBiDeaf3mMF1jnQwclIObu5UQB8ow1KAvDRN1FQqpB+IsZnpmRA0jZ6KGt3g==}
+  /@es-joy/jsdoccomment/0.20.1:
+    resolution: {integrity: sha512-oeJK41dcdqkvdZy/HctKklJNkt/jh+av3PZARrZEl+fs/8HaHeeYoAvEwOV0u5I6bArTF17JEsTZMY359e/nfQ==}
     engines: {node: ^12 || ^14 || ^16 || ^17}
     dependencies:
       comment-parser: 1.3.0
       esquery: 1.4.0
-      jsdoc-type-pratt-parser: 2.0.2
+      jsdoc-type-pratt-parser: 2.2.4
     dev: false
 
   /@eslint/eslintrc/1.0.5:
@@ -4785,19 +4785,18 @@ packages:
       - typescript
     dev: false
 
-  /eslint-plugin-jsdoc/37.5.1_eslint@8.6.0:
-    resolution: {integrity: sha512-WMv/Na5QdpMQao1MR3SgYpGFi2PSrhh/JljlErQru9ZYXf1j9oQVIVCELQV7jcyqKQ/svPqCyU8eMhet9dzP+w==}
+  /eslint-plugin-jsdoc/38.0.0_eslint@8.6.0:
+    resolution: {integrity: sha512-4ZWTq9Jjpr+aezCn/gjRq45C3wFpY16S+umce8q/s2kMmD6oJ/8u8jhPFGoOHUnkZzFNDzYiIUxF9+OmoayLbA==}
     engines: {node: ^12 || ^14 || ^16 || ^17}
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0
     dependencies:
-      '@es-joy/jsdoccomment': 0.14.2
+      '@es-joy/jsdoccomment': 0.20.1
       comment-parser: 1.3.0
       debug: 4.3.3
       escape-string-regexp: 4.0.0
       eslint: 8.6.0
       esquery: 1.4.0
-      jsdoc-type-pratt-parser: 2.0.2
       regextras: 0.8.0
       semver: 7.3.5
       spdx-expression-parse: 3.0.1
@@ -6519,8 +6518,8 @@ packages:
     resolution: {integrity: sha1-peZUwuWi3rXyAdls77yoDA7y9RM=}
     dev: true
 
-  /jsdoc-type-pratt-parser/2.0.2:
-    resolution: {integrity: sha512-gXN5CxeaI9WtYQYzpOO/CtTRfZppQlKxXRTIm73JuAX6kOGTQ7iZ0e+YB+b2m7Fk+gTYYxRtE1nqje7H6dqv8w==}
+  /jsdoc-type-pratt-parser/2.2.4:
+    resolution: {integrity: sha512-GKkP4t6NwFtMpxR/3jNoRzauTdpum5/lkkhBxWSDP3IG/1IFd1NxCTMJ/sgRy8BA1UFsFq6LEwOo0YmiBDA52Q==}
     engines: {node: '>=12.0.0'}
     dev: false
 
