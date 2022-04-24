@@ -23,7 +23,7 @@ importers:
       inquirer: ^8.2.0
       jest: ^27.4.5
       lerna: ^4.0.0
-      nano-staged: ^0.5.0
+      nano-staged: ^0.8.0
       npm-package-json-lint: ^5.4.2
       simple-git-hooks: ^2.7.0
       simple-github-release: ^1.0.0
@@ -48,7 +48,7 @@ importers:
       inquirer: 8.2.0
       jest: 27.4.7
       lerna: 4.0.0
-      nano-staged: 0.5.0
+      nano-staged: 0.8.0
       npm-package-json-lint: 5.4.2
       simple-git-hooks: 2.7.0
       simple-github-release: 1.0.0
@@ -7172,8 +7172,8 @@ packages:
     resolution: {integrity: sha512-nnbWWOkoWyUsTjKrhgD0dcz22mdkSnpYqbEjIm2nhwhuxlSkpywJmBo8h0ZqJdkp73mb90SssHkN4rsRaBAfAA==}
     dev: true
 
-  /nano-staged/0.5.0:
-    resolution: {integrity: sha512-5jkhLvyZM974RmCyI8vt7zo0QK6GIAOCBe6e7L36awXIlG+40/5zJiDvESFrFmO4PhBCRm9lUlnH0SsWAFLDLg==}
+  /nano-staged/0.8.0:
+    resolution: {integrity: sha512-QSEqPGTCJbkHU2yLvfY6huqYPjdBrOaTMKatO1F8nCSrkQGXeKwtCiCnsdxnuMhbg3DTVywKaeWLGCE5oJpq0g==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     hasBin: true
     dependencies:
