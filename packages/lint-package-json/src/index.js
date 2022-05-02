@@ -10,7 +10,7 @@ import configs from './configs.cjs'
 
 const {
   monorepo,
-  ignore
+  ignore = []
 } = readOptions(
   option(alias('monorepo', 'm'), Boolean),
   option(alias('ignore', 'i'), Array),
