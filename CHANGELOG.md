@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.16](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.15...v8.0.0-alpha.16) (2022-05-02)
+
+
+### Bug Fixes
+
+* **lint-package-json:** fix cli ([4a86b3e](https://github.com/TrigenSoftware/scripts/commit/4a86b3e8748b11ff1375fe58e6244bfb9f765f58))
+
+
+
+
+
 # [8.0.0-alpha.15](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.14...v8.0.0-alpha.15) (2022-05-02)
 
 
