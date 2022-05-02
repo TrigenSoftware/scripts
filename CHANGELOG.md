@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.15](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.14...v8.0.0-alpha.15) (2022-05-02)
+
+
+### Features
+
+* **lint-package-json:** ignore option ([000251f](https://github.com/TrigenSoftware/scripts/commit/000251fb56bc1abd977b60f09f8b4257c5a25169))
+
+
+
+
+
 # [8.0.0-alpha.14](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.13...v8.0.0-alpha.14) (2022-02-18)
 
 
