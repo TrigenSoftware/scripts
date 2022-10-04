@@ -1,0 +1,41 @@
+# GitHub
+.github/ISSUE_TEMPLATE/config.yml
+.github/ISSUE_TEMPLATE/bug-report.yml
+.github/ISSUE_TEMPLATE/feature-request.yml
+.github/ISSUE_TEMPLATE/question.yml
+# GitHub Actions
+.github/workflows/ci.yml
+.github/workflows/commit.yml
+.github/workflows/checks.yml
+.github/workflows/release.yml
+.github/workflows/update-snapshots.yml
+.github/workflows/website.yml
+# CI
+.github/renovate.json
+.clean-publish
+.eslintrc.json
+test/.eslintrc.json
+.size-limit.json
+.npmpackagejsonlintrc.json
+jest.config.json
+# TypeScript
+test/tsconfig.json
+tsconfig.json
+# Build
+env.d.ts
+.browserslistrc
+rollup.config.js
+# Monorepo
+lerna.json
+pnpm-workspace.yaml
+# Git Flow
+.gitignore
+.nano-staged.json
+.simple-git-hooks.json
+.commitlintrc.json
+.czrc
+# Basics
+.npmrc
+.editorconfig
+LICENSE
+README.md

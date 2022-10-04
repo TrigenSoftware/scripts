@@ -1,0 +1,38 @@
+{
+  "name": "@trigen/project-files",
+  "type": "module",
+  "version": "8.0.0-alpha.9",
+  "description": "CLI tool for download snippets files.",
+  "author": "dangreen",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TrigenSoftware/scripts.git",
+    "directory": "packages/project-files"
+  },
+  "bugs": {
+    "url": "https://github.com/TrigenSoftware/scripts/issues"
+  },
+  "keywords": [
+    "files",
+    "snippets"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
+  "bin": "./src/bin.js",
+  "exports": "./src/index.js",
+  "publishConfig": {
+    "access": "public",
+    "directory": "package"
+  },
+  "scripts": {
+    "prepublishOnly": "del ./package && clean-publish",
+    "postpublish": "del ./package"
+  },
+  "dependencies": {
+    "@octokit/rest": "^19.0.4",
+    "inquirer": "^8.2.0"
+  },
+  "readme": ""
+}

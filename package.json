@@ -38,6 +38,7 @@
     "@trigen/browserslist-config": "workspace:*",
     "@trigen/eslint-config": "workspace:*",
     "@trigen/lint-package-json": "workspace:*",
+    "@trigen/project-files": "workspace:*",
     "@trigen/scripts": "workspace:*",
     "@types/node": "^17.0.8",
     "clean-publish": "^4.0.0",

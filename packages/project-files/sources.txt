@@ -1,0 +1,7 @@
+TrigenSoftware/scripts
+TrigenSoftware/simple-github-release
+TrigenSoftware/Argue
+canvg/canvg
+reactchartjs/react-chartjs-2
+chartist-js/chartist
+TrigenSoftware/flexis-srcset
