@@ -1,0 +1,6 @@
+{
+  "extends": [
+    "@trigen/eslint-config/esm",
+    "@trigen/eslint-config/jest"
+  ]
+}
