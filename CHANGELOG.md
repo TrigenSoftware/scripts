@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.17](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.16...v8.0.0-alpha.17) (2022-10-07)
+
+
+### Features
+
+* **project-files:** project files tool ([#39](https://github.com/TrigenSoftware/scripts/issues/39)) ([f7ef29a](https://github.com/TrigenSoftware/scripts/commit/f7ef29a7eccfabf68c47102bed5d3b80d736e5e3))
+
+
+
+
+
 # [8.0.0-alpha.16](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.15...v8.0.0-alpha.16) (2022-05-02)
 
 
