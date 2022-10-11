@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.19](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.18...v8.0.0-alpha.19) (2022-10-11)
+
+
+### Bug Fixes
+
+* **eslint-config:** disable import rules for *.config.js ([92c80dc](https://github.com/TrigenSoftware/scripts/commit/92c80dc1665fc48f5f6c94330985d0107c5dd20b))
+
+
+
+
+
 # [8.0.0-alpha.18](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.17...v8.0.0-alpha.18) (2022-10-11)
 
 
