@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.18](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.17...v8.0.0-alpha.18) (2022-10-11)
+
+
+### Features
+
+* **eslint-config:** remove babel, add tsm config ([7933cb3](https://github.com/TrigenSoftware/scripts/commit/7933cb3da5b2a1139ded40417bcc4dae6c080977))
+
+
+
+
+
 # [8.0.0-alpha.14](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.13...v8.0.0-alpha.14) (2022-02-18)
 
 
