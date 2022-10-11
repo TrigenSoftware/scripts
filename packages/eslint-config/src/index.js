@@ -20,9 +20,10 @@ module.exports = {
   },
   overrides: [
     {
-      files: 'rollup.config.js',
+      files: '*.config.js',
       rules: {
-        'import/no-default-export': 'off'
+        'import/no-default-export': 'off',
+        'import/no-anonymous-default-export': 'off'
       }
     }
   ]
