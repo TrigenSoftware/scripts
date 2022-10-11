@@ -47,6 +47,7 @@ There are additional configs for specific language features:
 |--------|-------------|
 | @trigen/eslint-config/commonjs | Rules for CommonJS modules. |
 | @trigen/eslint-config/esm | Rules for ES modules. |
+| @trigen/eslint-config/tsm | Rules for TS modules. |
 | @trigen/eslint-config/react | Rules for ReactJS code. |
 | @trigen/eslint-config/jest | Rules for Jest tests. |
 | @trigen/eslint-config/storybook | Rules for Storybook's stories. |

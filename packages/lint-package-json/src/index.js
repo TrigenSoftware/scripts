@@ -13,7 +13,7 @@ const {
   ignore = []
 } = readOptions(
   option(alias('monorepo', 'm'), Boolean),
-  option(alias('ignore', 'i'), Array),
+  option(alias('ignore', 'i'), Array)
 )
 const config = {
   extends: monorepo

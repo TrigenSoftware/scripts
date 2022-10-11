@@ -11,15 +11,11 @@ module.exports = {
   env: {
     es6: true
   },
-  parser: '@babel/eslint-parser',
   parserOptions: {
-    requireConfigFile: false,
-    ecmaVersion: 6,
+    ecmaVersion: 'latest',
     sourceType: 'module',
     ecmaFeatures: {
-      impliedStrict: true,
-      experimentalObjectRestSpread: true,
-      objectLiteralDuplicateProperties: false
+      impliedStrict: true
     }
   },
   overrides: [
@@ -28,10 +24,6 @@ module.exports = {
       rules: {
         'import/no-default-export': 'off'
       }
-    },
-    {
-      files: ['*.js', '*.jsx'],
-      extends: ['./rules/babel'].map(require.resolve)
     }
   ]
 }

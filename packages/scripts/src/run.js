@@ -16,7 +16,7 @@ import {
 const pm = detectPackageManager()
 const pkg = await readPackageJsonUpward()
 const { parallel } = readOptions(
-  option(alias('parallel', 'p'), Boolean),
+  option(alias('parallel', 'p'), Boolean)
 )
 const scripts = readScripts()
 

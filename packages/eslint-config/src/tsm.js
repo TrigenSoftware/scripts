@@ -5,7 +5,7 @@
 module.exports = {
   overrides: [
     {
-      files: ['*.js', '*.jsx'],
+      files: ['*.ts', '*.tsx'],
       rules: {
         'import/no-useless-path-segments': [
           'error',
