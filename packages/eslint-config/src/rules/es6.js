@@ -98,13 +98,7 @@ module.exports = {
     'no-useless-constructor': 'error',
     'no-useless-rename': 'error',
     'no-var': 'error',
-    'object-shorthand': [
-      'error',
-      'always',
-      {
-        avoidQuotes: true
-      }
-    ],
+    'object-shorthand': ['error', 'always'],
     'prefer-arrow-callback': [
       'error',
       {
