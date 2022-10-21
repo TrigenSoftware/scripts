@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.20](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.19...v8.0.0-alpha.20) (2022-10-21)
+
+
+### Bug Fixes
+
+* **eslint-config:** disable avoidQuotes for object-shorthand ([530c49d](https://github.com/TrigenSoftware/scripts/commit/530c49d001da2f69f02d6ccbadc8f39055930275))
+
+
+
+
+
 # [8.0.0-alpha.19](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.18...v8.0.0-alpha.19) (2022-10-11)
 
 
