@@ -22,6 +22,18 @@ describe('scripts', () => {
         process.env.npm_execpath = 'node_modules/pnpm/cli.js'
         expect(detectPackageManager()).toBe('pnpm')
       })
+
+      it('should detect pnpm v6', () => {
+        process.env.npm_config_user_agent = 'pnpm/6.0.0'
+        process.env.npm_execpath = ''
+        expect(detectPackageManager()).toBe('pnpm')
+      })
+
+      it('should detect pnpm v7', () => {
+        process.env.npm_config_user_agent = 'pnpm/7.0.0'
+        process.env.npm_execpath = ''
+        expect(detectPackageManager()).toBe('pnpm >=7')
+      })
     })
 
     describe('getRunArgs', () => {
@@ -51,6 +63,16 @@ describe('scripts', () => {
           'run',
           'lint',
           '--',
+          '--fix'
+        ])
+      })
+
+      it('should not add dashes for pnpm >= 7', () => {
+        expect(
+          getRunArgs('pnpm >=7', ['lint', '--fix'])
+        ).toEqual([
+          'run',
+          'lint',
           '--fix'
         ])
       })

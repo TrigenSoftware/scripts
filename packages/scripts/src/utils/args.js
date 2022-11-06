@@ -1,13 +1,32 @@
 import { read, argv } from 'argue-cli'
 
+const pnpm7 = 7
+
 /**
  * Detect package manager from environment.
  * @returns Package manager name. 'npm` by default.
  */
 export function detectPackageManager() {
+  const parsedUa = /(^\w+)(?:\/(\d+)|)/.exec(process.env.npm_config_user_agent)
+
+  if (parsedUa) {
+    const [
+      ,
+      pm,
+      ver
+    ] = parsedUa
+
+    if (pm) {
+      if (pm === 'pnpm' && ver && Number(ver) >= pnpm7) {
+        return 'pnpm >=7'
+      }
+
+      return pm
+    }
+  }
+
   return (
-    /^\w+/.exec(process.env.npm_config_user_agent)?.[0]
-    || /node_modules[/\\](\w+)[/\\]/.exec(process.env.npm_execpath)?.[1]
+    /node_modules[/\\](\w+)[/\\]/.exec(process.env.npm_execpath)?.[1]
     || 'npm'
   )
 }
@@ -19,7 +38,7 @@ export function detectPackageManager() {
  * @returns Args to run script with package manager.
  */
 export function getRunArgs(pm, args) {
-  if (pm === 'yarn' || args.length < 2) {
+  if (pm === 'yarn' || pm === 'pnpm >=7' || args.length < 2) {
     return ['run', ...args]
   }
 
@@ -42,7 +61,7 @@ export function getRunArgs(pm, args) {
  */
 export function getArgs(pm, args, pkg) {
   if (pkg.scripts && (args[0] in pkg.scripts)) {
-    return [pm, getRunArgs(pm, args)]
+    return [pm.split(' ')[0], getRunArgs(pm, args)]
   }
 
   const [bin, ...restArgs] = args
