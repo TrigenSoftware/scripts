@@ -162,11 +162,11 @@ importers:
   packages/scripts:
     specifiers:
       argue-cli: ^2.0.0
-      dotenv: ^14.0.0
+      dotenv: ^16.0.0
       p-limit: ^4.0.0
     dependencies:
       argue-cli: 2.0.0
-      dotenv: 14.2.0
+      dotenv: 16.0.0
       p-limit: 4.0.0
     publishDirectory: package
 
@@ -4722,8 +4722,8 @@ packages:
       is-obj: 2.0.0
     dev: true
 
-  /dotenv/14.2.0:
-    resolution: {integrity: sha512-05POuPJyPpO6jqzTNweQFfAyMSD4qa4lvsMOWyTRTdpHKy6nnnN+IYWaXF+lHivhBH/ufDKlR4IWCAN3oPnHuw==}
+  /dotenv/16.0.0:
+    resolution: {integrity: sha512-qD9WU0MPM4SWLPJy/r2Be+2WgQj8plChsyrCNQzW/0WjvcJQiKQJ9mH3ZgB3fxbUUxgc/11ZJ0Fi5KiimWGz2Q==}
     engines: {node: '>=12'}
     dev: false
 
