@@ -16,8 +16,8 @@
 .eslintrc.json
 test/.eslintrc.json
 .size-limit.json
-.npmpackagejsonlintrc.json
 jest.config.json
+vite.config.js
 # TypeScript
 test/tsconfig.json
 tsconfig.json

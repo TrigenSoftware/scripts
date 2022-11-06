@@ -1,6 +1,7 @@
 TrigenSoftware/scripts
 TrigenSoftware/simple-github-release
 TrigenSoftware/Argue
+browserslist/browserslist-useragent-regexp
 canvg/canvg
 reactchartjs/react-chartjs-2
 chartist-js/chartist
