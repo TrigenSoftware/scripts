@@ -40,7 +40,7 @@
     "@trigen/lint-package-json": "workspace:*",
     "@trigen/project-files": "workspace:*",
     "@trigen/scripts": "workspace:*",
-    "@types/node": "^17.0.8",
+    "@types/node": "^18.0.0",
     "clean-publish": "^4.0.0",
     "commitizen": "^4.2.4",
     "del-cli": "^4.0.1",
