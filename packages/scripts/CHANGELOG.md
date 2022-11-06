@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.21](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.20...v8.0.0-alpha.21) (2022-11-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency dotenv to v16 ([#26](https://github.com/TrigenSoftware/scripts/issues/26)) ([4f34353](https://github.com/TrigenSoftware/scripts/commit/4f343531220970470e0de043538b3e1cff53f1ff))
+
+
+### Features
+
+* **scripts:** update for pnpm 7 ([073831d](https://github.com/TrigenSoftware/scripts/commit/073831d7a5a9013f1dabbab0d3f7b692536e4d2a))
+
+
+
+
+
 # [8.0.0-alpha.18](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.17...v8.0.0-alpha.18) (2022-10-11)
 
 
