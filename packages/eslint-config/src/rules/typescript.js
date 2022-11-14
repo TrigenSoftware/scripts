@@ -125,6 +125,11 @@ module.exports = {
           'PascalCase'
         ],
         modifiers: ['static']
+      },
+      {
+        selector: ['objectLiteralProperty', 'objectLiteralMethod'],
+        format: null,
+        modifiers: ['requiresQuotes']
       }
     ],
     '@typescript-eslint/no-dynamic-delete': 'error',
