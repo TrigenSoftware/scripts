@@ -3,6 +3,7 @@
 .github/ISSUE_TEMPLATE/bug-report.yml
 .github/ISSUE_TEMPLATE/feature-request.yml
 .github/ISSUE_TEMPLATE/question.yml
+.github/FUNDING.yml
 # GitHub Actions
 .github/workflows/ci.yml
 .github/workflows/commit.yml
