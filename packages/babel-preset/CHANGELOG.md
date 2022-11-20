@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.23](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.22...v8.0.0-alpha.23) (2022-11-20)
+
+**Note:** Version bump only for package @trigen/babel-preset
+
+
+
+
+
 # [8.0.0-alpha.5](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.4...v8.0.0-alpha.5) (2022-02-07)
 
 

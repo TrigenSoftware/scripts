@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.23](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.22...v8.0.0-alpha.23) (2022-11-20)
+
+
+### Features
+
+* **project-files:** add funding file ([8db1796](https://github.com/TrigenSoftware/scripts/commit/8db17963b941fbf97b023821d6e44eaa24a5a6cf))
+
+
+
+
+
 # [8.0.0-alpha.21](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.20...v8.0.0-alpha.21) (2022-11-06)
 
 
