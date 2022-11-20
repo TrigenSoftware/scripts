@@ -58,6 +58,5 @@
     "babel-plugin-transform-react-class-to-function": "^1.2.2",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "babel-plugin-transform-remove-imports": "^1.5.2"
-  },
-  "readme": ""
+  }
 }

@@ -31,6 +31,5 @@
   "scripts": {
     "prepublishOnly": "del ./package && clean-publish",
     "postpublish": "del ./package"
-  },
-  "readme": ""
+  }
 }
