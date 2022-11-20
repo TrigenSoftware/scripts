@@ -1,4 +1,5 @@
 /* eslint-disable camelcase */
+import { describe, it, expect } from 'vitest'
 import { setArgs } from 'argue-cli'
 import { detectPackageManager, getRunArgs, readScripts } from './args.js'
 
