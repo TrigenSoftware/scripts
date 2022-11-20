@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest'
 import { parseFilesList, parseSourcesList } from './parse.js'
 
 describe('project-files', () => {
