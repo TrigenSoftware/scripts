@@ -1,9 +1,9 @@
-const lernaScopes = require('@commitlint/config-lerna-scopes')
+const lernaScopes = require('@commitlint/config-pnpm-scopes')
 
 module.exports = {
   extends: [
     '@commitlint/config-conventional',
-    '@commitlint/config-lerna-scopes'
+    '@commitlint/config-pnpm-scopes'
   ],
   rules: {
     'body-max-line-length': [0],
