@@ -4,8 +4,10 @@ import {
   alias,
   option
 } from 'argue-cli'
-import NpmPackageJsonLint from 'npm-package-json-lint/src/NpmPackageJsonLint.js'
-import Reporter from 'npm-package-json-lint/src/Reporter.js'
+import {
+  NpmPackageJsonLint,
+  write
+} from 'npm-package-json-lint'
 import configs from './configs.cjs'
 
 const {
@@ -27,7 +29,7 @@ const npmPackageJsonLint = new NpmPackageJsonLint({
 })
 const linterOutput = npmPackageJsonLint.lint()
 
-Reporter.write(linterOutput)
+write(linterOutput)
 
 if (linterOutput.errorCount > 0) {
   process.exit(1)
