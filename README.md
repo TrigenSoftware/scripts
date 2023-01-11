@@ -14,7 +14,7 @@
 [deps]: https://img.shields.io/librariesio/release/npm/@trigen/scripts
 [deps-url]: https://libraries.io/npm/@trigen%2Fscripts/tree
 
-[build]: https://img.shields.io/github/workflow/status/TrigenSoftware/scripts/CI.svg
+[build]: https://img.shields.io/github/actions/workflow/status/TrigenSoftware/scripts/ci.yml?branch=main
 [build-url]: https://github.com/TrigenSoftware/scripts/actions
 
 Scripts and configs for TrigenSoftware's projects.

@@ -14,7 +14,7 @@
 [deps]: https://img.shields.io/librariesio/release/npm/@trigen/lint-package-json
 [deps-url]: https://libraries.io/npm/@trigen%2Feslint-config/tree
 
-[build]: https://img.shields.io/github/workflow/status/TrigenSoftware/scripts/CI.svg
+[build]: https://img.shields.io/github/actions/workflow/status/TrigenSoftware/scripts/ci.yml?branch=main
 [build-url]: https://github.com/TrigenSoftware/scripts/actions
 
 Shortcut to run npm-package-json-lint with @trigen/npm-package-json-lint-config.
