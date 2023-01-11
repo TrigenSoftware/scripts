@@ -17,12 +17,12 @@
     "node": ">=14"
   },
   "scripts": {
+    "clear": "del './packages/*/dist' ./coverage ./node_modules/.cache",
     "lint:package-json": "lint-package-json --monorepo",
-    "lint": "eslint 'packages/**/*.{js,jsx,ts,tsx}'",
+    "lint": "eslint '*.{js,cjs}' 'packages/**/*.{js,jsx,ts,tsx}'",
     "test:unit": "vitest run",
     "test:unit:watch": "vitest watch",
     "test": "run -p lint test:unit",
-    "clean": "del './packages/*/dist' ./coverage ./node_modules/.cache",
     "commit": "cz",
     "version": "pnpm install && git add ./pnpm-lock.yaml",
     "release": "lerna version",
