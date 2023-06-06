@@ -52,7 +52,7 @@
     "simple-github-release": "^1.0.0",
     "typescript": "^5.0.0",
     "vite": "^4.0.0",
-    "vitest": "^0.31.0"
+    "vitest": "^0.32.0"
   },
   "workspaces": [
     "packages/*"
