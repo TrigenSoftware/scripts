@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.24](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.23...v8.0.0-alpha.24) (2023-06-07)
+
+
+### Features
+
+* **eslint-config:** move jest-dom rules to separate entry ([2ae8c1d](https://github.com/TrigenSoftware/scripts/commit/2ae8c1d6c5742b9e0c5746ebc49ee43ad888fadb))
+
+
+
+
+
 # [8.0.0-alpha.23](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.22...v8.0.0-alpha.23) (2022-11-20)
 
 
