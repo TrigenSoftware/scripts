@@ -15,12 +15,8 @@ module.exports = {
   overrides: [
     {
       files: makePatterns(postfixes, extensions),
-      plugins: [
-        'jest',
-        'testing-library',
-        'jest-dom'
-      ],
-      extends: ['plugin:testing-library/react', 'plugin:jest-dom/recommended'],
+      plugins: ['jest', 'testing-library'],
+      extends: ['plugin:testing-library/react'],
       env: {
         'jest/globals': true
       },

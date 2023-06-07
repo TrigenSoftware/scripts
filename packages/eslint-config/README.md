@@ -50,6 +50,7 @@ There are additional configs for specific language features:
 | @trigen/eslint-config/tsm | Rules for TS modules. |
 | @trigen/eslint-config/react | Rules for ReactJS code. |
 | @trigen/eslint-config/jest | Rules for Jest tests. |
+| @trigen/eslint-config/jest-dom | Rules for Jest DOM tests. |
 | @trigen/eslint-config/storybook | Rules for Storybook's stories. |
 | @trigen/eslint-config/typescript | Rules for TypeScript code. |
 | @trigen/eslint-config/typescript-requiring-type-checking | Rules for TypeScript code with type checking. |

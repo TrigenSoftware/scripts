@@ -33,6 +33,7 @@
     "postpublish": "del ./package"
   },
   "peerDependencies": {
+    "@testing-library/dom": ">=8.0.0",
     "eslint": ">=7.0.0"
   },
   "dependencies": {

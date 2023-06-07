@@ -93,7 +93,7 @@ module.exports = {
         allowParens: true
       }
     ],
-    'no-duplicate-imports': 'error',
+    'no-duplicate-imports': 'off', // in favor of import/no-duplicates
     'no-useless-computed-key': 'error',
     'no-useless-constructor': 'error',
     'no-useless-rename': 'error',
