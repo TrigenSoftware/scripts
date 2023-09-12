@@ -60,8 +60,8 @@ importers:
         specifier: ^0.8.0
         version: 0.8.0
       npm-package-json-lint:
-        specifier: ^6.0.0
-        version: 6.4.0(typescript@5.2.2)
+        specifier: ^7.0.0
+        version: 7.0.0(typescript@5.2.2)
       simple-git-hooks:
         specifier: ^2.7.0
         version: 2.9.0
@@ -200,8 +200,8 @@ importers:
         specifier: ^2.1.0
         version: 2.1.0
       npm-package-json-lint:
-        specifier: ^6.4.0
-        version: 6.4.0(typescript@5.2.2)
+        specifier: ^7.0.0
+        version: 7.0.0(typescript@5.2.2)
     publishDirectory: package
 
   packages/npm-package-json-lint-config:
@@ -7154,6 +7154,33 @@ packages:
   /npm-package-json-lint@6.4.0(typescript@5.2.2):
     resolution: {integrity: sha512-cuXAJJB1Rdqz0UO6w524matlBqDBjcNt7Ru+RDIu4y6RI1gVqiWBnylrK8sPRk81gGBA0X8hJbDXolVOoTc+sA==}
     engines: {node: '>=14.0.0', npm: '>=6.0.0'}
+    hasBin: true
+    dependencies:
+      ajv: 6.12.6
+      ajv-errors: 1.0.1(ajv@6.12.6)
+      chalk: 4.1.2
+      cosmiconfig: 8.3.5(typescript@5.2.2)
+      debug: 4.3.4
+      globby: 11.1.0
+      ignore: 5.2.4
+      is-plain-obj: 3.0.0
+      jsonc-parser: 3.2.0
+      log-symbols: 4.1.0
+      meow: 9.0.0
+      plur: 4.0.0
+      semver: 7.5.4
+      slash: 3.0.0
+      strip-json-comments: 3.1.1
+      type-fest: 3.13.1
+      validate-npm-package-name: 5.0.0
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
+    dev: false
+
+  /npm-package-json-lint@7.0.0(typescript@5.2.2):
+    resolution: {integrity: sha512-Yn8flnPx/7hTxwejWL5urm8sbEahq8ic3R80d7nlBvS6C58JEmJpUqvO7Ksy8izRzpbrHq0Anwlv/nQg5OYf8Q==}
+    engines: {node: '>=16.0.0', npm: '>=8.0.0'}
     hasBin: true
     dependencies:
       ajv: 6.12.6
