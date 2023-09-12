@@ -33,7 +33,6 @@
     "@commitlint/config-conventional": "^17.6.5",
     "@commitlint/config-pnpm-scopes": "^17.5.0",
     "@commitlint/cz-commitlint": "^17.5.0",
-    "@pnpm/logger": "^5.0.0",
     "@swc/core": "^1.2.119",
     "@trigen/browserslist-config": "workspace:*",
     "@trigen/eslint-config": "workspace:*",

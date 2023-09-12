@@ -26,7 +26,8 @@
   },
   "publishConfig": {
     "access": "public",
-    "directory": "package"
+    "directory": "package",
+    "linkDirectory": false
   },
   "scripts": {
     "prepublishOnly": "del ./package && clean-publish",
