@@ -16,7 +16,7 @@ module.exports = {
         enableFixer: true
       }
     ],
-    'jsdoc/newline-after-description': ['error', 'never'],
+    'jsdoc/tag-lines': ['error', 'never'],
     'jsdoc/no-undefined-types': 'off',
     'jsdoc/require-hyphen-before-param-description': ['warn', 'always'],
     'jsdoc/require-jsdoc': 'off',
