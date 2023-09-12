@@ -49,6 +49,7 @@ module.exports = {
         'peerDependencies',
         'dependencies',
         'devDependencies',
+        'overrides',
         'workspaces',
         'tsd',
         'readme'
