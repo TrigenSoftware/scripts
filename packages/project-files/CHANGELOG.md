@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.26](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.25...v8.0.0-alpha.26) (2023-09-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @octokit/rest to v20 ([#67](https://github.com/TrigenSoftware/scripts/issues/67)) ([46608f6](https://github.com/TrigenSoftware/scripts/commit/46608f661aa1c84e612fda74b2163090dc4f0d2d))
+* **deps:** update dependency inquirer to v9 ([#45](https://github.com/TrigenSoftware/scripts/issues/45)) ([73f546f](https://github.com/TrigenSoftware/scripts/commit/73f546f4d4f4c3f1f55e61cdae1b1afeec84c362))
+
+
+
+
+
 # [8.0.0-alpha.23](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.22...v8.0.0-alpha.23) (2022-11-20)
 
 

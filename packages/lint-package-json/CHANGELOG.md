@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.26](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.25...v8.0.0-alpha.26) (2023-09-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency npm-package-json-lint to v7 ([#63](https://github.com/TrigenSoftware/scripts/issues/63)) ([fa9bca4](https://github.com/TrigenSoftware/scripts/commit/fa9bca4cb21c1c4efefce226a7878ac8e5318066))
+
+
+
+
+
 # [8.0.0-alpha.24](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.23...v8.0.0-alpha.24) (2023-06-07)
 
 **Note:** Version bump only for package @trigen/lint-package-json

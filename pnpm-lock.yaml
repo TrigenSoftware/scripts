@@ -194,7 +194,7 @@ importers:
   packages/lint-package-json:
     dependencies:
       '@trigen/npm-package-json-lint-config':
-        specifier: ^8.0.0-alpha.24
+        specifier: ^8.0.0-alpha.26
         version: link:../npm-package-json-lint-config
       argue-cli:
         specifier: ^2.1.0

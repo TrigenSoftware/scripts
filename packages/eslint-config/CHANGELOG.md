@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.26](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.25...v8.0.0-alpha.26) (2023-09-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-plugin-jsdoc to v46 ([#58](https://github.com/TrigenSoftware/scripts/issues/58)) ([c2043d5](https://github.com/TrigenSoftware/scripts/commit/c2043d57340722847e4162913ac012ae24af8f1e))
+* **deps:** update dependency eslint-plugin-testing-library to v6 ([#68](https://github.com/TrigenSoftware/scripts/issues/68)) ([1e3894c](https://github.com/TrigenSoftware/scripts/commit/1e3894cc5db965670b01bffdead0f60c9801c189))
+* **deps:** update typescript-eslint monorepo to v6 ([#66](https://github.com/TrigenSoftware/scripts/issues/66)) ([b9bbe07](https://github.com/TrigenSoftware/scripts/commit/b9bbe070fe18e6b9b695831848bfda26078b9e2d))
+
+
+### Features
+
+* **eslint-config:** change yield-star-spacing rule ([dd50a17](https://github.com/TrigenSoftware/scripts/commit/dd50a17f0e95cf70d558f96669a48a7e942fa7bd))
+
+
+
+
+
 # [8.0.0-alpha.25](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.24...v8.0.0-alpha.25) (2023-06-07)
 
 

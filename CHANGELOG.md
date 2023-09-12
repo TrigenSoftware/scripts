@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.26](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.25...v8.0.0-alpha.26) (2023-09-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @octokit/rest to v20 ([#67](https://github.com/TrigenSoftware/scripts/issues/67)) ([46608f6](https://github.com/TrigenSoftware/scripts/commit/46608f661aa1c84e612fda74b2163090dc4f0d2d))
+* **deps:** update dependency eslint-plugin-jsdoc to v46 ([#58](https://github.com/TrigenSoftware/scripts/issues/58)) ([c2043d5](https://github.com/TrigenSoftware/scripts/commit/c2043d57340722847e4162913ac012ae24af8f1e))
+* **deps:** update dependency eslint-plugin-testing-library to v6 ([#68](https://github.com/TrigenSoftware/scripts/issues/68)) ([1e3894c](https://github.com/TrigenSoftware/scripts/commit/1e3894cc5db965670b01bffdead0f60c9801c189))
+* **deps:** update dependency inquirer to v9 ([#45](https://github.com/TrigenSoftware/scripts/issues/45)) ([73f546f](https://github.com/TrigenSoftware/scripts/commit/73f546f4d4f4c3f1f55e61cdae1b1afeec84c362))
+* **deps:** update dependency npm-package-json-lint to v7 ([#63](https://github.com/TrigenSoftware/scripts/issues/63)) ([fa9bca4](https://github.com/TrigenSoftware/scripts/commit/fa9bca4cb21c1c4efefce226a7878ac8e5318066))
+* **deps:** update dependency npm-package-json-lint-config-default to v6 ([#64](https://github.com/TrigenSoftware/scripts/issues/64)) ([c58bd68](https://github.com/TrigenSoftware/scripts/commit/c58bd68245fa558dbd13b7860d97cae98a6d53d2))
+* **deps:** update typescript-eslint monorepo to v6 ([#66](https://github.com/TrigenSoftware/scripts/issues/66)) ([b9bbe07](https://github.com/TrigenSoftware/scripts/commit/b9bbe070fe18e6b9b695831848bfda26078b9e2d))
+
+
+### Features
+
+* **eslint-config:** change yield-star-spacing rule ([dd50a17](https://github.com/TrigenSoftware/scripts/commit/dd50a17f0e95cf70d558f96669a48a7e942fa7bd))
+* **npm-package-json-lint-config:** add 'overrides' property to order ([2c9ab9d](https://github.com/TrigenSoftware/scripts/commit/2c9ab9de98df4b86e0007ad6e8bf29132c9540d3))
+
+
+
+
+
 # [8.0.0-alpha.25](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.24...v8.0.0-alpha.25) (2023-06-07)
 
 
