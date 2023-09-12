@@ -135,6 +135,6 @@ module.exports = {
     'rest-spread-spacing': ['error', 'never'],
     'symbol-description': 'error',
     'template-curly-spacing': 'error',
-    'yield-star-spacing': ['error', 'before']
+    'yield-star-spacing': ['error', 'after']
   }
 }
