@@ -9,7 +9,6 @@
 .github/workflows/commit.yml
 .github/workflows/checks.yml
 .github/workflows/release.yml
-.github/workflows/update-snapshots.yml
 .github/workflows/website.yml
 # CI
 .github/renovate.json
@@ -17,7 +16,6 @@
 .eslintrc.json
 test/.eslintrc.json
 .size-limit.json
-jest.config.json
 vite.config.js
 # TypeScript
 test/tsconfig.json
@@ -36,7 +34,6 @@ pnpm-workspace.yaml
 .commitlintrc.json
 .czrc
 # Basics
-.npmrc
 .editorconfig
 LICENSE
 README.md

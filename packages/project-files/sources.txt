@@ -1,8 +1,5 @@
 TrigenSoftware/scripts
-TrigenSoftware/simple-github-release
+TrigenSoftware/simple-release-tools
 TrigenSoftware/Argue
+TrigenSoftware/ua-regexes-lite
 browserslist/browserslist-useragent-regexp
-canvg/canvg
-reactchartjs/react-chartjs-2
-chartist-js/chartist
-TrigenSoftware/flexis-srcset
