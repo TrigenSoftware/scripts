@@ -3,6 +3,7 @@
 [![NPM version][npm]][npm-url]
 [![Node version][node]][node-url]
 [![Dependencies status][deps]][deps-url]
+[![Install size][size]][size-url]
 [![Build status][build]][build-url]
 
 [npm]: https://img.shields.io/npm/v/%40trigen/babel-preset.svg
@@ -13,6 +14,9 @@
 
 [deps]: https://img.shields.io/librariesio/release/npm/@trigen/babel-preset
 [deps-url]: https://libraries.io/npm/@trigen%2Fbabel-preset/tree
+
+[size]: https://packagephobia.com/badge?p=@trigen/babel-preset
+[size-url]: https://packagephobia.com/result?p=@trigen/babel-preset
 
 [build]: https://img.shields.io/github/actions/workflow/status/TrigenSoftware/scripts/ci.yml?branch=main
 [build-url]: https://github.com/TrigenSoftware/scripts/actions

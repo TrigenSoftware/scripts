@@ -2,6 +2,7 @@
 
 [![NPM version][npm]][npm-url]
 [![Node version][node]][node-url]
+[![Install size][size]][size-url]
 [![Build status][build]][build-url]
 
 [npm]: https://img.shields.io/npm/v/%40trigen/browserslist-config.svg
@@ -9,6 +10,9 @@
 
 [node]: https://img.shields.io/node/v/%40trigen/browserslist-config.svg
 [node-url]: https://nodejs.org
+
+[size]: https://packagephobia.com/badge?p=@trigen/browserslist-config
+[size-url]: https://packagephobia.com/result?p=@trigen/browserslist-config
 
 [build]: https://img.shields.io/github/actions/workflow/status/TrigenSoftware/scripts/ci.yml?branch=main
 [build-url]: https://github.com/TrigenSoftware/scripts/actions

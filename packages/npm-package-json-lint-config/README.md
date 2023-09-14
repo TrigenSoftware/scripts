@@ -3,6 +3,7 @@
 [![NPM version][npm]][npm-url]
 [![Node version][node]][node-url]
 [![Dependencies status][deps]][deps-url]
+[![Install size][size]][size-url]
 [![Build status][build]][build-url]
 
 [npm]: https://img.shields.io/npm/v/%40trigen/npm-package-json-lint-config.svg
@@ -13,6 +14,9 @@
 
 [deps]: https://img.shields.io/librariesio/release/npm/@trigen/npm-package-json-lint-config
 [deps-url]: https://libraries.io/npm/@trigen%2Feslint-config/tree
+
+[size]: https://packagephobia.com/badge?p=@trigen/npm-package-json-lint-config
+[size-url]: https://packagephobia.com/result?p=@trigen/npm-package-json-lint-config
 
 [build]: https://img.shields.io/github/actions/workflow/status/TrigenSoftware/scripts/ci.yml?branch=main
 [build-url]: https://github.com/TrigenSoftware/scripts/actions
