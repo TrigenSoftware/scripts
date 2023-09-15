@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.27](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.26...v8.0.0-alpha.27) (2023-09-15)
+
+
+### Features
+
+* **eslint-config:** change generator-star-spacing rule ([e10bcbc](https://github.com/TrigenSoftware/scripts/commit/e10bcbc4c2b844b29033ab5f68fc2681174d4c52))
+
+
+
+
+
 # [8.0.0-alpha.26](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.25...v8.0.0-alpha.26) (2023-09-12)
 
 
