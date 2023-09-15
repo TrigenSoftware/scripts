@@ -80,13 +80,7 @@ module.exports = {
       }
     ],
     'arrow-spacing': 'error',
-    'generator-star-spacing': [
-      'error',
-      {
-        before: true,
-        after: false
-      }
-    ],
+    'generator-star-spacing': ['error', 'after'],
     'no-confusing-arrow': [
       'error',
       {
