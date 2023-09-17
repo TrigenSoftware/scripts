@@ -47,6 +47,7 @@ module.exports = {
         'files',
         'scripts',
         'peerDependencies',
+        'peerDependenciesMeta',
         'dependencies',
         'devDependencies',
         'overrides',
