@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.28](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.27...v8.0.0-alpha.28) (2023-09-17)
+
+
+### Bug Fixes
+
+* **eslint-config:** mark @testing-library/dom as optional dep ([beca1ae](https://github.com/TrigenSoftware/scripts/commit/beca1ae46fb639bbee0fa47fac8052ee10ac74f4))
+
+
+
+
+
 # [8.0.0-alpha.27](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.26...v8.0.0-alpha.27) (2023-09-15)
 
 

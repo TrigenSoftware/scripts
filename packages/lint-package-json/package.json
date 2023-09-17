@@ -1,7 +1,7 @@
 {
   "name": "@trigen/lint-package-json",
   "type": "module",
-  "version": "8.0.0-alpha.27",
+  "version": "8.0.0-alpha.28",
   "description": "Shortcut to run npm-package-json-lint with @trigen/npm-package-json-lint-config.",
   "author": "dangreen",
   "license": "MIT",
@@ -33,7 +33,7 @@
     "postpublish": "del ./package"
   },
   "dependencies": {
-    "@trigen/npm-package-json-lint-config": "^8.0.0-alpha.27",
+    "@trigen/npm-package-json-lint-config": "^8.0.0-alpha.28",
     "argue-cli": "^2.1.0",
     "npm-package-json-lint": "^7.0.0"
   }
