@@ -37,6 +37,6 @@
   "dependencies": {
     "argue-cli": "^2.0.0",
     "dotenv": "^16.0.0",
-    "p-limit": "^4.0.0"
+    "p-limit": "^5.0.0"
   }
 }
