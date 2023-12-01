@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.29](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.28...v8.0.0-alpha.29) (2023-12-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency p-limit to v5 ([#74](https://github.com/TrigenSoftware/scripts/issues/74)) ([e4a1e11](https://github.com/TrigenSoftware/scripts/commit/e4a1e11a352b6b76df23c4877c6caf03b765257c))
+
+
+
+
+
 # [8.0.0-alpha.27](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.26...v8.0.0-alpha.27) (2023-09-15)
 
 **Note:** Version bump only for package @trigen/scripts

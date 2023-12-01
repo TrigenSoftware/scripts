@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.29](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.28...v8.0.0-alpha.29) (2023-12-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency p-limit to v5 ([#74](https://github.com/TrigenSoftware/scripts/issues/74)) ([e4a1e11](https://github.com/TrigenSoftware/scripts/commit/e4a1e11a352b6b76df23c4877c6caf03b765257c))
+* **eslint-config:** fix rules for tests files ([488ca4b](https://github.com/TrigenSoftware/scripts/commit/488ca4b8a375b678e2e3dd939b5bfc3649b65bee))
+
+
+
+
+
 # [8.0.0-alpha.28](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.27...v8.0.0-alpha.28) (2023-09-17)
 
 
