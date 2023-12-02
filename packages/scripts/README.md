@@ -18,7 +18,7 @@
 [size]: https://packagephobia.com/badge?p=@trigen/scripts
 [size-url]: https://packagephobia.com/result?p=@trigen/scripts
 
-[build]: https://img.shields.io/github/actions/workflow/status/TrigenSoftware/scripts/ci.yml?branch=main
+[build]: https://img.shields.io/github/actions/workflow/status/TrigenSoftware/scripts/tests.yml?branch=main
 [build-url]: https://github.com/TrigenSoftware/scripts/actions
 
 CLI tool for running scripts.

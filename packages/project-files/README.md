@@ -18,7 +18,7 @@
 [size]: https://packagephobia.com/badge?p=@trigen/project-files
 [size-url]: https://packagephobia.com/result?p=@trigen/project-files
 
-[build]: https://img.shields.io/github/actions/workflow/status/TrigenSoftware/scripts/ci.yml?branch=main
+[build]: https://img.shields.io/github/actions/workflow/status/TrigenSoftware/scripts/tests.yml?branch=main
 [build-url]: https://github.com/TrigenSoftware/scripts/actions
 
 Trigen's project files downloader.
