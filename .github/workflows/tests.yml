@@ -1,11 +1,11 @@
-name: CI
+name: Tests
 on:
   pull_request:
   push:
     branches:
       - main
 jobs:
-  test:
+  unit:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -13,7 +13,7 @@ jobs:
           - 16
           - 18
           - 20
-    name: Node.js ${{ matrix.node-version }}
+    name: Node.js ${{ matrix.node-version }} / unit
     steps:
       - name: Checkout the repository
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4

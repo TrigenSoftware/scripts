@@ -18,7 +18,7 @@
 [size]: https://packagephobia.com/badge?p=@trigen/lint-package-json
 [size-url]: https://packagephobia.com/result?p=@trigen/lint-package-json
 
-[build]: https://img.shields.io/github/actions/workflow/status/TrigenSoftware/scripts/ci.yml?branch=main
+[build]: https://img.shields.io/github/actions/workflow/status/TrigenSoftware/scripts/tests.yml?branch=main
 [build-url]: https://github.com/TrigenSoftware/scripts/actions
 
 Shortcut to run npm-package-json-lint with @trigen/npm-package-json-lint-config.
