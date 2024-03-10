@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.30](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.29...v8.0.0-alpha.30) (2024-03-10)
+
+
+### Bug Fixes
+
+* **eslint-config:** fix rulres for storybook ([fce9c10](https://github.com/TrigenSoftware/scripts/commit/fce9c1014175cdffec3ad698abbdae712aa6f6bd))
+
+
+
+
+
 # [8.0.0-alpha.29](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.28...v8.0.0-alpha.29) (2023-12-01)
 
 
