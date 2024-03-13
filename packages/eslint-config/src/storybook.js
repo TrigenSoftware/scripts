@@ -14,7 +14,7 @@ const extensions = [
 module.exports = {
   overrides: [
     {
-      files: makePatterns(postfixes, extensions).concat('.storybook/**/*'),
+      files: makePatterns(postfixes, extensions).concat('.storybook/**/*').concat('storybook/**/*'),
       rules: {
         'max-classes-per-file': 'off',
         'no-magic-numbers': 'off',
