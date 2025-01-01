@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.33](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.32...v8.0.0-alpha.33) (2025-01-01)
+
+
+### Bug Fixes
+
+* **scripts:** fix spawn util ([2198ca8](https://github.com/TrigenSoftware/scripts/commit/2198ca806b8f44decc8021a39a0c89cc05c2215d))
+
+
+
+
+
 # [8.0.0-alpha.30](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.29...v8.0.0-alpha.30) (2024-03-10)
 
 

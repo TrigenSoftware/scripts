@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.33](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.32...v8.0.0-alpha.33) (2025-01-01)
+
+
+### Bug Fixes
+
+* **lint-package-json:** fix package.json ([beafc53](https://github.com/TrigenSoftware/scripts/commit/beafc53de744578b92b691a43370b1c5b9930328))
+* **lint-package-json:** fix package.json ([717ed25](https://github.com/TrigenSoftware/scripts/commit/717ed258dd7d4e4ff30cd1ffb9cfcbe70b57575c))
+* **npm-package-json-lint-config:** fix monorepo config ([6d5da33](https://github.com/TrigenSoftware/scripts/commit/6d5da339a798a9524f247aa400e3a71b400f16c0))
+* **scripts:** fix spawn util ([2198ca8](https://github.com/TrigenSoftware/scripts/commit/2198ca806b8f44decc8021a39a0c89cc05c2215d))
+
+
+### Features
+
+* **eslint-config:** minor tweaks ([6118b4e](https://github.com/TrigenSoftware/scripts/commit/6118b4e18e4d2ea4b2f1faa9439983ca72032d9e))
+
+
+
+
+
 # [8.0.0-alpha.32](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.31...v8.0.0-alpha.32) (2024-03-29)
 
 

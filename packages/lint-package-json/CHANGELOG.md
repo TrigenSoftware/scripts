@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.33](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.32...v8.0.0-alpha.33) (2025-01-01)
+
+
+### Bug Fixes
+
+* **lint-package-json:** fix package.json ([beafc53](https://github.com/TrigenSoftware/scripts/commit/beafc53de744578b92b691a43370b1c5b9930328))
+* **lint-package-json:** fix package.json ([717ed25](https://github.com/TrigenSoftware/scripts/commit/717ed258dd7d4e4ff30cd1ffb9cfcbe70b57575c))
+
+
+
+
+
 # [8.0.0-alpha.30](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.29...v8.0.0-alpha.30) (2024-03-10)
 
 **Note:** Version bump only for package @trigen/lint-package-json

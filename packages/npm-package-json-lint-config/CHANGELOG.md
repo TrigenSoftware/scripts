@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-alpha.33](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.32...v8.0.0-alpha.33) (2025-01-01)
+
+
+### Bug Fixes
+
+* **npm-package-json-lint-config:** fix monorepo config ([6d5da33](https://github.com/TrigenSoftware/scripts/commit/6d5da339a798a9524f247aa400e3a71b400f16c0))
+
+
+
+
+
 # [8.0.0-alpha.30](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.29...v8.0.0-alpha.30) (2024-03-10)
 
 **Note:** Version bump only for package @trigen/npm-package-json-lint-config
