@@ -18,7 +18,7 @@
     "snippets"
   ],
   "engines": {
-    "node": ">=14"
+    "node": ">=20"
   },
   "bin": "./src/bin.js",
   "exports": "./src/index.js",

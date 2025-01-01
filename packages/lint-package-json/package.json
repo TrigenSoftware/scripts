@@ -18,7 +18,7 @@
     "dlx"
   ],
   "engines": {
-    "node": ">=14"
+    "node": ">=20"
   },
   "bin": {
     "lint-package-json": "./src/index.js"

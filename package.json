@@ -14,7 +14,7 @@
     "url": "https://github.com/TrigenSoftware/scripts/issues"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=20"
   },
   "scripts": {
     "clear": "del './packages/*/dist' ./coverage ./node_modules/.cache",
