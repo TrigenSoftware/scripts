@@ -25,7 +25,7 @@ export function spawn(cmd, args, stdio = true) {
     const onDone = (error) => {
       resolve({
         exitCode: child.exitCode,
-        output: output || error
+        output: output || (typeof error === 'number' ? '' : `${error}\n`)
       })
     }
 

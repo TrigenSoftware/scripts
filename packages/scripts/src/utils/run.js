@@ -13,9 +13,15 @@ import { getArgs } from './args.js'
 export async function runSerial(pm, scripts, pkg) {
   const cmds = scripts.map(script => getArgs(pm, script, pkg))
   let exitCode = 0
+  let result
 
   for (const [bin, args] of cmds) {
-    exitCode = exitCode || (await spawn(bin, args)).exitCode
+    result = await spawn(bin, args)
+    exitCode = exitCode || result.exitCode
+
+    if (result.output) {
+      process.stdout.write(result.output)
+    }
   }
 
   return exitCode
