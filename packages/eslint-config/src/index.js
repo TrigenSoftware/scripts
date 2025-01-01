@@ -20,7 +20,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: '*.config.js',
+      files: ['*.config.js', '*.config.ts'],
       rules: {
         'import/no-default-export': 'off',
         'import/no-anonymous-default-export': 'off'

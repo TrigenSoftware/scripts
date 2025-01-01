@@ -13,7 +13,6 @@ module.exports = {
             noUselessIndex: false
           }
         ],
-        'import/dynamic-import-chunkname': 'off',
         'import/extensions': ['error', 'ignorePackages']
       }
     }

@@ -68,7 +68,6 @@ module.exports = {
         allowObject: true
       }
     ],
-    'import/dynamic-import-chunkname': 'error',
 
     // Other
     'arrow-body-style': ['error', 'as-needed'],

@@ -37,7 +37,8 @@ module.exports = {
         'no-loop-func': 'off',
         '@typescript-eslint/no-misused-promises': 'off',
         '@typescript-eslint/no-empty-function': 'off',
-        '@typescript-eslint/naming-convention': 'off'
+        '@typescript-eslint/naming-convention': 'off',
+        '@typescript-eslint/no-use-before-define': 'off'
       }
     }
   ]
