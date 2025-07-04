@@ -188,8 +188,8 @@ importers:
   packages/lint-package-json:
     dependencies:
       '@trigen/npm-package-json-lint-config':
-        specifier: ^8.0.0-alpha.30
-        version: 8.0.0-alpha.30(npm-package-json-lint@7.0.0(typescript@5.2.2))
+        specifier: ^8.0.0-alpha.33
+        version: 8.0.0-alpha.33(npm-package-json-lint@7.0.0(typescript@5.2.2))
       argue-cli:
         specifier: ^2.1.0
         version: 2.1.0
@@ -1752,9 +1752,9 @@ packages:
     resolution: {integrity: sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==}
     engines: {node: '>= 6'}
 
-  '@trigen/npm-package-json-lint-config@8.0.0-alpha.30':
-    resolution: {integrity: sha512-2PXB8WTVFzbWyzH4utAKlpdB6ZY0nRyu3DS9pGWPeUzcWaVAAaAZ0+IK/Hnq2t3EOcatk8nmxmji2fYUH9bOjA==}
-    engines: {node: '>=10'}
+  '@trigen/npm-package-json-lint-config@8.0.0-alpha.33':
+    resolution: {integrity: sha512-8tKwDAh20vmNx2rVqGYUL0YHsoEzjflF0S5xe1pCNJfetrkHmkitM4jEPPhU5WvIH4capFfSWYApSFi5u76YVA==}
+    engines: {node: '>=20'}
     peerDependencies:
       npm-package-json-lint: '>= 2'
 
@@ -6935,7 +6935,7 @@ snapshots:
 
   '@tootallnate/once@1.1.2': {}
 
-  '@trigen/npm-package-json-lint-config@8.0.0-alpha.30(npm-package-json-lint@7.0.0(typescript@5.2.2))':
+  '@trigen/npm-package-json-lint-config@8.0.0-alpha.33(npm-package-json-lint@7.0.0(typescript@5.2.2))':
     dependencies:
       npm-package-json-lint: 7.0.0(typescript@5.2.2)
       npm-package-json-lint-config-default: 6.0.0(npm-package-json-lint@7.0.0(typescript@5.2.2))
