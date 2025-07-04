@@ -16,7 +16,8 @@ module.exports = {
         [
           ...scopeEnum[2],
           'deps',
-          'dev-deps'
+          'dev-deps',
+          'release'
         ]
       ]
     }
