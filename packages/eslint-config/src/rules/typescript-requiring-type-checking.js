@@ -21,6 +21,7 @@ module.exports = {
     '@typescript-eslint/prefer-reduce-type-parameter': 'error',
     '@typescript-eslint/prefer-string-starts-ends-with': 'error',
     '@typescript-eslint/switch-exhaustiveness-check': 'error',
+    '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/unbound-method': [
       'off',
       {
