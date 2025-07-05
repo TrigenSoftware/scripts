@@ -1,5 +1,6 @@
 {
   "name": "@trigen/eslint-config",
+  "type": "module",
   "version": "8.0.0-alpha.33",
   "description": "Trigen's ESLint config.",
   "author": "dangreen",
@@ -19,10 +20,19 @@
   "engines": {
     "node": ">=20"
   },
-  "main": "./src/index.js",
   "exports": {
-    ".": "./src/index.js",
-    "./*": "./src/*.js"
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
+    },
+    "./env": {
+      "types": "./src/env.d.ts",
+      "default": "./src/env.js"
+    },
+    "./*": {
+      "types": "./src/index.d.ts",
+      "default": "./src/*.js"
+    }
   },
   "publishConfig": {
     "access": "public",
@@ -35,7 +45,7 @@
   },
   "peerDependencies": {
     "@testing-library/dom": ">=8.0.0",
-    "eslint": ">=7.0.0"
+    "eslint": ">=9.0.0"
   },
   "peerDependenciesMeta": {
     "@testing-library/dom": {
@@ -43,14 +53,17 @@
     }
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.0.0",
-    "@typescript-eslint/parser": "^6.0.0",
-    "eslint-plugin-import": "^2.25.3",
-    "eslint-plugin-jest": "^27.0.0",
-    "eslint-plugin-jest-dom": "^5.0.0",
-    "eslint-plugin-jsdoc": "^46.0.0",
-    "eslint-plugin-react": "^7.27.1",
-    "eslint-plugin-react-hooks": "^4.3.0",
-    "eslint-plugin-testing-library": "^6.0.0"
+    "@eslint/js": "^9.12.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint-plugin-import": "^2.30.0",
+    "eslint-plugin-jest": "^28.0.0",
+    "eslint-plugin-jest-dom": "^5.4.0",
+    "eslint-plugin-jsdoc": "^50.0.0",
+    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-testing-library": "^6.3.0",
+    "globals": "^16.3.0",
+    "typescript-eslint": "^8.35.1"
   }
 }

@@ -1,10 +1,7 @@
 const lernaScopes = require('@commitlint/config-pnpm-scopes')
 
 module.exports = {
-  extends: [
-    '@commitlint/config-conventional',
-    '@commitlint/config-pnpm-scopes'
-  ],
+  extends: ['@commitlint/config-conventional', '@commitlint/config-pnpm-scopes'],
   rules: {
     'body-max-line-length': [0],
     'scope-enum': async (ctx) => {

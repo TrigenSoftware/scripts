@@ -18,7 +18,7 @@ export async function writeFile(path, contents) {
     await mkdir(dir, {
       recursive: true
     })
-  } catch (err) {
+  } catch {
     /* Ignore error */
   }
 

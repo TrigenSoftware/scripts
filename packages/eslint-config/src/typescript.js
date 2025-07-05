@@ -1,19 +1,8 @@
 /**
- * Combine configs for TypeScript
+ * TypeScript override
  */
 
-module.exports = {
-  overrides: [
-    {
-      files: ['*.ts', '*.tsx'],
-      extends: ['plugin:@typescript-eslint/recommended'].concat(['./rules/typescript'].map(require.resolve)),
-      parser: '@typescript-eslint/parser'
-    },
-    {
-      files: ['*.d.ts'],
-      rules: {
-        'import/unambiguous': 'off'
-      }
-    }
-  ]
-}
+import typescriptEslint from 'typescript-eslint'
+import typescriptConfig from './subconfigs/typescript.js'
+
+export default [...typescriptEslint.configs.recommended, ...typescriptConfig]

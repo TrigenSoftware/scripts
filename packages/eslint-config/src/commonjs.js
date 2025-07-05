@@ -2,14 +2,10 @@
  * CommonJS override
  */
 
-module.exports = {
-  overrides: [
-    {
-      files: ['*.js'],
-      rules: {
-        'import/no-commonjs': 'off',
-        'import/unambiguous': 'off'
-      }
-    }
-  ]
-}
+import { moduleFiles } from './subconfigs/files.js'
+import moduleConfig from './module.js'
+
+export default moduleConfig.map(({ ignores, ...config }) => ({
+  files: moduleFiles,
+  ...config
+}))

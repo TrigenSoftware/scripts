@@ -1,8 +1,0 @@
-{
-  "extends": [
-    "@trigen/eslint-config/commonjs"
-  ],
-  "rules": {
-    "no-magic-numbers": "off"
-  }
-}

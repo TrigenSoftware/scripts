@@ -40,7 +40,7 @@ export async function getDirectory(repo, path) {
       repo: repo.repo,
       path: path === '.' ? '' : path
     }))
-  } catch (err) {
+  } catch {
     return []
   }
 

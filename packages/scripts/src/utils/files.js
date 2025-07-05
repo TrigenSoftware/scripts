@@ -35,7 +35,7 @@ export async function readPackageJsonUpward() {
     const pkg = JSON.parse(await readFile(path, 'utf8'))
 
     return pkg
-  } catch (err) {
+  } catch {
     throw new Error(`Can't find package.json`)
   }
 }

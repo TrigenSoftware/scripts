@@ -100,7 +100,7 @@ module.exports = (api, envOptions, options) => {
         try {
           require.resolve('react-hot-loader/babel')
           plugins.push('react-hot-loader/babel')
-        } catch (err) {
+        } catch {
           /* Ignore */
         }
 
