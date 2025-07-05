@@ -1,4 +1,4 @@
-export const configFiles = ['**/*.config.{c,m,}{js,ts}']
+export const configFiles = ['**/*.config.{c,m,}{js,ts}', '**/.*rc.{c,m,}{js,ts}']
 
 export const commonjsFiles = ['**/*.c{js,ts}']
 
