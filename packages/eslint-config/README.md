@@ -35,12 +35,12 @@ npm i -D @trigen/eslint-config
 
 ## Configure
 
-Create `.eslintrc.json` with next content:
+Create `eslint.config.js` with next content:
 
-```json
-{
-  "extends": "@trigen/eslint-config"
-}
+```js
+import baseConfig from '@trigen/eslint-config'
+
+export default baseConfig
 ```
 
 ### Additional configs
@@ -49,25 +49,46 @@ There are additional configs for specific language features:
 
 | Config | Description |
 |--------|-------------|
+| @trigen/eslint-config/env | Globals for different environments. |
 | @trigen/eslint-config/commonjs | Rules for CommonJS modules. |
-| @trigen/eslint-config/esm | Rules for ES modules. |
-| @trigen/eslint-config/tsm | Rules for TS modules. |
-| @trigen/eslint-config/react | Rules for ReactJS code. |
-| @trigen/eslint-config/jest | Rules for Jest tests. |
-| @trigen/eslint-config/jest-dom | Rules for Jest DOM tests. |
-| @trigen/eslint-config/storybook | Rules for Storybook's stories. |
+| @trigen/eslint-config/module | Rules for ES modules. |
+| @trigen/eslint-config/bundler | Rules for ES modules with bundler's module resolution. |
+| @trigen/eslint-config/test | Rules for test files. |
+| @trigen/eslint-config/dom-test | Rules for DOM tests. |
+| @trigen/eslint-config/react | Rules for React code. |
+| @trigen/eslint-config/react-test | Rules for React tests. |
+| @trigen/eslint-config/storybook | Rules for Storybook stories. |
 | @trigen/eslint-config/typescript | Rules for TypeScript code. |
-| @trigen/eslint-config/typescript-requiring-type-checking | Rules for TypeScript code with type checking. |
+| @trigen/eslint-config/typescript-type-checked | Rules for TypeScript code with type checking. |
 
 Example:
 
-```json
-{
-  "extends": [
-    "@trigen/eslint-config",
-    "@trigen/eslint-config/react",
-    "@trigen/eslint-config/typescript",
-    "@trigen/eslint-config/typescript-requiring-type-checking"
-  ]
-}
+```js
+import baseConfig from '@trigen/eslint-config'
+import env from '@trigen/eslint-config/env'
+import bundlerConfig from '@trigen/eslint-config/bundler'
+import reactConfig from '@trigen/eslint-config/react'
+import typescriptConfig from '@trigen/eslint-config/typescript-type-checked'
+import testConfig from '@trigen/eslint-config/test'
+import reactTestConfig from '@trigen/eslint-config/react-test'
+import storybookConfig from '@trigen/eslint-config/storybook'
+
+export default [
+  env.browser,
+  ...baseConfig,
+  ...bundlerConfig,
+  ...reactConfig,
+  ...typescriptConfig,
+  ...testConfig,
+  ...reactTestConfig,
+  ...storybookConfig,
+  {
+    languageOptions: {
+      parserOptions: {
+        tsconfigRootDir: import.meta.dirname,
+        projectService: true
+      }
+    }
+  }
+]
 ```

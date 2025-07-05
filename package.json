@@ -19,7 +19,7 @@
   "scripts": {
     "clear": "del './packages/*/dist' ./coverage ./node_modules/.cache",
     "lint:package-json": "lint-package-json --monorepo",
-    "lint": "eslint '*.{js,cjs}' 'packages/**/*.{js,jsx,ts,tsx}'",
+    "lint": "eslint --flag v10_config_lookup_from_file",
     "test:unit": "vitest run",
     "test:unit:watch": "vitest watch",
     "test": "run -p lint test:unit",
@@ -43,7 +43,7 @@
     "clean-publish": "^4.0.0",
     "commitizen": "^4.2.4",
     "del-cli": "^5.0.0",
-    "eslint": "^8.0.0",
+    "eslint": "^9.0.0",
     "inquirer": "^8.0.0",
     "lerna": "^4.0.0",
     "nano-staged": "^0.8.0",
