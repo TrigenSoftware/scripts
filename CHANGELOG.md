@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.0-alpha.34](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.33...v8.0.0-alpha.34) (2025-07-06)
+
+### Features
+
+* **eslint-config:** add rc files to configs files list ([ff5cfb5](https://github.com/TrigenSoftware/scripts/commit/ff5cfb5bf43165fb47a79c13f61073aeb60fefe1))
+* **eslint-config:** enable consistent-type-imports ([f0d6ced](https://github.com/TrigenSoftware/scripts/commit/f0d6cedcb8ff7bae1fea3136430956a727278210))
+* **eslint-config:** upgrade to v9 ([#97](https://github.com/TrigenSoftware/scripts/issues/97)) ([399fe4d](https://github.com/TrigenSoftware/scripts/commit/399fe4dfc0be81ee4bea793d853e43d8cc0cc57f))
+
 ## [8.0.0-alpha.33](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.32...v8.0.0-alpha.33) (2025-01-01)
 
 ### Bug Fixes
