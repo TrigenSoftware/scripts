@@ -1,11 +1,11 @@
 import { globalIgnores } from 'eslint/config'
-import commonjsConfig from '@trigen/eslint-config/commonjs'
+import moduleConfig from '@trigen/eslint-config/module'
 import rootConfig from '../../eslint.config.js'
 
 export default [
   globalIgnores(['**/*.d.ts']),
   ...rootConfig,
-  ...commonjsConfig,
+  ...moduleConfig,
   {
     rules: {
       'no-magic-numbers': 'off',
