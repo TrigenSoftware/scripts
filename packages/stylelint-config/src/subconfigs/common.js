@@ -43,7 +43,7 @@ export default {
     'a11y/no-outline-none': true,
     'a11y/no-text-align-justify': true,
     'a11y/selector-pseudo-class-focus': true,
-    // High perfomance animation
+    // High performance animation
     'plugin/no-low-performance-animation-properties': [
       true,
       {
