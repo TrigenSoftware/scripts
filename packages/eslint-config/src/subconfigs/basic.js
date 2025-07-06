@@ -106,7 +106,7 @@ export default [
       'no-useless-return': 'error',
       'no-void': 'error',
       'prefer-promise-reject-errors': 'error',
-      'radix': 'error',
+      'radix': 'off',
       'require-await': 'error',
       'yoda': [
         'error',
