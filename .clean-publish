@@ -1,5 +1,6 @@
 {
   "withoutPublish": true,
   "tempDir": "package",
-  "files": [".eslintrc.json", "**/*.spec.js"]
+  "fields": ["scripts", "publishConfig"],
+  "files": ["**/*.spec.js"]
 }
