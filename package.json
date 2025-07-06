@@ -17,7 +17,7 @@
     "node": ">=20"
   },
   "scripts": {
-    "clear": "del './packages/*/dist' ./coverage ./node_modules/.cache",
+    "clear": "del './packages/*/package' ./coverage ./node_modules/.cache",
     "lint:package-json": "lint-package-json --monorepo",
     "lint": "eslint --flag v10_config_lookup_from_file",
     "test:unit": "vitest run",
