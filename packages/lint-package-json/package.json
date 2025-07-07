@@ -35,6 +35,6 @@
   "dependencies": {
     "@trigen/npm-package-json-lint-config": "^8.0.0-alpha.33",
     "argue-cli": "^2.1.0",
-    "npm-package-json-lint": "^7.0.0"
+    "npm-package-json-lint": "^9.0.0"
   }
 }
