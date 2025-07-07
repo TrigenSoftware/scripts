@@ -3,19 +3,15 @@
  */
 
 import typescriptPlugin from '@typescript-eslint/eslint-plugin'
-import {
-  getRules,
-  getExtensionRules
-} from './utils.js'
+import stylisticPlugin from '@stylistic/eslint-plugin'
+import { getExtensionRules } from './utils.js'
 import { dtsFiles } from './files.js'
-import basicConfig from './basic.js'
-
-const commonRules = getRules(basicConfig)
 
 export default [
   {
     plugins: {
-      '@typescript-eslint': typescriptPlugin
+      '@typescript-eslint': typescriptPlugin,
+      '@stylistic': stylisticPlugin
     },
     rules: {
       // Rules
@@ -32,7 +28,7 @@ export default [
       ],
       '@typescript-eslint/consistent-type-definitions': 'error',
       '@typescript-eslint/explicit-module-boundary-types': 'off',
-      '@typescript-eslint/member-delimiter-style': [
+      '@stylistic/member-delimiter-style': [
         'error',
         {
           multiline: {
@@ -164,44 +160,24 @@ export default [
       '@typescript-eslint/prefer-function-type': 'error',
       '@typescript-eslint/prefer-namespace-keyword': 'off',
       '@typescript-eslint/prefer-ts-expect-error': 'error',
-      '@typescript-eslint/type-annotation-spacing': 'error',
+      '@stylistic/type-annotation-spacing': 'error',
+      '@stylistic/type-generic-spacing': 'error',
+      '@stylistic/type-named-tuple-spacing': 'error',
       '@typescript-eslint/unified-signatures': 'error',
 
       // Extension
       ...getExtensionRules('@typescript-eslint', [
-        'brace-style',
-        'comma-spacing',
-        'func-call-spacing',
-        'indent',
-        'keyword-spacing',
-        'lines-between-class-members',
         'no-array-constructor',
         'no-empty-function',
-        'no-extra-parens',
         'no-magic-numbers',
         'no-unused-expressions',
         'no-unused-vars',
         'no-use-before-define',
-        'no-useless-constructor',
-        'quotes',
-        'semi',
-        'space-before-function-paren'
+        'no-useless-constructor'
       ]),
       // Override eslint:recommended
       'no-dupe-class-members': 'off',
-      '@typescript-eslint/no-dupe-class-members': 'error',
-      'no-extra-semi': 'off',
-      '@typescript-eslint/no-extra-semi': 'error',
-      // Extend rules
-      'indent': 'off',
-      '@typescript-eslint/indent': [
-        commonRules.indent[0],
-        commonRules.indent[1],
-        {
-          ...commonRules.indent[2],
-          ignoredNodes: ['TSTypeParameterInstantiation', 'TSIntersectionType']
-        }
-      ]
+      '@typescript-eslint/no-dupe-class-members': 'error'
     }
   },
   {

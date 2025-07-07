@@ -4,6 +4,7 @@
 
 import reactPlugin from 'eslint-plugin-react'
 import reactHooksPlugin from 'eslint-plugin-react-hooks'
+import stylisticPlugin from '@stylistic/eslint-plugin'
 import {
   jsxFiles,
   reactFiles
@@ -21,7 +22,8 @@ export default [
     files: reactFiles,
     plugins: {
       'react': reactPlugin,
-      'react-hooks': reactHooksPlugin
+      'react-hooks': reactHooksPlugin,
+      '@stylistic': stylisticPlugin
     },
     languageOptions: {
       parserOptions: {
@@ -94,23 +96,25 @@ export default [
 
       // JSX
       'react/jsx-boolean-value': 'error',
-      'react/jsx-closing-bracket-location': 'error',
-      'react/jsx-closing-tag-location': 'error',
-      'react/jsx-curly-brace-presence': ['error', 'never'],
-      'react/jsx-curly-newline': 'error',
-      'react/jsx-curly-spacing': 'error',
-      'react/jsx-equals-spacing': 'error',
-      'react/jsx-first-prop-new-line': ['error', 'multiline'],
+      '@stylistic/jsx-closing-bracket-location': 'error',
+      '@stylistic/jsx-closing-tag-location': 'error',
+      '@stylistic/jsx-curly-brace-presence': ['error', 'never'],
+      '@stylistic/jsx-curly-newline': 'error',
+      '@stylistic/jsx-curly-spacing': 'error',
+      '@stylistic/jsx-equals-spacing': 'error',
+      '@stylistic/jsx-first-prop-new-line': ['error', 'multiline'],
       'react/jsx-fragments': 'error',
-      'react/jsx-indent': ['error', 2],
-      'react/jsx-indent-props': ['error', 2],
+      '@stylistic/jsx-indent': ['error', 2],
+      '@stylistic/jsx-indent-props': ['error', 2],
       'react/jsx-key': 'error',
-      'react/jsx-max-props-per-line': [
+      '@stylistic/jsx-max-props-per-line': [
         'error',
         {
           maximum: 1
         }
       ],
+      '@stylistic/jsx-props-no-multi-spaces': 'error',
+      '@stylistic/jsx-self-closing-comp': 'error',
       'react/jsx-no-bind': 'error',
       'react/jsx-no-comment-textnodes': 'error',
       'react/jsx-no-duplicate-props': 'error',
@@ -123,14 +127,14 @@ export default [
       ],
       'react/jsx-no-undef': 'error',
       'react/jsx-no-useless-fragment': 'error',
-      'react/jsx-one-expression-per-line': [
+      '@stylistic/jsx-one-expression-per-line': [
         'error',
         {
           allow: 'literal'
         }
       ],
-      'react/jsx-pascal-case': 'error',
-      'react/jsx-tag-spacing': [
+      '@stylistic/jsx-pascal-case': 'error',
+      '@stylistic/jsx-tag-spacing': [
         'error',
         {
           closingSlash: 'never',
@@ -140,7 +144,7 @@ export default [
       ],
       'react/jsx-uses-react': 'off',
       'react/jsx-uses-vars': 'error',
-      'react/jsx-wrap-multilines': [
+      '@stylistic/jsx-wrap-multilines': [
         'error',
         {
           declaration: 'parens-new-line',
@@ -151,7 +155,9 @@ export default [
           logical: 'parens-new-line',
           prop: 'parens-new-line'
         }
-      ]
+      ],
+      '@stylistic/jsx-function-call-newline': ['error', 'always'],
+      '@stylistic/jsx-child-element-spacing': 'error'
     }
   }
 ]

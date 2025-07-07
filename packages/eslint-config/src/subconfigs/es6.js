@@ -3,11 +3,13 @@
  */
 
 import importPlugin from 'eslint-plugin-import'
+import stylisticPlugin from '@stylistic/eslint-plugin'
 
 export default [
   {
     plugins: {
-      import: importPlugin
+      'import': importPlugin,
+      '@stylistic': stylisticPlugin
     },
     rules: {
       // Import
@@ -68,16 +70,16 @@ export default [
 
       // Other
       'arrow-body-style': ['error', 'as-needed'],
-      'arrow-parens': [
+      '@stylistic/arrow-parens': [
         'error',
         'as-needed',
         {
           requireForBlockBody: true
         }
       ],
-      'arrow-spacing': 'error',
-      'generator-star-spacing': ['error', 'after'],
-      'no-confusing-arrow': [
+      '@stylistic/arrow-spacing': 'error',
+      '@stylistic/generator-star-spacing': ['error', 'after'],
+      '@stylistic/no-confusing-arrow': [
         'error',
         {
           allowParens: true
@@ -107,10 +109,10 @@ export default [
       'prefer-rest-params': 'error',
       'prefer-spread': 'error',
       'prefer-template': 'error',
-      'rest-spread-spacing': ['error', 'never'],
+      '@stylistic/rest-spread-spacing': ['error', 'never'],
       'symbol-description': 'error',
-      'template-curly-spacing': 'error',
-      'yield-star-spacing': ['error', 'after']
+      '@stylistic/template-curly-spacing': 'error',
+      '@stylistic/yield-star-spacing': ['error', 'after']
     }
   }
 ]

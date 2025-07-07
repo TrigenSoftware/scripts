@@ -2,8 +2,13 @@
  * Basic config
  */
 
+import stylisticPlugin from '@stylistic/eslint-plugin'
+
 export default [
   {
+    plugins: {
+      '@stylistic': stylisticPlugin
+    },
     rules: {
       // Possible Errors
       'no-console': [
@@ -17,7 +22,7 @@ export default [
         }
       ],
       'no-debugger': 'warn',
-      'no-extra-parens': [
+      '@stylistic/no-extra-parens': [
         'error',
         'all',
         {
@@ -44,7 +49,7 @@ export default [
       'consistent-return': 'error',
       'curly': 'error',
       'default-case-last': 'error',
-      'dot-location': ['error', 'property'],
+      '@stylistic/dot-location': ['error', 'property'],
       'dot-notation': 'error',
       'eqeqeq': 'error',
       'grouped-accessor-pairs': ['error', 'getBeforeSet'],
@@ -72,7 +77,7 @@ export default [
           ignore: [
             -1,
             0,
-            .5,
+            0.5,
             1,
             2,
             100
@@ -81,7 +86,7 @@ export default [
           detectObjects: false
         }
       ],
-      'no-multi-spaces': 'error',
+      '@stylistic/no-multi-spaces': 'error',
       'no-multi-str': 'error',
       'no-new': 'error',
       'no-new-func': 'error',
@@ -135,30 +140,30 @@ export default [
       ],
 
       // Stylistic Issues
-      'array-bracket-newline': [
+      '@stylistic/array-bracket-newline': [
         'error',
         {
           multiline: true
         }
       ],
-      'array-bracket-spacing': ['error', 'never'],
-      'array-element-newline': [
+      '@stylistic/array-bracket-spacing': ['error', 'never'],
+      '@stylistic/array-element-newline': [
         'error',
         {
           multiline: true,
           minItems: 3
         }
       ],
-      'block-spacing': 'error',
-      'brace-style': ['error', '1tbs'],
+      '@stylistic/block-spacing': 'error',
+      '@stylistic/brace-style': ['error', '1tbs'],
       'camelcase': 'error',
-      'comma-dangle': ['error', 'never'],
-      'comma-spacing': 'error',
-      'comma-style': 'error',
-      'computed-property-spacing': 'error',
+      '@stylistic/comma-dangle': ['error', 'never'],
+      '@stylistic/comma-spacing': 'error',
+      '@stylistic/comma-style': 'error',
+      '@stylistic/computed-property-spacing': 'error',
       'consistent-this': ['error', 'self'],
-      'eol-last': 'error',
-      'func-call-spacing': 'error',
+      '@stylistic/eol-last': 'error',
+      '@stylistic/function-call-spacing': 'error',
       'func-names': 'error',
       'func-style': [
         'error',
@@ -167,26 +172,28 @@ export default [
           allowArrowFunctions: true
         }
       ],
-      'function-call-argument-newline': ['error', 'consistent'],
-      'function-paren-newline': ['error', 'consistent'],
-      'implicit-arrow-linebreak': ['error', 'beside'],
-      'indent': [
+      '@stylistic/function-call-argument-newline': ['error', 'consistent'],
+      '@stylistic/function-paren-newline': ['error', 'consistent'],
+      '@stylistic/implicit-arrow-linebreak': ['error', 'beside'],
+      '@stylistic/indent': [
         'error',
         2,
         {
+          ignoredNodes: ['TSTypeParameterInstantiation', 'TSIntersectionType'],
           SwitchCase: 1
         }
       ],
-      'jsx-quotes': ['error', 'prefer-single'],
-      'key-spacing': [
+      '@stylistic/indent-binary-ops': ['error', 2],
+      '@stylistic/jsx-quotes': ['error', 'prefer-single'],
+      '@stylistic/key-spacing': [
         'error',
         {
           mode: 'strict'
         }
       ],
-      'keyword-spacing': 'error',
-      'linebreak-style': 'error',
-      'lines-between-class-members': [
+      '@stylistic/keyword-spacing': 'error',
+      '@stylistic/linebreak-style': 'error',
+      '@stylistic/lines-between-class-members': [
         'error',
         'always',
         {
@@ -195,28 +202,29 @@ export default [
       ],
       'max-nested-callbacks': ['error', 4],
       'max-params': ['error', 6],
-      'max-statements-per-line': 'error',
+      '@stylistic/max-statements-per-line': 'error',
       'new-cap': [
         'error',
         {
           capIsNew: false
         }
       ],
-      'new-parens': 'error',
+      '@stylistic/new-parens': 'error',
       'no-array-constructor': 'error',
       'no-lonely-if': 'error',
       'no-multi-assign': 'error',
-      'no-multiple-empty-lines': [
+      '@stylistic/no-multiple-empty-lines': [
         'error',
         {
           max: 1
         }
       ],
       'no-new-object': 'error',
-      'no-trailing-spaces': 'error',
+      '@stylistic/no-trailing-spaces': 'error',
       'no-unneeded-ternary': 'error',
-      'no-whitespace-before-property': 'error',
-      'object-curly-newline': [
+      '@stylistic/no-whitespace-before-property': 'error',
+      '@stylistic/curly-newline': ['error', 'always'],
+      '@stylistic/object-curly-newline': [
         'error',
         {
           ObjectExpression: {
@@ -233,17 +241,17 @@ export default [
           }
         }
       ],
-      'object-curly-spacing': ['error', 'always'],
-      'object-property-newline': [
+      '@stylistic/object-curly-spacing': ['error', 'always'],
+      '@stylistic/object-property-newline': [
         'error',
         {
           allowAllPropertiesOnSameLine: false
         }
       ],
       'one-var': ['error', 'never'],
-      'one-var-declaration-per-line': ['error', 'initializations'],
+      '@stylistic/one-var-declaration-per-line': ['error', 'initializations'],
       'operator-assignment': ['error', 'always'],
-      'operator-linebreak': [
+      '@stylistic/operator-linebreak': [
         'error',
         'before',
         {
@@ -252,8 +260,8 @@ export default [
           }
         }
       ],
-      'padded-blocks': ['error', 'never'],
-      'padding-line-between-statements': [
+      '@stylistic/padded-blocks': ['error', 'never'],
+      '@stylistic/padding-line-between-statements': [
         'error',
         {
           blankLine: 'always',
@@ -302,8 +310,8 @@ export default [
         }
       ],
       'prefer-object-spread': 'error',
-      'quote-props': ['error', 'consistent-as-needed'],
-      'quotes': [
+      '@stylistic/quote-props': ['error', 'consistent-as-needed'],
+      '@stylistic/quotes': [
         'error',
         'single',
         {
@@ -311,9 +319,9 @@ export default [
           allowTemplateLiterals: true
         }
       ],
-      'semi': ['error', 'never'],
-      'space-before-blocks': 'error',
-      'space-before-function-paren': [
+      '@stylistic/semi': ['error', 'never'],
+      '@stylistic/space-before-blocks': 'error',
+      '@stylistic/space-before-function-paren': [
         'error',
         {
           anonymous: 'always',
@@ -321,17 +329,23 @@ export default [
           asyncArrow: 'always'
         }
       ],
-      'space-in-parens': 'error',
-      'space-infix-ops': [
+      '@stylistic/space-in-parens': 'error',
+      '@stylistic/space-infix-ops': [
         'error',
         {
           int32Hint: true
         }
       ],
-      'space-unary-ops': 'error',
-      'spaced-comment': 'error',
-      'switch-colon-spacing': 'error',
-      'template-tag-spacing': 'error',
+      '@stylistic/space-unary-ops': 'error',
+      '@stylistic/spaced-comment': 'error',
+      '@stylistic/switch-colon-spacing': 'error',
+      '@stylistic/template-tag-spacing': 'error',
+      '@stylistic/no-floating-decimal': 'error',
+      '@stylistic/no-extra-semi': 'error',
+      '@stylistic/semi-spacing': 'error',
+      '@stylistic/multiline-ternary': ['error', 'always-multiline'],
+      '@stylistic/no-tabs': 'error',
+      '@stylistic/no-mixed-spaces-and-tabs': 'error',
       'unicode-bom': 'error'
     }
   }
