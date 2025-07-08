@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.1](https://github.com/TrigenSoftware/scripts/compare/v8.0.0...v8.0.1) (2025-07-08)
+
+### Bug Fixes
+
+* **eslint-config:** remove deprecated typescript rules ([6f16210](https://github.com/TrigenSoftware/scripts/commit/6f16210c6f96c527790f847a3a1e15103ca015fb))
+
 ## [8.0.0](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.34...v8.0.0) (2025-07-08)
 
 ### Features
