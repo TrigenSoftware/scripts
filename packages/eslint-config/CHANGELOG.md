@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.0](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.34...v8.0.0) (2025-07-08)
+
+### Features
+
+* migrate to stylistic plugin ([e5393ad](https://github.com/TrigenSoftware/scripts/commit/e5393ade8c3b5a5a3e14a5114aee131c3dc5aebe))
+
+### Bug Fixes
+
+* turn off radix ([f83d1fd](https://github.com/TrigenSoftware/scripts/commit/f83d1fd5f51549f2090047da1f8864d244d5d869))
+
 ## [8.0.0-alpha.34](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.33...v8.0.0-alpha.34) (2025-07-06)
 
 ### Features
