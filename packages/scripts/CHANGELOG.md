@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.0](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.34...v8.0.0) (2025-07-08)
+
+### Features
+
+* enhacne output streaming ([a56fc43](https://github.com/TrigenSoftware/scripts/commit/a56fc43bbf83484e9d205be7ffa258b16970694c))
+
 ## [8.0.0-alpha.33](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.32...v8.0.0-alpha.33) (2025-01-01)
 
 ### Bug Fixes

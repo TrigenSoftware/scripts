@@ -1,7 +1,7 @@
 {
   "name": "@trigen/stylelint-config",
   "type": "module",
-  "version": "8.0.0-alpha.33",
+  "version": "8.0.0",
   "description": "Trigen's Stylelint config.",
   "author": "dangreen",
   "license": "MIT",

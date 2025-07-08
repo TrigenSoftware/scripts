@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.0](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.34...v8.0.0) (2025-07-08)
+
+### Features
+
+* **eslint-config:** migrate to stylistic plugin ([e5393ad](https://github.com/TrigenSoftware/scripts/commit/e5393ade8c3b5a5a3e14a5114aee131c3dc5aebe))
+* **scripts:** enhacne output streaming ([a56fc43](https://github.com/TrigenSoftware/scripts/commit/a56fc43bbf83484e9d205be7ffa258b16970694c))
+* **stylelint-config:** introduce stylelint config ([#107](https://github.com/TrigenSoftware/scripts/issues/107)) ([a3437f3](https://github.com/TrigenSoftware/scripts/commit/a3437f3f375b5e6c5bd6e904c58cefd9b13ce698))
+
+### Bug Fixes
+
+* **deps:** update dependency @octokit/rest to v22 ([#90](https://github.com/TrigenSoftware/scripts/issues/90)) ([9aee0a1](https://github.com/TrigenSoftware/scripts/commit/9aee0a1d20db458d0f05fc77fbeada4a01033c6c))
+* **deps:** update dependency npm-package-json-lint to v9 ([#104](https://github.com/TrigenSoftware/scripts/issues/104)) ([30502c4](https://github.com/TrigenSoftware/scripts/commit/30502c4d4af0befcd61affd3053e9b98f361ad80))
+* **deps:** update dependency npm-package-json-lint-config-default to v8 ([#105](https://github.com/TrigenSoftware/scripts/issues/105)) ([466a941](https://github.com/TrigenSoftware/scripts/commit/466a941ae43bc53de69b95191f2c49c4a096022e))
+* **deps:** update dependency p-limit to v6 ([#106](https://github.com/TrigenSoftware/scripts/issues/106)) ([7853178](https://github.com/TrigenSoftware/scripts/commit/785317899c62fd09bc5b5560696d81f379609f7b))
+* **eslint-config:** turn off radix ([f83d1fd](https://github.com/TrigenSoftware/scripts/commit/f83d1fd5f51549f2090047da1f8864d244d5d869))
+
 ## [8.0.0-alpha.34](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.33...v8.0.0-alpha.34) (2025-07-06)
 
 ### Features
