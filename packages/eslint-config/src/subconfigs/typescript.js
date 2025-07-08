@@ -21,7 +21,7 @@ export default [
         'error',
         {
           'ts-expect-error': 'allow-with-description',
-          'ts-ignore': 'allow-with-description',
+          'ts-ignore': true,
           'ts-nocheck': 'allow-with-description',
           'ts-check': false
         }
@@ -138,9 +138,12 @@ export default [
         }
       ],
       '@typescript-eslint/no-dynamic-delete': 'error',
+      '@typescript-eslint/no-empty-object-type': 'error',
       '@typescript-eslint/no-explicit-any': 'error',
       '@typescript-eslint/no-extraneous-class': 'error',
       '@typescript-eslint/no-invalid-void-type': 'error',
+      '@typescript-eslint/no-unsafe-function-type': 'error',
+      '@typescript-eslint/no-wrapper-object-types': 'error',
       '@typescript-eslint/no-namespace': [
         'error',
         {
@@ -159,7 +162,6 @@ export default [
       '@typescript-eslint/prefer-for-of': 'error',
       '@typescript-eslint/prefer-function-type': 'error',
       '@typescript-eslint/prefer-namespace-keyword': 'off',
-      '@typescript-eslint/prefer-ts-expect-error': 'error',
       '@stylistic/type-annotation-spacing': 'error',
       '@stylistic/type-generic-spacing': 'error',
       '@stylistic/type-named-tuple-spacing': 'error',
