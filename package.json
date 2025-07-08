@@ -2,7 +2,7 @@
   "name": "scripts",
   "type": "module",
   "private": true,
-  "version": "8.0.2",
+  "version": "8.0.3",
   "description": "Scripts and configs for TrigenSoftware's projects.",
   "author": "dangreen",
   "license": "MIT",
