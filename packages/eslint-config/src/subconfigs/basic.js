@@ -120,6 +120,12 @@ export default [
           exceptRange: true
         }
       ],
+      'no-empty': [
+        'error',
+        {
+          allowEmptyCatch: true
+        }
+      ],
 
       // Variables
       'no-label-var': 'error',
@@ -223,7 +229,12 @@ export default [
       '@stylistic/no-trailing-spaces': 'error',
       'no-unneeded-ternary': 'error',
       '@stylistic/no-whitespace-before-property': 'error',
-      '@stylistic/curly-newline': ['error', 'always'],
+      '@stylistic/curly-newline': [
+        'error',
+        {
+          minElements: 1
+        }
+      ],
       '@stylistic/object-curly-newline': [
         'error',
         {
