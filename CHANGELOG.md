@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.2](https://github.com/TrigenSoftware/scripts/compare/v8.0.1...v8.0.2) (2025-07-08)
+
+### Bug Fixes
+
+* **eslint-config:** allow interfaces in no-empty-object-type rule ([601deb0](https://github.com/TrigenSoftware/scripts/commit/601deb05b88a4256a2bd47c1db91e16cc576f063))
+
 ## [8.0.1](https://github.com/TrigenSoftware/scripts/compare/v8.0.0...v8.0.1) (2025-07-08)
 
 ### Bug Fixes
