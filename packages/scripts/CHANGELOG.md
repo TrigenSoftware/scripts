@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.4](https://github.com/TrigenSoftware/scripts/compare/v8.0.3...v8.0.4) (2025-07-13)
+
+### Bug Fixes
+
+* remove dotenv from dependencies ([b6a2c39](https://github.com/TrigenSoftware/scripts/commit/b6a2c39d428577d9c1e350868fc257e367752aa8))
+
 ## [8.0.0](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.34...v8.0.0) (2025-07-08)
 
 ### Features
