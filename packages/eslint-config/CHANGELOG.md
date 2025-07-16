@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.5](https://github.com/TrigenSoftware/scripts/compare/v8.0.4...v8.0.5) (2025-07-16)
+
+### Bug Fixes
+
+* edit stylistic/quotes rule ([83423f0](https://github.com/TrigenSoftware/scripts/commit/83423f0d8d74266e3ba10bcf2616d4dfe975ac1b))
+
 ## [8.0.3](https://github.com/TrigenSoftware/scripts/compare/v8.0.2...v8.0.3) (2025-07-08)
 
 ### Bug Fixes
