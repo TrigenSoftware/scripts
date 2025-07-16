@@ -159,6 +159,7 @@ export default [
           allowDefinitionFiles: true
         }
       ],
+      '@typescript-eslint/no-require-imports': 'off',
       '@typescript-eslint/no-this-alias': [
         'error',
         {
