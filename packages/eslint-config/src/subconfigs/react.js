@@ -104,7 +104,6 @@ export default [
       '@stylistic/jsx-equals-spacing': 'error',
       '@stylistic/jsx-first-prop-new-line': ['error', 'multiline'],
       'react/jsx-fragments': 'error',
-      '@stylistic/jsx-indent': ['error', 2],
       '@stylistic/jsx-indent-props': ['error', 2],
       'react/jsx-key': 'error',
       '@stylistic/jsx-max-props-per-line': [

@@ -35,7 +35,9 @@ export default [
   {
     files: tsFiles,
     rules: {
-      'jsdoc/no-types': 'warn'
+      'jsdoc/no-types': 'warn',
+      'jsdoc/require-param': 'off',
+      'jsdoc/check-param-names': 'off'
     }
   }
 ]

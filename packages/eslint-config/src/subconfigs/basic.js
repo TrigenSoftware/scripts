@@ -189,7 +189,7 @@ export default [
           SwitchCase: 1
         }
       ],
-      '@stylistic/indent-binary-ops': ['error', 2],
+      '@stylistic/indent-binary-ops': 'off',
       '@stylistic/jsx-quotes': ['error', 'prefer-single'],
       '@stylistic/key-spacing': [
         'error',

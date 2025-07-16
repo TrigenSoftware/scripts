@@ -5,7 +5,10 @@
 import typescriptPlugin from '@typescript-eslint/eslint-plugin'
 import stylisticPlugin from '@stylistic/eslint-plugin'
 import { getExtensionRules } from './utils.js'
-import { dtsFiles } from './files.js'
+import {
+  tsFiles,
+  dtsFiles
+} from './files.js'
 
 export default [
   {
@@ -156,7 +159,6 @@ export default [
           allowDefinitionFiles: true
         }
       ],
-      '@typescript-eslint/no-require-imports': 'error',
       '@typescript-eslint/no-this-alias': [
         'error',
         {
@@ -185,6 +187,12 @@ export default [
       // Override eslint:recommended
       'no-dupe-class-members': 'off',
       '@typescript-eslint/no-dupe-class-members': 'error'
+    }
+  },
+  {
+    files: tsFiles,
+    rules: {
+      '@typescript-eslint/no-require-imports': 'error'
     }
   },
   {
