@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.7](https://github.com/TrigenSoftware/scripts/compare/v8.0.6...v8.0.7) (2025-07-16)
+
+### Bug Fixes
+
+* real life usage fixes ([b297419](https://github.com/TrigenSoftware/scripts/commit/b297419d4a98bc332ba532faa8543adae9a21937))
+
 ## [8.0.6](https://github.com/TrigenSoftware/scripts/compare/v8.0.5...v8.0.6) (2025-07-16)
 
 ### Bug Fixes
