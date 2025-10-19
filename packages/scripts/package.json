@@ -38,6 +38,6 @@
     "@simple-libs/child-process-utils": "^1.0.1",
     "@simple-libs/stream-utils": "^1.1.0",
     "argue-cli": "^2.0.0",
-    "p-limit": "^6.0.0"
+    "p-limit": "^7.0.0"
   }
 }
