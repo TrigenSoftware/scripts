@@ -5,10 +5,12 @@
 import typescriptPlugin from '@typescript-eslint/eslint-plugin'
 import { getExtensionRules } from './utils.js'
 import typescriptConfig from './typescript.js'
+import { tsFiles } from './files.js'
 
 export default [
   ...typescriptConfig,
   {
+    files: tsFiles,
     plugins: {
       '@typescript-eslint': typescriptPlugin
     },
