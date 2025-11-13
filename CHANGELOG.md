@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.1.0](https://github.com/TrigenSoftware/scripts/compare/v8.0.7...v8.1.0) (2025-11-13)
+
+### Features
+
+* **eslint-config:** tune eslint config ([5726515](https://github.com/TrigenSoftware/scripts/commit/5726515b072e45378d2da365e44f73a0fc2e4962))
+
+### Bug Fixes
+
+* **deps:** update dependency @stylistic/stylelint-plugin to v4 ([#118](https://github.com/TrigenSoftware/scripts/issues/118)) ([db79dd3](https://github.com/TrigenSoftware/scripts/commit/db79dd31dbf74f5065a298d40fa9e035927c3426))
+* **deps:** update dependency p-limit to v7 ([#123](https://github.com/TrigenSoftware/scripts/issues/123)) ([1943c9f](https://github.com/TrigenSoftware/scripts/commit/1943c9f59a82ebb260f47ad6d0c35e8e3178b33d))
+
 ## [8.0.7](https://github.com/TrigenSoftware/scripts/compare/v8.0.6...v8.0.7) (2025-07-16)
 
 ### Bug Fixes
