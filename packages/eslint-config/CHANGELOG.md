@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.1.1](https://github.com/TrigenSoftware/scripts/compare/v8.1.0...v8.1.1) (2025-11-13)
+
+### Bug Fixes
+
+* fix typescript rules for js files ([c462d4e](https://github.com/TrigenSoftware/scripts/commit/c462d4e40949d0095a4593b72143e063befdf54f))
+
 ## [8.1.0](https://github.com/TrigenSoftware/scripts/compare/v8.0.7...v8.1.0) (2025-11-13)
 
 ### Features
