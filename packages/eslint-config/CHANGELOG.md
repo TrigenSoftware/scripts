@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.1.0](https://github.com/TrigenSoftware/scripts/compare/v8.0.7...v8.1.0) (2025-11-13)
+
+### Features
+
+* tune eslint config ([5726515](https://github.com/TrigenSoftware/scripts/commit/5726515b072e45378d2da365e44f73a0fc2e4962))
+
 ## [8.0.7](https://github.com/TrigenSoftware/scripts/compare/v8.0.6...v8.0.7) (2025-07-16)
 
 ### Bug Fixes
