@@ -37,7 +37,7 @@
     "@trigen/scripts": "workspace:*",
     "clean-publish": "^5.0.0",
     "commitizen": "^4.3.1",
-    "del-cli": "^6.0.0",
+    "del-cli": "^7.0.0",
     "eslint": "9.31.0",
     "inquirer": "^9.3.7",
     "nano-staged": "^0.8.0",
