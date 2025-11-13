@@ -112,7 +112,6 @@ export default [
           maximum: 1
         }
       ],
-      '@stylistic/jsx-props-no-multi-spaces': 'error',
       '@stylistic/jsx-self-closing-comp': 'error',
       'react/jsx-no-bind': 'error',
       'react/jsx-no-comment-textnodes': 'error',

@@ -12,6 +12,7 @@ import {
 
 export default [
   {
+    files: tsFiles,
     plugins: {
       '@typescript-eslint': typescriptPlugin,
       '@stylistic': stylisticPlugin
@@ -159,7 +160,7 @@ export default [
           allowDefinitionFiles: true
         }
       ],
-      '@typescript-eslint/no-require-imports': 'off',
+      '@typescript-eslint/no-require-imports': 'error',
       '@typescript-eslint/no-this-alias': [
         'error',
         {
@@ -188,12 +189,6 @@ export default [
       // Override eslint:recommended
       'no-dupe-class-members': 'off',
       '@typescript-eslint/no-dupe-class-members': 'error'
-    }
-  },
-  {
-    files: tsFiles,
-    rules: {
-      '@typescript-eslint/no-require-imports': 'error'
     }
   },
   {

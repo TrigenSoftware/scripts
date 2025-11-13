@@ -28,7 +28,7 @@ export default [
         {
           nestedBinaryExpressions: false,
           ignoreJSX: 'multi-line',
-          enforceForArrowConditionals: false,
+          ignoredNodes: ['ArrowFunctionExpression[body.type=ConditionalExpression]'],
           enforceForSequenceExpressions: false
         }
       ],
@@ -148,16 +148,14 @@ export default [
       // Stylistic Issues
       '@stylistic/array-bracket-newline': [
         'error',
-        {
-          multiline: true
-        }
+        'consistent'
       ],
       '@stylistic/array-bracket-spacing': ['error', 'never'],
       '@stylistic/array-element-newline': [
         'error',
         {
-          multiline: true,
-          minItems: 3
+          consistent: true,
+          multiline: true
         }
       ],
       '@stylistic/block-spacing': 'error',
