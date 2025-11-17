@@ -49,6 +49,13 @@ export default [
             'sibling',
             'index'
           ],
+          'pathGroups': [
+            {
+              pattern: '~/**',
+              group: 'external',
+              position: 'after'
+            }
+          ],
           'newlines-between': 'never'
         }
       ],
