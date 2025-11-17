@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.2.0](https://github.com/TrigenSoftware/scripts/compare/v8.1.2...v8.2.0) (2025-11-17)
+
+### Features
+
+* add "home" alias to order rule ([4c2e9c8](https://github.com/TrigenSoftware/scripts/commit/4c2e9c8070672b5cb55129d68e65f8e8d4a5c78e))
+
 ## [8.1.2](https://github.com/TrigenSoftware/scripts/compare/v8.1.1...v8.1.2) (2025-11-13)
 
 ### Bug Fixes
