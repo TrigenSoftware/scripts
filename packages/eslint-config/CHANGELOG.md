@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.3.0](https://github.com/TrigenSoftware/scripts/compare/v8.2.0...v8.3.0) (2026-01-20)
+
+### Features
+
+* add "#" alias to order rule ([e276dd2](https://github.com/TrigenSoftware/scripts/commit/e276dd2bf8801c3cb1e3f74c80e3136a61b9419c))
+
 ## [8.2.0](https://github.com/TrigenSoftware/scripts/compare/v8.1.2...v8.2.0) (2025-11-17)
 
 ### Features

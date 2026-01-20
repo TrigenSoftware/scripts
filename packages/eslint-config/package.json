@@ -1,7 +1,7 @@
 {
   "name": "@trigen/eslint-config",
   "type": "module",
-  "version": "8.2.0",
+  "version": "8.3.0",
   "description": "Trigen's ESLint config.",
   "author": "dangreen",
   "license": "MIT",
