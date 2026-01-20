@@ -54,6 +54,11 @@ export default [
               pattern: '~/**',
               group: 'external',
               position: 'after'
+            },
+            {
+              pattern: '#*/**',
+              group: 'external',
+              position: 'after'
             }
           ],
           'newlines-between': 'never'
