@@ -4,3 +4,4 @@ onlyBuiltDependencies:
   - '@swc/core'
   - esbuild
   - simple-git-hooks
+autoInstallPeers: false
