@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.3.1](https://github.com/TrigenSoftware/scripts/compare/v8.3.0...v8.3.1) (2026-03-01)
+
+### Bug Fixes
+
+* fix jsdoc rules for ts ([a5bea7d](https://github.com/TrigenSoftware/scripts/commit/a5bea7db28b3af1f32bda8a52bcc60c0dad680da))
+
 ## [8.3.0](https://github.com/TrigenSoftware/scripts/compare/v8.2.0...v8.3.0) (2026-01-20)
 
 ### Features
