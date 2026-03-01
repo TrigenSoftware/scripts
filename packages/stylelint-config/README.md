@@ -13,7 +13,7 @@
 [node-url]: https://nodejs.org
 
 [deps]: https://img.shields.io/librariesio/release/npm/@trigen/stylelint-config
-[deps-url]: https://libraries.io/npm/@trigen%2Fstylelint-config/tree
+[deps-url]: https://libraries.io/npm/@trigen%2Fstylelint-config
 
 [size]: https://packagephobia.com/badge?p=@trigen/stylelint-config
 [size-url]: https://packagephobia.com/result?p=@trigen/stylelint-config

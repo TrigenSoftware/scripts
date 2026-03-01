@@ -12,7 +12,7 @@
 [node-url]: https://nodejs.org
 
 [deps]: https://img.shields.io/librariesio/release/npm/@trigen/scripts
-[deps-url]: https://libraries.io/npm/@trigen%2Fscripts/tree
+[deps-url]: https://libraries.io/npm/@trigen%2Fscripts
 
 [build]: https://img.shields.io/github/actions/workflow/status/TrigenSoftware/scripts/tests.yml?branch=main
 [build-url]: https://github.com/TrigenSoftware/scripts/actions
@@ -37,7 +37,7 @@ Scripts and configs for TrigenSoftware's projects.
 [project-files-npm-url]: https://www.npmjs.com/package/@trigen/project-files
 
 [project-files-deps]: https://img.shields.io/librariesio/release/npm/@trigen/project-files
-[project-files-deps-url]: https://libraries.io/npm/@trigen%2Fproject-files/tree
+[project-files-deps-url]: https://libraries.io/npm/@trigen%2Fproject-files
 
 <!-- browserslist-config -->
 
@@ -50,7 +50,7 @@ Scripts and configs for TrigenSoftware's projects.
 [eslint-config-npm-url]: https://www.npmjs.com/package/@trigen/eslint-config
 
 [eslint-config-deps]: https://img.shields.io/librariesio/release/npm/@trigen/eslint-config
-[eslint-config-deps-url]: https://libraries.io/npm/@trigen%2Feslint-config/tree
+[eslint-config-deps-url]: https://libraries.io/npm/@trigen%2Feslint-config
 
 <!-- stylelint-config -->
 
@@ -58,7 +58,7 @@ Scripts and configs for TrigenSoftware's projects.
 [stylelint-config-npm-url]: https://www.npmjs.com/package/@trigen/stylelint-config
 
 [stylelint-config-deps]: https://img.shields.io/librariesio/release/npm/@trigen/stylelint-config
-[stylelint-config-deps-url]: https://libraries.io/npm/@trigen%2Fstylelint-config/tree
+[stylelint-config-deps-url]: https://libraries.io/npm/@trigen%2Fstylelint-config
 
 <!-- lint-package-json -->
 
@@ -66,7 +66,7 @@ Scripts and configs for TrigenSoftware's projects.
 [lint-package-json-npm-url]: https://www.npmjs.com/package/@trigen/lint-package-json
 
 [lint-package-json-deps]: https://img.shields.io/librariesio/release/npm/@trigen/lint-package-json
-[lint-package-json-deps-url]: https://libraries.io/npm/@trigen%2Fnpm-package-json-lint-config/tree
+[lint-package-json-deps-url]: https://libraries.io/npm/@trigen%2Fnpm-package-json-lint-config
 
 <!-- npm-package-json-lint-config -->
 
@@ -74,4 +74,4 @@ Scripts and configs for TrigenSoftware's projects.
 [npm-package-json-lint-config-npm-url]: https://www.npmjs.com/package/@trigen/npm-package-json-lint-config
 
 [npm-package-json-lint-config-deps]: https://img.shields.io/librariesio/release/npm/@trigen/npm-package-json-lint-config
-[npm-package-json-lint-config-deps-url]: https://libraries.io/npm/@trigen%2Fnpm-package-json-lint-config/tree
+[npm-package-json-lint-config-deps-url]: https://libraries.io/npm/@trigen%2Fnpm-package-json-lint-config

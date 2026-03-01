@@ -13,7 +13,7 @@
 [node-url]: https://nodejs.org
 
 [deps]: https://img.shields.io/librariesio/release/npm/@trigen/scripts
-[deps-url]: https://libraries.io/npm/@trigen%2Fscripts/tree
+[deps-url]: https://libraries.io/npm/@trigen%2Fscripts
 
 [size]: https://packagephobia.com/badge?p=@trigen/scripts
 [size-url]: https://packagephobia.com/result?p=@trigen/scripts

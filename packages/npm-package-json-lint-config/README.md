@@ -13,7 +13,7 @@
 [node-url]: https://nodejs.org
 
 [deps]: https://img.shields.io/librariesio/release/npm/@trigen/npm-package-json-lint-config
-[deps-url]: https://libraries.io/npm/@trigen%2Feslint-config/tree
+[deps-url]: https://libraries.io/npm/@trigen%2Feslint-config
 
 [size]: https://packagephobia.com/badge?p=@trigen/npm-package-json-lint-config
 [size-url]: https://packagephobia.com/result?p=@trigen/npm-package-json-lint-config

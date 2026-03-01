@@ -13,7 +13,7 @@
 [node-url]: https://nodejs.org
 
 [deps]: https://img.shields.io/librariesio/release/npm/@trigen/project-files
-[deps-url]: https://libraries.io/npm/@trigen%2Fproject-files/tree
+[deps-url]: https://libraries.io/npm/@trigen%2Fproject-files
 
 [size]: https://packagephobia.com/badge?p=@trigen/project-files
 [size-url]: https://packagephobia.com/result?p=@trigen/project-files
