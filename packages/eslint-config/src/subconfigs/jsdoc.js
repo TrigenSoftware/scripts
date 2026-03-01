@@ -37,7 +37,8 @@ export default [
     rules: {
       'jsdoc/no-types': 'warn',
       'jsdoc/require-param': 'off',
-      'jsdoc/check-param-names': 'off'
+      'jsdoc/check-param-names': 'off',
+      'jsdoc/require-yields-type': 'off'
     }
   }
 ]
