@@ -40,7 +40,7 @@
     "del-cli": "^7.0.0",
     "eslint": "9.31.0",
     "inquirer": "^9.3.7",
-    "nano-staged": "^0.8.0",
+    "nano-staged": "^0.9.0",
     "npm-package-json-lint": "^9.0.0",
     "simple-git-hooks": "^2.7.0",
     "vite": "^7.0.0",
