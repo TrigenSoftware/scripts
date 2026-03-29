@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.4.0](https://github.com/TrigenSoftware/scripts/compare/v8.3.1...v8.4.0) (2026-03-29)
+
+### Features
+
+* **eslint-config:** add "@" alias to order rule ([e73d3a0](https://github.com/TrigenSoftware/scripts/commit/e73d3a09c41dbed08641186688e9912e93f2d74c))
+
 ## [8.3.1](https://github.com/TrigenSoftware/scripts/compare/v8.3.0...v8.3.1) (2026-03-01)
 
 ### Bug Fixes
