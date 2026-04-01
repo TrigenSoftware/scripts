@@ -50,6 +50,6 @@
     "stylelint-scss": "^6.12.1"
   },
   "devDependencies": {
-    "stylelint": "^16.21.1"
+    "stylelint": "^17.0.0"
   }
 }
