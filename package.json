@@ -35,7 +35,7 @@
     "@trigen/lint-package-json": "workspace:*",
     "@trigen/project-files": "workspace:*",
     "@trigen/scripts": "workspace:*",
-    "clean-publish": "^5.0.0",
+    "clean-publish": "^6.0.0",
     "commitizen": "^4.3.1",
     "del-cli": "^7.0.0",
     "eslint": "9.31.0",
