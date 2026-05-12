@@ -167,8 +167,8 @@ importers:
         specifier: ^1.1.3
         version: 1.10.11(stylelint@16.25.0)
       stylelint-gamut:
-        specifier: ^1.3.4
-        version: 1.3.4(stylelint@16.25.0)
+        specifier: ^2.0.0
+        version: 2.0.1(stylelint@16.25.0)
       stylelint-high-performance-animation:
         specifier: ^1.5.1
         version: 1.11.0(stylelint@16.25.0)
@@ -1322,8 +1322,8 @@ packages:
   colord@2.9.3:
     resolution: {integrity: sha512-jeC1axXpnb0/2nn/Y1LPuLdgXBLH7aDcHu4KEKfqw3CUhX7ZpfBSlPKyqXE6btIgEzfWtrX3/tyBCaCvXvMkOw==}
 
-  colorjs.io@0.4.5:
-    resolution: {integrity: sha512-yCtUNCmge7llyfd/Wou19PMAcf5yC3XXhgFoAh6zsO2pGswhUPBaaUh8jzgHnXtXuZyFKzXZNAnyF5i+apICow==}
+  colorjs.io@0.6.1:
+    resolution: {integrity: sha512-8lyR2wHzuIykCpqHKgluGsqQi5iDm3/a2IgP2GBZrasn2sBRkE4NOGsglZxWLs/jZQoNkmA/KM/8NV16rLUdBg==}
 
   comment-parser@1.4.1:
     resolution: {integrity: sha512-buhp5kePrmda3vhc5B9t7pUQXAb2Tnd0qgpkIhPhkHXxJpiPJ11H0ZEU0oBpJ2QztSbzG/ZxMj/CHsYJqRHmyg==}
@@ -3053,11 +3053,11 @@ packages:
     peerDependencies:
       stylelint: '>=7 <=16'
 
-  stylelint-gamut@1.3.4:
-    resolution: {integrity: sha512-mN/8BRPNGlKwf/lGrR9JjW9Abm6e7lCn7fiq4M6a4RxDCU/R6lSUI65R6cdo5BV14qf3GmrqNBAjmSujBVrHoA==}
-    engines: {node: '>=16.0.0'}
+  stylelint-gamut@2.0.1:
+    resolution: {integrity: sha512-tsNmkvzm4LbeUBOcLIn8A6aDGBanWwcg+3AlBoljlxz0rxxAC3ZHq/sHKso9YLbNlNvCDIMzw8KVtchStOSO8w==}
+    engines: {node: '>=20.19.0'}
     peerDependencies:
-      stylelint: ^14.0.0 || ^15.0.0 || ^16.0.0
+      stylelint: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
 
   stylelint-high-performance-animation@1.11.0:
     resolution: {integrity: sha512-bo+VfSH5RmjVmu61BZeN4cBK+PGHpG5jfvaUsw0db+1sAqKuEGjzmxEbf271/Jq3HJHj8wyi/rCg1IcxxnIiiQ==}
@@ -4624,7 +4624,7 @@ snapshots:
 
   colord@2.9.3: {}
 
-  colorjs.io@0.4.5: {}
+  colorjs.io@0.6.1: {}
 
   comment-parser@1.4.1: {}
 
@@ -6543,9 +6543,9 @@ snapshots:
     dependencies:
       stylelint: 16.25.0
 
-  stylelint-gamut@1.3.4(stylelint@16.25.0):
+  stylelint-gamut@2.0.1(stylelint@16.25.0):
     dependencies:
-      colorjs.io: 0.4.5
+      colorjs.io: 0.6.1
       stylelint: 16.25.0
 
   stylelint-high-performance-animation@1.11.0(stylelint@16.25.0):
