@@ -1,0 +1,49 @@
+{
+  "name": "@trigen/oxlint-config",
+  "type": "module",
+  "version": "8.4.0",
+  "description": "Trigen's Oxlint config.",
+  "author": "dangreen",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TrigenSoftware/scripts.git",
+    "directory": "packages/oxlint-config"
+  },
+  "bugs": {
+    "url": "https://github.com/TrigenSoftware/scripts/issues"
+  },
+  "keywords": [
+    "oxlint",
+    "oxlint-config"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "exports": {
+    ".": "./src/index.js",
+    "./plugin": "./src/plugin/index.js",
+    "./*": "./src/*.js"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "package",
+    "linkDirectory": false
+  },
+  "scripts": {
+    "prepublishOnly": "del ./package && clean-publish",
+    "postpublish": "del ./package"
+  },
+  "peerDependencies": {
+    "oxlint": ">=1.0.0",
+    "oxlint-tsgolint": ">=0.23.0"
+  },
+  "peerDependenciesMeta": {
+    "oxlint-tsgolint": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@stylistic/eslint-plugin": "^5.5.0"
+  }
+}

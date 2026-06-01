@@ -36,7 +36,7 @@ export async function run(pm, scripts, pkg, concurrency) {
         }
     }
 
-    finalExitCode = finalExitCode || await task.exitCode
+    finalExitCode ||= await task.exitCode
   }
 
   return finalExitCode
