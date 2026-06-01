@@ -1,1 +1,1 @@
-module.exports = ['node >= 14']
+export default ['node >= 14']
