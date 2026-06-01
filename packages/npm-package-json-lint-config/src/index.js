@@ -1,4 +1,8 @@
-module.exports = {
+import { createRequire } from 'node:module'
+
+const require = createRequire(import.meta.url)
+
+export default {
   extends: require.resolve('npm-package-json-lint-config-default'),
   rules: {
     'require-author': 'error',

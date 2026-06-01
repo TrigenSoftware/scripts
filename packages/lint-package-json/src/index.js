@@ -8,7 +8,8 @@ import {
   NpmPackageJsonLint,
   write
 } from 'npm-package-json-lint'
-import configs from './configs.cjs'
+import baseConfig from '@trigen/npm-package-json-lint-config'
+import monorepoConfig from '@trigen/npm-package-json-lint-config/monorepo'
 
 const {
   monorepo,
@@ -17,11 +18,9 @@ const {
   option(alias('monorepo', 'm'), Boolean),
   option(alias('ignore', 'i'), Array)
 )
-const config = {
-  extends: monorepo
-    ? [configs.base, configs.monorepo]
-    : configs.base
-}
+const config = monorepo
+  ? monorepoConfig
+  : baseConfig
 const npmPackageJsonLint = new NpmPackageJsonLint({
   cwd: process.cwd(),
   config,
