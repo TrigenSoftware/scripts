@@ -1,7 +1,9 @@
-const base = require('.')
+import base from './index.js'
 
-module.exports = {
+export default {
+  ...base,
   rules: {
+    ...base.rules,
     'require-version': 'off',
     'require-keywords': 'off',
     'require-private': 'error',
@@ -11,11 +13,11 @@ module.exports = {
     {
       patterns: ['packages/*/package.json'],
       rules: {
+        ...base.rules,
         'require-version': 'error',
         'require-private': 'off',
         'valid-values-private': 'off',
-        'require-repository-directory': 'error',
-        ...base.rules
+        'require-repository-directory': 'error'
       }
     }
   ]
