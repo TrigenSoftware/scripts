@@ -19,7 +19,7 @@
     "runner"
   ],
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "bin": {
     "run": "./src/run.js"

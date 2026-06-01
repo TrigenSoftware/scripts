@@ -20,7 +20,7 @@
     "scss"
   ],
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "exports": {
     ".": "./src/index.js",
