@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.0.0](https://github.com/TrigenSoftware/scripts/compare/v8.4.0...v9.0.0) (2026-06-01)
+
+### ⚠ BREAKING CHANGES
+
+* **browserslist-config,eslint-config,lint-package-json,npm-package-json-lint-config,oxlint-config,project-files,scripts,stylelint-config:** node >= 22 now is minimal supported version
+* **lint-package-json,npm-package-json-lint-config:** package type changed to `module` (#161)
+* **browserslist-config:** package type changed to `module` (#159)
+
+### Features
+
+* **browserslist-config,eslint-config,lint-package-json,npm-package-json-lint-config,oxlint-config,project-files,scripts,stylelint-config:** node >= 22 now is minimal supported version ([fbfaf0d](https://github.com/TrigenSoftware/scripts/commit/fbfaf0d6cdf19a0c1e8128b67b8e472c5844533e))
+* **browserslist-config:** package type changed to `module` ([#159](https://github.com/TrigenSoftware/scripts/issues/159)) ([64e020a](https://github.com/TrigenSoftware/scripts/commit/64e020ab6e3a23bf0fd449e3fabc4b2fe9dd1fa5))
+* **lint-package-json,npm-package-json-lint-config:** package type changed to `module` ([#161](https://github.com/TrigenSoftware/scripts/issues/161)) ([5d3076d](https://github.com/TrigenSoftware/scripts/commit/5d3076d933a8863314e2ed58c57477cedf0af822))
+* **oxlint-config:** brand new oxlint config ([#162](https://github.com/TrigenSoftware/scripts/issues/162)) ([073316d](https://github.com/TrigenSoftware/scripts/commit/073316d95569906318add265217c5b5b03fa7afd))
+
+### Bug Fixes
+
+* **deps:** update dependency stylelint-gamut to v2 ([#152](https://github.com/TrigenSoftware/scripts/issues/152)) ([abeb0f9](https://github.com/TrigenSoftware/scripts/commit/abeb0f99c2441e57a278675affd9b86f3084d08c))
+
 ## [8.4.0](https://github.com/TrigenSoftware/scripts/compare/v8.3.1...v8.4.0) (2026-03-29)
 
 ### Features

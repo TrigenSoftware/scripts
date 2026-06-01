@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.0.0](https://github.com/TrigenSoftware/scripts/compare/v8.4.0...v9.0.0) (2026-06-01)
+
+### ⚠ BREAKING CHANGES
+
+* node >= 22 now is minimal supported version
+* package type changed to `module` (#159)
+
+### Features
+
+* node >= 22 now is minimal supported version ([fbfaf0d](https://github.com/TrigenSoftware/scripts/commit/fbfaf0d6cdf19a0c1e8128b67b8e472c5844533e))
+* package type changed to `module` ([#159](https://github.com/TrigenSoftware/scripts/issues/159)) ([64e020a](https://github.com/TrigenSoftware/scripts/commit/64e020ab6e3a23bf0fd449e3fabc4b2fe9dd1fa5))
+
 ## [8.0.0](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.34...v8.0.0) (2025-07-08)
 
 ## [8.0.0-alpha.33](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.32...v8.0.0-alpha.33) (2025-01-01)

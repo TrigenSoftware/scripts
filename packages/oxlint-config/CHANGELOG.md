@@ -11,10 +11,5 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
+* brand new oxlint config ([#162](https://github.com/TrigenSoftware/scripts/issues/162)) ([073316d](https://github.com/TrigenSoftware/scripts/commit/073316d95569906318add265217c5b5b03fa7afd))
 * node >= 22 now is minimal supported version ([fbfaf0d](https://github.com/TrigenSoftware/scripts/commit/fbfaf0d6cdf19a0c1e8128b67b8e472c5844533e))
-
-## [8.0.0](https://github.com/TrigenSoftware/scripts/compare/v8.0.0-alpha.34...v8.0.0) (2025-07-08)
-
-### Features
-
-* introduce stylelint config ([#107](https://github.com/TrigenSoftware/scripts/issues/107)) ([a3437f3](https://github.com/TrigenSoftware/scripts/commit/a3437f3f375b5e6c5bd6e904c58cefd9b13ce698))
