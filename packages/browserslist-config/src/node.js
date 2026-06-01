@@ -1,1 +1,1 @@
-module.exports = ['maintained node versions']
+export default ['maintained node versions']
