@@ -141,13 +141,13 @@ export default {
     typeAware: true,
     typeCheck: true
   },
+  env: {
+    node: true
+  },
   extends: [
     baseConfig,
     testConfig
-  ],
-  env: {
-    node: true
-  }
+  ]
 }
 ```
 
@@ -173,6 +173,7 @@ import rootConfig from '../../oxlint.config.ts'
 
 export default {
   ...rootConfig,
+  options: {},
   extends: [
     rootConfig,
     moduleConfig,
@@ -214,6 +215,20 @@ After creating Oxlint configs:
   documenting the eslint-config package itself
 
 Do not delete `packages/eslint-config` unless the user explicitly asks.
+
+After the config migration is working, offer the user a separate source-code
+cleanup pass to replace ESLint inline directive comments with Oxlint directives.
+Do not do this silently. Look for comments such as:
+
+```text
+eslint-disable
+eslint-enable
+eslint-disable-line
+eslint-disable-next-line
+```
+
+and migrate them to the corresponding Oxlint directive form supported by the
+current Oxlint version.
 
 ## Oxlint Config Gotchas
 
