@@ -1,6 +1,6 @@
 ---
 name: eslint-to-oxlint
-description: Migrate Trigen-style repositories from @trigen/eslint-config to @trigen/oxlint-config, including package scripts, Node engines, oxlint.config.ts/mts files, nested monorepo configs, and cleanup of old ESLint config usage.
+description: Migrate Trigen-style repositories from @trigen/eslint-config to @trigen/oxlint-config, including package scripts, Node runtime setup, oxlint.config.ts files, nested monorepo configs, and cleanup of old ESLint config usage.
 license: MIT
 compatibility:
   - Claude Code
@@ -38,7 +38,8 @@ Replace active ESLint config usage with Oxlint config usage while preserving the
 same repository intent:
 
 - root and package lint configs use `@trigen/oxlint-config`
-- `lint` script runs `oxlint`
+- direct ESLint CLI scripts become direct Oxlint CLI scripts
+- workspace orchestration scripts keep their orchestration behavior
 - old `eslint.config.*` and `.eslintrc.*` consumers are removed
 - the existing `packages/eslint-config` package is not deleted unless the user
   explicitly asks to remove or deprecate that package
@@ -50,7 +51,7 @@ Inspect before editing:
 ```bash
 rg --files -g 'eslint.config.*' -g '.eslintrc*' -g 'package.json'
 rg -n '@trigen/eslint-config|eslint\.config|eslintrc|eslint' package.json packages .github README.md
-rg -n '"node"\s*:' package.json packages/*/package.json
+rg -n '"lint"\s*:|"eslint"\s*:|"@trigen/eslint-config"' package.json packages/*/package.json
 ```
 
 Treat these as different things:
@@ -62,6 +63,8 @@ Treat these as different things:
   Do not remove these; they are Oxlint rule IDs.
 - JS plugins used by `@trigen/oxlint-config`, such as `@stylistic/eslint-plugin`.
   Do not remove these just because their package names contain `eslint`.
+- `engines.node` values in `package.json`. Do not edit them during this
+  migration.
 
 ## Dependencies And Engines
 
@@ -79,27 +82,41 @@ For TypeScript repositories, also install the optional type-aware backend:
 pnpm add -D oxlint-tsgolint
 ```
 
-`@trigen/oxlint-config` requires Node 22+. If the repository still runs older
-Node versions, tell the user before changing runtime policy. It is reasonable to
-offer updating local and CI Node versions, for example:
+`@trigen/oxlint-config` requires Node 22+. Do not edit `engines.node` in
+`package.json`. If local tooling or CI uses Node <22, tell the user and offer to
+update only runtime selectors such as `.tool-versions` and GitHub Actions
+`node-version`.
+
+If `.tool-versions` already uses Node 22+ or 24+, leave it alone. Only suggest a
+change when it is below Node 22. A valid minimum example is:
 
 ```text
 nodejs 22.18.0
 ```
 
-For GitHub Actions, suggest using Node 22 and removing older Node matrix entries
-only when the repository is ready to drop them.
+For GitHub Actions, suggest using Node 22+ and removing older Node matrix
+entries only when the repository is ready to drop them.
 
 ## Scripts
 
-Replace ESLint lint scripts with Oxlint:
+Only replace direct ESLint CLI invocations with equivalent Oxlint CLI
+invocations.
 
 ```json
 "lint": "oxlint"
 ```
 
-Keep unrelated scripts intact. If the repo has package-specific lint scripts,
-update those too.
+Do not replace workspace orchestration scripts with plain `oxlint`. Preserve
+commands such as:
+
+```json
+"lint": "pnpm -r --parallel --if-present --filter './packages/*' lint"
+```
+
+For those scripts, update the package-level scripts they call, not the
+orchestrator itself.
+
+Keep unrelated scripts intact.
 
 ## Config Files
 
