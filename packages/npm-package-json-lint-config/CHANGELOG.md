@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.0.1](https://github.com/TrigenSoftware/scripts/compare/v9.0.0...v9.0.1) (2026-06-02)
+
+### Bug Fixes
+
+* rm oxlint.config.ts from packages ([2779f76](https://github.com/TrigenSoftware/scripts/commit/2779f763c33c9712538a1181c18ec07ab9765492))
+
 ## [9.0.0](https://github.com/TrigenSoftware/scripts/compare/v8.4.0...v9.0.0) (2026-06-01)
 
 ### ⚠ BREAKING CHANGES
