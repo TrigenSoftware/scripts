@@ -54,8 +54,6 @@ export default {
         'typescript/no-unnecessary-template-expression': 'error',
         'typescript/no-unnecessary-type-arguments': 'error',
         'typescript/consistent-type-imports': 'error',
-        'eslint/dot-notation': 'off',
-        'typescript/dot-notation': 'error',
         'typescript/prefer-includes': 'error',
         'typescript/prefer-nullish-coalescing': 'off',
         'typescript/prefer-optional-chain': 'error',
