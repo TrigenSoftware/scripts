@@ -1,7 +1,7 @@
 {
   "name": "@trigen/npm-package-json-lint-config",
   "type": "module",
-  "version": "9.0.0",
+  "version": "9.0.1",
   "description": "Trigen's npm-package-json-lint config.",
   "author": "dangreen",
   "license": "MIT",
