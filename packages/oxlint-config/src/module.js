@@ -9,13 +9,14 @@ import {
 } from './subconfigs/files.js'
 
 export default {
+  jsPlugins: ['@trigen/oxlint-config/plugin'],
   overrides: [
     ...bundlerConfig.overrides,
     {
       files: not(commonjsFiles),
       plugins: ['import'],
       rules: {
-        'import/extensions': ['error', 'ignorePackages']
+        'trigen/extensions': ['error', 'ignorePackages']
       }
     }
   ]

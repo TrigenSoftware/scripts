@@ -3,6 +3,7 @@
  */
 
 export default {
+  jsPlugins: ['@trigen/oxlint-config/plugin'],
   rules: {
     'eslint/constructor-super': 'error',
     'eslint/for-direction': 'error',
@@ -237,6 +238,70 @@ export default {
     'eslint/no-unneeded-ternary': 'error',
     'eslint/operator-assignment': ['error', 'always'],
     'eslint/prefer-object-spread': 'error',
-    'eslint/unicode-bom': 'error'
+    'eslint/unicode-bom': 'error',
+    'trigen/naming-convention': [
+      'error',
+      {
+        selector: 'default',
+        format: [
+          'camelCase',
+          'PascalCase',
+          'UPPER_CASE'
+        ],
+        leadingDollar: 'allow',
+        trailingDollar: 'allow'
+      },
+      {
+        selector: 'variable',
+        format: [
+          'camelCase',
+          'UPPER_CASE',
+          'PascalCase'
+        ],
+        leadingDollar: 'allow',
+        trailingDollar: 'allow'
+      },
+      {
+        selector: 'function',
+        format: ['camelCase', 'PascalCase'],
+        leadingDollar: 'allow',
+        trailingDollar: 'allow'
+      },
+      {
+        selector: 'parameter',
+        format: ['camelCase', 'PascalCase'],
+        leadingUnderscore: 'allow',
+        leadingDollar: 'allow',
+        trailingDollar: 'allow'
+      },
+      {
+        selector: 'typeLike',
+        format: ['PascalCase']
+      },
+      {
+        selector: 'interface',
+        format: ['PascalCase']
+      },
+      {
+        selector: 'enumMember',
+        format: ['PascalCase']
+      },
+      {
+        selector: 'classProperty',
+        format: [
+          'camelCase',
+          'UPPER_CASE',
+          'PascalCase'
+        ],
+        modifiers: ['static'],
+        leadingDollar: 'allow',
+        trailingDollar: 'allow'
+      },
+      {
+        selector: ['objectLiteralProperty', 'objectLiteralMethod'],
+        format: null,
+        modifiers: ['requiresQuotes']
+      }
+    ]
   }
 }

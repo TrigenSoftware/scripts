@@ -33,11 +33,21 @@ function getSelectorOptions(options, selector, modifiers = []) {
 }
 
 function getNormalizedName(name, option) {
+  let normalizedName = name
+
   if (option.leadingUnderscore === 'allow') {
-    return name.replace(/^_+/, '')
+    normalizedName = normalizedName.replace(/^_+/, '')
   }
 
-  return name
+  if (option.leadingDollar === 'allow') {
+    normalizedName = normalizedName.replace(/^\$+/, '')
+  }
+
+  if (option.trailingDollar === 'allow') {
+    normalizedName = normalizedName.replace(/\$+$/, '')
+  }
+
+  return normalizedName
 }
 
 function matchesFormat(name, format) {
@@ -192,6 +202,12 @@ export default {
             ]
           },
           leadingUnderscore: {
+            type: 'string'
+          },
+          leadingDollar: {
+            type: 'string'
+          },
+          trailingDollar: {
             type: 'string'
           },
           modifiers: {

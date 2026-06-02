@@ -12,12 +12,7 @@ export default {
     {
       files: tsFiles,
       plugins: ['typescript'],
-      jsPlugins: [
-        {
-          name: 'trigen',
-          specifier: '@trigen/oxlint-config/plugin'
-        }
-      ],
+      jsPlugins: ['@trigen/oxlint-config/plugin'],
       rules: {
         // Recommended
         'typescript/ban-ts-comment': [
@@ -107,60 +102,6 @@ export default {
                 'instance-method'
               ]
             }
-          }
-        ],
-        'trigen/naming-convention': [
-          'error',
-          {
-            selector: 'default',
-            format: [
-              'camelCase',
-              'PascalCase',
-              'UPPER_CASE'
-            ]
-          },
-          {
-            selector: 'variable',
-            format: [
-              'camelCase',
-              'UPPER_CASE',
-              'PascalCase'
-            ]
-          },
-          {
-            selector: 'function',
-            format: ['camelCase', 'PascalCase']
-          },
-          {
-            selector: 'parameter',
-            format: ['camelCase', 'PascalCase'],
-            leadingUnderscore: 'allow'
-          },
-          {
-            selector: 'typeLike',
-            format: ['PascalCase']
-          },
-          {
-            selector: 'interface',
-            format: ['PascalCase']
-          },
-          {
-            selector: 'enumMember',
-            format: ['PascalCase']
-          },
-          {
-            selector: 'classProperty',
-            format: [
-              'camelCase',
-              'UPPER_CASE',
-              'PascalCase'
-            ],
-            modifiers: ['static']
-          },
-          {
-            selector: ['objectLiteralProperty', 'objectLiteralMethod'],
-            format: null,
-            modifiers: ['requiresQuotes']
           }
         ]
       }

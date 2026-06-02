@@ -4,12 +4,7 @@
 
 export default {
   plugins: ['import'],
-  jsPlugins: [
-    {
-      name: 'trigen',
-      specifier: '@trigen/oxlint-config/plugin'
-    }
-  ],
+  jsPlugins: ['@trigen/oxlint-config/plugin'],
   rules: {
     'import/no-absolute-path': 'error',
     'import/no-dynamic-require': 'error',
