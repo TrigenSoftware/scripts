@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.0.3](https://github.com/TrigenSoftware/scripts/compare/v9.0.2...v9.0.3) (2026-06-02)
+
+### Bug Fixes
+
+* **oxlint-config:** tune some rules ([752f648](https://github.com/TrigenSoftware/scripts/commit/752f648e195fc9a5777a64b1078ce91b94126c94))
+
 ## [9.0.2](https://github.com/TrigenSoftware/scripts/compare/v9.0.1...v9.0.2) (2026-06-02)
 
 ### Bug Fixes
