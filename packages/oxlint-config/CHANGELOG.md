@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.0.2](https://github.com/TrigenSoftware/scripts/compare/v9.0.1...v9.0.2) (2026-06-02)
+
+### Bug Fixes
+
+* rm unsupported rules ([c6b77fe](https://github.com/TrigenSoftware/scripts/commit/c6b77fef09c2d154a34798eb42a395338bc9a30c))
+
 ## [9.0.1](https://github.com/TrigenSoftware/scripts/compare/v9.0.0...v9.0.1) (2026-06-02)
 
 ### Bug Fixes
