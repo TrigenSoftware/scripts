@@ -3,6 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+
 ## [9.0.3](https://github.com/TrigenSoftware/scripts/compare/v9.0.2...v9.0.3) (2026-06-02)
 
 ### Bug Fixes
