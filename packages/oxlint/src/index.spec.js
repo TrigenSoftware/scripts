@@ -61,6 +61,7 @@ describe('oxlint', () => {
         overrides: [
           {
             files: ['**/*'],
+            plugins: [],
             rules: {
               'eslint/no-console': 'off'
             }
@@ -86,11 +87,42 @@ describe('oxlint', () => {
       expect(config.overrides).toEqual([
         {
           files: ['**/*'],
+          plugins: [],
           rules: {
             'eslint/no-console': 'off'
           }
         },
         override
+      ])
+    })
+
+    it('should add builtin plugins to global rules override', () => {
+      const config = defineConfig({
+        rules: {
+          'typescript/no-explicit-any': 'error',
+          'import/no-default-export': 'off',
+          'trigen/import-order': 'error',
+          'react/jsx-key': 'error',
+          'typescript/no-unused-vars': 'error'
+        }
+      })
+
+      expect(config.overrides).toEqual([
+        {
+          files: ['**/*'],
+          plugins: [
+            'typescript',
+            'import',
+            'react'
+          ],
+          rules: {
+            'typescript/no-explicit-any': 'error',
+            'import/no-default-export': 'off',
+            'trigen/import-order': 'error',
+            'react/jsx-key': 'error',
+            'typescript/no-unused-vars': 'error'
+          }
+        }
       ])
     })
 

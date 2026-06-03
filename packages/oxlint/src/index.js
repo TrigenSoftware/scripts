@@ -1,3 +1,34 @@
+const builtinPlugins = new Set([
+  'typescript',
+  'unicorn',
+  'react',
+  'react-perf',
+  'nextjs',
+  'oxc',
+  'import',
+  'jsdoc',
+  'jsx-a11y',
+  'node',
+  'promise',
+  'jest',
+  'vitest',
+  'vue'
+])
+
+function autoPlugins(rules) {
+  const plugins = new Set()
+
+  for (const rule of Object.keys(rules)) {
+    const [plugin] = rule.split('/')
+
+    if (builtinPlugins.has(plugin) && !plugins.has(plugin)) {
+      plugins.add(plugin)
+    }
+  }
+
+  return [...plugins]
+}
+
 export function defineConfig(config) {
   const finalConfig = {
     ...config
@@ -32,6 +63,7 @@ export function defineConfig(config) {
     finalConfig.overrides = [
       {
         files: ['**/*'],
+        plugins: autoPlugins(finalConfig.rules),
         rules: finalConfig.rules
       },
       ...finalConfig.overrides || []
