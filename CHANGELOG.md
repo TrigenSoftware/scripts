@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 
+## [9.0.4](https://github.com/TrigenSoftware/scripts/compare/v9.0.3...v9.0.4) (2026-06-03)
+
+### Features
+
+* **oxlint:** add auto plugins inference ([f43d936](https://github.com/TrigenSoftware/scripts/commit/f43d936306344131f07bd5784967da02e0942f03))
+* **oxlint:** introduce oxlint config helper which fixes inheritance problems in Oxlint's default config behavior ([637e956](https://github.com/TrigenSoftware/scripts/commit/637e95676d666f6b2e85c1d189e85b77a1c8ee61))
+
 ## [9.0.3](https://github.com/TrigenSoftware/scripts/compare/v9.0.2...v9.0.3) (2026-06-02)
 
 ### Bug Fixes
