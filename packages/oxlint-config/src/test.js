@@ -12,6 +12,7 @@ export default {
         vitest: true
       },
       plugins: ['typescript'],
+      jsPlugins: ['@trigen/oxlint-config/plugin'],
       rules: {
         'eslint/max-classes-per-file': 'off',
         'eslint/no-magic-numbers': 'off',

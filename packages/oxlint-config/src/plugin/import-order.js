@@ -350,15 +350,18 @@ export default {
           return
         }
 
+        const hasSkippedImports = hasSkippedImportsBetween(imports, items)
         const unorderedPair = getFirstUnorderedPair(items)
-        const invalidNewlinePair = getInvalidNewlinePair(sourceCode, items, options)
+        const invalidNewlinePair = hasSkippedImports
+          ? null
+          : getInvalidNewlinePair(sourceCode, items, options)
 
         if (!unorderedPair && !invalidNewlinePair) {
           return
         }
 
         const fix = canFix(sourceCode, items)
-          && !hasSkippedImportsBetween(imports, items)
+          && !hasSkippedImports
           ? fixer => fixer.replaceTextRange(
             getImportBlockRange(items),
             getFixedImportText(sourceCode, items, options)
