@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 
+## [9.2.0](https://github.com/TrigenSoftware/scripts/compare/v9.1.0...v9.2.0) (2026-06-05)
+
+### Features
+
+* **oxlint-config:** named-import-order newlines ([1f3f270](https://github.com/TrigenSoftware/scripts/commit/1f3f270dd4e8a6aee4643d7fb5af930f422be8c3))
+
 ## [9.1.0](https://github.com/TrigenSoftware/scripts/compare/v9.0.4...v9.1.0) (2026-06-05)
 
 ### Features
