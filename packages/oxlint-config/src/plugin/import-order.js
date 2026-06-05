@@ -235,6 +235,18 @@ function canFix(sourceCode, items) {
   return !hasInnerComments(sourceCode, items)
 }
 
+function hasSkippedImportsBetween(imports, items) {
+  const itemNodes = new Set(items.map(({ node }) => node))
+  const [
+    start,
+    end
+  ] = getImportBlockRange(items)
+
+  return imports.some(node => !itemNodes.has(node)
+    && node.range[0] > start
+    && node.range[1] < end)
+}
+
 function getFixedImportText(sourceCode, items, options) {
   const linebreak = getLinebreak(sourceCode.text)
   const separator = options['newlines-between'] === 'always'
@@ -346,6 +358,7 @@ export default {
         }
 
         const fix = canFix(sourceCode, items)
+          && !hasSkippedImportsBetween(imports, items)
           ? fixer => fixer.replaceTextRange(
             getImportBlockRange(items),
             getFixedImportText(sourceCode, items, options)

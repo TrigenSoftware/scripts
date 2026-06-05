@@ -1,5 +1,6 @@
 function shouldConvert(node) {
   return node.importKind !== 'type'
+    && !hasImportAttributes(node)
     && node.specifiers.length > 0
     && node.specifiers.every(specifier => specifier.type === 'ImportSpecifier'
       && specifier.importKind === 'type')
@@ -28,6 +29,16 @@ function hasCommentsBetween(sourceCode, left, right) {
     && comment.range[1] < right.range[0])
 }
 
+function getLocalName(specifier) {
+  return specifier.local?.name ?? null
+}
+
+function hasOverlappingLocalNames(left, right) {
+  const leftNames = new Set(left.specifiers.map(getLocalName))
+
+  return right.specifiers.some(specifier => leftNames.has(getLocalName(specifier)))
+}
+
 function canMerge(sourceCode, typeNode, valueNode) {
   return typeNode.source.value === valueNode.source.value
     && isTypeImport(typeNode)
@@ -36,6 +47,7 @@ function canMerge(sourceCode, typeNode, valueNode) {
     && !isTypeImport(valueNode)
     && !hasImportAttributes(typeNode)
     && !hasImportAttributes(valueNode)
+    && !hasOverlappingLocalNames(typeNode, valueNode)
     && !hasCommentsBetween(sourceCode, typeNode, valueNode)
 }
 

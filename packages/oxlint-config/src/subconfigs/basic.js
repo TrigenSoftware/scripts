@@ -162,7 +162,7 @@ export default {
     'eslint/no-useless-concat': 'error',
     'eslint/no-useless-return': 'error',
     'eslint/no-void': [
-      'off',
+      'error',
       {
         allowAsStatement: true
       }
