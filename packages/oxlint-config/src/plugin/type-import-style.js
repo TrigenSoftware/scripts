@@ -79,6 +79,17 @@ function getTypeSpecifierText(specifier, sourceCode) {
     : `type ${text}`
 }
 
+function getLinebreak(text) {
+  return text.includes('\r\n') ? '\r\n' : '\n'
+}
+
+function getLineIndent(text, index) {
+  const lineStart = text.lastIndexOf('\n', index - 1) + 1
+  const indentMatch = /^[ \t]*/.exec(text.slice(lineStart, index))
+
+  return indentMatch[0]
+}
+
 function getMergedText(typeNode, valueNode, sourceCode) {
   const typeSpecifiers = typeNode.specifiers.map(specifier => getTypeSpecifierText(
     specifier,
@@ -88,11 +99,15 @@ function getMergedText(typeNode, valueNode, sourceCode) {
     specifier
   ))
   const source = sourceCode.getText(valueNode.source)
-
-  return `import { ${[
+  const linebreak = getLinebreak(sourceCode.text)
+  const closingIndent = getLineIndent(sourceCode.text, valueNode.range[0])
+  const indent = `${closingIndent}  `
+  const specifiers = [
     ...typeSpecifiers,
     ...valueSpecifiers
-  ].join(', ')} } from ${source}`
+  ]
+
+  return `import {${linebreak}${indent}${specifiers.join(`,${linebreak}${indent}`)}${linebreak}${closingIndent}} from ${source}`
 }
 
 function getFixedText(node, sourceCode) {
