@@ -39,7 +39,10 @@ function getTypeRank(node, specifier, options) {
 }
 
 function getPatternRank(name, patterns) {
-  const rank = patterns.findIndex(pattern => new RegExp(pattern).test(name))
+  const normalizedName = name.replace(/^\$+|\$+$/g, '')
+  const rank = patterns.findIndex(pattern => new RegExp(pattern).test(
+    normalizedName
+  ))
 
   return rank === -1 ? Number.POSITIVE_INFINITY : rank
 }

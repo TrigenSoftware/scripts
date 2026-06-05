@@ -19,7 +19,14 @@ export default {
         'stylistic-js/jsx-child-element-spacing': 'error',
         'stylistic-js/jsx-closing-bracket-location': 'error',
         'stylistic-js/jsx-closing-tag-location': 'error',
-        'react/jsx-curly-brace-presence': ['error', 'never'],
+        'react/jsx-curly-brace-presence': [
+          'error',
+          {
+            children: 'never',
+            propElementValues: 'always',
+            props: 'never'
+          }
+        ],
         'stylistic-js/jsx-curly-newline': 'error',
         'stylistic-js/jsx-curly-spacing': 'error',
         'stylistic-js/jsx-equals-spacing': 'error',

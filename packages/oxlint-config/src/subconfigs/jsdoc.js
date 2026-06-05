@@ -32,6 +32,7 @@ export default {
   overrides: [
     {
       files: tsFiles,
+      plugins: ['jsdoc'],
       rules: {
         'jsdoc/require-param': 'off',
         'jsdoc/require-yields-type': 'off'

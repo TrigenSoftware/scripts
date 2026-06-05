@@ -8,6 +8,11 @@ export default {
   overrides: [
     {
       files: storiesFiles,
+      plugins: [
+        'import',
+        'react',
+        'typescript'
+      ],
       rules: {
         'eslint/max-classes-per-file': 'off',
         'eslint/no-magic-numbers': 'off',
