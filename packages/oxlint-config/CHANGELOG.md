@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.2.1](https://github.com/TrigenSoftware/scripts/compare/v9.2.0...v9.2.1) (2026-06-05)
+
+### Bug Fixes
+
+* fix type-import-style autofix ([589ad4b](https://github.com/TrigenSoftware/scripts/commit/589ad4b5351b4ade1a12d4ca12a05cbc6dd9d474))
+
 ## [9.2.0](https://github.com/TrigenSoftware/scripts/compare/v9.1.0...v9.2.0) (2026-06-05)
 
 ### Features
