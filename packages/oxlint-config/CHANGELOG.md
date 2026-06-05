@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.1.0](https://github.com/TrigenSoftware/scripts/compare/v9.0.4...v9.1.0) (2026-06-05)
+
+### Features
+
+* enhacne rules and plugins ([#172](https://github.com/TrigenSoftware/scripts/issues/172)) ([d040660](https://github.com/TrigenSoftware/scripts/commit/d040660f19a765cecd993aafc87e8b2d46db2748))
+
 ## [9.0.3](https://github.com/TrigenSoftware/scripts/compare/v9.0.2...v9.0.3) (2026-06-02)
 
 ### Bug Fixes
