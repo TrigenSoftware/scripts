@@ -161,11 +161,13 @@ function getOptions(context) {
 }
 
 function getImportItems(imports, options) {
-  return imports.map((node, index) => ({
-    index,
-    node,
-    rank: getRank(node, options)
-  }))
+  return imports
+    .filter(node => node.specifiers.length > 0)
+    .map((node, index) => ({
+      index,
+      node,
+      rank: getRank(node, options)
+    }))
 }
 
 function compareImportItems(left, right) {
@@ -189,23 +191,36 @@ function getFirstUnorderedPair(items) {
   return null
 }
 
-function hasInvalidNewlines(items, options) {
+function hasBlankLineBetween(sourceCode, left, right) {
+  return sourceCode.text
+    .slice(left.node.range[1], right.node.range[0])
+    .split(/\r?\n/)
+    .slice(1, -1)
+    .some(line => line.trim() === '')
+}
+
+function getInvalidNewlinePair(sourceCode, items, options) {
   if (options['newlines-between'] === 'ignore') {
-    return false
+    return null
   }
 
-  return items.some((item, index) => {
-    if (index === 0) {
-      return false
-    }
-
+  for (let index = 1; index < items.length; index++) {
     const previousItem = items[index - 1]
-    const hasEmptyLine = item.node.loc.start.line - previousItem.node.loc.end.line > 1
+    const item = items[index]
+    const hasBlankLine = hasBlankLineBetween(sourceCode, previousItem, item)
+    const invalid = options['newlines-between'] === 'never'
+      ? hasBlankLine
+      : !hasBlankLine
 
-    return options['newlines-between'] === 'never'
-      ? hasEmptyLine
-      : !hasEmptyLine
-  })
+    if (invalid) {
+      return [
+        previousItem,
+        item
+      ]
+    }
+  }
+
+  return null
 }
 
 function hasInnerComments(sourceCode, items) {
@@ -216,13 +231,20 @@ function hasInnerComments(sourceCode, items) {
     && comment.range[1] < lastNode.range[1])
 }
 
-function hasSideEffectImports(items) {
-  return items.some(({ node }) => node.specifiers.length === 0)
+function canFix(sourceCode, items) {
+  return !hasInnerComments(sourceCode, items)
 }
 
-function canFix(sourceCode, items) {
-  return !hasSideEffectImports(items)
-    && !hasInnerComments(sourceCode, items)
+function hasSkippedImportsBetween(imports, items) {
+  const itemNodes = new Set(items.map(({ node }) => node))
+  const [
+    start,
+    end
+  ] = getImportBlockRange(items)
+
+  return imports.some(node => !itemNodes.has(node)
+    && node.range[0] > start
+    && node.range[1] < end)
 }
 
 function getFixedImportText(sourceCode, items, options) {
@@ -316,21 +338,30 @@ export default {
 
         imports.push(node)
       },
-      'Program:exit'(node) {
+      'Program:exit'() {
         if (imports.length < 2) {
           return
         }
 
         const sourceCode = context.sourceCode
         const items = getImportItems(imports, options)
-        const unorderedPair = getFirstUnorderedPair(items)
-        const invalidNewlines = hasInvalidNewlines(items, options)
 
-        if (!unorderedPair && !invalidNewlines) {
+        if (items.length < 2) {
+          return
+        }
+
+        const hasSkippedImports = hasSkippedImportsBetween(imports, items)
+        const unorderedPair = getFirstUnorderedPair(items)
+        const invalidNewlinePair = hasSkippedImports
+          ? null
+          : getInvalidNewlinePair(sourceCode, items, options)
+
+        if (!unorderedPair && !invalidNewlinePair) {
           return
         }
 
         const fix = canFix(sourceCode, items)
+          && !hasSkippedImports
           ? fixer => fixer.replaceTextRange(
             getImportBlockRange(items),
             getFixedImportText(sourceCode, items, options)
@@ -339,13 +370,10 @@ export default {
         const [
           previousItem,
           item
-        ] = unorderedPair ?? [
-          items[0],
-          items[1]
-        ]
+        ] = unorderedPair ?? invalidNewlinePair
 
         context.report({
-          node,
+          node: item.node,
           message: unorderedPair
             ? getMessage(previousItem.rank, item.rank)
             : 'Import declarations have invalid empty lines.',

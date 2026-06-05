@@ -161,7 +161,12 @@ export default {
     'eslint/no-useless-call': 'error',
     'eslint/no-useless-concat': 'error',
     'eslint/no-useless-return': 'error',
-    'eslint/no-void': 'error',
+    'eslint/no-void': [
+      'error',
+      {
+        allowAsStatement: true
+      }
+    ],
     'eslint/prefer-promise-reject-errors': 'error',
     'eslint/prefer-regex-literals': 'error',
     'eslint/preserve-caught-error': 'error',
@@ -276,15 +281,18 @@ export default {
       },
       {
         selector: 'typeLike',
-        format: ['PascalCase']
+        format: ['PascalCase'],
+        trailingDollar: 'allow'
       },
       {
         selector: 'interface',
-        format: ['PascalCase']
+        format: ['PascalCase'],
+        trailingDollar: 'allow'
       },
       {
         selector: 'enumMember',
-        format: ['PascalCase']
+        format: ['PascalCase'],
+        trailingDollar: 'allow'
       },
       {
         selector: 'classProperty',

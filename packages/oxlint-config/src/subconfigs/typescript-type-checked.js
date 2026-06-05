@@ -53,7 +53,6 @@ export default {
         'typescript/no-unnecessary-qualifier': 'error',
         'typescript/no-unnecessary-template-expression': 'error',
         'typescript/no-unnecessary-type-arguments': 'error',
-        'typescript/consistent-type-imports': 'error',
         'typescript/prefer-includes': 'error',
         'typescript/prefer-nullish-coalescing': 'off',
         'typescript/prefer-optional-chain': 'error',

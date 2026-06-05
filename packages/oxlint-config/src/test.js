@@ -11,6 +11,8 @@ export default {
       env: {
         vitest: true
       },
+      plugins: ['typescript'],
+      jsPlugins: ['@trigen/oxlint-config/plugin'],
       rules: {
         'eslint/max-classes-per-file': 'off',
         'eslint/no-magic-numbers': 'off',
@@ -25,7 +27,10 @@ export default {
         'trigen/import-order': 'off',
         'eslint/prefer-destructuring': 'off',
         'eslint/no-loop-func': 'off',
-        'typescript/no-misused-promises': 'off'
+        'typescript/no-misused-promises': 'off',
+        'eslint/no-use-before-define': 'off',
+        'eslint/no-useless-assignment': 'off',
+        'eslint/no-empty-function': 'off'
 
         // Unsupported by Oxlint
         // 'eslint/camelcase': 'off',

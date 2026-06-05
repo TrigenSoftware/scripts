@@ -68,13 +68,21 @@ export default {
             fixMixedExportsWithInlineTypeSpecifier: true
           }
         ],
+        'typescript/consistent-type-imports': 'error',
         'typescript/explicit-module-boundary-types': 'off',
         'typescript/no-dynamic-delete': 'error',
         'typescript/no-extraneous-class': 'error',
-        'typescript/no-invalid-void-type': 'error',
+        'typescript/no-invalid-void-type': [
+          'error',
+          {
+            allowAsThisParameter: true,
+            allowInGenericTypeArguments: true
+          }
+        ],
         'typescript/prefer-for-of': 'error',
         'typescript/prefer-function-type': 'error',
         'typescript/unified-signatures': 'error',
+        'trigen/type-import-style': 'error',
         'trigen/member-ordering': [
           'error',
           {
@@ -108,6 +116,7 @@ export default {
     },
     {
       files: dtsFiles,
+      plugins: ['import'],
       rules: {
         'import/unambiguous': 'off'
       }

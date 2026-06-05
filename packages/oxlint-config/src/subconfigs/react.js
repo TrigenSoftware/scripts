@@ -11,6 +11,7 @@ export default {
   overrides: [
     {
       files: jsxFiles,
+      plugins: ['jsdoc'],
       rules: {
         'jsdoc/require-param': 'off',
         'jsdoc/require-returns': 'off'
