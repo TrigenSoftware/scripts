@@ -1,5 +1,11 @@
-import { resolve, dirname } from 'path'
-import { constants, promises } from 'fs'
+import {
+  resolve,
+  dirname
+} from 'path'
+import {
+  constants,
+  promises
+} from 'fs'
 
 const { access, readFile } = promises
 

@@ -1,4 +1,7 @@
-import { dirname, join } from 'path'
+import {
+  dirname,
+  join
+} from 'path'
 import { Octokit } from '@octokit/rest'
 import { writeFile } from './fs.js'
 

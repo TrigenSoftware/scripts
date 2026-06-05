@@ -131,6 +131,11 @@ function hasInnerComments(sourceCode, range) {
     && comment.range[1] < range[1])
 }
 
+function shouldBeMultiline(sourceCode, range, items) {
+  return items.length > 1
+    && !sourceCode.text.slice(range[0], range[1]).includes('\n')
+}
+
 function getFixedText(node, items, options, sourceCode, range) {
   const text = sourceCode.text
   const content = text.slice(range[0], range[1])
@@ -138,14 +143,16 @@ function getFixedText(node, items, options, sourceCode, range) {
     .sort(compareItems)
     .map(({ specifier }) => sourceCode.getText(specifier))
 
-  if (!content.includes('\n')) {
+  if (!content.includes('\n') && items.length < 2) {
     return ` ${sortedSpecifiers.join(', ')} `
   }
 
   const linebreak = getLinebreak(text)
   const firstSpecifier = items[0].specifier
-  const indent = getLineIndent(text, firstSpecifier.range[0])
   const closingIndent = getLineIndent(text, node.range[0])
+  const indent = content.includes('\n')
+    ? getLineIndent(text, firstSpecifier.range[0])
+    : `${closingIndent}  `
 
   return `${linebreak}${indent}${sortedSpecifiers.join(`,${linebreak}${indent}`)}${linebreak}${closingIndent}`
 }
@@ -203,13 +210,18 @@ export default {
         }
 
         const unorderedPair = getFirstUnorderedPair(items)
+        const sourceCode = context.sourceCode
+        const range = getBracesRange(node, items, sourceCode)
+        const invalidMultiline = range && shouldBeMultiline(
+          sourceCode,
+          range,
+          items
+        )
 
-        if (!unorderedPair) {
+        if (!unorderedPair && !invalidMultiline) {
           return
         }
 
-        const sourceCode = context.sourceCode
-        const range = getBracesRange(node, items, sourceCode)
         const fix = range && !hasInnerComments(sourceCode, range)
           ? fixer => fixer.replaceTextRange(
             range,
@@ -219,11 +231,16 @@ export default {
         const [
           previousItem,
           item
-        ] = unorderedPair
+        ] = unorderedPair ?? [
+          items[0],
+          items[1]
+        ]
 
         context.report({
           node: item.specifier,
-          message: getMessage(previousItem, item),
+          message: unorderedPair
+            ? getMessage(previousItem, item)
+            : 'Expected named imports to be multiline.',
           fix
         })
       }

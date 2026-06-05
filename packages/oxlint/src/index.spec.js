@@ -1,4 +1,8 @@
-import { describe, it, expect } from 'vitest'
+import {
+  describe,
+  it,
+  expect
+} from 'vitest'
 import { defineConfig } from './index.js'
 
 describe('oxlint', () => {

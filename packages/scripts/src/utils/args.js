@@ -1,4 +1,7 @@
-import { read, argv } from 'argue-cli'
+import {
+  read,
+  argv
+} from 'argue-cli'
 
 const pnpm7 = 7
 
