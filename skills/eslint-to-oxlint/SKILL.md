@@ -281,6 +281,60 @@ Do not add it to tsconfigs that intentionally rely on TypeScript's default
 include behavior or framework-generated tsconfig behavior unless the config file
 is otherwise excluded.
 
+For packages that emit declaration files from a separate `tsconfig.build.json`,
+keep TypeScript project membership and declaration emit compatible:
+
+- add root-level TypeScript config files to package/example `tsconfig.json`
+  `include` arrays, usually with `*.ts`, so TypeScript does not complain that
+  `oxlint.config.ts` is outside the project
+- enable `compilerOptions.allowImportingTsExtensions` so TypeScript accepts
+  explicit `.ts` imports used by `oxlint.config.ts` files
+- when `allowImportingTsExtensions` is enabled in an emit-capable base config,
+  also enable `compilerOptions.rewriteRelativeImportExtensions`; otherwise
+  TypeScript rejects emit with explicit TypeScript extension imports
+- exclude root/tool config files from `tsconfig.build.json` with
+  `**/*.config.ts`, because base/package tsconfigs explicitly include `*.ts`
+  for config-file project membership, but those config files must not be part of
+  declaration emit
+
+Typical root shape for emit-capable packages:
+
+```jsonc
+// tsconfig.json
+{
+  "compilerOptions": {
+    "moduleResolution": "NodeNext",
+    "allowImportingTsExtensions": true,
+    "rewriteRelativeImportExtensions": true,
+    "declaration": true
+  }
+}
+```
+
+Typical package build shape after adding `oxlint.config.ts`:
+
+```jsonc
+// tsconfig.build.json
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "dist"
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "**/*.config.ts",
+    "**/*.spec.ts"
+  ]
+}
+```
+
+Preserve package-specific build excludes such as stories, tests, client entry
+points, renderer entry points, or framework-generated folders. Add
+`**/*.config.ts` without removing the existing excludes.
+
 ## Cleanup
 
 After creating Oxlint configs:
