@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.2.3](https://github.com/TrigenSoftware/scripts/compare/v9.2.2...v9.2.3) (2026-06-09)
+
+### Bug Fixes
+
+* fix naming-convention rule for object types ([bce2bf1](https://github.com/TrigenSoftware/scripts/commit/bce2bf1c20e5d95e56299607e9f27fef7727f7e5))
+
 ## [9.2.2](https://github.com/TrigenSoftware/scripts/compare/v9.2.1...v9.2.2) (2026-06-09)
 
 ### Bug Fixes
