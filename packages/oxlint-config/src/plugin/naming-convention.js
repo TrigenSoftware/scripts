@@ -310,6 +310,12 @@ export default {
       },
       Property(node) {
         checkProperty(node, 'objectLiteralProperty')
+      },
+      TSPropertySignature(node) {
+        checkProperty(node, 'objectLiteralProperty')
+      },
+      TSMethodSignature(node) {
+        checkProperty(node, 'objectLiteralMethod')
       }
     }
   }
