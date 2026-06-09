@@ -5,6 +5,7 @@
 export default {
   jsPlugins: ['@trigen/oxlint-config/plugin'],
   rules: {
+    'oxc/no-const-enum': 'error',
     'eslint/constructor-super': 'error',
     'eslint/for-direction': 'error',
     'eslint/getter-return': 'error',

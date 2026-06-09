@@ -30,7 +30,8 @@ export default {
         'typescript/no-misused-promises': 'off',
         'eslint/no-use-before-define': 'off',
         'eslint/no-useless-assignment': 'off',
-        'eslint/no-empty-function': 'off'
+        'eslint/no-empty-function': 'off',
+        'trigen/naming-convention': 'off'
 
         // Unsupported by Oxlint
         // 'eslint/camelcase': 'off',
