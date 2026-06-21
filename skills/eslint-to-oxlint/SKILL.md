@@ -38,6 +38,8 @@ Replace active ESLint config usage with Oxlint config usage while preserving the
 same repository intent:
 
 - root and package lint configs use `@trigen/oxlint-config`
+- root and package `oxlint.config.ts` files wrap config objects with
+  `defineConfig` from `@trigen/oxlint`
 - direct ESLint CLI scripts become direct Oxlint CLI scripts
 - workspace orchestration scripts keep their orchestration behavior
 - old `eslint.config.*` and `.eslintrc.*` consumers are removed
@@ -88,7 +90,7 @@ Use the repository package manager. Prefer `pnpm` if present.
 For normal consumer repos:
 
 ```bash
-pnpm add -D oxlint @trigen/oxlint-config
+pnpm add -D oxlint @trigen/oxlint @trigen/oxlint-config
 ```
 
 For TypeScript repositories, also install the optional type-aware backend:
@@ -97,10 +99,10 @@ For TypeScript repositories, also install the optional type-aware backend:
 pnpm add -D oxlint-tsgolint
 ```
 
-`@trigen/oxlint-config` requires Node 22+. Do not edit `engines.node` in
-`package.json`. If local tooling or CI uses Node <22, tell the user and offer to
-update only runtime selectors such as `.tool-versions` and GitHub Actions
-`node-version`.
+`@trigen/oxlint` and `@trigen/oxlint-config` require Node 22+. Do not edit
+`engines.node` in `package.json`. If local tooling or CI uses Node <22, tell the
+user and offer to update only runtime selectors such as `.tool-versions` and
+GitHub Actions `node-version`.
 
 If `.tool-versions` already uses Node 22+ or 24+, leave it alone. Only suggest a
 change when it is below Node 22. A valid minimum example is:
@@ -151,6 +153,17 @@ For workspace roots, keep orchestration behavior analogous to `lint`:
 
 Prefer `oxlint.config.ts`.
 
+Always use the config helper from `@trigen/oxlint`:
+
+```ts
+import { defineConfig } from '@trigen/oxlint'
+```
+
+Wrap every root and package config object in `defineConfig(...)`. This helper
+fixes inheritance problems in Oxlint's standard config behavior, including
+merged `ignorePatterns`/`env` from extended configs and top-level `rules`
+handling.
+
 Oxlint does not read `oxlint.config.mts`. For CommonJS packages, do not suggest
 `.mts`; either make the package/config loadable as `oxlint.config.ts` under the
 current Node/Oxlint setup, or discuss converting the package to ESM when that is
@@ -161,10 +174,11 @@ acceptable.
 Basic root shape:
 
 ```ts
+import { defineConfig } from '@trigen/oxlint'
 import baseConfig from '@trigen/oxlint-config'
 import testConfig from '@trigen/oxlint-config/test'
 
-export default {
+export default defineConfig({
   ignorePatterns: ['**/package/'],
   options: {
     typeAware: true,
@@ -177,7 +191,7 @@ export default {
     baseConfig,
     testConfig
   ]
-}
+})
 ```
 
 Only add `options.typeAware` and `options.typeCheck` when the repository uses
@@ -196,11 +210,12 @@ Important: because Oxlint nested config merging has been buggy, put
 `...rootConfig` first and include `rootConfig` in `extends`.
 
 ```ts
+import { defineConfig } from '@trigen/oxlint'
 import moduleConfig from '@trigen/oxlint-config/module'
 import testConfig from '@trigen/oxlint-config/test'
 import rootConfig from '../../oxlint.config.ts'
 
-export default {
+export default defineConfig({
   ...rootConfig,
   options: {},
   extends: [
@@ -208,7 +223,7 @@ export default {
     moduleConfig,
     testConfig
   ]
-}
+})
 ```
 
 Import package configs before relative `rootConfig` imports.
@@ -343,6 +358,8 @@ After creating Oxlint configs:
 - delete active `.eslintrc.*` files
 - remove `@trigen/eslint-config` from consumer package dependencies
 - remove `eslint` CLI dependencies from consumers when they are no longer used
+- keep `@trigen/oxlint`, `oxlint`, and `@trigen/oxlint-config`; they are active
+  migration dependencies
 - remove `.eslintrc.*` entries from template file lists, if the repo has them
 - keep README/package references to `@trigen/eslint-config` only when they are
   documenting the eslint-config package itself
