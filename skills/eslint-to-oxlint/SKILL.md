@@ -41,6 +41,7 @@ same repository intent:
 - root and package `oxlint.config.ts` files wrap config objects with
   `defineConfig` from `@trigen/oxlint`
 - direct ESLint CLI scripts become direct Oxlint CLI scripts
+- staged-file ESLint hooks, such as `.nano-staged.json`, become Oxlint hooks
 - workspace orchestration scripts keep their orchestration behavior
 - old `eslint.config.*` and `.eslintrc.*` consumers are removed
 - the existing `packages/eslint-config` package is not deleted unless the user
@@ -51,8 +52,9 @@ same repository intent:
 Inspect before editing:
 
 ```bash
-rg --files -g 'eslint.config.*' -g '.eslintrc*' -g 'package.json'
+rg --files -g 'eslint.config.*' -g '.eslintrc*' -g 'package.json' -g '.nano-staged.json'
 rg -n '@trigen/eslint-config|eslint\.config|eslintrc|eslint' package.json packages examples website .github README.md
+test -f .nano-staged.json && rg -n 'eslint|oxlint' .nano-staged.json || true
 rg -n '"lint"\s*:|"format"\s*:|"eslint"\s*:|"@trigen/eslint-config"' package.json packages/*/package.json examples/**/package.json website/package.json
 rg --files -g 'tsconfig.json' packages examples website
 ```
@@ -60,7 +62,8 @@ rg --files -g 'tsconfig.json' packages examples website
 Treat these as different things:
 
 - Active usage: root/package `eslint.config.*`, `.eslintrc.*`, package deps on
-  `@trigen/eslint-config`, scripts running `eslint`.
+  `@trigen/eslint-config`, scripts running `eslint`, and staged-file hooks
+  running `eslint`.
 - Package source: `packages/eslint-config/**`. Leave this alone unless requested.
 - Oxlint rule namespace: rules like `eslint/no-console` inside Oxlint configs.
   Do not remove these; they are Oxlint rule IDs.
@@ -148,6 +151,22 @@ For workspace roots, keep orchestration behavior analogous to `lint`:
 ```json
 "format": "pnpm -r --parallel --if-present --filter './packages/*' format"
 ```
+
+### Staged Hooks
+
+If the repository uses `.nano-staged.json`, inspect it during migration. Replace
+direct ESLint staged-file commands with Oxlint equivalents while preserving the
+same file patterns and unrelated commands:
+
+```json
+{
+  "*.{c,m,}{js,ts}{x,}": "oxlint --fix"
+}
+```
+
+Do not remove `nano-staged` or hook setup dependencies just because the staged
+command changes. If a staged command chains formatting or tests with ESLint,
+only replace the direct ESLint segment and keep the rest of the chain's intent.
 
 ## Config Files
 
@@ -358,6 +377,7 @@ After creating Oxlint configs:
 - delete active `.eslintrc.*` files
 - remove `@trigen/eslint-config` from consumer package dependencies
 - remove `eslint` CLI dependencies from consumers when they are no longer used
+- remove direct `eslint` commands from `.nano-staged.json`, if present
 - keep `@trigen/oxlint`, `oxlint`, and `@trigen/oxlint-config`; they are active
   migration dependencies
 - remove `.eslintrc.*` entries from template file lists, if the repo has them
@@ -447,6 +467,7 @@ Before finishing, confirm:
 ```bash
 rg --files -g 'eslint.config.*' -g '.eslintrc*'
 rg -n '@trigen/eslint-config|eslint\.config|eslintrc' --glob '!packages/eslint-config/**' --glob '!README.md' --glob '!**/CHANGELOG.md'
+test -f .nano-staged.json && rg -n 'eslint --|eslint ' .nano-staged.json || true
 git grep -n 'eslint-disable' -- '*.js' '*.jsx' '*.ts' '*.tsx' '*.d.ts' || true
 ```
 
