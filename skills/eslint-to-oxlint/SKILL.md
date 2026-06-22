@@ -225,8 +225,9 @@ no `@trigen/oxlint-config/env` equivalent.
 Use package-specific config files when the old ESLint setup had package-level
 configs.
 
-Important: because Oxlint nested config merging has been buggy, put
-`...rootConfig` first and include `rootConfig` in `extends`.
+Put `rootConfig` first in `extends`. Do not spread `rootConfig` into the local
+object or reset `options`; `defineConfig` handles the inheritance fixes for
+nested configs.
 
 ```ts
 import { defineConfig } from '@trigen/oxlint'
@@ -235,8 +236,6 @@ import testConfig from '@trigen/oxlint-config/test'
 import rootConfig from '../../oxlint.config.ts'
 
 export default defineConfig({
-  ...rootConfig,
-  options: {},
   extends: [
     rootConfig,
     moduleConfig,
