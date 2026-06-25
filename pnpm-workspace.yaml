@@ -1,7 +1,5 @@
 packages:
   - packages/*
-onlyBuiltDependencies:
-  - '@swc/core'
-  - esbuild
-  - simple-git-hooks
 autoInstallPeers: false
+allowBuilds:
+  simple-git-hooks: true
