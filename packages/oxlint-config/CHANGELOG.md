@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.3.0](https://github.com/TrigenSoftware/scripts/compare/v9.2.3...v9.3.0) (2026-06-25)
+
+### Features
+
+* enforce named export order ([85e754e](https://github.com/TrigenSoftware/scripts/commit/85e754e6fabc6b1d7071f540d6a1aebddf303e2f))
+
 ## [9.2.3](https://github.com/TrigenSoftware/scripts/compare/v9.2.2...v9.2.3) (2026-06-09)
 
 ### Bug Fixes
