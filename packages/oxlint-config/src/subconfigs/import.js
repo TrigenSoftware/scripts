@@ -78,6 +78,17 @@ export default {
           '^[a-z][a-zA-Z0-9]*$'
         ]
       }
+    ],
+    'trigen/named-export-order': [
+      'error',
+      {
+        typeExports: 'first',
+        patterns: [
+          '^[A-Z][A-Z0-9_]*$',
+          '^[A-Z][a-zA-Z0-9]*$',
+          '^[a-z][a-zA-Z0-9]*$'
+        ]
+      }
     ]
   }
 }

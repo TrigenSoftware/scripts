@@ -23,6 +23,7 @@ export default {
         'typescript/no-unsafe-call': 'off',
         'typescript/no-unsafe-argument': 'off',
         'typescript/no-explicit-any': 'off',
+        'typescript/await-thenable': 'off',
         'typescript/no-floating-promises': 'off',
         'trigen/import-order': 'off',
         'eslint/prefer-destructuring': 'off',
