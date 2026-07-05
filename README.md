@@ -23,6 +23,7 @@ Scripts and configs for TrigenSoftware's projects.
 
 | Skill | Description |
 |-------|-------------|
+| [`project`](skills/project/SKILL.md) | Scaffold the base of a new Trigen-style project from reference repositories — toolchain, linting, git hooks, GitHub workflows, and simple-release publishing. |
 | [`eslint-to-oxlint`](skills/eslint-to-oxlint/SKILL.md) | Migrate Trigen-style repositories from `@trigen/eslint-config` to `@trigen/oxlint-config`. |
 | [`css-mixin`](skills/css-mixin/SKILL.md) | Pattern for mixins in native CSS — a mixin is a class in a shared CSS Module, its parameters are CSS Custom Properties. |
 | [`ui-component`](skills/ui-component/SKILL.md) | Framework-agnostic rules for writing UI components — semantic HTML, CSS Modules conventions, and UX/accessibility requirements. |
@@ -33,21 +34,12 @@ Scripts and configs for TrigenSoftware's projects.
 | Package | Version | Dependencies |
 |---------|---------|--------------|
 | [`@trigen/scripts`](packages/scripts#readme) | [![NPM version][npm]][npm-url] | [![Dependencies status][deps]][deps-url] |
-| [`@trigen/project-files`](packages/project-files#readme) | [![NPM version][project-files-npm]][project-files-npm-url] | [![Dependencies status][project-files-deps]][project-files-deps-url] |
 | [`@trigen/browserslist-config`](packages/browserslist-config#readme) | [![NPM version][browserslist-config-npm]][browserslist-config-npm-url] | |
 | [`@trigen/eslint-config`](packages/eslint-config#readme) | [![NPM version][eslint-config-npm]][eslint-config-npm-url] | [![Dependencies status][eslint-config-deps]][eslint-config-deps-url] |
 | [`@trigen/oxlint-config`](packages/oxlint-config#readme) | [![NPM version][oxlint-config-npm]][oxlint-config-npm-url] | [![Dependencies status][oxlint-config-deps]][oxlint-config-deps-url] |
 | [`@trigen/stylelint-config`](packages/stylelint-config#readme) | [![NPM version][stylelint-config-npm]][stylelint-config-npm-url] | [![Dependencies status][stylelint-config-deps]][stylelint-config-deps-url] |
 | [`@trigen/lint-package-json`](packages/lint-package-json#readme) | [![NPM version][lint-package-json-npm]][lint-package-json-npm-url] | [![Dependencies status][lint-package-json-deps]][lint-package-json-deps-url] |
 | [`@trigen/npm-package-json-lint-config`](packages/npm-package-json-lint-config#readme) | [![NPM version][npm-package-json-lint-config-npm]][npm-package-json-lint-config-npm-url] | [![Dependencies status][npm-package-json-lint-config-deps]][npm-package-json-lint-config-deps-url] |
-
-<!-- project-files -->
-
-[project-files-npm]: https://img.shields.io/npm/v/%40trigen/project-files.svg
-[project-files-npm-url]: https://www.npmjs.com/package/@trigen/project-files
-
-[project-files-deps]: https://img.shields.io/librariesio/release/npm/@trigen/project-files
-[project-files-deps-url]: https://libraries.io/npm/@trigen%2Fproject-files
 
 <!-- browserslist-config -->
 
