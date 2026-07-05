@@ -34,7 +34,6 @@
     "@trigen/lint-package-json": "workspace:*",
     "@trigen/oxlint": "workspace:*",
     "@trigen/oxlint-config": "workspace:*",
-    "@trigen/project-files": "workspace:*",
     "@trigen/scripts": "workspace:*",
     "clean-publish": "^5.0.0",
     "commitizen": "^4.3.1",

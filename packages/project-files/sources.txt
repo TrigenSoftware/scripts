@@ -1,5 +1,0 @@
-TrigenSoftware/scripts
-TrigenSoftware/simple-release-tools
-TrigenSoftware/Argue
-TrigenSoftware/ua-regexes-lite
-browserslist/browserslist-useragent-regexp
