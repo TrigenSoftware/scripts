@@ -19,6 +19,15 @@
 
 Scripts and configs for TrigenSoftware's projects.
 
+## Available skills
+
+| Skill | Description |
+|-------|-------------|
+| [`eslint-to-oxlint`](skills/eslint-to-oxlint/SKILL.md) | Migrate Trigen-style repositories from `@trigen/eslint-config` to `@trigen/oxlint-config`. |
+| [`css-mixin`](skills/css-mixin/SKILL.md) | Pattern for mixins in native CSS — a mixin is a class in a shared CSS Module, its parameters are CSS Custom Properties. |
+| [`ui-component`](skills/ui-component/SKILL.md) | Framework-agnostic rules for writing UI components — semantic HTML, CSS Modules conventions, and UX/accessibility requirements. |
+| [`react-component`](skills/react-component/SKILL.md) | React-specific rules for writing components — component tiers, folder structure, props conventions, and Storybook stories. Builds on top of the `ui-component` skill. |
+
 ## Available packages
 
 | Package | Version | Dependencies |
