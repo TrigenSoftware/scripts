@@ -56,6 +56,7 @@ Use the `ui-component` skill as the base — it holds the framework-agnostic HTM
   [ComponentName].stories.tsx — stories (optional, if Storybook is used)
   [ComponentName].spec.tsx    — tests (optional, on request)
   use[HookName].ts            — component logic extracted into a hook (optional, for complex components with a lot of logic)
+  loadable.tsx                — lazy-loaded wrapper (optional, when the component pulls in a heavy dependency)
 ```
 
 ## Reference component
@@ -132,6 +133,41 @@ export const Primary: Story = {
   }
 }
 ```
+
+## Loadable components
+
+When a component pulls in a heavy dependency (a rich-text editor, a chart library, a syntax highlighter etc.), add a `loadable.tsx` next to it — a wrapper that loads the component lazily via `lazy` + `Suspense`, so the dependency stays out of the main bundle:
+
+```tsx
+// loadable.tsx
+import {
+  type ReactNode,
+  Suspense,
+  lazy
+} from 'react'
+import type { IMDXEditorProps } from './MDXEditor'
+
+export interface ILoadableMDXEditorProps extends IMDXEditorProps {
+  fallback?: ReactNode
+}
+
+const LazyMDXEditor = lazy(() => import('./MDXEditor').then(({ MDXEditor }) => ({
+  default: MDXEditor
+})))
+
+export function MDXEditor({
+  fallback,
+  ...props
+}: ILoadableMDXEditorProps) {
+  return (
+    <Suspense fallback={fallback}>
+      <LazyMDXEditor {...props} />
+    </Suspense>
+  )
+}
+```
+
+The wrapper keeps the original component name and props, adding only an optional `fallback` prop for the `Suspense` fallback.
 
 ## Rules
 
