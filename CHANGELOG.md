@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 
+## [10.0.0](https://github.com/TrigenSoftware/scripts/compare/v9.3.0...v10.0.0) (2026-07-10)
+
+### ⚠ BREAKING CHANGES
+
+* **stylelint-config:** require stylelint 17
+
+### Features
+
+* **oxlint-config:** add func-style rule ([e37030b](https://github.com/TrigenSoftware/scripts/commit/e37030b3fee067286458301bce59959867fc131d))
+* **oxlint-config:** support interfaces and type literals in member-ordering rule ([b4d05de](https://github.com/TrigenSoftware/scripts/commit/b4d05deded8d62ef0791f04036784627d8d2d866))
+* **stylelint-config:** require stylelint 17 ([a5d49c0](https://github.com/TrigenSoftware/scripts/commit/a5d49c0b80372109c9232027549d39881930335e))
+
+### Bug Fixes
+
+* **deps:** update dependency @simple-libs/child-process-utils to v2 ([#181](https://github.com/TrigenSoftware/scripts/issues/181)) ([ac1ab63](https://github.com/TrigenSoftware/scripts/commit/ac1ab63e2e5d38cfbc276486a829a0f3d82bd80b))
+* **deps:** update dependency @simple-libs/stream-utils to v2 ([#184](https://github.com/TrigenSoftware/scripts/issues/184)) ([45d5c3b](https://github.com/TrigenSoftware/scripts/commit/45d5c3bfa28d134e4c0ef272de48edc18a88a713))
+* **deps:** update dependency npm-package-json-lint to v10 ([#180](https://github.com/TrigenSoftware/scripts/issues/180)) ([5371873](https://github.com/TrigenSoftware/scripts/commit/537187343104a5dba0e50605dc2c092bd43549af))
+
 ## [9.3.0](https://github.com/TrigenSoftware/scripts/compare/v9.2.3...v9.3.0) (2026-06-25)
 
 ### Features

@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.0.0](https://github.com/TrigenSoftware/scripts/compare/v9.3.0...v10.0.0) (2026-07-10)
+
+### Features
+
+* add func-style rule ([e37030b](https://github.com/TrigenSoftware/scripts/commit/e37030b3fee067286458301bce59959867fc131d))
+* support interfaces and type literals in member-ordering rule ([b4d05de](https://github.com/TrigenSoftware/scripts/commit/b4d05deded8d62ef0791f04036784627d8d2d866))
+
 ## [9.3.0](https://github.com/TrigenSoftware/scripts/compare/v9.2.3...v9.3.0) (2026-06-25)
 
 ### Features
