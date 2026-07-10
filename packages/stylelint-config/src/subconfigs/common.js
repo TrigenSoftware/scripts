@@ -220,7 +220,7 @@ export default {
     ],
     '@stylistic/function-whitespace-after': 'always',
     // Number
-    '@stylistic/number-leading-zero': 'never',
+    '@stylistic/number-leading-zero': 'always',
     '@stylistic/number-no-trailing-zeros': true,
     // String
     '@stylistic/string-quotes': 'single',
