@@ -5,13 +5,19 @@
 export default {
   plugins: ['stylelint-plugin-logical-css'],
   rules: {
-    'plugin/use-logical-properties-and-values': [
+    'logical-css/require-logical-properties': [
       true,
       {
         severity: 'warning'
       }
     ],
-    'plugin/use-logical-units': [
+    'logical-css/require-logical-keywords': [
+      true,
+      {
+        severity: 'warning'
+      }
+    ],
+    'logical-css/require-logical-units': [
       true,
       {
         severity: 'warning'

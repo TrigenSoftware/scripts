@@ -160,7 +160,6 @@ export default {
     'selector-class-pattern': [
       camelCaseMatcher,
       {
-        resolveNestedSelectors: true,
         message: 'Expected class selector to be in camelCase (e.g. ".button", ".navMenu")'
       }
     ],

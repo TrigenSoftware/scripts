@@ -98,6 +98,14 @@ export default {
     // Partial
     'scss/partial-no-import': true,
     // Selector
+    'selector-class-pattern': null,
+    'scss/selector-class-pattern': [
+      camelCaseMatcher,
+      {
+        resolveNestedSelectors: true,
+        message: 'Expected class selector to be in camelCase (e.g. ".button", ".navMenu")'
+      }
+    ],
     'scss/selector-no-redundant-nesting-selector': true,
     // General / Sheet
     'scss/no-duplicate-dollar-variables': true,

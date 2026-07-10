@@ -36,20 +36,20 @@
     "postpublish": "del ./package"
   },
   "peerDependencies": {
-    "stylelint": ">=12.0.0"
+    "stylelint": ">=17.6.0"
   },
   "dependencies": {
-    "@stylistic/stylelint-plugin": "^4.0.0",
+    "@stylistic/stylelint-plugin": "^5.2.1",
     "postcss-scss": "^4.0.9",
-    "stylelint-declaration-strict-value": "^1.1.3",
+    "stylelint-declaration-strict-value": "^1.11.1",
     "stylelint-gamut": "^2.0.0",
-    "stylelint-high-performance-animation": "^1.5.1",
-    "stylelint-order": "^7.0.0",
+    "stylelint-high-performance-animation": "^2.0.0",
+    "stylelint-order": "^8.1.1",
     "stylelint-plugin-a11y": "^1.0.1",
-    "stylelint-plugin-logical-css": "^1.2.3",
-    "stylelint-scss": "^6.12.1"
+    "stylelint-plugin-logical-css": "^2.1.0",
+    "stylelint-scss": "^7.2.0"
   },
   "devDependencies": {
-    "stylelint": "^16.21.1"
+    "stylelint": "^17.14.0"
   }
 }
