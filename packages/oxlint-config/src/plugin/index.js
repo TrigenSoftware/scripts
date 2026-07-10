@@ -1,4 +1,5 @@
 import extensionsRule from './extensions.js'
+import funcStyleRule from './func-style.js'
 import importOrderRule from './import-order.js'
 import memberOrderingRule from './member-ordering.js'
 import namedExportOrderRule from './named-export-order.js'
@@ -12,6 +13,7 @@ export default {
   },
   rules: {
     'extensions': extensionsRule,
+    'func-style': funcStyleRule,
     'import-order': importOrderRule,
     'member-ordering': memberOrderingRule,
     'named-export-order': namedExportOrderRule,

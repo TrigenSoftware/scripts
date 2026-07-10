@@ -224,8 +224,7 @@ export default {
   },
   create(context) {
     const options = context.options
-
-    function check(name, node, selector, modifiers = []) {
+    const check = (name, node, selector, modifiers = []) => {
       const option = getSelectorOptions(options, selector, modifiers)
 
       if (!option || isValidName(name, option)) {
@@ -237,14 +236,12 @@ export default {
         message: `Name "${name}" must match one of these formats: ${getExpectedFormats(option.format)}.`
       })
     }
-
-    function checkPattern(pattern, selector) {
+    const checkPattern = (pattern, selector) => {
       for (const item of getIdentifierNames(pattern)) {
         check(item.name, item.node, selector)
       }
     }
-
-    function checkProperty(node, selector) {
+    const checkProperty = (node, selector) => {
       const name = getKeyName(node.key)
 
       if (name === null) {

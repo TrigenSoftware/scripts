@@ -223,13 +223,6 @@ export default {
     'eslint/prefer-template': 'error',
     'eslint/symbol-description': 'error',
     'eslint/func-names': 'error',
-    'eslint/func-style': [
-      'error',
-      'declaration',
-      {
-        allowArrowFunctions: true
-      }
-    ],
     'eslint/max-nested-callbacks': ['error', 4],
     'eslint/max-params': ['error', 6],
     'eslint/new-cap': [
@@ -245,6 +238,7 @@ export default {
     'eslint/operator-assignment': ['error', 'always'],
     'eslint/prefer-object-spread': 'error',
     'eslint/unicode-bom': 'error',
+    'trigen/func-style': 'error',
     'trigen/naming-convention': [
       'error',
       {
