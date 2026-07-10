@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 
+## [10.1.0](https://github.com/TrigenSoftware/scripts/compare/v10.0.0...v10.1.0) (2026-07-10)
+
+### Features
+
+* **stylelint-config:** require leading zero in numbers ([f7f348f](https://github.com/TrigenSoftware/scripts/commit/f7f348f82c0905c501b6ba975e007e7c3e652a2c))
+
 ## [10.0.0](https://github.com/TrigenSoftware/scripts/compare/v9.3.0...v10.0.0) (2026-07-10)
 
 ### ⚠ BREAKING CHANGES
