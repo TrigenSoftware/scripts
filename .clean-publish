@@ -2,5 +2,5 @@
   "withoutPublish": true,
   "tempDir": "package",
   "fields": ["scripts", "publishConfig"],
-  "files": ["**/*.spec.js", "**/oxlint.config.ts"]
+  "files": ["**/*.spec.js", "**/*.mock.js", "**/oxlint.config.ts"]
 }
