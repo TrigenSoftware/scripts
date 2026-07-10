@@ -103,11 +103,15 @@ export default {
                 'private-instance-field',
                 'public-abstract-field',
                 'protected-abstract-field',
+                'field',
                 'signature',
+                'call-signature',
                 'public-constructor',
                 'protected-constructor',
                 'private-constructor',
-                'instance-method'
+                'constructor',
+                'instance-method',
+                'method'
               ]
             }
           }

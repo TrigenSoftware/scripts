@@ -13,11 +13,15 @@ const defaultOrder = [
   'private-instance-field',
   'public-abstract-field',
   'protected-abstract-field',
+  'field',
   'signature',
+  'call-signature',
   'public-constructor',
   'protected-constructor',
   'private-constructor',
-  'instance-method'
+  'constructor',
+  'instance-method',
+  'method'
 ]
 
 function getDefaultOptions(context) {
@@ -93,10 +97,43 @@ function getMemberType(member) {
   return null
 }
 
-function getRank(memberType, memberTypes) {
-  const rank = memberTypes.indexOf(memberType)
+function getClassMemberTypes(member) {
+  const memberType = getMemberType(member)
 
-  return rank === -1 ? Number.POSITIVE_INFINITY : rank
+  return memberType === null ? null : [memberType]
+}
+
+function getSignatureMemberTypes(member) {
+  switch (member.type) {
+    case 'TSPropertySignature':
+      return member.readonly
+        ? ['readonly-field', 'field']
+        : ['field']
+    case 'TSMethodSignature':
+      return ['method']
+    case 'TSIndexSignature':
+      return member.readonly
+        ? ['readonly-signature', 'signature']
+        : ['signature']
+    case 'TSConstructSignatureDeclaration':
+      return ['constructor']
+    case 'TSCallSignatureDeclaration':
+      return ['call-signature']
+    default:
+      return null
+  }
+}
+
+function getRank(candidateTypes, memberTypes) {
+  for (const candidateType of candidateTypes) {
+    const rank = memberTypes.indexOf(candidateType)
+
+    if (rank !== -1) {
+      return rank
+    }
+  }
+
+  return -1
 }
 
 function getMemberName(member) {
@@ -125,11 +162,43 @@ function getMemberName(member) {
   return member.type
 }
 
+function checkMembers(context, memberTypes, members, getCandidateTypes) {
+  let previousMember = null
+
+  for (const member of members) {
+    const candidateTypes = getCandidateTypes(member)
+
+    if (candidateTypes === null) {
+      continue
+    }
+
+    const rank = getRank(candidateTypes, memberTypes)
+
+    if (rank === -1) {
+      continue
+    }
+
+    if (previousMember && previousMember.rank > rank) {
+      context.report({
+        node: member,
+        message: `Member "${getMemberName(member)}" should be declared before "${getMemberName(previousMember.node)}".`
+      })
+
+      return
+    }
+
+    previousMember = {
+      node: member,
+      rank
+    }
+  }
+}
+
 export default {
   meta: {
     type: 'suggestion',
     docs: {
-      description: 'Enforce configured class member ordering.'
+      description: 'Enforce configured class, interface and type literal member ordering.'
     },
     schema: [
       {
@@ -160,31 +229,13 @@ export default {
 
     return {
       ClassBody(node) {
-        let previousMember = null
-
-        for (const member of node.body) {
-          const memberType = getMemberType(member)
-
-          if (memberType === null) {
-            continue
-          }
-
-          const rank = getRank(memberType, memberTypes)
-
-          if (previousMember && previousMember.rank > rank) {
-            context.report({
-              node: member,
-              message: `Member "${getMemberName(member)}" should be declared before "${getMemberName(previousMember.node)}".`
-            })
-
-            return
-          }
-
-          previousMember = {
-            node: member,
-            rank
-          }
-        }
+        checkMembers(context, memberTypes, node.body, getClassMemberTypes)
+      },
+      TSInterfaceBody(node) {
+        checkMembers(context, memberTypes, node.body, getSignatureMemberTypes)
+      },
+      TSTypeLiteral(node) {
+        checkMembers(context, memberTypes, node.members, getSignatureMemberTypes)
       }
     }
   }
