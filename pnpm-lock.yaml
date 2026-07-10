@@ -145,8 +145,8 @@ importers:
         specifier: ^1.0.1
         version: 1.0.1
       '@simple-libs/stream-utils':
-        specifier: ^1.1.0
-        version: 1.2.0
+        specifier: ^2.0.0
+        version: 2.0.0
       argue-cli:
         specifier: ^2.0.0
         version: 2.1.0
@@ -795,6 +795,10 @@ packages:
   '@simple-libs/stream-utils@1.2.0':
     resolution: {integrity: sha512-KxXvfapcixpz6rVEB6HPjOUZT22yN6v0vI0urQSk1L8MlEWPDFCZkhw2xmkyoTGYeFw7tWTZd7e3lVzRZRN/EA==}
     engines: {node: '>=18'}
+
+  '@simple-libs/stream-utils@2.0.0':
+    resolution: {integrity: sha512-fCTuZK4QBa+39Oz9l4OGfJfz+GpwCp3AqO7Zch3to99xHPgstVsRFpeQ8LNd2o1Gv8raL2mCFwiaHh7bFSp5DQ==}
+    engines: {node: '>=22'}
 
   '@sindresorhus/base62@1.0.0':
     resolution: {integrity: sha512-TeheYy0ILzBEI/CO55CP6zJCSdSWeRtGnHy8U8dWSUH4I68iqTsy7HkMktR4xakThc9jotkPQUXT4ITdbV7cHA==}
@@ -3962,6 +3966,8 @@ snapshots:
       '@types/node': 22.16.0
 
   '@simple-libs/stream-utils@1.2.0': {}
+
+  '@simple-libs/stream-utils@2.0.0': {}
 
   '@sindresorhus/base62@1.0.0': {}
 
