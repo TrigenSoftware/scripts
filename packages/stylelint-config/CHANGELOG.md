@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.0.0](https://github.com/TrigenSoftware/scripts/compare/v9.0.0...v10.0.0) (2026-07-10)
+
+### ⚠ BREAKING CHANGES
+
+* require stylelint 17
+
+### Features
+
+* require stylelint 17 ([a5d49c0](https://github.com/TrigenSoftware/scripts/commit/a5d49c0b80372109c9232027549d39881930335e))
+
 ## [9.0.0](https://github.com/TrigenSoftware/scripts/compare/v8.4.0...v9.0.0) (2026-06-01)
 
 ### ⚠ BREAKING CHANGES
