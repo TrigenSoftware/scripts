@@ -21,13 +21,13 @@ Scripts and configs for TrigenSoftware's projects.
 
 ## Available skills
 
-| Skill | Description |
-|-------|-------------|
-| [`project`](skills/project/SKILL.md) | Scaffold the base of a new Trigen-style project from reference repositories — toolchain, linting, git hooks, GitHub workflows, and simple-release publishing. |
-| [`eslint-to-oxlint`](skills/eslint-to-oxlint/SKILL.md) | Migrate Trigen-style repositories from `@trigen/eslint-config` to `@trigen/oxlint-config`. |
-| [`css-mixin`](skills/css-mixin/SKILL.md) | Pattern for mixins in native CSS — a mixin is a class in a shared CSS Module, its parameters are CSS Custom Properties. |
-| [`ui-component`](skills/ui-component/SKILL.md) | Framework-agnostic rules for writing UI components — semantic HTML, CSS Modules conventions, and UX/accessibility requirements. |
-| [`react-component`](skills/react-component/SKILL.md) | React-specific rules for writing components — component tiers, folder structure, props conventions, and Storybook stories. Builds on top of the `ui-component` skill. |
+- [`project`](skills/project/SKILL.md)
+- [`eslint-to-oxlint`](skills/eslint-to-oxlint/SKILL.md)
+- [`css-mixin`](skills/css-mixin/SKILL.md)
+- [`ui-component`](skills/ui-component/SKILL.md)
+- [`react-component`](skills/react-component/SKILL.md)
+- [`svg-sprite-icons`](skills/svg-sprite-icons/SKILL.md)
+- [`unit-tests`](skills/unit-tests/SKILL.md)
 
 ## Available packages
 
