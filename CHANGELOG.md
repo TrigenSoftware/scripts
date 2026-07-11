@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 
+## [10.1.1](https://github.com/TrigenSoftware/scripts/compare/v10.1.0...v10.1.1) (2026-07-11)
+
+### Bug Fixes
+
+* add `./package.json` export to all packages ([10639ac](https://github.com/TrigenSoftware/scripts/commit/10639ac513b637c8fc59b1c0a687c47d5fbe6d4a))
+* **deps:** update dependency argue-cli to v3 ([#186](https://github.com/TrigenSoftware/scripts/issues/186)) ([7c2da23](https://github.com/TrigenSoftware/scripts/commit/7c2da2312bad17010a72fd96f3437308418855de))
+* **deps:** update dependency npm-package-json-lint-config-default to v9 ([#187](https://github.com/TrigenSoftware/scripts/issues/187)) ([73eccda](https://github.com/TrigenSoftware/scripts/commit/73eccdae223ce20143554c7b76af9a82531a6936))
+
 ## [10.1.0](https://github.com/TrigenSoftware/scripts/compare/v10.0.0...v10.1.0) (2026-07-10)
 
 ### Features

@@ -1,7 +1,7 @@
 {
   "name": "@trigen/oxlint-config",
   "type": "module",
-  "version": "10.0.0",
+  "version": "10.1.1",
   "description": "Trigen's Oxlint config.",
   "author": "dangreen",
   "license": "MIT",
