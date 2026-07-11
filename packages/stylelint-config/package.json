@@ -24,7 +24,8 @@
   },
   "exports": {
     ".": "./src/index.js",
-    "./*": "./src/*.js"
+    "./*": "./src/*.js",
+    "./package.json": "./package.json"
   },
   "publishConfig": {
     "access": "public",

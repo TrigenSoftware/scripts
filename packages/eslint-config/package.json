@@ -32,7 +32,8 @@
     "./*": {
       "types": "./src/index.d.ts",
       "default": "./src/*.js"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "publishConfig": {
     "access": "public",

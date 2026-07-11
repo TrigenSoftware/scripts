@@ -24,7 +24,10 @@
   "bin": {
     "run": "./src/run.js"
   },
-  "exports": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
   "publishConfig": {
     "access": "public",
     "directory": "package",

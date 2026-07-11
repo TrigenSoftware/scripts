@@ -23,6 +23,9 @@
   "bin": {
     "lint-package-json": "./src/index.js"
   },
+  "exports": {
+    "./package.json": "./package.json"
+  },
   "publishConfig": {
     "access": "public",
     "directory": "package",
