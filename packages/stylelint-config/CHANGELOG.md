@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.1.1](https://github.com/TrigenSoftware/scripts/compare/v10.1.0...v10.1.1) (2026-07-11)
+
+### Bug Fixes
+
+* add `./package.json` export to all packages ([10639ac](https://github.com/TrigenSoftware/scripts/commit/10639ac513b637c8fc59b1c0a687c47d5fbe6d4a))
+
 ## [10.1.0](https://github.com/TrigenSoftware/scripts/compare/v10.0.0...v10.1.0) (2026-07-10)
 
 ### Features
