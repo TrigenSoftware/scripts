@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.1.2](https://github.com/TrigenSoftware/scripts/compare/v10.1.1...v10.1.2) (2026-07-11)
+
+### Bug Fixes
+
+* disable `func-style` rule in tests and stories ([77574c1](https://github.com/TrigenSoftware/scripts/commit/77574c10f6281b362a0dd0448f6cc55be134abc5))
+
 ## [10.1.1](https://github.com/TrigenSoftware/scripts/compare/v10.0.0...v10.1.1) (2026-07-11)
 
 ### Bug Fixes
