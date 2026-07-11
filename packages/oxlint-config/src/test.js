@@ -32,7 +32,8 @@ export default {
         'eslint/no-use-before-define': 'off',
         'eslint/no-useless-assignment': 'off',
         'eslint/no-empty-function': 'off',
-        'trigen/naming-convention': 'off'
+        'trigen/naming-convention': 'off',
+        'trigen/func-style': 'off'
 
         // Unsupported by Oxlint
         // 'eslint/camelcase': 'off',

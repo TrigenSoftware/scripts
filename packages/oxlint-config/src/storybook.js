@@ -13,6 +13,7 @@ export default {
         'react',
         'typescript'
       ],
+      jsPlugins: ['@trigen/oxlint-config/plugin'],
       rules: {
         'eslint/max-classes-per-file': 'off',
         'eslint/no-magic-numbers': 'off',
@@ -24,7 +25,8 @@ export default {
         'typescript/no-unsafe-member-access': 'off',
         'typescript/no-unsafe-call': 'off',
         'typescript/no-unsafe-argument': 'off',
-        'typescript/no-explicit-any': 'off'
+        'typescript/no-explicit-any': 'off',
+        'trigen/func-style': 'off'
       }
     }
   ]
