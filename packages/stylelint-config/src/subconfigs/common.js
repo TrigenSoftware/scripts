@@ -227,7 +227,13 @@ export default {
     // Unit
     '@stylistic/unit-case': 'lower',
     // Value
-    'value-keyword-case': 'lower',
+    // `composes: className from '...'` in CSS Modules references case-sensitive class names
+    'value-keyword-case': [
+      'lower',
+      {
+        ignoreProperties: ['composes']
+      }
+    ],
     // Value list
     '@stylistic/value-list-comma-newline-after': 'always-multi-line',
     '@stylistic/value-list-comma-newline-before': 'never-multi-line',
