@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 
+## [10.1.3](https://github.com/TrigenSoftware/scripts/compare/v10.1.2...v10.1.3) (2026-07-21)
+
+### Bug Fixes
+
+* **stylelint-config:** ignore `composes` in `value-keyword-case` ([053aa10](https://github.com/TrigenSoftware/scripts/commit/053aa10efc89477fa95ae23bb98d9cab93c6fe9c))
+
 ## [10.1.2](https://github.com/TrigenSoftware/scripts/compare/v10.1.1...v10.1.2) (2026-07-11)
 
 ### Bug Fixes
