@@ -169,6 +169,42 @@ export function MDXEditor({
 
 The wrapper keeps the original component name and props, adding only an optional `fallback` prop for the `Suspense` fallback.
 
+## Component anatomy
+
+Keep a fixed order of sections in the component function body:
+
+1. **Declarations** — `const`/`let`: derived values, state, refs, memoized callbacks.
+2. **Effects** — `useEffect`/`useLayoutEffect` and custom effect hooks (`useInterval`, `useClickOutside`, …).
+3. **Conditional renders** — early `return`s for special states.
+4. **Default render** — the final `return`.
+
+```tsx
+export function Discount({ value, expired }: IDiscountProps) {
+  const percent = value * 100
+  const [show, setShow] = useState(true)
+  const onCloseCallback = useCallback(() => {
+    setShow(false)
+  }, [])
+
+  useEffect(() => {
+    // ...
+  }, [])
+
+  if (!show || expired) {
+    return null
+  }
+
+  return (
+    <div className={styles.root}>
+      Discount: {percent}%
+      <button onClick={onCloseCallback}>Close</button>
+    </div>
+  )
+}
+```
+
+Name event handlers in the `on*` form, never `handle*`: `onCloseCallback`, `onClickCallback` for `useCallback`-wrapped handlers inside the component, `onSomeButtonClick` for handlers extracted to module scope — not `handleClose`/`handleClick`.
+
 ## Rules
 
 - Code that doesn't directly depend on the component must be moved out of the component body, to module scope:
