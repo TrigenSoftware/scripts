@@ -16,9 +16,11 @@ metadata:
 
 Use this skill to run the OpenAI Codex CLI (`codex exec`, `codex resume`) for code analysis, refactoring, or automated editing.
 
-## Model And Reasoning Effort
+## Model, Reasoning Effort And Speed
 
-For a new session, ask the user (via `AskUserQuestion`) which model and which reasoning effort to use, in a single prompt with two questions. Resumed sessions inherit the prior model and effort, so don't ask again. When the user expresses no preference, default to `gpt-5.6-sol` at `high`.
+For a new session, ask the user (via `AskUserQuestion`) which model, which reasoning effort, and which speed to use, in a single prompt with three questions. When the user expresses no preference, default to `gpt-5.6-sol` at `high` and the standard speed.
+
+Availability differs between CLI versions and accounts. Check what the installed CLI actually offers with `codex debug models`, which renders the raw model catalog as JSON, including each model's `supported_reasoning_efforts` and `service_tiers`.
 
 Models:
 
@@ -33,6 +35,13 @@ Reasoning effort — `low`, `medium`, `high` (default), `xhigh`, `max`, `ultra`:
 - `ultra` is maximum reasoning with automatic task delegation — slowest and most expensive, reserve it for the hardest jobs.
 - If the chosen effort exceeds the chosen model's maximum, fall back to that model's highest supported effort and tell the user.
 
+Speed — the service tier the turn runs on, set with `service_tier`:
+
+- Standard speed is the default and needs no flag.
+- `priority` is the Fast tier: 1.5x speed at increased usage. It's offered by `gpt-5.6-sol`, `gpt-5.6-terra`, `gpt-5.6-luna`, `gpt-5.5`, and `gpt-5.4`.
+- `gpt-5.4-mini` and `gpt-5.3-codex-spark` have no Fast tier. When the chosen model doesn't offer one, skip the speed question and tell the user.
+- `~/.codex/config.toml` may already set `service_tier`, which then applies to every run. To force standard speed for one run, pass `--config service_tier="standard"` — any tier the model doesn't offer resolves to the standard one.
+
 ## Assembling The Command
 
 Select the sandbox mode required for the task; default to `--sandbox read-only` unless edits or network access are necessary. Always use `--skip-git-repo-check`.
@@ -41,6 +50,7 @@ Available options:
 
 - `-m, --model <MODEL>`
 - `--config model_reasoning_effort="<low|medium|high|xhigh|max|ultra>"`
+- `--config service_tier="priority"` for the Fast tier; omit it for standard speed
 - `--sandbox <read-only|workspace-write|danger-full-access>`
 - `--full-auto`
 - `-C, --cd <DIR>`
@@ -54,7 +64,7 @@ Quick reference:
 | Read-only review or analysis | `read-only` | `--sandbox read-only 2>/dev/null` |
 | Apply local edits | `workspace-write` | `--sandbox workspace-write --full-auto 2>/dev/null` |
 | Permit network or broad access | `danger-full-access` | `--sandbox danger-full-access --full-auto 2>/dev/null` |
-| Resume recent session | Inherited from original | `echo "prompt" \| codex exec --skip-git-repo-check resume --last 2>/dev/null` (no flags allowed) |
+| Resume recent session | Match the original | `echo "prompt" \| codex exec --skip-git-repo-check resume --last 2>/dev/null` (flags go before `resume`) |
 | Run from another directory | Match task needs | `-C <DIR>` plus other flags `2>/dev/null` |
 
 Run the command, capture stdout/stderr (filtered as appropriate), and summarize the outcome for the user.
@@ -79,8 +89,9 @@ When continuing a previous session, pipe the new prompt via stdin:
 echo "your prompt here" | codex exec --skip-git-repo-check resume --last 2>/dev/null
 ```
 
-- The resumed session automatically uses the same model, reasoning effort, and sandbox mode from the original session — don't pass configuration flags unless the user explicitly requests them (e.g. specifies the model or the reasoning effort when asking to resume).
+- A resumed session keeps the conversation history, but not the settings: model, reasoning effort, and speed are resolved again from `~/.codex/config.toml` plus whatever flags you pass. To continue with the settings the session started with, repeat the same `-m`, `model_reasoning_effort`, and `service_tier` flags.
 - All flags have to be inserted between `exec` and `resume`.
+- `--last` resolves the most recent session for the current working directory. Run it from the directory the original session used, otherwise it can silently start a fresh session instead of continuing one.
 - After Codex completes, inform the user: "You can resume this Codex session at any time by saying 'codex resume' or asking me to continue with additional analysis or changes."
 
 ## Execution Timeouts
@@ -101,7 +112,7 @@ Prefer running synchronously — it eliminates timeout risk entirely, and the co
 ## Following Up
 
 - After every `codex` command, immediately use `AskUserQuestion` to confirm next steps, collect clarifications, or decide whether to resume with `codex exec resume --last`.
-- Restate the chosen model, reasoning effort, and sandbox mode when proposing follow-up actions.
+- Restate the chosen model, reasoning effort, speed, and sandbox mode when proposing follow-up actions.
 
 ## Critical Evaluation Of Codex Output
 
