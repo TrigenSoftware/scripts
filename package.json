@@ -35,7 +35,7 @@
     "@trigen/oxlint": "workspace:*",
     "@trigen/oxlint-config": "workspace:*",
     "@trigen/scripts": "workspace:*",
-    "clean-publish": "^5.0.0",
+    "clean-publish": "^7.0.0",
     "commitizen": "^4.3.1",
     "del-cli": "^7.0.0",
     "inquirer": "^9.3.7",
