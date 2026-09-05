@@ -18,13 +18,14 @@ Use this skill to run the OpenAI Codex CLI (`codex exec`, `codex resume`) for co
 
 ## Model, Reasoning Effort And Speed
 
-For a new session, ask the user (via `AskUserQuestion`) which model, which reasoning effort, and which speed to use, in a single prompt with three questions. When the user expresses no preference, default to `gpt-5.6-sol` at `high` and the standard speed.
+For a new session, ask the user (via `AskUserQuestion`) which model, which reasoning effort, and which speed to use, in a single prompt with three questions. When the user expresses no preference, default to `gpt-6-astra` at `high` and the standard speed.
 
-Availability differs between CLI versions and accounts. Check what the installed CLI actually offers with `codex debug models`, which renders the raw model catalog as JSON — per model: `supported_reasoning_levels`, `default_reasoning_level`, `service_tiers`, `visibility` (`list` = shown in the picker, `hide`), `supported_in_api` and `upgrade` (deprecation notice naming the replacement). The list below is from codex-cli 0.147.0.
+Availability differs between CLI versions and accounts. Check what the installed CLI actually offers with `codex debug models`, which renders the raw model catalog as JSON — per model: `supported_reasoning_levels`, `default_reasoning_level`, `service_tiers`, `visibility` (`list` = shown in the picker, `hide`), `supported_in_api` and `upgrade` (deprecation notice naming the replacement). The list below is from codex-cli 0.153.4.
 
 Models, in picker order:
 
-- `gpt-5.6-sol` — reliable agentic workhorse for everyday tasks; top of the picker (default)
+- `gpt-6-astra` — GPT-6, released 2026-09-03: most capable model for complex, demanding work; text and image input; top of the picker (default)
+- `gpt-5.6-sol` — reliable agentic workhorse for everyday tasks
 - `gpt-5.6-terra` — balanced agentic coding model for everyday work
 - `gpt-5.6-luna` — fast and affordable agentic coding model
 - `gpt-5.5` — proven previous-generation model for coding and general work
@@ -36,15 +37,15 @@ Models, in picker order:
 
 Reasoning effort — `low`, `medium`, `high`, `xhigh`, `max`, `ultra`:
 
-- This skill defaults to `high`. The CLI's own default differs per model (`low` for `sol`, `high` for `codex-spark`, `medium` for the rest), so always pass `model_reasoning_effort` explicitly.
-- `max` needs a GPT-5.6 model; `ultra` is only on `sol`/`terra` (`luna` caps at `max`); `gpt-5.5`, `gpt-5.4-mini` and `codex-spark` cap at `xhigh`.
+- This skill defaults to `high`. The CLI's own default differs per model (`low` for `sol`, `high` for `codex-spark`, `medium` for `astra` and the rest), so always pass `model_reasoning_effort` explicitly.
+- `max` needs GPT-6 or a GPT-5.6 model; `ultra` is only on `astra`, `sol` and `terra` (`luna` caps at `max`); `gpt-5.5`, `gpt-5.4-mini` and `codex-spark` cap at `xhigh`.
 - `ultra` is maximum reasoning with automatic task delegation — slowest and most expensive, reserve it for the hardest jobs.
 - If the chosen effort exceeds the chosen model's maximum, fall back to that model's highest supported effort and tell the user.
 
 Speed — the service tier the turn runs on, set with `service_tier`:
 
 - Standard speed is the default and needs no flag.
-- `priority` is the Fast tier: 1.5x speed at increased usage. It's offered by `gpt-5.6-sol`, `gpt-5.6-terra`, `gpt-5.6-luna` and `gpt-5.5`.
+- `priority` is the Fast tier: 1.5x speed at increased usage. It's offered by `gpt-6-astra`, `gpt-5.6-sol`, `gpt-5.6-terra`, `gpt-5.6-luna` and `gpt-5.5`.
 - `gpt-5.4-mini` and `gpt-5.3-codex-spark` have no Fast tier. When the chosen model doesn't offer one, skip the speed question and tell the user.
 - `~/.codex/config.toml` may already set `service_tier`, which then applies to every run. To force standard speed for one run, pass `--config service_tier="standard"` — any tier the model doesn't offer resolves to the standard one.
 
