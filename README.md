@@ -22,12 +22,16 @@ Scripts and configs for TrigenSoftware's projects.
 ## Available skills
 
 - [`project`](skills/project/SKILL.md)
+- [`flat-layers-design`](skills/flat-layers-design/SKILL.md)
 - [`eslint-to-oxlint`](skills/eslint-to-oxlint/SKILL.md)
 - [`css-mixin`](skills/css-mixin/SKILL.md)
 - [`ui-component`](skills/ui-component/SKILL.md)
 - [`react-component`](skills/react-component/SKILL.md)
 - [`svg-sprite-icons`](skills/svg-sprite-icons/SKILL.md)
 - [`unit-tests`](skills/unit-tests/SKILL.md)
+- [`tree-shaking`](skills/tree-shaking/SKILL.md)
+- [`size-limit`](skills/size-limit/SKILL.md)
+- [`codex`](skills/codex/SKILL.md)
 
 ## Available packages
 
