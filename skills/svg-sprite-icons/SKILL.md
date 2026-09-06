@@ -44,7 +44,8 @@ app/uikit/Icon/          — Icon component (see the react-component skill for f
 - One SVG file per icon; the file base name (`copy.svg` → `copy`) becomes the `<symbol>` id and the `Icon` component's `name` value.
 - Monochrome icons must use `currentColor` for `stroke`/`fill`, so consumers set the color via the CSS `color` property (see the ui-component skill).
 - Multicolor icons (status badges, logos) keep their hardcoded colors.
-- Keep the original `viewBox`; the sprite preserves it per symbol, and the rendered size is set on the `Icon` element.
+- Keep the original `viewBox` by default; the sprite preserves it per symbol, and the rendered size is set on the `Icon` element.
+- Rescale the source geometry when keeping the original grid would make the icon clash with its family. Icons drawn on different grids get different apparent stroke weights at the same rendered size — a 32-grid icon with `stroke-width: 1.7` shown at 28px draws a ~1.5px stroke, while a 24-grid icon with `stroke-width: 1.6` shown at 27px draws ~1.8px. Judge consistency at the sizes the icons are actually rendered at, not by comparing `viewBox` values, and note the reason next to the icon source.
 
 ## Generation script
 
@@ -99,7 +100,15 @@ The generated `sprite.svg` is committed. The `build` script does not regenerate 
 
 ## Icon component
 
-A simple UI kit component (see the react-component skill). The available icon names live in an exported `IconName` union type — it doubles as autocomplete and a compile-time check that the icon exists, and consumers can use it to type their own props:
+A simple UI kit component (see the react-component skill). The available icon names live in an exported `IconName` union type — it doubles as autocomplete and a compile-time check that the icon exists, and consumers can use it to type their own props.
+
+The code below is a working reference, not a required shape. Adapt it to the app: add a size scale, a `title` prop for meaningful icons, `ref` forwarding, `href` instead of the deprecated `xlinkHref`, a different name source — whatever the app needs. What matters is the pattern: one sprite loaded as a URL, `<use>` referencing a symbol id, names checked at compile time. A common and better variant is to export the names as an array and derive the union from it, so anything listing icons (Storybook `options`, a gallery page) stays in sync automatically:
+
+```ts
+export const icons = ['copy', 'flower', 'home'] as const
+
+export type IconName = typeof icons[number]
+```
 
 ```tsx
 // Icon.tsx
@@ -144,12 +153,12 @@ Key points:
 
 1. Put the SVG file into `app/assets/icons/`, named after the icon (`arrow-left.svg`). Replace hardcoded colors with `currentColor` if the icon is monochrome.
 2. Run `pnpm build:sprite` and commit the regenerated `sprite.svg` together with the source icon.
-3. Add the name to the `IconName` union and to the `options` list in `Icon.stories.tsx`.
+3. Register the name wherever the component sources its names — the `IconName` union, or the exported array the union is derived from. Update anything that lists icons by hand, such as the `options` list in `Icon.stories.tsx`, unless it already reads that array.
 4. Use it: `<Icon name='arrow-left'/>`.
 
 ## Gotchas
 
-- The `IconName` union and the Storybook `options` list are maintained by hand — when icons are added or removed, keep them in sync with the files in the icons directory.
+- The icon names are maintained by hand — when icons are added or removed, keep them in sync with the files in the icons directory. Deriving the union from an exported array removes one of the two places to update, but neither is generated from the directory.
 - If an icon renders black instead of the surrounding text color, its source file has a hardcoded `fill`/`stroke` instead of `currentColor` — fix the source and regenerate the sprite.
 - If icons disappear in production but work in dev, check that the sprite is emitted as a real file (`?no-inline`, `assetsInlineLimit`) — a data-URI sprite silently breaks all `<use>` references.
 - `svg-sprite` in `symbol` mode may rewrite internal ids (clip paths, gradients) to avoid collisions between icons — never reference internal ids of a sprite from outside; only the symbol ids are public.
