@@ -83,6 +83,7 @@ metadata:
   - have `cursor: pointer` by default and `cursor: default` when `:disabled`.
 - Make SVG icons accessible — a careless icon can break the accessibility of the element it's used in.
 - Base custom components on native elements: clickable things on `<button>`; checkboxes and radios customized via `appearance: none` with `::before`/`::after`; selects via `appearance: none` (without pseudo-elements).
+- A control component's root is the control itself — don't wrap an `<input>`/`<select>` in an extra element to host an adornment: the wrapper is unreachable from outside (class and props go to the control), it breaks layout containers whose children should be the controls, and a conditional wrapper remounts the control, losing focus and value. Adornments belong to the consumer's layout. Composite components (a field group, a fieldset) may own a wrapper — their root is the group, not the control.
 - Use the form `submit` event to confirm and the `reset` event to clear/cancel. Listening to `submit` lets the form be confirmed both by button and by pressing Enter in an input; `<button type="reset">` clears the form.
 - Manage focus where needed: autofocus the key control when a modal opens or a page loads; focus programmatically (`element.focus()`) e.g. an invalid input after submit; trap focus inside modal dialogs.
 - Manage input text selection where needed, e.g. focus and select the text of an invalid input after submit.
