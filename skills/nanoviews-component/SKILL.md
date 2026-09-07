@@ -253,6 +253,55 @@ There is no conditional-render step: a special state is a flow primitive inside 
 
 Write event handlers inline in the element, as above — there is nothing to memoize, so a handler in the attributes object reads better than a `const` above the view. There is no `useCallback` and no `*Callback` suffix. A handler that moves out to module scope takes an `on*` name: `onSomeButtonClick`, never `handleClick`.
 
+## View formatting
+
+Lay the view out like JSX markup: once an element's head spans several lines, its children go on their own lines too, and the returned view is wrapped in parentheses so the whole tree is indented as one block.
+
+```js
+// not
+return button({
+  onClick: onSomeButtonClick
+})('Go')
+
+// but
+return (
+  button({
+    onClick: onSomeButtonClick
+  })(
+    'Go'
+  )
+)
+```
+
+An element without children is a single call — leave it unwrapped:
+
+```js
+return button({
+  onClick: onSomeButtonClick
+})
+```
+
+A view that already opens as a tree — a head that fits on one line, children below it — needs no extra wrapper:
+
+```js
+return if_($visible)(
+  () => div({ class: styles.root })(
+    'Discount: ', $percent, '%',
+    button({
+      onClick() {
+        $show(false)
+      }
+    })(
+      'Close'
+    )
+  )
+)
+```
+
+Adding parentheses and line breaks there is still allowed wherever it reads better.
+
+If the project's linter rejects this layout, or its `--fix` collapses it back, tell the user which rule fights the format instead of silently accepting the reformatted code — they may prefer to adjust the rule rather than the code.
+
 ## Rules
 
 - Prefix a name with `$` only when it always holds a signal or an accessor: a signal declared in the body, an accessor read through `props$`, a prop typed `Accessor<T>` or `WritableSignal<T>`. A `Signalish<T>` prop may arrive as a plain value, so it keeps the plain name — `variant` in the props, `$variant` only after `props$`.
