@@ -27,6 +27,7 @@ Scripts and configs for TrigenSoftware's projects.
 - [`css-mixin`](skills/css-mixin/SKILL.md)
 - [`ui-component`](skills/ui-component/SKILL.md)
 - [`react-component`](skills/react-component/SKILL.md)
+- [`nanoviews-component`](skills/nanoviews-component/SKILL.md)
 - [`svg-sprite-icons`](skills/svg-sprite-icons/SKILL.md)
 - [`unit-tests`](skills/unit-tests/SKILL.md)
 - [`tree-shaking`](skills/tree-shaking/SKILL.md)
