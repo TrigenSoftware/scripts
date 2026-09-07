@@ -67,7 +67,7 @@ import { ButtonHTMLAttributes } from 'react'
 import clsx from 'clsx'
 import styles from './Button.module.css'
 
-export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary'
 }
 
@@ -76,7 +76,7 @@ export function Button({
   variant = 'primary',
   children,
   ...props
-}: IButtonProps) {
+}: ButtonProps) {
   return (
     <button
       className={clsx(className, styles.root, styles[variant])}
@@ -145,9 +145,9 @@ import {
   Suspense,
   lazy
 } from 'react'
-import type { IMDXEditorProps } from './MDXEditor'
+import type { MDXEditorProps } from './MDXEditor'
 
-export interface ILoadableMDXEditorProps extends IMDXEditorProps {
+export interface LoadableMDXEditorProps extends MDXEditorProps {
   fallback?: ReactNode
 }
 
@@ -158,7 +158,7 @@ const LazyMDXEditor = lazy(() => import('./MDXEditor').then(({ MDXEditor }) => (
 export function MDXEditor({
   fallback,
   ...props
-}: ILoadableMDXEditorProps) {
+}: LoadableMDXEditorProps) {
   return (
     <Suspense fallback={fallback}>
       <LazyMDXEditor {...props} />
@@ -179,7 +179,7 @@ Keep a fixed order of sections in the component function body:
 4. **Default render** — the final `return`.
 
 ```tsx
-export function Discount({ value, expired }: IDiscountProps) {
+export function Discount({ value, expired }: DiscountProps) {
   const percent = value * 100
   const [show, setShow] = useState(true)
   const onCloseCallback = useCallback(() => {
