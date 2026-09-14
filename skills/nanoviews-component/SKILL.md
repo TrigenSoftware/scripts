@@ -92,12 +92,12 @@ export const Button = component$((props: ButtonProps, children) => {
 
   return (
     button({
-      ...restProps,
       [classList$]: [
         $class,
         styles.root,
         () => styles[$variant()]
-      ]
+      ],
+      ...restProps
     })(
       ...children
     )
@@ -362,7 +362,7 @@ If the project's linter rejects this layout, or its `--fix` collapses it back, t
   const Table = component$((props, children) => table(props)(...children))
   ```
 
-- Universal components must forward all remaining props to the root element, spreading `...restProps` before the attributes the component owns — see the reference `Button` above: `type`, `disabled`, `onClick` etc. reach `<button>` via the spread instead of being listed one by one.
+- Universal components must forward all remaining props to the root element, spreading `...restProps` after the attributes the component owns — see the reference `Button` above: `type`, `disabled`, `onClick` etc. reach `<button>` via the spread instead of being listed one by one.
 - Don't pass unneeded props to the root element — read the props consumed by a helper as `$name`, which is what takes them out of the rest:
 
   ```js
