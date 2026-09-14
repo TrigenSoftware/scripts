@@ -28,7 +28,7 @@ metadata:
 
 # Nanoviews Component
 
-Use the `ui-component` skill as the base — it holds the framework-agnostic HTML, CSS, and UX/a11y rules. This skill only adds Nanoviews-specific rules on top.
+Use the `ui-component` skill as the base — it holds the framework-agnostic HTML, CSS, and UX/a11y rules. This skill only adds Nanoviews-specific rules on top. The library API itself is the `nanoviews` skill from the nanoviews repo; this one only fixes the style components are written in.
 
 ## Component types
 
@@ -44,7 +44,7 @@ Use the `ui-component` skill as the base — it holds the framework-agnostic HTM
   )
   ```
 
-  Children are collected with `children$`, named parts with `slot$`/`slots$`.
+  Children arrive as the render's second argument, named parts as `slot$` components picked out with `slots$`.
 
 - **Business-logic blocks.** Compose simple UI components and stores into minimal blocks of business logic; may collect analytics, contain text, etc. A block `inject`s the stores it needs and passes their signals down.
 - **Pages.** Compose components of the two types above; may contain business logic, analytics, text, etc.
@@ -69,36 +69,40 @@ There is no JSX, so every file is `.ts`, never `.tsx`.
 // Button.ts
 import type { Signalish } from 'nanoviews/store'
 import {
-  type ButtonHTMLAttributes,
+  type Attributes,
   button,
-  children$,
   classList$,
+  component$,
   props$
 } from 'nanoviews'
 import styles from './Button.module.css'
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends Attributes<'button'> {
   variant?: Signalish<'primary' | 'secondary'>
 }
 
 const $defaultVariant = () => 'primary' as const
 
-export function Button(props: ButtonProps) {
+export const Button = component$((props: ButtonProps, children) => {
   const {
     $class,
     $variant = $defaultVariant,
     ...restProps
   } = props$(props)
 
-  return button({
-    [classList$]: [
-      $class,
-      styles.root,
-      () => styles[$variant()]
-    ],
-    ...restProps
-  })
-}
+  return (
+    button({
+      ...restProps,
+      [classList$]: [
+        $class,
+        styles.root,
+        () => styles[$variant()]
+      ]
+    })(
+      ...children
+    )
+  )
+})
 ```
 
 ```css
@@ -163,32 +167,33 @@ When a component pulls in a heavy dependency (a rich-text editor, a chart librar
 
 ```ts
 // loadable.ts
+import { resolved } from 'nanoviews/store'
 import {
   type Child,
+  component$,
   swap_
 } from 'nanoviews'
-import { resolved } from 'nanoviews/store'
 import type { MDXEditorProps } from './MDXEditor.js'
 
 export interface LoadableMDXEditorProps extends MDXEditorProps {
   fallback?: Child
 }
 
-export function MDXEditor({
+export const MDXEditor = component$(({
   fallback,
   ...props
-}: LoadableMDXEditorProps) {
+}: LoadableMDXEditorProps, children) => {
   const [$module] = resolved(() => import('./MDXEditor.js'))
 
   return swap_($module, module => (
     module
-      ? module.MDXEditor(props)
+      ? module.MDXEditor(props)(...children)
       : fallback
   ))
-}
+})
 ```
 
-The wrapper keeps the original component name and props, adding only an optional `fallback` prop for what stands in while the chunk loads.
+The wrapper keeps the original component name, props and children, adding only an optional `fallback` prop for what stands in while the chunk loads.
 
 ## Component anatomy
 
@@ -196,7 +201,7 @@ Keep a fixed order of sections in the component function body:
 
 1. **Props** — `props$` destructuring, `inject` of stores.
 2. **Declarations** — `const`/`let`: derived values and signals.
-3. **Effects** — `effect` and custom effect helpers.
+3. **Effects** — `effect$` and custom effect helpers.
 4. **Return** — the view, a single expression.
 
 ```ts
@@ -207,8 +212,9 @@ import {
 } from 'nanoviews/store'
 import {
   button,
+  component$,
   div,
-  effect,
+  effect$,
   if_,
   props$
 } from 'nanoviews'
@@ -221,7 +227,7 @@ export interface DiscountProps {
   expired: Signalish<boolean>
 }
 
-export function Discount(props: DiscountProps) {
+export const Discount = component$((props: DiscountProps) => {
   const {
     $value,
     $expired
@@ -230,7 +236,7 @@ export function Discount(props: DiscountProps) {
   const $show = signal(true)
   const $visible = computed(() => $show() && !$expired())
 
-  effect(() => {
+  effect$(() => {
     // ...
   })
 
@@ -246,7 +252,7 @@ export function Discount(props: DiscountProps) {
       )
     )
   )
-}
+})
 ```
 
 There is no conditional-render step: a special state is a flow primitive inside the returned view, never an early `return`.
@@ -272,6 +278,8 @@ return (
   )
 )
 ```
+
+A render that is nothing but the view returns it straight from the arrow, `component$(() => (` … `))`, with the same layout inside the parentheses.
 
 An element without children is a single call — leave it unwrapped:
 
@@ -320,32 +328,38 @@ If the project's linter rejects this layout, or its `--fix` collapses it back, t
 
   ```js
   // not
-  function SomeButton() {
-    return (
-      button({
-        onClick() {
-          location.href = 'some constant url'
-        }
-      })(
-        'Go'
-      )
+  const SomeButton = component$(() => (
+    button({
+      onClick() {
+        location.href = 'some constant url'
+      }
+    })(
+      'Go'
     )
-  }
+  ))
 
   // but
   function onSomeButtonClick() {
     location.href = 'some constant url'
   }
 
-  function SomeButton() {
-    return (
-      button({
-        onClick: onSomeButtonClick
-      })(
-        'Go'
-      )
+  const SomeButton = component$(() => (
+    button({
+      onClick: onSomeButtonClick
+    })(
+      'Go'
     )
-  }
+  ))
+  ```
+
+- Forward the children explicitly:
+
+  ```js
+  // not
+  const Table = component$(props => table(props))
+
+  // but
+  const Table = component$((props, children) => table(props)(...children))
   ```
 
 - Universal components must forward all remaining props to the root element, spreading `...restProps` before the attributes the component owns — see the reference `Button` above: `type`, `disabled`, `onClick` etc. reach `<button>` via the spread instead of being listed one by one.
@@ -353,16 +367,16 @@ If the project's linter rejects this layout, or its `--fix` collapses it back, t
 
   ```js
   // not: bindSuperBehavior's props end up on the <div>
-  function SomeContainer(props) {
+  const SomeContainer = component$((props, children) => {
     const { ...restProps } = props$(props)
 
     bindSuperBehavior(props)
 
-    return div(restProps)
-  }
+    return div(restProps)(...children)
+  })
 
   // but
-  function SomeContainer(props) {
+  const SomeContainer = component$((props, children) => {
     const {
       $superProp1,
       $superProp2,
@@ -376,8 +390,8 @@ If the project's linter rejects this layout, or its `--fix` collapses it back, t
       $superProp3
     })
 
-    return div(restProps)
-  }
+    return div(restProps)(...children)
+  })
   ```
 
 - A component that owns classes and also accepts a `class` prop reads `$class` and folds it into the `classList$` list, as the reference `Button` does.
@@ -391,10 +405,11 @@ If the project's linter rejects this layout, or its `--fix` collapses it back, t
   } from 'nanoviews/store'
   import {
     button,
+    component$,
     div,
-    effect,
+    effect$,
     if_
   } from 'nanoviews'
   ```
 
-- `react-focus-on` and `react-focus-lock` are React-only. Drive a DOM-level focus trap (e.g. `focus-trap`) from an `effect`, and tear it down in the effect's cleanup.
+- `react-focus-on` and `react-focus-lock` are React-only. Drive a DOM-level focus trap (e.g. `focus-trap`) from an `effect$`, and tear it down in the effect's cleanup.
