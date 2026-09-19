@@ -244,6 +244,16 @@ Name event handlers in the `on*` form, never `handle*`: `onCloseCallback`, `onCl
   ```
 
 - Universal components must forward all remaining props to the root element, spreading `...props` after the explicitly set props — see the reference `Button` above: `onClick`, `type`, etc. reach `<button>` via the spread instead of being listed one by one.
+- `className` is always the first prop — first among the JSX attributes and first in the props destructuring, as the reference `Button` does:
+
+  ```jsx
+  // not
+  <div id="card" className={styles.root}/>
+
+  // but
+  <div className={styles.root} id="card"/>
+  ```
+
 - Don't pass unneeded props to the root element — destructure props consumed by hooks so they don't leak into the rest spread:
 
   ```jsx

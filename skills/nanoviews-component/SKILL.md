@@ -405,6 +405,22 @@ If the project's linter rejects this layout, or its `--fix` collapses it back, t
   ```
 
 - A component that owns classes and also accepts a `class` prop reads `$class` and folds it into the `classList$` list, as the reference `Button` does.
+- `class` / `[classList$]` is always the first attribute of an element and the first prop taken out of `props$`, as the reference `Button` does:
+
+  ```js
+  // not
+  div({
+    id: 'card',
+    class: styles.root
+  })
+
+  // but
+  div({
+    class: styles.root,
+    id: 'card'
+  })
+  ```
+
 - Import views from `nanoviews` and reactivity from `nanoviews/store`, by name:
 
   ```ts
