@@ -227,7 +227,7 @@ export interface DiscountProps {
   expired: Signalish<boolean>
 }
 
-export const Discount = component$((props: DiscountProps) => {
+export const Discount = component$((props: DiscountProps, _children: never) => {
   const {
     $value,
     $expired
@@ -360,6 +360,16 @@ If the project's linter rejects this layout, or its `--fix` collapses it back, t
 
   // but
   const Table = component$((props, children) => table(props)(...children))
+  ```
+
+- A component that takes no children declares them as `_children: never`, so a children call on it is a type error instead of silently dropped output:
+
+  ```ts
+  // not
+  component$((props: SomeProps) => ...)
+
+  // but
+  component$((props: SomeProps, _children: never) => ...)
   ```
 
 - Universal components must forward all remaining props to the root element, spreading `...restProps` after the attributes the component owns — see the reference `Button` above: `type`, `disabled`, `onClick` etc. reach `<button>` via the spread instead of being listed one by one.
