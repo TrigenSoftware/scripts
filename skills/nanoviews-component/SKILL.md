@@ -67,13 +67,14 @@ There is no JSX, so every file is `.ts`, never `.tsx`.
 
 ```ts
 // Button.ts
-import type { Signalish } from 'nanoviews/store'
+import {
+  type Signalish,
+  pick
+} from 'nanoviews/store'
 import {
   type Attributes,
   button,
-  classList$,
-  component$,
-  props$
+  component$
 } from 'nanoviews'
 import styles from './Button.module.css'
 
@@ -81,28 +82,22 @@ export interface ButtonProps extends Attributes<'button'> {
   variant?: Signalish<'primary' | 'secondary'>
 }
 
-const $defaultVariant = () => 'primary' as const
-
-export const Button = component$((props: ButtonProps, children) => {
-  const {
-    $class,
-    $variant = $defaultVariant,
-    ...restProps
-  } = props$(props)
-
-  return (
-    button({
-      [classList$]: [
-        $class,
-        styles.root,
-        () => styles[$variant()]
-      ],
-      ...restProps
-    })(
-      ...children
-    )
+export const Button = component$(({
+  class: className,
+  variant = 'primary',
+  ...props
+}: ButtonProps, children) => (
+  button({
+    class: [
+      className,
+      styles.root,
+      pick(styles, variant)
+    ],
+    ...props
+  })(
+    ...children
   )
-})
+))
 ```
 
 ```css
@@ -199,7 +194,7 @@ The wrapper keeps the original component name, props and children, adding only a
 
 Keep a fixed order of sections in the component function body:
 
-1. **Props** — `props$` destructuring, `inject` of stores.
+1. **Props** — destructuring of the render's first parameter, `inject` of stores.
 2. **Declarations** — `const`/`let`: derived values and signals.
 3. **Effects** — `effect$` and custom effect helpers.
 4. **Return** — the view, a single expression.
@@ -207,6 +202,7 @@ Keep a fixed order of sections in the component function body:
 ```ts
 import {
   type Signalish,
+  $get,
   computed,
   signal
 } from 'nanoviews/store'
@@ -215,8 +211,7 @@ import {
   component$,
   div,
   effect$,
-  if_,
-  props$
+  if_
 } from 'nanoviews'
 import styles from './Discount.module.css'
 
@@ -227,14 +222,13 @@ export interface DiscountProps {
   expired: Signalish<boolean>
 }
 
-export const Discount = component$((props: DiscountProps, _children: never) => {
-  const {
-    $value,
-    $expired
-  } = props$(props)
-  const $percent = computed(() => $value() * PERCENT)
+export const Discount = component$(({
+  value,
+  expired
+}: DiscountProps) => {
+  const $percent = computed(() => $get(value) * PERCENT)
   const $show = signal(true)
-  const $visible = computed(() => $show() && !$expired())
+  const $visible = computed(() => $show() && !$get(expired))
 
   effect$(() => {
     // ...
@@ -312,8 +306,9 @@ If the project's linter rejects this layout, or its `--fix` collapses it back, t
 
 ## Rules
 
-- Prefix a name with `$` only when it always holds a signal or an accessor: a signal declared in the body, an accessor read through `props$`, a prop typed `Accessor<T>` or `WritableSignal<T>`. A `Signalish<T>` prop may arrive as a plain value, so it keeps the plain name — `variant` in the props, `$variant` only after `props$`.
-- Type a prop that may arrive as either a value or a signal as `Signalish<T>` and read it through `props$`; type a prop the component writes to as `WritableSignal<T>` and name it `$name`:
+- Prefix a name with `$` only when it always holds a signal or an accessor: a signal or a `computed` declared in the body, a prop typed `Accessor<T>` or `WritableSignal<T>`. A `Signalish<T>` prop may arrive as a plain value, so it keeps the plain name: `variant`, never `$variant`.
+- Type a prop that may arrive as either a value or a signal as `Signalish<T>` and pass it on as it came: attributes, children and class lists take either form, and so do the operators `when`, `is`, `pick` and `text` from `nanoviews/store`, which return a plain value when no operand is an accessor. Where an expression needs the value, read it with `$get` inside an accessor or a `computed`, as `Discount` does. `style` holds plain values, so a prop goes into it the same way: `style: () => ({ '--columns': $get(columns) })`.
+- Type a prop the component writes to as `WritableSignal<T>` and name it `$name`:
 
   ```ts
   export interface AutocompleteProps {
@@ -362,50 +357,46 @@ If the project's linter rejects this layout, or its `--fix` collapses it back, t
   const Table = component$((props, children) => table(props)(...children))
   ```
 
-- A component that takes no children declares them as `_children: never`, so a children call on it is a type error instead of silently dropped output:
+- A component that takes no children leaves the `children` parameter out of its render. Nanoviews reads that off the render, so a children call on the component is a type error instead of silently dropped output. That needs the types inferred: type the props on the parameter, since a type argument keeps children allowed:
 
   ```ts
   // not
-  component$((props: SomeProps) => ...)
+  component$<SomeProps>(props => ...)
 
   // but
-  component$((props: SomeProps, _children: never) => ...)
+  component$((props: SomeProps) => ...)
   ```
 
-- Universal components must forward all remaining props to the root element, spreading `...restProps` after the attributes the component owns — see the reference `Button` above: `type`, `disabled`, `onClick` etc. reach `<button>` via the spread instead of being listed one by one.
-- Don't pass unneeded props to the root element — read the props consumed by a helper as `$name`, which is what takes them out of the rest:
+- Universal components must forward all remaining props to the root element, spreading `...props` after the attributes the component owns — see the reference `Button` above: `type`, `disabled`, `onClick` etc. reach `<button>` via the spread instead of being listed one by one.
+- Don't pass unneeded props to the root element: destructure the props a helper consumes, which is what takes them out of the rest:
 
   ```js
   // not: bindSuperBehavior's props end up on the <div>
   const SomeContainer = component$((props, children) => {
-    const { ...restProps } = props$(props)
-
     bindSuperBehavior(props)
 
-    return div(restProps)(...children)
+    return div(props)(...children)
   })
 
   // but
-  const SomeContainer = component$((props, children) => {
-    const {
-      $superProp1,
-      $superProp2,
-      $superProp3,
-      ...restProps
-    } = props$(props)
-
+  const SomeContainer = component$(({
+    superProp1,
+    superProp2,
+    superProp3,
+    ...props
+  }, children) => {
     bindSuperBehavior({
-      $superProp1,
-      $superProp2,
-      $superProp3
+      superProp1,
+      superProp2,
+      superProp3
     })
 
-    return div(restProps)(...children)
+    return div(props)(...children)
   })
   ```
 
-- A component that owns classes and also accepts a `class` prop reads `$class` and folds it into the `classList$` list, as the reference `Button` does.
-- `class` / `[classList$]` is always the first attribute of an element and the first prop taken out of `props$`, as the reference `Button` does:
+- A component that owns classes and also accepts a `class` prop takes it out as `class: className` and folds it into its own `class` list, as the reference `Button` does.
+- `class` is always the first attribute of an element and the first prop taken out of the props, as the reference `Button` does:
 
   ```js
   // not
