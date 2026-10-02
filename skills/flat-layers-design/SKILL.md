@@ -83,7 +83,7 @@ Blocks and pages take from `services` only types, error codes, constants and pur
 | a visual element with no copy and no data knowledge | `uikit/<Name>/` |
 | a component that reads a store, has copy, or collects analytics | `blocks/<Name>/` |
 | a sub-part used by one block only | inside that block: `blocks/<Name>/<Part>.tsx`, `blocks/<Name>/types/` |
-| a helper, hook/composable or messages factory used by 2+ blocks | `blocks/shared/<domain>.ts` |
+| a helper, hook/composable or messages factory used by 2+ modules of one layer | that layer's `shared/`: `blocks/shared/garden.ts`, `uikit/shared/readOnly.ts` |
 | a screen bound to a route, or a layout | `pages/<Name>/` |
 | a route path | `stores/router.ts`, then register the page in `index.tsx` |
 | domain state, derived state, queries, mutations, redirects after actions | `stores/<domain>.ts` |
@@ -109,6 +109,23 @@ shared/
 ```
 
 Imports nothing from the app. In a tiny app this collapses into a single `app/constants.ts`.
+
+### `<layer>/shared/`
+
+Besides the app-wide `shared/`, every layer — `services`, `stores`, `uikit`, `blocks`, `pages` — may keep a `shared/` folder of its own for code that several of its modules use and none of them owns. It is optional: such code stays inside its module until a second module needs it.
+
+```
+services/shared/  — wire-format helpers several adapters use
+stores/shared/    — helpers several domain stores repeat
+uikit/shared/     — readOnly.ts: read-only props for Checkbox and Radio
+blocks/shared/    — messages.ts, garden.ts…: message sets and per-domain helpers
+pages/shared/     — messages.tsx: titles and breadcrumbs shared by pages
+```
+
+- It is part of its layer: it imports only what the layer may import, and the layers above import it like any other module of the layer (`~/blocks/shared/messages` in a page).
+- It has no `index.ts`: import its files by name (`../shared/readOnly`).
+- Files are named by domain (`garden.ts`) or, in a layer without domains such as uikit, by topic (`readOnly.ts`) — never by kind (no `hooks.ts`, `utils.ts` dumps).
+- Domain-free code that needs nothing from the layer (array, date, hashing utils) goes to the app-wide `shared/` instead.
 
 ### `services/`
 
@@ -175,6 +192,7 @@ uikit/
   typography.module.css  — h1/h2/text/muted/link classes + typography.stories.tsx
   types.ts               — ElementType, AsElementProps<T> for polymorphic `as` components
   hooks.ts               — generic UI hooks/composables (e.g. useFormValidity, useTextBlink), optional
+  shared/                — code several components share (readOnly.ts), optional
   Icon/                  — sprite icon component (svg-sprite-icons skill)
   Button/  Input/  Form/  FormGroup/  Text/ …
 ```
@@ -201,7 +219,6 @@ blocks/
 ```
 
 - Blocks may use other blocks (`../GardenLinks`).
-- `blocks/shared/` files are named by domain, not by kind (no `hooks.ts`, `utils.ts` dumps).
 - Each block has its own translation namespace, camelCase block name (`gardenCard`, `loginForm`); the block's messages are declared privately in the block file, or in `messages.ts` when several files of the block need them.
 
 ### `pages/`
