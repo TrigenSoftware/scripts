@@ -254,6 +254,26 @@ Name event handlers in the `on*` form, never `handle*`: `onCloseCallback`, `onCl
   <div className={styles.root} id="card"/>
   ```
 
+- `children` is always the last prop in the props destructuring, right before `...props` — `className` opens the list, `children` closes it, as the reference `Button` does:
+
+  ```jsx
+  // not
+  function Card({
+    className,
+    children,
+    title,
+    ...props
+  }) { /* ... */ }
+
+  // but
+  function Card({
+    className,
+    title,
+    children,
+    ...props
+  }) { /* ... */ }
+  ```
+
 - Don't pass unneeded props to the root element — destructure props consumed by hooks so they don't leak into the rest spread:
 
   ```jsx
