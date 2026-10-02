@@ -122,7 +122,7 @@ blocks/shared/    — messages.ts, garden.ts…: message sets and per-domain hel
 pages/shared/     — messages.tsx: titles and breadcrumbs shared by pages
 ```
 
-- It is part of its layer: it imports only what the layer may import, and the layers above import it like any other module of the layer (`~/blocks/shared/messages` in a page).
+- It is part of its layer and imports only what the layer may import.
 - It has no `index.ts`: import its files by name (`../shared/readOnly`).
 - Files are named by domain (`garden.ts`) or, in a layer without domains such as uikit, by topic (`readOnly.ts`) — never by kind (no `hooks.ts`, `utils.ts` dumps).
 - Domain-free code that needs nothing from the layer (array, date, hashing utils) goes to the app-wide `shared/` instead.
@@ -192,10 +192,13 @@ uikit/
   typography.module.css  — h1/h2/text/muted/link classes + typography.stories.tsx
   types.ts               — ElementType, AsElementProps<T> for polymorphic `as` components
   hooks.ts               — generic UI hooks/composables (e.g. useFormValidity, useTextBlink), optional
-  shared/                — code several components share (readOnly.ts), optional
+  shared/                — internal code several components share (readOnly.ts), optional
   Icon/                  — sprite icon component (svg-sprite-icons skill)
   Button/  Input/  Form/  FormGroup/  Text/ …
 ```
+
+- `hooks.ts` is exported from uikit at the same level as the components: blocks and pages import it (`~/uikit/hooks`). With many hooks it can be a `hooks/` folder instead.
+- `shared/` is internal: only uikit components import it.
 
 ### `blocks/`
 
