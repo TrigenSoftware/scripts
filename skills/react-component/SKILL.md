@@ -243,7 +243,7 @@ Name event handlers in the `on*` form, never `handle*`: `onCloseCallback`, `onCl
   }
   ```
 
-- Universal components must forward all remaining props to the root element, spreading `...props` after the explicitly set props — see the reference `Button` above: `onClick`, `type`, etc. reach `<button>` via the spread instead of being listed one by one.
+- Universal components must forward all remaining props to the root element, spreading `...props` after the explicitly set props — see the reference `Button` above: `onClick`, `type`, etc. reach `<button>` via the spread instead of being listed one by one. The exception is an attribute the component owns, one it derives from its own prop and must not lose to a passed-in value, such as `aria-disabled` rendered from a `busy` prop: it goes after the spread, and the props type declares it `never`.
 - `className` is always the first prop — first among the JSX attributes and first in the props destructuring, as the reference `Button` does:
 
   ```jsx
