@@ -33,6 +33,8 @@ Scripts and configs for TrigenSoftware's projects.
 - [`tree-shaking`](skills/tree-shaking/SKILL.md)
 - [`size-limit`](skills/size-limit/SKILL.md)
 - [`codex`](skills/codex/SKILL.md)
+- [`chrome-mcp`](skills/chrome-mcp/SKILL.md)
+- [`browserstack-mcp`](skills/browserstack-mcp/SKILL.md)
 
 ## Available packages
 
