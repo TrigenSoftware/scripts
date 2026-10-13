@@ -86,7 +86,12 @@ export default {
     // Block
     'block-no-empty': true,
     // Selector
-    'selector-pseudo-class-no-unknown': true,
+    'selector-pseudo-class-no-unknown': [
+      true,
+      {
+        ignorePseudoClasses: ['global', 'local']
+      }
+    ],
     'selector-pseudo-element-no-unknown': true,
     'selector-type-no-unknown': true,
     // Media feature
