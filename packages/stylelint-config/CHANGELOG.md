@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.1.4](https://github.com/TrigenSoftware/scripts/compare/v10.1.3...v10.1.4) (2026-10-13)
+
+### Bug Fixes
+
+* allow CSS Modules `:global` and `:local` pseudo-classes ([64c4fef](https://github.com/TrigenSoftware/scripts/commit/64c4fefe452da6e778f90af2f0bfb1a9e108a7a1))
+
 ## [10.1.3](https://github.com/TrigenSoftware/scripts/compare/v10.1.1...v10.1.3) (2026-07-21)
 
 ### Bug Fixes
