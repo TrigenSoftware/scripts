@@ -199,7 +199,7 @@ export default {
         next: ['cjs-import']
       }
     ],
-    'stylistic-js/quote-props': ['error', 'consistent-as-needed'],
+    'stylistic-js/quote-props': ['error', 'as-needed'],
     'stylistic-js/quotes': [
       'error',
       'single',
