@@ -64,7 +64,7 @@ export default {
             position: 'after'
           }
         ],
-        'newlines-between': 'never',
+        newlinesBetween: 'never',
         typeImports: 'first'
       }
     ],

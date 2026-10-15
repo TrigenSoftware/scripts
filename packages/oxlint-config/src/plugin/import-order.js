@@ -17,7 +17,7 @@ const defaultGroups = [
 const defaultOptions = {
   groups: defaultGroups,
   pathGroups: [],
-  'newlines-between': 'ignore',
+  newlinesBetween: 'ignore',
   typeImports: 'none'
 }
 
@@ -200,7 +200,7 @@ function hasBlankLineBetween(sourceCode, left, right) {
 }
 
 function getInvalidNewlinePair(sourceCode, items, options) {
-  if (options['newlines-between'] === 'ignore') {
+  if (options.newlinesBetween === 'ignore') {
     return null
   }
 
@@ -208,7 +208,7 @@ function getInvalidNewlinePair(sourceCode, items, options) {
     const previousItem = items[index - 1]
     const item = items[index]
     const hasBlankLine = hasBlankLineBetween(sourceCode, previousItem, item)
-    const invalid = options['newlines-between'] === 'never'
+    const invalid = options.newlinesBetween === 'never'
       ? hasBlankLine
       : !hasBlankLine
 
@@ -249,7 +249,7 @@ function hasSkippedImportsBetween(imports, items) {
 
 function getFixedImportText(sourceCode, items, options) {
   const linebreak = getLinebreak(sourceCode.text)
-  const separator = options['newlines-between'] === 'always'
+  const separator = options.newlinesBetween === 'always'
     ? `${linebreak}${linebreak}`
     : linebreak
 
@@ -305,7 +305,7 @@ export default {
               additionalProperties: true
             }
           },
-          'newlines-between': {
+          newlinesBetween: {
             enum: [
               'ignore',
               'always',
