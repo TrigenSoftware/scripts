@@ -1,6 +1,6 @@
 ---
 name: ui-component
-description: Framework-agnostic rules for writing UI components — semantic HTML, CSS Modules conventions (root class, camelCase, CSS Custom Properties), and UX/accessibility requirements. Apply when creating, editing, or reviewing UI components, their markup, or styles.
+description: Framework-agnostic rules for writing UI components — semantic HTML, CSS Modules conventions (root class, camelCase, CSS Custom Properties), light and dark theme tokens, and UX/accessibility requirements. Apply when creating, editing, or reviewing UI components, their markup, or styles.
 license: MIT
 compatibility:
   - Claude Code
@@ -72,6 +72,47 @@ metadata:
   ```
 
 - Implement responsiveness via CSS, not JS (`userAgent`/`matchMedia`/…) — it keeps server-side rendering simple.
+
+## Light and dark theme
+
+- Make the tokens `light-dark(<light>, <dark>)` pairs on `:root` with `color-scheme: light dark`, so the site follows the system. A `color-scheme` set on the root element forces one scheme, which is how the Storybook toolbar switches it:
+
+  ```css
+  /* uikit/variables.css */
+  :root {
+    --colorBackground: light-dark(#f2f2f4, #1d1d1f);
+    --colorText: light-dark(#1d1d1f, #ececee);
+    /* light-dark() takes colors alone: a shadow gets one for each of its colors */
+    --shadowCard: 0 1px 2px light-dark(rgb(0 0 0 / 12%), rgb(0 0 0 / 40%));
+    /* ... */
+
+    color-scheme: light dark;
+  }
+  ```
+
+- Don't put tokens behind `@media (prefers-color-scheme: dark)`: they follow the system and nothing else, and no forced scheme reaches them.
+- Keep `light-dark()` native in the built CSS: lightningcss compiles it for older targets into variables switched by `prefers-color-scheme`, which a forced `color-scheme` can't reach.
+- An explicit theme toggle in the UI is for exceptional cases, such as DevTools that sit on someone else's page and switch their own theme. Their tokens live on a theme class: the default palette on `.root`, the other one on a modifier that redefines the colors. Each sets its `color-scheme`, so native controls and scrollbars follow:
+
+  ```css
+  /* uikit/Theme/Theme.module.css */
+  .root {
+    --colorBackground: #1d1d1f;
+    --colorText: #ececee;
+    /* ... */
+
+    color-scheme: dark;
+    color: var(--colorText);
+  }
+
+  .light {
+    --colorBackground: #f2f2f4;
+    --colorText: #1d1d1f;
+    /* ... */
+
+    color-scheme: light;
+  }
+  ```
 
 ## UX & A11y
 
