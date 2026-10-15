@@ -28,7 +28,7 @@ const rules = {
           position: 'after'
         }
       ],
-      'newlines-between': 'never',
+      newlinesBetween: 'never',
       typeImports: 'first'
     }
   ]
