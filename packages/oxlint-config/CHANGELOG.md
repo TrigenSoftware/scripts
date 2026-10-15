@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.0.0](https://github.com/TrigenSoftware/scripts/compare/v10.1.2...v11.0.0) (2026-10-15)
+
+### ⚠ BREAKING CHANGES
+
+* rename `import-order` option `newlines-between` to `newlinesBetween`
+
+### Features
+
+* quote only object keys that need quotes ([cf2e9a8](https://github.com/TrigenSoftware/scripts/commit/cf2e9a82f1657a90b3be2dde581a6c0ce76f28ee))
+* rename `import-order` option `newlines-between` to `newlinesBetween` ([083c2b9](https://github.com/TrigenSoftware/scripts/commit/083c2b93009867bfe9320359d535f35bdd7db1a1))
+
+### Bug Fixes
+
+* allow parentheses around calls in arrow bodies and ternary branches ([ad6746d](https://github.com/TrigenSoftware/scripts/commit/ad6746d2843cda22a325c037b8d8d8682492e764))
+
 ## [10.1.2](https://github.com/TrigenSoftware/scripts/compare/v10.1.1...v10.1.2) (2026-07-11)
 
 ### Bug Fixes
