@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 
+## [11.0.0](https://github.com/TrigenSoftware/scripts/compare/v10.1.3...v11.0.0) (2026-10-15)
+
+### ⚠ BREAKING CHANGES
+
+* **oxlint-config:** rename `import-order` option `newlines-between` to `newlinesBetween`
+
+### Features
+
+* **oxlint-config:** quote only object keys that need quotes ([cf2e9a8](https://github.com/TrigenSoftware/scripts/commit/cf2e9a82f1657a90b3be2dde581a6c0ce76f28ee))
+* **oxlint-config:** rename `import-order` option `newlines-between` to `newlinesBetween` ([083c2b9](https://github.com/TrigenSoftware/scripts/commit/083c2b93009867bfe9320359d535f35bdd7db1a1))
+
+### Bug Fixes
+
+* **deps:** update dependency npm-package-json-lint to v11 ([#193](https://github.com/TrigenSoftware/scripts/issues/193)) ([a69beca](https://github.com/TrigenSoftware/scripts/commit/a69beca9073c38d32fb0d7721a4c3ed7e48b39da))
+* **deps:** update dependency npm-package-json-lint-config-default to v10 ([#194](https://github.com/TrigenSoftware/scripts/issues/194)) ([1f54e2c](https://github.com/TrigenSoftware/scripts/commit/1f54e2c6924a9e668f42ca5f36d0b8e4ee68a3df))
+* **oxlint-config:** allow parentheses around calls in arrow bodies and ternary branches ([ad6746d](https://github.com/TrigenSoftware/scripts/commit/ad6746d2843cda22a325c037b8d8d8682492e764))
+* **stylelint-config:** allow CSS Modules `:global` and `:local` pseudo-classes ([64c4fef](https://github.com/TrigenSoftware/scripts/commit/64c4fefe452da6e778f90af2f0bfb1a9e108a7a1))
+
 ## [10.1.4](https://github.com/TrigenSoftware/scripts/compare/v10.1.3...v10.1.4) (2026-10-13)
 
 ### Bug Fixes
