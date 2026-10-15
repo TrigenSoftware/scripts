@@ -8,7 +8,7 @@ import stylisticPlugin from '@stylistic/eslint-plugin'
 export default [
   {
     plugins: {
-      'import': importPlugin,
+      import: importPlugin,
       '@stylistic': stylisticPlugin
     },
     rules: {
@@ -41,7 +41,7 @@ export default [
       'import/order': [
         'error',
         {
-          'groups': [
+          groups: [
             'builtin',
             'external',
             'internal',
@@ -49,7 +49,7 @@ export default [
             'sibling',
             'index'
           ],
-          'pathGroups': [
+          pathGroups: [
             {
               pattern: '~/**',
               group: 'external',

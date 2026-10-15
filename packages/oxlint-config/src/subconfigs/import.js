@@ -39,7 +39,7 @@ export default {
     'trigen/import-order': [
       'error',
       {
-        'groups': [
+        groups: [
           'builtin',
           'external',
           'internal',
@@ -47,7 +47,7 @@ export default {
           'sibling',
           'index'
         ],
-        'pathGroups': [
+        pathGroups: [
           {
             pattern: '~/**',
             group: 'external',
@@ -65,7 +65,7 @@ export default {
           }
         ],
         'newlines-between': 'never',
-        'typeImports': 'first'
+        typeImports: 'first'
       }
     ],
     'trigen/named-import-order': [

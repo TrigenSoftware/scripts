@@ -13,7 +13,7 @@ const rules = {
   'trigen/import-order': [
     'error',
     {
-      'groups': [
+      groups: [
         'builtin',
         'external',
         'internal',
@@ -21,7 +21,7 @@ const rules = {
         'sibling',
         'index'
       ],
-      'pathGroups': [
+      pathGroups: [
         {
           pattern: '~/**',
           group: 'external',
@@ -29,7 +29,7 @@ const rules = {
         }
       ],
       'newlines-between': 'never',
-      'typeImports': 'first'
+      typeImports: 'first'
     }
   ]
 }

@@ -86,7 +86,7 @@ export default [
         }
       ],
       '@typescript-eslint/method-signature-style': ['error', 'method'],
-      'camelcase': 'off',
+      camelcase: 'off',
       '@typescript-eslint/naming-convention': [
         'error',
         {

@@ -12,7 +12,7 @@ export default {
     name: 'trigen'
   },
   rules: {
-    'extensions': extensionsRule,
+    extensions: extensionsRule,
     'func-style': funcStyleRule,
     'import-order': importOrderRule,
     'member-ordering': memberOrderingRule,

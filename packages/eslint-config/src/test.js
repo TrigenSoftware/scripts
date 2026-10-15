@@ -33,7 +33,7 @@ export default [
       '@typescript-eslint/no-empty-function': 'off',
       '@typescript-eslint/naming-convention': 'off',
       '@typescript-eslint/no-use-before-define': 'off',
-      'camelcase': 'off'
+      camelcase: 'off'
     }
   }
 ]

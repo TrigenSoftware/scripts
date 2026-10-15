@@ -21,7 +21,7 @@ export default [
   {
     files: reactFiles,
     plugins: {
-      'react': reactPlugin,
+      react: reactPlugin,
       'react-hooks': reactHooksPlugin,
       '@stylistic': stylisticPlugin
     },

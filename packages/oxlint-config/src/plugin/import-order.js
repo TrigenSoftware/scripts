@@ -15,10 +15,10 @@ const defaultGroups = [
   'index'
 ]
 const defaultOptions = {
-  'groups': defaultGroups,
-  'pathGroups': [],
+  groups: defaultGroups,
+  pathGroups: [],
   'newlines-between': 'ignore',
-  'typeImports': 'none'
+  typeImports: 'none'
 }
 
 function isBuiltin(source) {
@@ -277,13 +277,13 @@ export default {
       {
         type: 'object',
         properties: {
-          'groups': {
+          groups: {
             type: 'array',
             items: {
               type: 'string'
             }
           },
-          'pathGroups': {
+          pathGroups: {
             type: 'array',
             items: {
               type: 'object',
@@ -312,7 +312,7 @@ export default {
               'never'
             ]
           },
-          'typeImports': {
+          typeImports: {
             enum: [
               'first',
               'last',
