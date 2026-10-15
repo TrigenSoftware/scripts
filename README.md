@@ -42,7 +42,6 @@ Scripts and configs for TrigenSoftware's projects.
 |---------|---------|--------------|
 | [`@trigen/scripts`](packages/scripts#readme) | [![NPM version][npm]][npm-url] | [![Dependencies status][deps]][deps-url] |
 | [`@trigen/browserslist-config`](packages/browserslist-config#readme) | [![NPM version][browserslist-config-npm]][browserslist-config-npm-url] | |
-| [`@trigen/eslint-config`](packages/eslint-config#readme) | [![NPM version][eslint-config-npm]][eslint-config-npm-url] | [![Dependencies status][eslint-config-deps]][eslint-config-deps-url] |
 | [`@trigen/oxlint-config`](packages/oxlint-config#readme) | [![NPM version][oxlint-config-npm]][oxlint-config-npm-url] | [![Dependencies status][oxlint-config-deps]][oxlint-config-deps-url] |
 | [`@trigen/stylelint-config`](packages/stylelint-config#readme) | [![NPM version][stylelint-config-npm]][stylelint-config-npm-url] | [![Dependencies status][stylelint-config-deps]][stylelint-config-deps-url] |
 | [`@trigen/lint-package-json`](packages/lint-package-json#readme) | [![NPM version][lint-package-json-npm]][lint-package-json-npm-url] | [![Dependencies status][lint-package-json-deps]][lint-package-json-deps-url] |
@@ -52,14 +51,6 @@ Scripts and configs for TrigenSoftware's projects.
 
 [browserslist-config-npm]: https://img.shields.io/npm/v/%40trigen/browserslist-config.svg
 [browserslist-config-npm-url]: https://www.npmjs.com/package/@trigen/browserslist-config
-
-<!-- eslint-config -->
-
-[eslint-config-npm]: https://img.shields.io/npm/v/%40trigen/eslint-config.svg
-[eslint-config-npm-url]: https://www.npmjs.com/package/@trigen/eslint-config
-
-[eslint-config-deps]: https://img.shields.io/librariesio/release/npm/@trigen/eslint-config
-[eslint-config-deps-url]: https://libraries.io/npm/@trigen%2Feslint-config
 
 <!-- oxlint-config -->
 
