@@ -41,7 +41,6 @@ Replace active ESLint config usage with Oxlint config usage while preserving the
 - staged-file ESLint hooks, such as `.nano-staged.json`, become Oxlint hooks
 - workspace orchestration scripts keep their orchestration behavior
 - old `eslint.config.*` and `.eslintrc.*` consumers are removed
-- the existing `packages/eslint-config` package is not deleted unless the user explicitly asks to remove or deprecate that package
 
 ## First Pass
 
@@ -58,7 +57,6 @@ rg --files -g 'tsconfig.json' packages examples website
 Treat these as different things:
 
 - Active usage: root/package `eslint.config.*`, `.eslintrc.*`, package deps on `@trigen/eslint-config`, scripts running `eslint`, and staged-file hooks running `eslint`.
-- Package source: `packages/eslint-config/**`. Leave this alone unless requested.
 - Oxlint rule namespace: rules like `eslint/no-console` inside Oxlint configs. Do not remove these; they are Oxlint rule IDs.
 - JS plugins used by `@trigen/oxlint-config`, such as `@stylistic/eslint-plugin`. Do not remove these just because their package names contain `eslint`.
 - `engines.node` values in `package.json`. Do not edit them during this migration.
@@ -314,9 +312,7 @@ After creating Oxlint configs:
 - remove direct `eslint` commands from `.nano-staged.json`, if present
 - keep `@trigen/oxlint`, `oxlint`, and `@trigen/oxlint-config`; they are active migration dependencies
 - remove `.eslintrc.*` entries from template file lists, if the repo has them
-- keep README/package references to `@trigen/eslint-config` only when they are documenting the eslint-config package itself
-
-Do not delete `packages/eslint-config` unless the user explicitly asks.
+- remove or update README references to `@trigen/eslint-config`
 
 After the config migration is working, offer the user a separate source-code cleanup pass to replace ESLint inline directive comments with Oxlint directives. Do not do this silently. Look for comments such as:
 
@@ -377,11 +373,11 @@ Before finishing, confirm:
 
 ```bash
 rg --files -g 'eslint.config.*' -g '.eslintrc*'
-rg -n '@trigen/eslint-config|eslint\.config|eslintrc' --glob '!packages/eslint-config/**' --glob '!README.md' --glob '!**/CHANGELOG.md'
+rg -n '@trigen/eslint-config|eslint\.config|eslintrc' --glob '!**/CHANGELOG.md'
 test -f .nano-staged.json && rg -n 'eslint --|eslint ' .nano-staged.json || true
 git grep -n 'eslint-disable' -- '*.js' '*.jsx' '*.ts' '*.tsx' '*.d.ts' || true
 ```
 
-The first two searches should be empty outside intentional package documentation/source.
+The first two searches should be empty.
 
 Do not run checks the user explicitly told you not to run. If checks were skipped, say so plainly in the final response.
