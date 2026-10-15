@@ -45,12 +45,14 @@ Chrome is one engine. For Safari, Firefox, Edge and real mobile devices use the 
 
 ## Setup
 
+Claude Code starts the server in the project directory, and a plain `npx` there belongs to the project. A version manager such as asdf takes Node from the project's `.tool-versions`, which may name a version that is not installed or one older than the server needs, and npm 11 refuses to run at all where `package.json` sets a `devEngines.packageManager` other than npm (`EBADDEVENGINES`). The server then works in one project and dies with `Connection closed` in the next. The commands below start it from the home directory instead, on the global Node and with no project around it.
+
 ### Desktop
 
 With Chrome installed and a display, the defaults work: Chrome opens a window with a persistent profile.
 
 ```sh
-claude mcp add chrome-devtools --scope user -- npx -y chrome-devtools-mcp@latest
+claude mcp add chrome-devtools --scope user -- sh -c 'cd "$HOME" && exec npx -y chrome-devtools-mcp@latest'
 ```
 
 ### Docker dev container
@@ -58,16 +60,17 @@ claude mcp add chrome-devtools --scope user -- npx -y chrome-devtools-mcp@latest
 In a container with no display that runs as root, like [TrigenSoftware/dev-container](https://github.com/TrigenSoftware/dev-container):
 
 ```sh
-claude mcp add chrome-devtools --scope user -- npx -y chrome-devtools-mcp@latest \
+claude mcp add chrome-devtools --scope user -- sh -c 'cd "$HOME" && exec npx -y chrome-devtools-mcp@latest \
   --headless \
   --isolated \
   --executablePath /usr/local/bin/google-chrome \
   --chromeArg=--no-sandbox \
-  --chromeArg=--disable-dev-shm-usage
+  --chromeArg=--disable-dev-shm-usage'
 ```
 
 | Flag | Why |
 |------|-----|
+| `sh -c 'cd "$HOME" && exec …'` | The server runs outside the project, whatever its `.tool-versions` and `package.json` say. The single quotes keep `$HOME` for `sh` to expand when the server starts. |
 | `--scope user` | One server for every project on the machine. |
 | `--headless` | There is no display. |
 | `--isolated` | Each Claude Code session starts its own server. With the shared default profile the second one fails with `The browser is already running for …`, and a temporary profile also starts every session without old cookies and storage. |
@@ -94,7 +97,8 @@ Google collects usage statistics of the server by default, and performance tools
 
 ### When it fails
 
-- **`Connection closed` at session start.** The server died while starting. Run the command by hand (`npx -y chrome-devtools-mcp@latest --help`) to see the error. A common cause is the `npx` cache: `@latest` installs each new release at the next start, and an install cut off by the startup timeout leaves a broken `~/.npm/_npx/<hash>` that fails every start. Delete that directory, run the command once by hand to reinstall, then reconnect in `/mcp`.
+- **`Connection closed` at session start.** The server died while starting. Run the command by hand from the home directory (`cd ~ && npx -y chrome-devtools-mcp@latest --help`) to see the error. A common cause is the `npx` cache: `@latest` installs each new release at the next start, and an install cut off by the startup timeout leaves a broken `~/.npm/_npx/<hash>` that fails every start. Delete that directory, run the command once by hand to reinstall, then reconnect in `/mcp`.
+- **`EBADDEVENGINES`, or `No version is set for command node`, from a plain `npx` in the project.** The server was added without the `cd "$HOME"` wrapper and runs on whatever the project pins: add it again as above.
 - **`Browser was not found at the configured executablePath`.** Chrome is gone, for example after the container was recreated from an image without it: install it as above.
 - **`… timed out. Increase the 'protocolTimeout' …`.** Either `/dev/shm` ran out (see `--disable-dev-shm-usage`) or a script ran too long: split it.
 - **The server is down but the task needs a browser.** Drive Chrome from a scratchpad script with `playwright-core`, taken from a repo that already has it in `node_modules` or installed in the scratchpad: `chromium.launch({ executablePath: '/usr/local/bin/google-chrome', args: ['--no-sandbox', '--disable-dev-shm-usage'] })`.

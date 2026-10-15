@@ -143,10 +143,12 @@ Add the server from a shell that already has the variables, such as a new termin
 claude mcp add browserstack --scope user \
   -e BROWSERSTACK_USERNAME="$BROWSERSTACK_USERNAME" \
   -e BROWSERSTACK_ACCESS_KEY="$BROWSERSTACK_ACCESS_KEY" \
-  -- npx -y @browserstack/mcp-server@latest
+  -- sh -c 'cd "$HOME" && exec npx -y @browserstack/mcp-server@latest'
 ```
 
-The server needs Node.js 20.9 or newer. App tools (`runAppLiveSession`, `takeAppScreenshot`, `runAppTestsOnBrowserStack`) also need `MCP_UPLOAD_BASE_DIR`, the directory that holds the `.ipa` or `.apk`, and Percy tools need a Percy token.
+Claude Code starts the server in the project directory, where a plain `npx` belongs to the project: a version manager such as asdf takes Node from its `.tool-versions`, which may be missing or too old, and npm 11 refuses to run where `package.json` sets a `devEngines.packageManager` other than npm (`EBADDEVENGINES`). `cd "$HOME"` starts it outside any project, on the global Node; the single quotes keep `$HOME` for `sh` to expand when the server starts.
+
+The server needs Node.js 20.9 or newer, the global one with the command above. App tools (`runAppLiveSession`, `takeAppScreenshot`, `runAppTestsOnBrowserStack`) also need `MCP_UPLOAD_BASE_DIR`, the directory that holds the `.ipa` or `.apk`, and Percy tools need a Percy token.
 
 ### Check
 
@@ -164,11 +166,13 @@ Servers start with the session: restart it or reconnect the server in `/mcp`.
 
 ### When it fails
 
-**`Connection closed` at session start.** Run the server by hand to see the error. `Cannot find package '…/_npx/<hash>/node_modules/readable-stream/index.js'` means an `npx` install was cut off by the startup timeout and left a broken cache, which fails with any keys. Delete that `~/.npm/_npx/<hash>` and warm the cache by starting the server by hand with an `initialize` request, then reconnect in `/mcp`. The answer names `BrowserStack MCP Server`.
+**`Connection closed` at session start.** Run the server by hand, the way Claude Code starts it, to see the error. `Cannot find package '…/_npx/<hash>/node_modules/readable-stream/index.js'` means an `npx` install was cut off by the startup timeout and left a broken cache, which fails with any keys. Delete that `~/.npm/_npx/<hash>` and warm the cache by starting the server by hand with an `initialize` request, then reconnect in `/mcp`. The answer names `BrowserStack MCP Server`.
 
 ```sh
 (echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"probe","version":"0"}}}'; sleep 15) \
-  | timeout 240 npx -y @browserstack/mcp-server@latest
+  | timeout 240 sh -c 'cd "$HOME" && exec npx -y @browserstack/mcp-server@latest'
 ```
+
+**`EBADDEVENGINES`, or `No version is set for command node`.** The server was added without the `cd "$HOME"` wrapper and runs on whatever the project pins: add it again as above.
 
 **Empty values in the config.** Add the server again, as above, from a shell that has the variables.
