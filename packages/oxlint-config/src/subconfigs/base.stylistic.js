@@ -17,7 +17,12 @@ export default {
       {
         nestedBinaryExpressions: false,
         ignoreJSX: 'multi-line',
-        ignoredNodes: ['ArrowFunctionExpression[body.type=ConditionalExpression]'],
+        ignoredNodes: [
+          'ArrowFunctionExpression[body.type=ConditionalExpression]',
+          'ArrowFunctionExpression[body.type=CallExpression]',
+          'ConditionalExpression[consequent.type=CallExpression]',
+          'ConditionalExpression[alternate.type=CallExpression]'
+        ],
         enforceForSequenceExpressions: false
       }
     ],
