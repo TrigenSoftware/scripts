@@ -132,16 +132,16 @@ Codex is powered by OpenAI models with their own knowledge cutoffs and limitatio
 
 When Codex is wrong:
 
-1. State your disagreement clearly to the user.
-2. Provide evidence: your own knowledge, web search, docs.
-3. Optionally resume the Codex session to discuss the disagreement. Be transparent about the sender: disclose your own actual model name, so Codex knows the follow-up comes from the AI agent coordinating the session rather than from the human user:
+1.  State your disagreement clearly to the user.
+2.  Provide evidence: your own knowledge, web search, docs.
+3.  Optionally resume the Codex session to discuss the disagreement. Be transparent about the sender: disclose your own actual model name, so Codex knows the follow-up comes from the AI agent coordinating the session rather than from the human user:
 
-   ```bash
-   echo "Follow-up from <your own model name>, the AI agent coordinating this session. I disagree with [X] because [evidence]. What's your take on this?" | codex exec --skip-git-repo-check resume --last 2>/dev/null
-   ```
+    ```bash
+    echo "Follow-up from <your own model name>, the AI agent coordinating this session. I disagree with [X] because [evidence]. What's your take on this?" | codex exec --skip-git-repo-check resume --last 2>/dev/null
+    ```
 
-4. Frame disagreements as discussions, not corrections — either AI could be wrong.
-5. Let the user decide how to proceed if there's genuine ambiguity.
+4.  Frame disagreements as discussions, not corrections — either AI could be wrong.
+5.  Let the user decide how to proceed if there's genuine ambiguity.
 
 ## Error Handling
 
