@@ -74,7 +74,7 @@ export function Button({
 }) {
   return (
     <button
-      className={clsx(className, styles.root, styles[variant], mixins.focusOutline)}
+      className={clsx(styles.root, styles[variant], mixins.focusOutline, className)}
       {...props}
     >
       {children}

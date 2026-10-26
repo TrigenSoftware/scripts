@@ -79,7 +79,7 @@ export function Button({
 }: ButtonProps) {
   return (
     <button
-      className={clsx(className, styles.root, styles[variant])}
+      className={clsx(styles.root, styles[variant], className)}
       {...props}
     >
       {children}
@@ -272,6 +272,16 @@ Name event handlers in the `on*` form, never `handle*`: `onCloseCallback`, `onCl
     children,
     ...props
   }) { /* ... */ }
+  ```
+
+- In `clsx` the component's own classes come first and the passed-in `className` goes last, as the reference `Button` does:
+
+  ```jsx
+  // not
+  clsx(className, styles.root, styles[variant])
+
+  // but
+  clsx(styles.root, styles[variant], className)
   ```
 
 - Don't pass unneeded props to the root element — destructure props consumed by hooks so they don't leak into the rest spread:

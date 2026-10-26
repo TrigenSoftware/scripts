@@ -89,9 +89,9 @@ export const Button = component$(({
 }: ButtonProps, children) => (
   button({
     class: [
-      className,
       styles.root,
-      pick(styles, variant)
+      pick(styles, variant),
+      className
     ],
     ...props
   })(
@@ -395,7 +395,16 @@ If the project's linter rejects this layout, or its `--fix` collapses it back, t
   })
   ```
 
-- A component that owns classes and also accepts a `class` prop takes it out as `class: className` and folds it into its own `class` list, as the reference `Button` does.
+- A component that owns classes and also accepts a `class` prop takes it out as `class: className` and folds it into its own `class` list: the component's own classes come first and the passed-in `className` goes last, as the reference `Button` does:
+
+  ```js
+  // not
+  button({ class: [className, styles.root, pick(styles, variant)] })
+
+  // but
+  button({ class: [styles.root, pick(styles, variant), className] })
+  ```
+
 - `class` is always the first attribute of an element and the first prop taken out of the props, as the reference `Button` does:
 
   ```js
