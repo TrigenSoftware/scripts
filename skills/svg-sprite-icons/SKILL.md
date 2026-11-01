@@ -1,6 +1,6 @@
 ---
 name: svg-sprite-icons
-description: Pattern for SVG icons via a symbol sprite — individual SVG files are compiled into a single sprite.svg by the svg-sprite package, and an Icon component renders them with <use href="sprite.svg#name">. Apply when setting up an icon system, adding icons to a project that uses this pattern, or reviewing icon-related code.
+description: Pattern for SVG icons via a symbol sprite — individual SVG files are compiled into a single sprite.svg by the svg-sprite package, and an Icon component renders them with <use href="sprite.svg#name">. Apply when setting up an icon system, adding icons to a project that uses this pattern, sizing icons or setting their stroke width, or reviewing icon-related code.
 license: MIT
 compatibility:
   - Claude Code
@@ -149,9 +149,55 @@ Key points:
 - `width`/`height` set the rendered size; the symbol's own `viewBox` handles proportions.
 - Usage: `<Icon name='copy'/>`; color is inherited via CSS `color` thanks to `currentColor` in the source icons.
 
+## Adaptive stroke width
+
+An outline set draws one stroke on its grid, so its line thins as the icon shrinks: a 24-grid icon with `stroke-width="1.6"` draws a 1.33px line at 20px but a 1.07px one at 16px, lighter than the text beside it. Let the size step set the stroke, so that a smaller icon keeps the line of a reference size:
+
+```
+stroke at a size = the set's stroke × reference size / size
+```
+
+With a 1.6 stroke and 20px as the reference, that is 2 at 16 and 2.67 at 12. At and above the reference, keep the set's own stroke: an icon alone in a large control draws the heavier line the set was drawn with.
+
+The `Icon` component derives the stroke from its `size`, and no consumer writes a stroke width:
+
+```css
+/* Icon.module.css */
+
+/* The set draws 1.6 on its 24 grid; a smaller icon draws heavier, to keep a 20px icon's line */
+
+.root {
+  stroke-width: 1.6;
+}
+
+.sm {
+  block-size: var(--sizeIconSm);
+  inline-size: var(--sizeIconSm);
+  stroke-width: 2; /* 1.6 × 20 / 16 */
+}
+
+.md {
+  block-size: var(--sizeIconMd);
+  inline-size: var(--sizeIconMd);
+}
+
+.lg {
+  block-size: var(--sizeIconLg);
+  inline-size: var(--sizeIconLg);
+}
+```
+
+- **Leave `stroke-width` out of each source's root `<svg>`, and nothing else.**
+  - A symbol's own attribute beats whatever it inherits through `<use>`.
+  - Keep `stroke="currentColor"` on the root. Without it, svgo (run by `svg-sprite`) drops a filled shape's `stroke="none"`, and filled dots grow an outline.
+- **Size only through `size`.**
+  - The component drops its `width` and `height` props, since they bypass the scale and the stroke with it. It always applies `.root` and its `size` class.
+  - A parent that resizes its icon in its own CSS bypasses the scale the same way, so the parent passes the step instead.
+- **Never thicken an icon for its role.** A badge, an error or a toast draws its icon like any icon of its size.
+
 ## Adding a new icon
 
-1. Put the SVG file into `app/assets/icons/`, named after the icon (`arrow-left.svg`). Replace hardcoded colors with `currentColor` if the icon is monochrome.
+1. Put the SVG file into `app/assets/icons/`, named after the icon (`arrow-left.svg`). Replace hardcoded colors with `currentColor` if the icon is monochrome. If the `Icon` sets the stroke width, drop the root's `stroke-width`.
 2. Run `pnpm build:sprite` and commit the regenerated `sprite.svg` together with the source icon.
 3. Register the name wherever the component sources its names — the `IconName` union, or the exported array the union is derived from. Update anything that lists icons by hand, such as the `options` list in `Icon.stories.tsx`, unless it already reads that array.
 4. Use it: `<Icon name='arrow-left'/>`.
