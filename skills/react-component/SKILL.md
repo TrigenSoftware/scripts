@@ -141,33 +141,26 @@ When a component pulls in a heavy dependency (a rich-text editor, a chart librar
 ```tsx
 // loadable.tsx
 import {
-  type ReactNode,
   Suspense,
   lazy
 } from 'react'
 import type { MDXEditorProps } from './MDXEditor'
-
-export interface LoadableMDXEditorProps extends MDXEditorProps {
-  fallback?: ReactNode
-}
+import { MDXEditorLoading } from './MDXEditorLoading'
 
 const LazyMDXEditor = lazy(() => import('./MDXEditor').then(({ MDXEditor }) => ({
   default: MDXEditor
 })))
 
-export function MDXEditor({
-  fallback,
-  ...props
-}: LoadableMDXEditorProps) {
+export function MDXEditor(props: MDXEditorProps) {
   return (
-    <Suspense fallback={fallback}>
+    <Suspense fallback={<MDXEditorLoading />}>
       <LazyMDXEditor {...props} />
     </Suspense>
   )
 }
 ```
 
-The wrapper keeps the original component name and props, adding only an optional `fallback` prop for the `Suspense` fallback.
+The wrapper keeps the original component name and props and adds none. It draws its own `<Name>Loading` beside it, the shape of what is coming: no `fallback` prop, and never `fallback={null}`, which leaves a hole that fills in late.
 
 ## Component anatomy
 
