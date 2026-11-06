@@ -188,7 +188,7 @@ uikit/
   variables.css          — design tokens as CSS custom properties (colors, fonts, sizes, durations, shadows)
   globals.css            — element defaults (body, a); the only global styles besides styles.css
   media.css              — @custom-media breakpoints (--screenSm, --screenMd, --screenReducedMotion…)
-  mixins.module.css      — classes meant for `composes` (see css-mixin skill)
+  mixins.module.css      — classes each component applies from its tsx (see css-mixin skill)
   typography.module.css  — h1/h2/text/muted/link classes + typography.stories.tsx
   types.ts               — ElementType, AsElementProps<T> for polymorphic `as` components
   hooks.ts               — generic UI hooks/composables (e.g. useFormValidity, useTextBlink), optional
