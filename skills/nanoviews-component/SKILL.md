@@ -421,6 +421,27 @@ If the project's linter rejects this layout, or its `--fix` collapses it back, t
   })
   ```
 
+- `class` is a component's only class prop. Don't add props like `titleClass` or `moreClassName` for its inner elements: split such an element out into a component of its own and compose the parts, each with its own `class`, the way compound components expose their parts as children:
+
+  ```js
+  // not
+  Card({
+    class: styles.card,
+    titleClass: styles.title,
+    title: 'Title'
+  })(
+    'Text'
+  )
+
+  // but
+  Card({ class: styles.card })(
+    CardTitle({ class: styles.title })('Title'),
+    'Text'
+  )
+  ```
+
+  A `*Class` or `*ClassName` prop is for exceptional cases only, where the element cannot be split out.
+
 - Import views from `nanoviews` and reactivity from `nanoviews/store`, by name:
 
   ```ts

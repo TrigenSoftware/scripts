@@ -277,6 +277,27 @@ Name event handlers in the `on*` form, never `handle*`: `onCloseCallback`, `onCl
   clsx(styles.root, styles[variant], className)
   ```
 
+- `className` is a component's only class prop. Don't add props like `titleClassName` or `moreClassName` for its inner elements: split such an element out into a component of its own and compose the parts, each with its own `className`, the way compound components expose their parts as subcomponents:
+
+  ```jsx
+  // not
+  <Card
+    className={styles.card}
+    titleClassName={styles.title}
+    title="Title"
+  >
+    Text
+  </Card>
+
+  // but
+  <Card className={styles.card}>
+    <CardTitle className={styles.title}>Title</CardTitle>
+    Text
+  </Card>
+  ```
+
+  A `*ClassName` prop is for exceptional cases only, where the element cannot be split out.
+
 - Don't pass unneeded props to the root element — destructure props consumed by hooks so they don't leak into the rest spread:
 
   ```jsx
