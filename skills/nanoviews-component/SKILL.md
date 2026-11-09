@@ -114,7 +114,7 @@ import type {
   Meta,
   StoryObj
 } from '@nanoviews/storybook'
-import { Button } from './Button.js'
+import { Button } from './Button'
 
 const meta: Meta<{
   variant: 'primary' | 'secondary'
@@ -168,11 +168,11 @@ import {
   component$,
   swap_
 } from 'nanoviews'
-import type { MDXEditorProps } from './MDXEditor.js'
-import { MDXEditorSkeleton } from './skeleton.js'
+import type { MDXEditorProps } from './MDXEditor'
+import { MDXEditorSkeleton } from './skeleton'
 
 export const MDXEditor = component$((props: MDXEditorProps, children) => {
-  const [$module] = resolved(() => import('./MDXEditor.js'))
+  const [$module] = resolved(() => import('./MDXEditor'))
 
   return swap_($module, module => (
     module
