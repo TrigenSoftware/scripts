@@ -59,6 +59,7 @@ Use the `ui-component` skill as the base — it holds the framework-agnostic HTM
   [ComponentName].stories.ts — stories (optional, if Storybook is used)
   [ComponentName].spec.ts    — tests (optional, on request)
   loadable.ts                — lazy-loaded wrapper (optional, when the component pulls in a heavy dependency)
+  skeleton.ts                — the component's skeleton, its shape while it or its data loads (optional)
 ```
 
 There is no JSX, so every file is `.ts`, never `.tsx`.
@@ -164,31 +165,46 @@ When a component pulls in a heavy dependency (a rich-text editor, a chart librar
 // loadable.ts
 import { resolved } from 'nanoviews/store'
 import {
-  type Child,
   component$,
   swap_
 } from 'nanoviews'
 import type { MDXEditorProps } from './MDXEditor.js'
+import { MDXEditorSkeleton } from './skeleton.js'
 
-export interface LoadableMDXEditorProps extends MDXEditorProps {
-  fallback?: Child
-}
-
-export const MDXEditor = component$(({
-  fallback,
-  ...props
-}: LoadableMDXEditorProps, children) => {
+export const MDXEditor = component$((props: MDXEditorProps, children) => {
   const [$module] = resolved(() => import('./MDXEditor.js'))
 
   return swap_($module, module => (
     module
       ? module.MDXEditor(props)(...children)
-      : fallback
+      : MDXEditorSkeleton()
   ))
 })
 ```
 
-The wrapper keeps the original component name, props and children, adding only an optional `fallback` prop for what stands in while the chunk loads.
+The wrapper keeps the original component name, props and children and adds no props. It draws the component's own skeleton from the `skeleton.ts` beside it, the shape of what is coming: no `fallback` prop, and never a `null` branch, which leaves a hole that fills in late.
+
+## Skeletons
+
+A component's shape while it or its data loads is its skeleton, named with the `Skeleton` suffix, never `Loading`: `MDXEditorSkeleton`, `FormSkeleton`. `Loading` names a state, as a `Loading` story or a `LoadingButton` does, not a shape. Every skeleton of a folder lives in the `skeleton.ts` beside the component it draws: a compound's parts (`FormSkeleton`, `FormSectionSkeleton`, `FormGroupSkeleton`), a block's sections, a page's own skeleton and the parts only that page draws.
+
+`skeleton.ts` is an opt-in entry point, as `loadable.ts` is: import it by its path, never re-export it from `index.ts`:
+
+```ts
+// not
+import {
+  Form,
+  FormSkeleton
+} from '~/uikit/Form'
+
+// but
+import { Form } from '~/uikit/Form'
+import { FormSkeleton } from '~/uikit/Form/skeleton'
+```
+
+A skeleton stands in while code loads, in a `loadable.ts` or as a route's shape while its page's chunk comes, so it lands in the main chunk. Through `index.ts` it would bring the component it stands in for into that chunk too, with everything the component imports.
+
+A component that is a shape and nothing else, such as the frame every route's skeleton stands in, is an ordinary component named `<Name>Skeleton`, in a folder of its own with the usual files: `skeleton.ts` is for the skeletons of another component.
 
 ## Component anatomy
 

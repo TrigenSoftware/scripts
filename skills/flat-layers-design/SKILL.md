@@ -237,6 +237,7 @@ pages/
     index.ts            — export * from './Home'; export { Home as default } from './Home'
     Home.tsx
     Home.module.css
+    skeleton.tsx        — HomePageSkeleton: the page's shape while its code comes
 ```
 
 - `index.ts` also re-exports the component as `default` so `index.tsx` can lazy-load pages; this is the only place default exports are allowed (lint override for `pages/*/*`).
@@ -246,13 +247,13 @@ pages/
 ### Entry points
 
 - **CSR:** `index.html` → `app/index.tsx` mounts the app (e.g. `createRoot` in React); the routes → pages tree lives in `app/App.ts`.
-- **SSR:** `app/index.tsx` exports `routes` and the `pages` tree (e.g. `layout(RootLayout, [page('home', loadable(() => import('./pages/Home'), AppLoader)), …])`); `app/server.ts` is the HTTP server (Hono); the SSR Vite plugin points at both.
+- **SSR:** `app/index.tsx` exports `routes` and the `pages` tree (e.g. `layout(RootLayout, [page('home', loadable(() => import('./pages/Home'), HomePageSkeleton)), …])`); `app/server.ts` is the HTTP server (Hono); the SSR Vite plugin points at both.
 
 ## Import conventions
 
 - Cross-layer imports go through the alias: `~/uikit/Button`, `~/stores/garden`, `~/services/garden`.
 - Same-layer imports are relative: `../shared/messages`, `../GardenLinks`, `../Text`, `./router`.
-- Import through the folder's `index.ts`. Deep imports are reserved for opt-in entry points: `~/uikit/RichTextEditor/loadable`, `~/services/api/api.mock`.
+- Import through the folder's `index.ts`. Deep imports are reserved for opt-in entry points: `~/uikit/RichTextEditor/loadable`, `~/uikit/Form/skeleton`, `~/services/api/api.mock`.
 - Order inside a file: packages → `~/…` → relative → the CSS module last.
 
 ## Stories and tests
