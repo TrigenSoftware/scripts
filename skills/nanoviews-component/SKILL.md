@@ -383,7 +383,7 @@ If the project's linter rejects this layout, or its `--fix` collapses it back, t
   component$((props: SomeProps) => ...)
   ```
 
-- Universal components must forward all remaining props to the root element, spreading `...props` after the attributes the component owns — see the reference `Button` above: `type`, `disabled`, `onClick` etc. reach `<button>` via the spread instead of being listed one by one.
+- Universal components must forward all remaining props to the root element, spreading `...props` after the attributes the component owns — see the reference `Button` above: `type`, `disabled`, `onClick` etc. reach `<button>` via the spread instead of being listed one by one. The exception is an attribute the component derives from its own prop and must not lose to a passed-in value, such as `aria-disabled` rendered from a `busy` prop: it goes after the spread, and the props type declares it `never`.
 - Don't pass unneeded props to the root element: destructure the props a helper consumes, which is what takes them out of the rest:
 
   ```js
