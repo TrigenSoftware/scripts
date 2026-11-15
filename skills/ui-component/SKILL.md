@@ -92,7 +92,8 @@ metadata:
 
 - Don't put tokens behind `@media (prefers-color-scheme: dark)`: they follow the system and nothing else, and no forced scheme reaches them.
 - Keep `light-dark()` native in the built CSS: lightningcss compiles it for older targets into variables switched by `prefers-color-scheme`, which a forced `color-scheme` can't reach.
-- An explicit theme toggle in the UI is for exceptional cases, such as DevTools that sit on someone else's page and switch their own theme. Their tokens live on a theme class: the default palette on `.root`, the other one on a modifier that redefines the colors. Each sets its `color-scheme`, so native controls and scrollbars follow:
+- A site's own theme switch forces the scheme on the root the same way, so the tokens stay `light-dark()` pairs.
+- A theme class with a palette of its own is for exceptional cases, such as DevTools that sit on someone else's page and switch their own theme: the root is not theirs to set. Their tokens live on the class: the default palette on `.root`, the other one on a modifier that redefines the colors. Each sets its `color-scheme`, so native controls and scrollbars follow:
 
   ```css
   /* uikit/Theme/Theme.module.css */
