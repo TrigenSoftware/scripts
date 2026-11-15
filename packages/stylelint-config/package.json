@@ -51,6 +51,6 @@
     "stylelint-scss": "^7.2.0"
   },
   "devDependencies": {
-    "stylelint": "^17.14.0"
+    "stylelint": "^18.0.0"
   }
 }
