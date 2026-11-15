@@ -97,6 +97,7 @@ export default {
     // Media feature
     'media-feature-name-no-unknown': true,
     // At-rule
+    'at-charset-rule-no-invalid': true,
     'at-rule-no-unknown': [
       true,
       {
@@ -160,7 +161,7 @@ export default {
     // Declaration
     'declaration-block-no-redundant-longhand-properties': true,
     // Declaration block
-    'declaration-block-single-line-max-declarations': 0,
+    '@stylistic/declaration-block-single-line-max-declarations': 0,
     // Selector
     'selector-class-pattern': [
       camelCaseMatcher,
@@ -265,10 +266,8 @@ export default {
     '@stylistic/block-closing-brace-empty-line-before': 'never',
     '@stylistic/block-closing-brace-newline-after': 'always',
     '@stylistic/block-closing-brace-newline-before': 'always',
-    '@stylistic/block-closing-brace-space-after': 'always-single-line',
     '@stylistic/block-closing-brace-space-before': 'always-single-line',
     '@stylistic/block-opening-brace-newline-after': 'always',
-    '@stylistic/block-opening-brace-newline-before': 'never-single-line',
     '@stylistic/block-opening-brace-space-after': 'always-single-line',
     '@stylistic/block-opening-brace-space-before': 'always',
     // Selector

@@ -49,7 +49,6 @@ There are additional configs for specific language features and strict mode:
 
 | Config | Description |
 |--------|-------------|
-| @trigen/stylelint-config/scss | Rules for SCSS code. |
 | @trigen/stylelint-config/logical | Rules with CSS logical properties support. |
 | @trigen/stylelint-config/strict | Strict rules for enhanced code quality. |
 
@@ -61,7 +60,6 @@ Example:
 export default {
   extends: [
     '@trigen/stylelint-config',
-    '@trigen/stylelint-config/scss',
     '@trigen/stylelint-config/logical'
   ]
 }
