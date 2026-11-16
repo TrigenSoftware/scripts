@@ -234,14 +234,14 @@ pages/
   RootLayout/           — head/meta, link behaviour; renders the child route outlet
   AppLayout/  AuthLayout/   — layouts with chrome (header, nav) — or a single Layout/
   Home/
-    index.ts            — export * from './Home'; export { Home as default } from './Home'
-    Home.tsx
+    index.ts            — export * from './Home'; export { default } from './Home'
+    Home.tsx            — export default function Home()
     Home.module.css
     skeleton.tsx        — HomePageSkeleton: the page's shape while its code comes
 ```
 
-- `index.ts` also re-exports the component as `default` so `index.tsx` can lazy-load pages; this is the only place default exports are allowed (lint override for `pages/*/*`).
-- A router with SSR preloading may require extra named exports next to the component. E.g. with `@nano_kit/react-router` a page/layout module exports `Stores$()` (own messages + spread of its blocks' `*Stores$`) and `Head$()` (title, meta), and blocks export a matching `<Block>Stores$()`.
+- A page is the default export of its own file, and `index.ts` re-exports it so `index.tsx` can lazy-load pages; this is the only place default exports are allowed (lint override for `pages/*/*`).
+- A router with SSR preloading may require extra named exports next to the component. E.g. with `@nano_kit/react-router` a page/layout module exports `Stores$()` (own messages + spread of its blocks' `*Stores$`) and `Head$()` (title, meta), and blocks export a matching `<Block>Stores$()`. Keep them in the file with the default export: tooling tells a page module by it, e.g. the `@nano_kit/ssr` plugin removes `Stores$()` from the client build only there, and an `index.ts` that adds the default export over `export *` leaves it in.
 - Page translation namespaces: `<name>Page` (`homePage`, `gardenPage`) or the shared `pages`.
 
 ### Entry points
