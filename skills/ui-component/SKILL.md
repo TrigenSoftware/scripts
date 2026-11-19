@@ -48,7 +48,9 @@ metadata:
     ```
 
   - Never write global styles in CSS Modules — globals belong only in dedicated files.
-- Build simple shapes with HTML+CSS instead of SVG (this scales up to e.g. a burger button animating into a cross).
+- Build simple shapes with HTML+CSS instead of SVG: a ring, a dot, a tick, a chevron, a cross, a burger. Draw them with borders, `clip-path` or a pseudo-element in `currentColor`, at the icons' size and line weight. A picture with real detail, such as a tag or a leaf, stays an SVG icon.
+  - A mark that shows a state, such as a tick in a ring or an open chevron, is drawn from the state itself (`:checked`, `[aria-pressed='true']`, `[aria-expanded='true']`), never by swapping one icon for another: a swapped icon can flash empty while the browser resolves the new picture, and a drawn shape can animate between the states, as a burger turns into a cross.
+  - Forced colors drop box shadows and repaint backgrounds, which erases a drawn shape. Give the shape `forced-color-adjust: none` and set its `color` to a system color for each state (`ButtonText`, `HighlightText`): what it inherits is the color the page set, not the system's.
 - Use `currentColor` in icons and similar components (e.g. as SVG `fill`), so consumers set the color via the `color` property.
 - Write computed values as the source expression, so it's clear where the number comes from:
 
