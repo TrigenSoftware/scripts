@@ -25,6 +25,8 @@ Scripts and configs for TrigenSoftware's projects.
 - [`flat-layers-design`](skills/flat-layers-design/SKILL.md)
 - [`eslint-to-oxlint`](skills/eslint-to-oxlint/SKILL.md)
 - [`css-mixin`](skills/css-mixin/SKILL.md)
+- [`css-containers`](skills/css-containers/SKILL.md)
+- [`css-light-dark`](skills/css-light-dark/SKILL.md)
 - [`ui-component`](skills/ui-component/SKILL.md)
 - [`react-component`](skills/react-component/SKILL.md)
 - [`nanoviews-component`](skills/nanoviews-component/SKILL.md)
