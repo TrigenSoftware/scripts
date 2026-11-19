@@ -40,15 +40,19 @@ The container names, each with what carries it and what reads it:
 ```css
 /* containers.module.css */
 
-/* A grid of tiles, `Grid variant='tiles'`. Read by Grid and by the tiles, which close up at 420
-   or less. */
+/**
+ * A grid of tiles, `Grid variant='tiles'`. Read by Grid and by the tiles,
+ * which close up at 420 or less.
+ */
 
 .tiles {
   container: tiles / inline-size;
 }
 
-/* A page's row of a search, its filters and its actions. Read by the filter's trigger, which
-   chooses its words by the room its row leaves. */
+/**
+ * A page's row of a search, its filters and its actions. Read by the filter's
+ * trigger, which chooses its words by the room its row leaves.
+ */
 
 .toolbar {
   container: toolbar / inline-size;
