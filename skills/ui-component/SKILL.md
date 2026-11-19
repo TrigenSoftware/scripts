@@ -72,9 +72,6 @@ metadata:
   ```
 
 - Implement responsiveness via CSS, not JS (`userAgent`/`matchMedia`/…) — it keeps server-side rendering simple.
-- A part that follows its parent's width uses a named container from the shared containers module — see the `css-containers` skill.
-- Color tokens for a light and a dark theme are `light-dark()` pairs — see the `css-light-dark` skill.
-- A style several components share is a mixin, a class in the shared mixins module — see the `css-mixin` skill.
 
 ## UX & A11y
 

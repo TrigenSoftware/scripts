@@ -1,6 +1,6 @@
 ---
 name: css-containers
-description: Pattern for named CSS container queries in a CSS Modules codebase — every container name is a class in one shared CSS Module, the only place that declares `container:`, put on the element that is the container; parts query the name with `@container`. Covers why the names are global tokens, how they follow the layers' dependency direction, and when a container stays unnamed. Apply when adding a container query, a container, or a part that follows its parent's width.
+description: Pattern for named CSS container queries in a CSS Modules codebase — every container name is a class in one shared CSS Module, the only place that declares `container:`, put on the element that is the container; parts query the name with `@container`. Covers why the names are global tokens, why one file declares them all, and when a container stays unnamed. Apply when adding a container query, a container, or a part that follows its parent's width.
 license: MIT
 compatibility:
   - Claude Code
@@ -94,7 +94,7 @@ A part queries the name in its own stylesheet:
 }
 ```
 
-A row that a business block lays out takes a container of the kit's the same way:
+Whoever lays out a row makes it a container the same way, for the components in it to follow:
 
 ```tsx
 <div className={clsx(styles.root, containers.toolbar, className)}>
@@ -105,9 +105,8 @@ A row that a business block lays out takes a container of the kit's the same way
 ## Rules
 
 - **The names are global.** A query reads a name declared in another file, and CSS Modules has no way to import one: Lightning CSS supports neither `@value` nor ICSS `:import`/`:export`, its `from` references cover classes (`composes`) and dashed idents (`var(--x from './file.css')`) alone, and a query's prelude takes no `var()`. Turn off the hashing of container names where the implementation does it, e.g. Lightning CSS's `cssModules: { container: false }`, which Vite takes as `css.lightningcss.cssModules`. Hashed, a name declared in one module and queried in another silently matches nothing.
-- **A name is a token, named by its role:** `tiles`, `toolbar`, `search-band`, `card-body`. Never after one component (`media-card`) and never after a block or a page. The name is kebab-case, as stylelint's `value-keyword-case` keeps a keyword lower-case, and its class is the camelCase form CSS Modules want: `.cardBody` makes `card-body`.
-- **The shared file is the registry.** Each class says what the container is, what carries it and what reads it. A new name goes there first; nothing writes `container:` anywhere else.
-- **Dependencies follow the layers** (see the `flat-layers-design` skill). The names belong to the UI kit, as its design tokens do. A kit component queries the kit's names alone. A business block may put a kit's container class on a row it lays out and may query a kit's name for its own layout, but never names a container that a kit component reads: the kit would then depend on the block.
+- **A name is a token, named by its role:** `tiles`, `toolbar`, `search-band`, `card-body`. Never after one component (`media-card`) and never after a page. The name is kebab-case, as stylelint's `value-keyword-case` keeps a keyword lower-case, and its class is the camelCase form CSS Modules want: `.cardBody` makes `card-body`.
+- **The shared file is the registry.** Each class says what the container is, what carries it and what reads it. A new name goes there first; nothing writes `container:` anywhere else. A component thus depends on the shared file alone, as on the design tokens, never on a name its consumer made up.
 - **One container class per element.** `container` is one property, so a second class on the same element overrides the first. An element that must be two containers gets one class in the shared file that names both: `container: toolbar search-band / inline-size`.
 - **An unnamed container stays local.** An element that measures itself for its own parts alone takes `container-type: inline-size` in its own stylesheet, with no name. An unnamed `@container (…)` query and the `cqi`/`cqw` units read the nearest container, whatever its name, so they serve that element's own parts alone; whatever another module queries gets a name, and so a class in the shared file.
 - **Containment has a cost.** `inline-size` containment makes the element's inline size independent of its content: a container is an element whose width comes from its parent, a grid track or a block-level row, never one that should shrink to its content.
