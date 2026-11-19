@@ -30,7 +30,7 @@ metadata:
 
 Icons are stored as individual SVG files, compiled into a single symbol sprite by a script, and rendered through an `Icon` component that references sprite symbols with `<use>`. The browser downloads one sprite file instead of inlining every icon into the JS bundle.
 
-An icon is a picture with detail, such as a tag or a leaf. A simple shape, a ring, a dot, a tick or a chevron, is drawn in CSS instead, and a state is never shown by swapping one icon for another.
+An icon is a glyph that many components show, or a picture with detail, such as a tag or a leaf. A component's own simple mark, a ring, a dot or a tick, is drawn in CSS instead, and a state is never shown by swapping one icon for another. A picture that only points another way is one symbol: the `Icon` component turns it in CSS, as a chevron that points down is turned a quarter to point left or right.
 
 ## Structure
 
