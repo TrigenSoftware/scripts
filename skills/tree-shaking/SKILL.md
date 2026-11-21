@@ -1,6 +1,6 @@
 ---
 name: tree-shaking
-description: Practices for writing tree-shakeable JavaScript/TypeScript library code — a consumer must pay only for what they import. Mandatory rules (pure annotations, side-effect-free modules, honest sideEffects, ESM-only) apply to all library code always; architecture tricks (plugin registries, lazy hooks, settings-as-functions, size-limit contracts) apply on user request.
+description: Practices for writing tree-shakeable JavaScript/TypeScript library code — a consumer must pay only for what they import. Mandatory rules (pure annotations, side-effect-free modules, honest sideEffects, ESM-only) apply to all library code always; in an application the annotations, the module-level rules, ESM and an honest sideEffects do; architecture tricks (plugin registries, lazy hooks, settings-as-functions, size-limit contracts) apply on user request.
 license: MIT
 compatibility:
   - Claude Code
@@ -34,6 +34,14 @@ This skill has two parts:
 
 - **Always** — rules to follow in any library code, without being asked. Violating them silently pins dead code into every consumer bundle.
 - **On request** — architecture tricks. Apply them when the user asks to make an API tree-shakeable, reduce bundle size, or design a new library surface.
+
+### In an application
+
+An application is the end of the line: its own build is the last bundler, nothing installs it, and its chunks split by route rather than by a consumer's imports. What keeps dead code out of a chunk holds there too: both annotations, nothing that runs at a module's top level, no `enum`, statically analyzable ESM built for a modern target, and an honest `sideEffects` in its own `package.json`, which its bundler reads for the application's own modules as for any package's. What shapes a package's surface does not:
+
+- An `index` file may hold its folder's code where the folder is the module, such as a dispatcher over its variants or a list of locales with their loader. It still runs nothing at import.
+- An `exports` map, unminified output are a published package's.
+- Functions over methods and named exports are a library's API: an application's services may be classes, and its pages default exports, as its framework asks.
 
 ## Always
 
@@ -87,7 +95,7 @@ Beyond annotated calls, a module top level must contain only declarations. Concr
 
 - No imports-for-effect (`import './setup'`) in shakeable code.
 - Module-level mutable state starts as a bare `let x: T | undefined` (free to declare) and is lazily initialized (`x ??= new Set()`) inside the function that needs it — not `const x = new Set()` eagerly.
-- Barrel files (`index.ts`) are **pure re-exports only**: no constants, no initialization. Use `export type * from './types.js'` for type-only modules so they are erased at compile time instead of left for the bundler to reason about.
+- A library's barrel files (`index.ts`) are **pure re-exports only**: no constants, no initialization; an application's may hold code (see above). Use `export type * from './types.js'` for type-only modules so they are erased at compile time instead of left for the bundler to reason about.
 
 ### Honest `sideEffects` in package.json
 
