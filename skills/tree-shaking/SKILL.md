@@ -40,7 +40,7 @@ This skill has two parts:
 An application is the end of the line: its own build is the last bundler, nothing installs it, and its chunks split by route rather than by a consumer's imports. What keeps dead code out of a chunk holds there too: both annotations, nothing that runs at a module's top level, no `enum`, statically analyzable ESM built for a modern target, and an honest `sideEffects` in its own `package.json`, which its bundler reads for the application's own modules as for any package's. What shapes a package's surface does not:
 
 - An `index` file may hold its folder's code where the folder is the module, such as a dispatcher over its variants or a list of locales with their loader. It still runs nothing at import.
-- An `exports` map, unminified output are a published package's.
+- An `exports` map and unminified output are a published package's.
 - Functions over methods and named exports are a library's API: an application's services may be classes, and its pages default exports, as its framework asks.
 
 ## Always
