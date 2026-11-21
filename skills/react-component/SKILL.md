@@ -167,6 +167,8 @@ The wrapper keeps the original component name and props and adds none. It draws 
 
 A component's shape while it or its data loads is its skeleton, named with the `Skeleton` suffix, never `Loading`: `MDXEditorSkeleton`, `FormSkeleton`. `Loading` names a state, as a `Loading` story or a `LoadingButton` does, not a shape. Every skeleton of a folder lives in the `skeleton.tsx` beside the component it draws: a compound's parts (`FormSkeleton`, `FormSectionSkeleton`, `FormGroupSkeleton`), a block's sections, a page's own skeleton and the parts only that page draws.
 
+A skeleton draws no words: it is all in grey. A waiting state that keeps something real, such as its way back, a status's words or a label, is the component's own state and stays in the component's file, as no code-wait shape could draw those words; only an all-grey shape is a skeleton.
+
 `skeleton.tsx` is an opt-in entry point, as `loadable.tsx` is: import it by its path, never re-export it from `index.ts`:
 
 ```tsx
@@ -260,17 +262,17 @@ Name event handlers in the `on*` form, never `handle*`: `onCloseCallback`, `onCl
   ```
 
 - Universal components must forward all remaining props to the root element, spreading `...props` after the explicitly set props — see the reference `Button` above: `onClick`, `type`, etc. reach `<button>` via the spread instead of being listed one by one. The exception is an attribute the component owns, one it derives from its own prop and must not lose to a passed-in value, such as `aria-disabled` rendered from a `busy` prop: it goes after the spread, and the props type declares it `never`.
-- `className` is always the first prop — first among the JSX attributes and first in the props destructuring, as the reference `Button` does:
+- `ref` is always the first prop and `className` the next — first among the JSX attributes and first in the props destructuring, as the reference `Button` does for `className`. A `ref` the component owns, which a passed one must not replace, stands after the spread with its other owned attributes, first among them:
 
   ```jsx
   // not
-  <div id="card" className={styles.root}/>
+  <div id="card" className={styles.root} ref={rootRef}/>
 
   // but
-  <div className={styles.root} id="card"/>
+  <div ref={rootRef} className={styles.root} id="card"/>
   ```
 
-- `children` is always the last prop in the props destructuring, right before `...props` — `className` opens the list, `children` closes it, as the reference `Button` does:
+- `children` is always the last prop in the props destructuring, right before `...props` — `ref` and `className` open the list, `children` closes it, as the reference `Button` does:
 
   ```jsx
   // not
