@@ -47,7 +47,9 @@ metadata:
     .element.modificator { /* modifier */ }
     ```
 
-  - Never write global styles in CSS Modules — globals belong only in dedicated files.
+  - Never write global styles in CSS Modules — globals belong only in dedicated files. Two exceptions style the root element only while their component is on the page, so they stay in its module as `:global(html):has(...)`:
+    - a modal's lock of the page's scroll while it is open, `:global(html):has(.root:modal)`, which belongs to the modal;
+    - a page shell's or layout's ground on the root, such as the canvas behind a short page or the scrollbar's track, `:global(html):has(.root)`, which belongs to the frame.
 - Build simple shapes with HTML+CSS instead of SVG (this scales up to e.g. a burger button animating into a cross).
 - Use `currentColor` in icons and similar components (e.g. as SVG `fill`), so consumers set the color via the `color` property.
 - Write computed values as the source expression, so it's clear where the number comes from:
@@ -60,7 +62,7 @@ metadata:
   }
   ```
 
-- Use CSS Custom Properties as variables, named `(type)(Name)(Variant)?` where type is `duration`, `opacity`, `color`, `size`, or `shadow`:
+- Use CSS Custom Properties as variables, named `(type)(Name)(Variant)?` where type is `duration`, `opacity`, `color`, `size`, `shadow`, `font`, `fontWeight`, `easing`, `zIndex` or `transition`. A component's own variable puts its name first, `--menuSizeMargin`. A count or a keyword, with no unit, names what it holds and takes no type, `--comboboxRows`, `--menuPositionArea`:
 
   ```css
   :root {
