@@ -193,6 +193,7 @@ The `Icon` component derives the stroke from its `size`, and no consumer writes 
 - **Size only through `size`.**
   - The component drops its `width` and `height` props, since they bypass the scale and the stroke with it. It always applies `.root` and its `size` class.
   - A parent that resizes its icon in its own CSS bypasses the scale the same way, so the parent passes the step instead.
+  - The one exception: a parent whose icons change step with the width, as a sidebar's do on its narrow rail, `md` from one width and `lg` below it, since `size` has no form that follows the width. It renders the icons at one step and resizes them in its own CSS to another, only between steps that draw one stroke, and says so beside the rule.
 - **Never thicken an icon for its role.** A badge, an error or a toast draws its icon like any icon of its size.
 
 ## Adding a new icon
