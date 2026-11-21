@@ -221,6 +221,23 @@ export function Discount({ value, expired }: DiscountProps) {
 }
 ```
 
+The one exception: a value that reads what an early `return` narrowed, such as a record past `if (!report)`, is declared after that `return`, right before the render that uses it. Declared above, it would need a guard of its own for a state that never reads it. Everything else, hooks always, stands above the first `return`.
+
+```tsx
+export function ReportTitle({ className }: ReportTitleProps) {
+  const report = useSignal($report)
+
+  if (!report) {
+    return <ReportTitleSkeleton className={className} />
+  }
+
+  // Reads the report the return above narrowed
+  const heading = getReportHeading(report)
+
+  return <h1 className={className}>{heading}</h1>
+}
+```
+
 Name event handlers in the `on*` form, never `handle*`: `onCloseCallback`, `onClickCallback` for `useCallback`-wrapped handlers inside the component, `onSomeButtonClick` for handlers extracted to module scope — not `handleClose`/`handleClick`.
 
 ## Rules
