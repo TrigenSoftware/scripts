@@ -82,8 +82,8 @@ Blocks and pages take from `services` only types, error codes, constants and pur
 |-----------|-----------|
 | a visual element with no copy and no data knowledge | `uikit/<Name>/` |
 | a component that reads a store, has copy, or collects analytics | `blocks/<Name>/` |
-| a sub-part used by one block only | inside that block: `blocks/<Name>/<Part>.tsx`, `blocks/<Name>/types/` |
-| a helper, hook/composable or messages factory used by 2+ modules of one layer | that layer's `shared/`: `blocks/shared/garden.ts`, `uikit/shared/readOnly.ts` |
+| a part of one block's own job: a sub-part, a variant | inside that block: `blocks/<Name>/<Part>.tsx`, `blocks/<Name>/types/` |
+| a helper, hook/composable or messages factory about a domain or a topic rather than one module's job, however many use it today | that layer's `shared/`: `blocks/shared/garden.ts`, `uikit/shared/readOnly.ts` |
 | a screen bound to a route, or a layout | `pages/<Name>/` |
 | a route path | `stores/router.ts`, then register the page in `index.tsx` |
 | domain state, derived state, queries, mutations, redirects after actions | `stores/<domain>.ts` |
@@ -112,7 +112,9 @@ Imports nothing from the app. In a tiny app this collapses into a single `app/co
 
 ### `<layer>/shared/`
 
-Besides the app-wide `shared/`, every layer — `services`, `stores`, `uikit`, `blocks`, `pages` — may keep a `shared/` folder of its own for code that several of its modules use and none of them owns. It is optional: such code stays inside its module until a second module needs it.
+Besides the app-wide `shared/`, every layer — `services`, `stores`, `uikit`, `blocks`, `pages` — may keep a `shared/` folder of its own for code that is about a domain or a topic of the layer rather than one module's own job. It is optional.
+
+Where code goes follows what it is about, never how many modules use it today. Code never reaches a final state: a count changes with every feature, and code placed by it would move each time a consumer comes or goes. Code about a domain that already has a home (its service, its `<layer>/shared/<domain>.ts`) goes there from the start, with one consumer or none yet; code that serves one module's own job stays inside that module.
 
 ```
 services/shared/  — wire-format helpers several adapters use
@@ -202,7 +204,7 @@ uikit/
 
 ### `blocks/`
 
-The business-logic tier: a block composes uikit components with stores and owns its copy. One folder per block, structured per the component skill of the framework (e.g. `react-component`). Extra files stay inside the block until another block needs them:
+The business-logic tier: a block composes uikit components with stores and owns its copy. One folder per block, structured per the component skill of the framework (e.g. `react-component`). A block keeps inside it what serves its own job, its sub-parts and its variants; what is about a domain goes to `blocks/shared/<domain>.ts` from the start:
 
 ```
 blocks/
@@ -253,13 +255,13 @@ pages/
 
 - Cross-layer imports go through the alias: `~/uikit/Button`, `~/stores/garden`, `~/services/garden`.
 - Same-layer imports are relative: `../shared/messages`, `../GardenLinks`, `../Text`, `./router`.
-- Import through the folder's `index.ts`. Deep imports are reserved for opt-in entry points: `~/uikit/RichTextEditor/loadable`, `~/uikit/Form/skeleton`, `~/services/api/api.mock`.
+- Import through the folder's `index.ts`. Deep imports are reserved for opt-in entry points: `~/uikit/RichTextEditor/loadable`, `~/uikit/Form/skeleton`, `~/services/api/api.mock`. This is about code: a component's CSS module is never re-exported from `index.ts`, so a component that takes another one's classes imports that module by its path, `../RichText/RichText.module.css`.
 - Order inside a file: packages → `~/…` → relative → the CSS module last.
 
 ## Stories and tests
 
 - `*.stories.tsx` and `*.spec.ts(x)` sit next to the code they cover; the Storybook glob is `app/**/*.stories.*`.
-- Story title's first segment is the layer: `uikit/Button`, `Blocks/GardenCard`, `Pages/Home`.
+- Story title's first segment is the layer: `UIKit/Button`, `Blocks/GardenCard`, `Pages/Home`.
 - uikit stories are pure. Block and page stories provide the mock API (`MockApiService`) and a virtual navigation (through DI context, decorators or store setup), so the block runs against `services/*/*.mock.ts` data.
 - Tests concentrate in `services` (adapters, parsers, pure rules) and uikit utils; blocks and pages are covered by stories.
 
@@ -275,6 +277,6 @@ pages/
 ## When it grows
 
 - Keep layers flat. Cross-cutting code goes to `<layer>/shared/<domain>.ts`, not to nested feature folders.
-- Sub-components and variants stay inside their block (`Block/Part.tsx`, `Block/types/`); promote to a separate block only when a second consumer appears.
+- Sub-components and variants stay inside their block (`Block/Part.tsx`, `Block/types/`) while they are pieces of its job; one becomes a block of its own when it is a job of its own, a feature a screen shows by itself, not when a second consumer appears.
 - A domain service that outgrows one file splits by file suffix (`.types`, `.adapter`, `.mock`), not into sub-folders.
 - When a layer stops fitting on one screen, that is the signal the app has outgrown this structure and layers need slicing by domain — out of scope here.
