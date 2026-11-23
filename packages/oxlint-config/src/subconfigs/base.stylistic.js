@@ -32,18 +32,6 @@ export default {
     'stylistic-js/no-multi-spaces': 'error',
 
     // Stylistic Issues
-    'stylistic-js/array-bracket-newline': [
-      'error',
-      'consistent'
-    ],
-    'stylistic-js/array-bracket-spacing': ['error', 'never'],
-    'stylistic-js/array-element-newline': [
-      'error',
-      {
-        consistent: true,
-        multiline: true
-      }
-    ],
     'stylistic-js/arrow-parens': [
       'error',
       'as-needed',
@@ -65,9 +53,7 @@ export default {
       }
     ],
     'stylistic-js/eol-last': 'error',
-    'stylistic-js/function-call-argument-newline': ['error', 'consistent'],
     'stylistic-js/function-call-spacing': 'error',
-    'stylistic-js/function-paren-newline': ['error', 'consistent'],
     'stylistic-js/generator-star-spacing': ['error', 'after'],
     'stylistic-js/implicit-arrow-linebreak': ['error', 'beside'],
     'stylistic-js/indent': [
@@ -95,6 +81,19 @@ export default {
         exceptAfterSingleLine: true
       }
     ],
+    'stylistic-js/list-style': [
+      'error',
+      {
+        overrides: {
+          ObjectExpression: {
+            singleLine: {
+              maxItems: 0
+            }
+          },
+          IfStatement: 'off'
+        }
+      }
+    ],
     'stylistic-js/max-statements-per-line': 'error',
     'stylistic-js/multiline-ternary': ['error', 'always-multiline'],
     'stylistic-js/new-parens': 'error',
@@ -116,30 +115,6 @@ export default {
     'stylistic-js/no-tabs': 'error',
     'stylistic-js/no-trailing-spaces': 'error',
     'stylistic-js/no-whitespace-before-property': 'error',
-    'stylistic-js/object-curly-newline': [
-      'error',
-      {
-        ObjectExpression: {
-          minProperties: 1
-        },
-        ObjectPattern: {
-          multiline: true
-        },
-        ImportDeclaration: {
-          multiline: true
-        },
-        ExportDeclaration: {
-          multiline: true
-        }
-      }
-    ],
-    'stylistic-js/object-curly-spacing': ['error', 'always'],
-    'stylistic-js/object-property-newline': [
-      'error',
-      {
-        allowAllPropertiesOnSameLine: false
-      }
-    ],
     'stylistic-js/one-var-declaration-per-line': ['error', 'initializations'],
     'stylistic-js/operator-linebreak': [
       'error',
