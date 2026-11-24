@@ -47,6 +47,33 @@ Scripts and configs for TrigenSoftware's projects.
 - [`item-by-item`](skills/item-by-item/SKILL.md)
 - [`weekly-audit`](skills/weekly-audit/SKILL.md)
 
+## Skill sets
+
+### Frontend library
+
+```sh
+pnpx skills add TrigenSoftware/scripts --skill \
+  project unit-tests tree-shaking size-limit item-by-item
+```
+
+### Node.js library
+
+```sh
+pnpx skills add TrigenSoftware/scripts --skill \
+  project unit-tests item-by-item
+```
+
+### React application
+
+```sh
+pnpx skills add TrigenSoftware/scripts --skill \
+  project flat-layers-design design-system \
+  layout-stability native-overlays form-states ux-writing \
+  css-mixin css-containers css-light-dark ui-component react-component svg-sprite-icons storybook \
+  unit-tests ui-verification tree-shaking \
+  chrome-mcp browserstack-mcp item-by-item weekly-audit
+```
+
 ## Available packages
 
 | Package | Version | Dependencies |
