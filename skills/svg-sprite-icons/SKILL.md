@@ -43,7 +43,11 @@ app/uikit/Icon/          — Icon component (see the react-component skill for f
 
 - One SVG file per icon; the file base name (`copy.svg` → `copy`) becomes the `<symbol>` id and the `Icon` component's `name` value.
 - Monochrome icons must use `currentColor` for `stroke`/`fill`, so consumers set the color via the CSS `color` property (see the ui-component skill).
-- Multicolor icons (status badges, logos) keep their hardcoded colors.
+- Multicolor icons, such as status badges, keep their hardcoded colors.
+- Brand art is a picture, not an icon: a logo, a wordmark or an illustration is an SVG file of its own, shown with `<img>` and handed to a kit component as its children, never a symbol of the sprite or a `path` string in code. It keeps its own colors and proportions, and a theme that needs other inks gets a second picture (the `css-light-dark` skill).
+- A directional icon is drawn once per direction, `chevron-up`, `chevron-down`, `chevron-left`, `chevron-right`, never one symbol turned by CSS.
+- An icon with an adornment, such as a plus or a badge, keeps its main shape centred on its grid, at 12, 12 on a 24 grid; the adornment stands in a gap cut in the shape's stroke, clear of it by about a stroke's width, never by moving the shape off its centre. Check it in a round icon button at a high pixel ratio.
+- A component's own simple mark, such as a ring or a tick drawn from its state, is CSS, not an icon of the set (the `ui-component` skill).
 - Keep the original `viewBox` by default; the sprite preserves it per symbol, and the rendered size is set on the `Icon` element.
 - Rescale the source geometry when keeping the original grid would make the icon clash with its family. Icons drawn on different grids get different apparent stroke weights at the same rendered size — a 32-grid icon with `stroke-width: 1.7` shown at 28px draws a ~1.5px stroke, while a 24-grid icon with `stroke-width: 1.6` shown at 27px draws ~1.8px. Judge consistency at the sizes the icons are actually rendered at, not by comparing `viewBox` values, and note the reason next to the icon source.
 

@@ -163,13 +163,14 @@ services/garden/
 ```
 
 - Error codes are a `const` object of string constants; the service throws `new Error(GardenError.NotFound, await causeFromResponse(response))`. UI maps codes to messages, never reads `error.message` as copy.
+- A service that needs another's failure under its own code catches it where it calls, in a plain `try`/`catch`, and throws its own `Error` with the caught one as its `cause`. A code is never handed down as a parameter to be thrown further in. The codes live in the service's `*.types.ts`, and a predicate such as `isUnauthorized` reads the causes to their end.
 - `Raw*` types mirror the wire format; everything above `services` sees only domain types.
 - A service does not need external I/O to be a service. Image URL building (`image/imageUrl.ts`), password policy (`password/password.ts`), document parsing (`document/`) work with domain data and carry business rules, so they are services here, not `shared/utils`; both stores and blocks may use them.
 - In a tiny app a domain is two flat files: `services/<domain>.ts` + `services/<domain>.types.ts`.
 
 ### `stores/`
 
-One file per domain plus infrastructure stores. camelCase file names — these are not components.
+One file per domain plus infrastructure stores, and a file per subdomain once a domain has several concerns. camelCase file names — these are not components.
 
 ```
 stores/
@@ -177,9 +178,18 @@ stores/
   query.ts    — query/cache client setup (dedupe, SSR, error logging), if a query library is used
   intl.ts     — locale + message loading
   user.ts  garden.ts  plant.ts  post.ts  report.ts   — domain stores
+  plant.list.ts  plant.selection.ts                   — a domain's subdomains
 ```
 
 A store holds the state and the actions of its domain (for `garden`: the current garden, its loading and error state, `createGarden`, `deleteGarden`), reads services for data and other stores for context (`./router` params, `./query` client). The state library is not prescribed (signals, atoms, observables, a query client); whatever it is, the store is the only layer that calls service methods, and navigation side effects of an action (redirect after login, go to the created entity) live in the store, not in the block.
+
+A store file goes whole into every chunk whose code imports any one of its stores, so a page pays for every store beside the one it reads. Cut a domain by its subdomains:
+
+- `stores/{domain}.ts` holds what its subdomains share: the domain's query keys and entities, and the stores the app's frame reads on every page.
+- `stores/{domain}.{subdomain}.ts` holds the stores of one concern and what only they read, their keys, constants and helpers: `plant.list.ts`, `plant.selection.ts`. A subdomain is named in one word, by what its stores are about.
+- A subdomain imports its base and other domains' files; a base imports none of its subdomains, so no cycle forms. A store is imported from the file that holds it, never through the base.
+- A file of one store stays whole. A new store goes to the subdomain it serves, or opens one; the base takes it only when the frame reads it.
+- What one page reads from the address is that page's store, in its subdomain, not the shared route-params store every chunk carries.
 
 ### `uikit/`
 

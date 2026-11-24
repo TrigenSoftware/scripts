@@ -21,6 +21,7 @@ BrowserStack runs real browsers on real macOS, Windows, iOS and Android machines
 ## When to use it
 
 - **Before stating how Safari, Firefox, Edge or a mobile browser behaves.** Run it there, at least on the oldest and the newest version that matter. Engine source, specs and caniuse explain a result but are not one: WebKit source once "proved" that Safari drops a read-only date field from the Tab order, and real Safari 16.5 to 27 kept it there.
+- **Before using a feature newer than the oldest browser the product supports.** Decide first what a reader of that browser gets, something that still works, and check it there and in the newest, for real.
 - **After UI work that depends on the engine or the OS.** Native controls (search, date, datalist), fonts and text metrics, scrollbars, focus rings, IME, touch and the on-screen keyboard all differ outside Chrome.
 - **When the user wants to see a page in another browser or OS.** Show screenshots per browser in one gallery, or open a Live session for the user.
 - **For an accessibility scan of a page**, with `startAccessibilityScan`. Like Live sessions, it opens the tunnel for localhost URLs itself.
@@ -114,11 +115,13 @@ try {
 - Desktop machines report `devicePixelRatio` 1. For 2 in Chrome or Edge, emulate it over CDP: `POST /session/{id}/goog/cdp/execute` (`ms/cdp/execute` in Edge) with `Emulation.setDeviceMetricsOverride`.
 - iOS Safari has no element screenshots, and its screenshot is the whole device screen: inject a marker of known size and crop by it. Android Chrome has element screenshots.
 - Safari on BrowserStack's macOS has "Press Tab to highlight each item" on, so Tab reaches every control.
+- A real iOS device runs WebDriver through Appium: `DELETE /session/{id}/actions` is not supported, so wrap it in a `catch`; pointer actions take device pixels, not CSS pixels; and an action with an element as its origin can hit a stale element. To press a spot, inject an element of a known size there and click it with `POST /session/{id}/element/{elementId}/click`.
 - An element inside a shadow root is screenshotted from the root: `findElement(host).getShadowRoot().findElement(selector).takeScreenshot()` in Selenium.
 - There are no Linux desktops.
 
 ### Hygiene
 
+- End every session with its result, so the dashboard shows what passed: `execute/sync` with `browserstack_executor: {"action": "setSessionStatus", "arguments": {"status": "passed", "reason": "…"}}`, or `failed`, before the `DELETE`.
 - Credentials come only from the environment. Never print, echo or log them, and mask output that might contain them: `sed "s/$BROWSERSTACK_ACCESS_KEY/***/g"`.
 - The plan limits parallel sessions, and other agents and people share them. Run at most 3 at once, `DELETE` every session in a `finally`, and check at the end that `GET https://api.browserstack.com/automate/plan.json` shows none running.
 - A session can take minutes to start when machines are busy. Give `POST /session` a long timeout and every other command a short one, so a stuck browser fails the run instead of hanging it.

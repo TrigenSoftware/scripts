@@ -23,6 +23,11 @@ Scripts and configs for TrigenSoftware's projects.
 
 - [`project`](skills/project/SKILL.md)
 - [`flat-layers-design`](skills/flat-layers-design/SKILL.md)
+- [`design-system`](skills/design-system/SKILL.md)
+- [`layout-stability`](skills/layout-stability/SKILL.md)
+- [`native-overlays`](skills/native-overlays/SKILL.md)
+- [`form-states`](skills/form-states/SKILL.md)
+- [`ux-writing`](skills/ux-writing/SKILL.md)
 - [`eslint-to-oxlint`](skills/eslint-to-oxlint/SKILL.md)
 - [`css-mixin`](skills/css-mixin/SKILL.md)
 - [`css-containers`](skills/css-containers/SKILL.md)
@@ -33,11 +38,14 @@ Scripts and configs for TrigenSoftware's projects.
 - [`svg-sprite-icons`](skills/svg-sprite-icons/SKILL.md)
 - [`storybook`](skills/storybook/SKILL.md)
 - [`unit-tests`](skills/unit-tests/SKILL.md)
+- [`ui-verification`](skills/ui-verification/SKILL.md)
 - [`tree-shaking`](skills/tree-shaking/SKILL.md)
 - [`size-limit`](skills/size-limit/SKILL.md)
 - [`codex`](skills/codex/SKILL.md)
 - [`chrome-mcp`](skills/chrome-mcp/SKILL.md)
 - [`browserstack-mcp`](skills/browserstack-mcp/SKILL.md)
+- [`item-by-item`](skills/item-by-item/SKILL.md)
+- [`weekly-audit`](skills/weekly-audit/SKILL.md)
 
 ## Available packages
 

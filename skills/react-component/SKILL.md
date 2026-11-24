@@ -240,6 +240,15 @@ export function ReportTitle({ className }: ReportTitleProps) {
 
 Name event handlers in the `on*` form, never `handle*`: `onCloseCallback`, `onClickCallback` for `useCallback`-wrapped handlers inside the component, `onSomeButtonClick` for handlers extracted to module scope — not `handleClose`/`handleClick`.
 
+## With React Compiler
+
+A project that builds with React Compiler memoizes nothing by hand: the compiler memoizes components and hooks as it builds them. There the rules above change:
+
+- No `useMemo`, `useCallback` or `memo`. A handler or a derived value is written plainly, `const onCloseCallback = () => setShow(false)`, and stays the same between renders while what it reads does. Handlers keep their `on*Callback` names.
+- A type a `useMemo<T>` gave a value stays on its variable: `const items: Item[] = …`.
+- What the compiler cannot prove safe it leaves as written. Turn on its diagnostics, `compiler: { reportDiagnostics: true }` in `@vitejs/plugin-react` or a `logger` in the Babel plugin, to see which component stayed uncompiled and why. A component whose handler or value reaches an effect or a context must compile: move out what stops it.
+- The compiler computes a value again only when what it reads changes. A value that changes on its own, such as the time read with `Date.now()`, comes from state or a store, so the render follows it.
+
 ## Rules
 
 - Code that doesn't directly depend on the component must be moved out of the component body, to module scope:
@@ -278,7 +287,7 @@ Name event handlers in the `on*` form, never `handle*`: `onCloseCallback`, `onCl
   }
   ```
 
-- Universal components must forward all remaining props to the root element, spreading `...props` after the explicitly set props — see the reference `Button` above: `onClick`, `type`, etc. reach `<button>` via the spread instead of being listed one by one. The exception is an attribute the component owns, one it derives from its own prop and must not lose to a passed-in value, such as `aria-disabled` rendered from a `busy` prop: it goes after the spread, and the props type declares it `never`.
+- Universal components must forward all remaining props to the root element, spreading `...props` after the explicitly set props — see the reference `Button` above: `onClick`, `type`, etc. reach `<button>` via the spread instead of being listed one by one. The exception is an attribute the component owns, one it derives from its own prop and must not lose to a passed-in value, such as `aria-disabled` rendered from a `busy` prop: it goes after the spread, and the props type declares it `never`. A hyphenated one, `aria-*` or `data-*`, needs that most: `Omit` cannot keep it out, as JSX does not check hyphenated names a props type lacks.
 - `ref` is always the first prop and `className` the next — first among the JSX attributes and first in the props destructuring, as the reference `Button` does for `className`. A `ref` the component owns, which a passed one must not replace, stands after the spread with its other owned attributes, first among them:
 
   ```jsx
@@ -338,7 +347,7 @@ Name event handlers in the `on*` form, never `handle*`: `onCloseCallback`, `onCl
   </Card>
   ```
 
-  A `*ClassName` prop is for exceptional cases only, where the element cannot be split out.
+  A `*ClassName` prop is for exceptional cases only, where the element cannot be split out. When a parent must react to an inner part, the part marks itself with a `data-*` attribute instead, as `ui-component` says.
 
 - Don't pass unneeded props to the root element — destructure props consumed by hooks so they don't leak into the rest spread:
 
@@ -375,5 +384,3 @@ Name event handlers in the `on*` form, never `handle*`: `onCloseCallback`, `onCl
   ```ts
   import { type ReactNode, memo, useState } from 'react'
   ```
-
-- For focus locking use `react-focus-on` or `react-focus-lock`.

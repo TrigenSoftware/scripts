@@ -60,6 +60,22 @@ metadata:
   }
   ```
 
+## Roles in two themes
+
+- The dark theme's neutral roles draw from a ramp of hue-less greys of their own, never from the light theme's tinted ramp: a tint that reads neutral beside white reads colored on a dark ground (the `design-system` skill's color rules).
+- Where the dark theme needs another step than the light one, the role says so, its pair taking different steps of the ramps. Never read another role because its light value happens to match: the two part in the dark.
+- A state that lifts reads the roles made for it, such as a hover's or a raised surface's, never the canvas or the surface because their light values match what it needs: in the dark theme the canvas and the surface sink below what stands on them.
+
+  ```css
+  :root {
+    --colorBgSurface: light-dark(var(--colorWhite), var(--colorGray900));
+    /* Not --colorBgCanvas, which matches it in the light theme and sinks in the dark */
+    --colorBgSurfaceHover: light-dark(var(--colorNeutral50), var(--colorGray800));
+  }
+  ```
+
+- What stands on a photo keeps the light theme by `color-scheme: light` on itself: a glass bar, a white disc behind an icon, a chip over a hero picture, a photo viewer. Its tokens then resolve to their light half whatever the page's theme, and nothing on it inverts.
+
 ## A theme switch
 
 A site's own theme switch forces the scheme on the root the same way, so the tokens stay `light-dark()` pairs. The choice is the browser's, kept in `localStorage`, never in a cookie or the account: the server renders one page for everyone, and a visitor without an account can choose too. The page's head sets it before the stylesheets arrive, so a server-rendered page opens in the chosen theme, never in the system's first:

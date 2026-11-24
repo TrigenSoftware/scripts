@@ -456,7 +456,7 @@ If the project's linter rejects this layout, or its `--fix` collapses it back, t
   )
   ```
 
-  A `*Class` or `*ClassName` prop is for exceptional cases only, where the element cannot be split out.
+  A `*Class` or `*ClassName` prop is for exceptional cases only, where the element cannot be split out. When a parent must react to an inner part, the part marks itself with a `data-*` attribute instead, as `ui-component` says.
 
 - Import views from `nanoviews` and reactivity from `nanoviews/store`, by name:
 
@@ -475,4 +475,4 @@ If the project's linter rejects this layout, or its `--fix` collapses it back, t
   } from 'nanoviews'
   ```
 
-- `react-focus-on` and `react-focus-lock` are React-only. Drive a DOM-level focus trap (e.g. `focus-trap`) from an `effect$`, and tear it down in the effect's cleanup.
+- A modal is the native `<dialog>` opened with `showModal()`, which keeps focus inside by itself, as `ui-component` says. A trap the platform does not give is a DOM-level focus trap (e.g. `focus-trap`) driven from an `effect$` and torn down in the effect's cleanup, never one for a dialog.

@@ -74,7 +74,7 @@ Every tool has one job; together they form the baseline:
 - **size-limit** (`.size-limit.json`) — bundle size budget; only for libraries where size matters (frontend).
 - **clean-publish** (`.clean-publish`) — publishes a cleaned copy from the `package` temp dir; pairs with `publishConfig.directory: "package"` and `prepublishOnly`/`postpublish` scripts in each published package.
 - **simple-release** (`.simple-release.json`) — versioning/changelog/publish; for monorepos use `@simple-release/pnpm#PnpmWorkspacesProject` (`mode: "fixed"` for a single shared version).
-- **renovate** (`.github/renovate.json`) — dependency updates; `config:recommended` + `:preserveSemverRanges`.
+- **renovate** (`.github/renovate.json`) — dependency updates; `config:recommended` + `:preserveSemverRanges` + `helpers:pinGitHubActionDigests`, which keeps the actions' pinned commits current.
 
 ## GitHub workflows
 
@@ -84,6 +84,8 @@ Every tool has one job; together they form the baseline:
 - `release.yml` — on pushes to `main` and issue comments: `trigensoftware/simple-release-action` with three jobs — `check` (context check) routes to `pull-request` (create/update release PR) or `release` (publish with `NPM_TOKEN`).
 
 All Node.js jobs: `pnpm/action-setup` → `actions/setup-node` with `cache: 'pnpm'` → `pnpm install`.
+
+Pin every action to the full 40-character commit SHA of its release, with the tag as a comment: `uses: actions/checkout@<sha> # v7.0.1`. A tag can be moved to other code; a commit cannot. Look up the latest tag with `gh release view --repo <owner>/<repo> --json tagName` and resolve its commit with `git ls-remote https://github.com/<owner>/<repo>.git 'refs/tags/<tag>^{}'` (an annotated tag; a lightweight one is `refs/tags/<tag>` itself). Existing repositories move to pins as their workflows are touched.
 
 ## package.json conventions
 

@@ -125,3 +125,16 @@ it('should throw error when unexpected arg', () => {})
 - Variants of the same behavior are separate `it`s under the unit's `describe`, or under a scenario `describe` when a whole group of tests shares a mode.
 
 Some older ported test suites contain non-`should` titles; don't copy that style — new tests always use `should`.
+
+## A library's gap
+
+When the code misbehaves because of what a library does, the fix belongs in the library: report it to its maintainers with the evidence, what the library does, what the code needs and how it was checked, and do not work around it in the code. Pin the case with `it.fails`, its title saying what should happen and a comment naming the report:
+
+```ts
+// The locale matcher compares whole tags, so `ro-RO` misses `ro`: reported as owner/repo#123
+it.fails('should match a language without its region', () => {
+  expect(browserLocale(['ro-RO'], ['en', 'ro'])).toBe('ro')
+})
+```
+
+While the gap stays, the test passes. Once the library is fixed and updated, it fails, and the `fails` is dropped.
