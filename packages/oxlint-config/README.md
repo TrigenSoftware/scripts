@@ -54,6 +54,7 @@ There are additional configs for specific language features:
 | @trigen/oxlint-config/bundler | Rules for ES modules with bundler's module resolution. |
 | @trigen/oxlint-config/test | Rules for test files. |
 | @trigen/oxlint-config/react | Rules for React code. |
+| @trigen/oxlint-config/jsx-a11y | Accessibility rules for JSX. |
 | @trigen/oxlint-config/storybook | Rules for Storybook stories. |
 | @trigen/oxlint-config/typescript | Rules for TypeScript code. |
 | @trigen/oxlint-config/typescript-type-checked | Rules for TypeScript code with type checking. |
@@ -64,6 +65,7 @@ Example:
 import baseConfig from '@trigen/oxlint-config'
 import bundlerConfig from '@trigen/oxlint-config/bundler'
 import reactConfig from '@trigen/oxlint-config/react'
+import jsxA11yConfig from '@trigen/oxlint-config/jsx-a11y'
 import typescriptConfig from '@trigen/oxlint-config/typescript-type-checked'
 import testConfig from '@trigen/oxlint-config/test'
 import storybookConfig from '@trigen/oxlint-config/storybook'
@@ -73,6 +75,7 @@ export default {
     baseConfig,
     bundlerConfig,
     reactConfig,
+    jsxA11yConfig,
     typescriptConfig,
     testConfig,
     storybookConfig
