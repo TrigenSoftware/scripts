@@ -2,6 +2,8 @@
  * Strict config
  */
 
+import { join } from 'node:path'
+
 const systemColors = '/^(AccentColor|AccentColorText|ActiveText|ButtonBorder|ButtonFace|ButtonText|Canvas|CanvasText|Field|FieldText|GrayText|Highlight|HighlightText|LinkText|Mark|MarkText|SelectedItem|SelectedItemText|VisitedText)$/'
 const colorValues = [
   'currentcolor',
@@ -58,7 +60,11 @@ const strictValue = [
 ]
 
 export default {
-  plugins: ['stylelint-declaration-strict-value', 'stylelint-plugin-a11y'],
+  plugins: [
+    join(import.meta.dirname, '../plugin/index.js'),
+    'stylelint-declaration-strict-value',
+    'stylelint-plugin-a11y'
+  ],
   rules: {
     'scale-unlimited/declaration-strict-value': strictValue,
     'declaration-property-value-disallowed-list': {
@@ -102,6 +108,12 @@ export default {
         'z-index'
       ]
     },
+    // A thin scrollbar for a mouse alone: add a project's own media through `customMedia`
+    'trigen/thin-scrollbar-in-media': true,
+    // Every length a token or a calc of tokens, with no number of its own inside
+    'trigen/no-bare-length': true,
+    // A block's outer margin is its consumer's
+    'trigen/no-root-margin': true,
     'a11y/line-height-is-vertical-rhythmed': [
       true,
       {
