@@ -2,6 +2,7 @@
  * Common config
  */
 
+import { join } from 'node:path'
 import concentricCss from './concentric-css.js'
 import {
   pascalCaseMatcher,
@@ -10,6 +11,7 @@ import {
 
 export default {
   plugins: [
+    join(import.meta.dirname, '../plugin/index.js'),
     '@stylistic/stylelint-plugin',
     'stylelint-order',
     'stylelint-plugin-a11y',
@@ -35,6 +37,9 @@ export default {
         unspecified: 'bottom'
       }
     ],
+    // Trigen
+    // Hover styles in a hover media query: add a project's own media through `customMedia`
+    'trigen/hover-in-media': true,
     // A11y
     'a11y/font-size-is-readable': true,
     'a11y/media-prefers-reduced-motion': true,

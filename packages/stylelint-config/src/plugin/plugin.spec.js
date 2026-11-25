@@ -1,0 +1,168 @@
+import {
+  describe,
+  it,
+  expect
+} from 'vitest'
+import stylelint from 'stylelint'
+import plugins from './index.js'
+
+async function lint(rules, code, codeFilename) {
+  const { results: [result] } = await stylelint.lint({
+    code,
+    codeFilename,
+    config: {
+      plugins,
+      rules
+    }
+  })
+
+  return result.warnings.map(warning => warning.text)
+}
+
+describe('stylelint-config', () => {
+  describe('plugin', () => {
+    describe('hover-in-media', () => {
+      const message = 'Put `:hover` styles in a hover media query, so a tap does not leave a control looking hovered. (trigen/hover-in-media)'
+
+      it('should report hover styles outside a media query', async () => {
+        expect(await lint({
+          'trigen/hover-in-media': true
+        }, '.button:hover { color: red; }')).toEqual([message])
+      })
+
+      it('should allow hover styles in a hover media query', async () => {
+        expect(await lint({
+          'trigen/hover-in-media': true
+        }, '@media (hover: hover) { .button:hover { color: red; } }')).toEqual([])
+      })
+
+      it('should report hover styles in a custom media query not given', async () => {
+        expect(await lint({
+          'trigen/hover-in-media': true
+        }, '@media (--screenHover) { .button:hover { color: red; } }')).toEqual([message])
+      })
+
+      it('should allow hover styles in a custom media query given', async () => {
+        expect(await lint({
+          'trigen/hover-in-media': [
+            true,
+            {
+              customMedia: ['--screenHover', '--screenMouse']
+            }
+          ]
+        }, '@media (--screenMouse) { .list { & .item:hover { color: red; } } }')).toEqual([])
+      })
+
+      it('should leave a selector without hover', async () => {
+        expect(await lint({
+          'trigen/hover-in-media': true
+        }, '.button:focus-visible { color: red; }')).toEqual([])
+      })
+    })
+
+    describe('thin-scrollbar-in-media', () => {
+      const message = 'Make a scrollbar thin for a mouse alone, in a pointer media query: a finger keeps the overlay one. (trigen/thin-scrollbar-in-media)'
+
+      it('should report a thin scrollbar outside a media query', async () => {
+        expect(await lint({
+          'trigen/thin-scrollbar-in-media': true
+        }, '.list { scrollbar-width: thin; }')).toEqual([message])
+      })
+
+      it('should allow a thin scrollbar in a pointer media query', async () => {
+        expect(await lint({
+          'trigen/thin-scrollbar-in-media': true
+        }, '@media (pointer: fine) { .list { scrollbar-width: thin; } }')).toEqual([])
+      })
+
+      it('should allow a thin scrollbar in a custom media query given', async () => {
+        expect(await lint({
+          'trigen/thin-scrollbar-in-media': [
+            true,
+            {
+              customMedia: '--screenMouse'
+            }
+          ]
+        }, '@media (--screenMouse) { .list { scrollbar-width: thin; } }')).toEqual([])
+      })
+
+      it('should leave other scrollbar widths', async () => {
+        expect(await lint({
+          'trigen/thin-scrollbar-in-media': true
+        }, '.list { scrollbar-width: none; }')).toEqual([])
+      })
+    })
+
+    describe('no-root-margin', () => {
+      const rules = {
+        'trigen/no-root-margin': true
+      }
+      const message = 'A block does not set its own outer margin: where it stands is its consumer\'s. Only `0` and `auto` reset or center it. (trigen/no-root-margin)'
+
+      it('should report a margin on the root', async () => {
+        expect(await lint(rules, '.root { margin-block-end: var(--sizeSpace4); }')).toEqual([message])
+      })
+
+      it('should report a margin on the root in a state', async () => {
+        expect(await lint(rules, '.root.open { margin: 4px 0; }')).toEqual([message])
+      })
+
+      it('should report a margin in a nested state of the root', async () => {
+        expect(await lint(rules, '.root { &:not(.inline) { margin: -1px; } }')).toEqual([message])
+      })
+
+      it('should allow a reset and centering', async () => {
+        expect(await lint(rules, '.root { margin: 0; } .root:modal { margin: auto 0 0; }')).toEqual([])
+      })
+
+      it('should leave an element inside the root', async () => {
+        expect(await lint(rules, '.root .title { margin-block-end: var(--sizeSpace2); }')).toEqual([])
+      })
+    })
+
+    describe('uikit-module-root', () => {
+      const rules = {
+        'trigen/uikit-module-root': true
+      }
+      const message = 'A kit component\'s module styles its root element as `.root`. (trigen/uikit-module-root)'
+
+      it('should report a kit module without a root', async () => {
+        expect(await lint(rules, '.button { color: red; }', '/app/uikit/Button/Button.module.css')).toEqual([message])
+      })
+
+      it('should allow a kit module with a root', async () => {
+        expect(await lint(rules, '.root { color: red; }', '/app/uikit/Button/Button.module.css')).toEqual([])
+      })
+
+      it('should leave a block module', async () => {
+        expect(await lint(rules, '.grid { gap: 0; }', '/app/blocks/Card/Card.module.css')).toEqual([])
+      })
+
+      it('should leave a module named apart from its folder', async () => {
+        expect(await lint(rules, '.hideDark { display: none; }', '/app/uikit/mixins.module.css')).toEqual([])
+      })
+    })
+
+    describe('no-bare-length', () => {
+      const rules = {
+        'trigen/no-bare-length': true
+      }
+
+      it('should report a length in a value', async () => {
+        expect(await lint(rules, '.root { inline-size: 32px; }')).toEqual(['Expected a token or a calc of tokens for "32px": a value no scale owns is a custom property of the component. (trigen/no-bare-length)'])
+      })
+
+      it('should report a length in a calc', async () => {
+        expect(await lint(rules, '.root { inline-size: calc(var(--sizeControlMd) - 2px); }')).toEqual(['Expected a token or a calc of tokens for "2px": a value no scale owns is a custom property of the component. (trigen/no-bare-length)'])
+      })
+
+      it('should report a time', async () => {
+        expect(await lint(rules, '.root { transition-delay: 300ms; }')).toEqual(['Expected a token or a calc of tokens for "300ms": a value no scale owns is a custom property of the component. (trigen/no-bare-length)'])
+      })
+
+      it('should allow a custom property, a fallback, zero and proportions', async () => {
+        expect(await lint(rules, '.root { --cardSizePicture: 24px; inline-size: var(--cardSizePicture, 24px); margin: 0; flex: 1 1 50%; block-size: 100dvh; grid-template-columns: 1fr 2fr; padding-block: 0.5lh; }')).toEqual([])
+      })
+    })
+  })
+})

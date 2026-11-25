@@ -2,6 +2,7 @@
  * Flat Layers Design config
  */
 
+import { join } from 'node:path'
 import {
   strictCustomPropertyMatcher,
   strictMediaQueryMatcher
@@ -39,7 +40,10 @@ const mediaFeatures = [
 ]
 
 export default {
+  plugins: [join(import.meta.dirname, '../plugin/index.js')],
   rules: {
+    // A kit component's root is `.root`
+    'trigen/uikit-module-root': true,
     // Breakpoints and features are custom media of `media.css`, and the theme is the tokens' or,
     // for a picture drawn per theme, the mixins'
     'media-feature-name-disallowed-list': [...mediaFeatures, 'prefers-color-scheme'],
