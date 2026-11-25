@@ -239,6 +239,7 @@ export default {
     'eslint/prefer-object-spread': 'error',
     'eslint/unicode-bom': 'error',
     'unicorn/consistent-function-scoping': 'error',
+    'trigen/english-only-comments': 'error',
     'trigen/func-style': 'error',
     'trigen/naming-convention': [
       'error',

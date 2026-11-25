@@ -20,6 +20,7 @@ export default {
     {
       files: reactFiles,
       plugins: ['react'],
+      jsPlugins: ['@trigen/oxlint-config/plugin'],
       rules: {
         // React
         'react/no-array-index-key': 'warn',
@@ -72,7 +73,12 @@ export default {
           }
         ],
         'react/jsx-no-undef': 'error',
-        'react/jsx-no-useless-fragment': 'error'
+        'react/jsx-no-useless-fragment': 'error',
+
+        // Trigen
+        'trigen/no-classname-props': 'error',
+        'trigen/suspense-fallback': 'error',
+        'trigen/time-datetime': 'error'
       }
     }
   ]
