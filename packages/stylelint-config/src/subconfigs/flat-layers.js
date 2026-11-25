@@ -72,23 +72,12 @@ export default {
     ],
     // Only a mixin, a utility, has to win over what it stands beside
     'declaration-no-important': true,
-    // Colors and easings are tokens
+    // Colors are tokens: a color function only derives one from them, from `currentcolor` or
+    // `transparent`, as a tint of the words' ink does
     'color-no-hex': true,
-    'function-disallowed-list': [
-      'rgb',
-      'rgba',
-      'hsl',
-      'hsla',
-      'hwb',
-      'lab',
-      'lch',
-      'oklab',
-      'oklch',
-      'color',
-      'color-mix',
-      'cubic-bezier',
-      'steps'
-    ]
+    'trigen/no-bare-color-function': true,
+    // Easings are tokens
+    'function-disallowed-list': ['cubic-bezier', 'steps']
   },
   overrides: [
     {
@@ -96,6 +85,7 @@ export default {
       rules: {
         'color-no-hex': null,
         'function-disallowed-list': null,
+        'trigen/no-bare-color-function': null,
         // A token's name starts with its type: `--colorText`, `--sizeSpace4`
         'custom-property-pattern': [
           strictCustomPropertyMatcher,

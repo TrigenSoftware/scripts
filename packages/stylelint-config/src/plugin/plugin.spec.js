@@ -52,6 +52,43 @@ describe('stylelint-config', () => {
       })
     })
 
+    describe('no-bare-color-function', () => {
+      const message = value => `Expected "${value}" to derive its color from a token: a color function takes only \`var()\`, \`currentcolor\` or \`transparent\`, and a color of its own is a token. (trigen/no-bare-color-function)`
+
+      it('should report a color function with channels of its own', async () => {
+        expect(await lint({
+          'trigen/no-bare-color-function': true
+        }, '.a { color: rgb(12 34 56); background: oklch(0.5 0.1 150); }')).toEqual([
+          message('rgb(12 34 56)'),
+          message('oklch(0.5 0.1 150)')
+        ])
+      })
+
+      it('should allow a mix of tokens, the words\' ink and transparent', async () => {
+        expect(await lint({
+          'trigen/no-bare-color-function': true
+        }, [
+          '.a { text-decoration-color: color-mix(in srgb, currentcolor 40%, transparent); }',
+          '.b { background: color-mix(in oklab, var(--colorScrim) 53%, var(--colorCanvas)); }'
+        ].join('\n'))).toEqual([])
+      })
+
+      it('should allow a relative color from a token', async () => {
+        expect(await lint({
+          'trigen/no-bare-color-function': true
+        }, '.a { background: rgb(from var(--colorScrim) r g b / calc(alpha * 0.5)); }')).toEqual([])
+      })
+
+      it('should report a mix or a relative color with a color of its own', async () => {
+        expect(await lint({
+          'trigen/no-bare-color-function': true
+        }, '.a { color: color-mix(in srgb, red 50%, var(--colorText)); background: rgb(from #fff r g b / 50%); }')).toEqual([
+          message('color-mix(in srgb, red 50%, var(--colorText))'),
+          message('rgb(from #fff r g b / 50%)')
+        ])
+      })
+    })
+
     describe('hover-in-media', () => {
       const message = 'Put `:hover` styles in a hover media query, so a tap does not leave a control looking hovered. (trigen/hover-in-media)'
 
