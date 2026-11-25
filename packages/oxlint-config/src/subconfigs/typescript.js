@@ -83,6 +83,7 @@ export default {
         'typescript/prefer-function-type': 'error',
         'typescript/unified-signatures': 'error',
         'trigen/type-import-style': 'error',
+        'trigen/no-enum': 'error',
         'trigen/member-ordering': [
           'error',
           {
