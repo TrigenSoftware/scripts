@@ -238,6 +238,7 @@ export default {
     'eslint/operator-assignment': ['error', 'always'],
     'eslint/prefer-object-spread': 'error',
     'eslint/unicode-bom': 'error',
+    'unicorn/consistent-function-scoping': 'error',
     'trigen/func-style': 'error',
     'trigen/naming-convention': [
       'error',

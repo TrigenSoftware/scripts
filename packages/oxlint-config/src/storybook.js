@@ -26,6 +26,7 @@ export default {
         'typescript/no-unsafe-call': 'off',
         'typescript/no-unsafe-argument': 'off',
         'typescript/no-explicit-any': 'off',
+        'unicorn/consistent-function-scoping': 'off',
         'trigen/func-style': 'off'
       }
     }

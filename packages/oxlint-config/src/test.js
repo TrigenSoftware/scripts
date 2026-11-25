@@ -25,6 +25,7 @@ export default {
         'typescript/no-explicit-any': 'off',
         'typescript/await-thenable': 'off',
         'typescript/no-floating-promises': 'off',
+        'unicorn/consistent-function-scoping': 'off',
         'trigen/import-order': 'off',
         'eslint/prefer-destructuring': 'off',
         'eslint/no-loop-func': 'off',
