@@ -5,6 +5,7 @@ import memberOrderingRule from './member-ordering.js'
 import namedExportOrderRule from './named-export-order.js'
 import namedImportOrderRule from './named-import-order.js'
 import namingConventionRule from './naming-convention.js'
+import noManualMemoRule from './no-manual-memo.js'
 import typeImportStyleRule from './type-import-style.js'
 
 export default {
@@ -19,6 +20,7 @@ export default {
     'named-export-order': namedExportOrderRule,
     'named-import-order': namedImportOrderRule,
     'naming-convention': namingConventionRule,
+    'no-manual-memo': noManualMemoRule,
     'type-import-style': typeImportStyleRule
   }
 }
