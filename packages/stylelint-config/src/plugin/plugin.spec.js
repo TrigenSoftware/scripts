@@ -21,6 +21,37 @@ async function lint(rules, code, codeFilename) {
 
 describe('stylelint-config', () => {
   describe('plugin', () => {
+    describe('focus-includes-hover', () => {
+      it('should report a hover declaration no focus rule sets', async () => {
+        expect(await lint({
+          'trigen/focus-includes-hover': true
+        }, '.button:hover { color: red; background: blue; } .button:focus-visible { color: red; }')).toEqual([
+          'Set `background: blue` on focus too: a keyboard reaches what a pointer does, so focus styles include the hover ones. (trigen/focus-includes-hover)'
+        ])
+      })
+
+      it('should allow a hover a focus rule matches under other conditions and media', async () => {
+        expect(await lint({
+          'trigen/focus-includes-hover': true
+        }, [
+          '@media (hover: hover) { .button:not(:disabled, [aria-disabled=true]):hover { color: red; } }',
+          '.button:not(:disabled):focus-visible { color:  red; }'
+        ].join('\n'))).toEqual([])
+      })
+
+      it('should allow a hover matched by focus on an input inside', async () => {
+        expect(await lint({
+          'trigen/focus-includes-hover': true
+        }, '.card:hover { color: red; } .card:has(> input:focus-visible) { color: red; }')).toEqual([])
+      })
+
+      it('should leave a rule that lists focus beside hover', async () => {
+        expect(await lint({
+          'trigen/focus-includes-hover': true
+        }, '.button:is(:hover, :focus-visible) { color: red; }')).toEqual([])
+      })
+    })
+
     describe('hover-in-media', () => {
       const message = 'Put `:hover` styles in a hover media query, so a tap does not leave a control looking hovered. (trigen/hover-in-media)'
 
