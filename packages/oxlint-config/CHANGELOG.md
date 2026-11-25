@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.1.0](https://github.com/TrigenSoftware/scripts/compare/v12.0.0...v12.1.0) (2026-11-25)
+
+### Features
+
+* add `consistent-function-scoping`, `no-clone-element` and `no-react-children` rules ([#215](https://github.com/TrigenSoftware/scripts/issues/215)) ([f4fc671](https://github.com/TrigenSoftware/scripts/commit/f4fc671bb3abbb34c364f8cbb536ca0033757a71))
+* add `flat-layers` config ([#218](https://github.com/TrigenSoftware/scripts/issues/218)) ([a30c330](https://github.com/TrigenSoftware/scripts/commit/a30c3306a85d1a5ac71d0dbade6fe73fd6d7ac8a))
+* add `no-enum`, `english-only-comments`, `suspense-fallback`, `time-datetime` and `no-classname-props` rules ([#219](https://github.com/TrigenSoftware/scripts/issues/219)) ([02dd071](https://github.com/TrigenSoftware/scripts/commit/02dd0715646abf9ee4dedd3c14a6b78de29dd327))
+* add `react-compiler` config ([#217](https://github.com/TrigenSoftware/scripts/issues/217)) ([897430d](https://github.com/TrigenSoftware/scripts/commit/897430d2e85b168cb322caf3fa6145c7ccdc65bb))
+* check test files and titles with the `vitest` plugin ([#216](https://github.com/TrigenSoftware/scripts/issues/216)) ([d096731](https://github.com/TrigenSoftware/scripts/commit/d09673144272e88a109d8a0643b29d76ad166687))
+
 ## [12.0.0](https://github.com/TrigenSoftware/scripts/compare/v11.0.0...v12.0.0) (2026-11-24)
 
 ### Features

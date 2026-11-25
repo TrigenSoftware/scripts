@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.1.0](https://github.com/TrigenSoftware/scripts/compare/v12.0.0...v12.1.0) (2026-11-25)
+
+### Features
+
+* add rules for hover and scrollbar media, bare lengths and root margins ([#221](https://github.com/TrigenSoftware/scripts/issues/221)) ([d66b9fb](https://github.com/TrigenSoftware/scripts/commit/d66b9fb7a5609b333ba1d6ed00b92559e8908a64))
+* take values through tokens in `strict` and add `flat-layers` config ([#220](https://github.com/TrigenSoftware/scripts/issues/220)) ([fee88c9](https://github.com/TrigenSoftware/scripts/commit/fee88c90f668727fd41931f2bc4ed52436340381))
+
 ## [12.0.0](https://github.com/TrigenSoftware/scripts/compare/v11.0.0...v12.0.0) (2026-11-24)
 
 ### ⚠ BREAKING CHANGES
