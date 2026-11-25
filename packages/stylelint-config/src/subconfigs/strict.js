@@ -97,8 +97,9 @@ export default {
         'overflow-block'
       ],
       // A block does not place itself: where it stands is its consumer's. Its margin is left out:
-      // a root resets the one its element has with `0`, which a list of properties cannot tell
-      '/^\\.root(?![\\w-])[^\\s>+~]*$/': [
+      // a root resets the one its element has with `0`, which a list of properties cannot tell.
+      // Its pseudo-elements are its own parts, placed inside it
+      '/^\\.root(?![\\w-])(?!.*::)[^\\s>+~]*$/': [
         'inset',
         '/^inset-/',
         'top',
