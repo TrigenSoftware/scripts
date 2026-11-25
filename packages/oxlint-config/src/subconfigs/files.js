@@ -14,7 +14,7 @@ export const storiesFiles = ['**/*.stories.{js,ts}{x,}', '.storybook/**/*']
 
 export const jsxFiles = ['**/*.{js,ts}x']
 
-export const hooksFiles = ['**/hooks/*.{js,ts}{x,}']
+export const hooksFiles = ['**/hooks.{js,ts}', '**/hooks/**/*.{js,ts}{x,}']
 
 export const reactFiles = [...jsxFiles, ...hooksFiles]
 
