@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.2.1](https://github.com/TrigenSoftware/scripts/compare/v12.2.0...v12.2.1) (2026-11-25)
+
+### Bug Fixes
+
+* let a root place its own pseudo-elements in `strict` ([#227](https://github.com/TrigenSoftware/scripts/issues/227)) ([ac8a44f](https://github.com/TrigenSoftware/scripts/commit/ac8a44fecd6dba3474c2c5ad4fba2a1aefa762d1))
+
 ## [12.2.0](https://github.com/TrigenSoftware/scripts/compare/v12.1.0...v12.2.0) (2026-11-25)
 
 ### Features
