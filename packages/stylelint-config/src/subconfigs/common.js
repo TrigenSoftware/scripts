@@ -123,7 +123,13 @@ export default {
     'color-function-notation': 'legacy',
     'color-named': 'always-where-possible',
     // Length
-    'length-zero-no-unit': true,
+    // A custom property keeps its unit: `0px` in `calc()` is a length, a bare `0` is not
+    'length-zero-no-unit': [
+      true,
+      {
+        ignore: ['custom-properties']
+      }
+    ],
     // Font weight
     'font-weight-notation': 'named-where-possible',
     // Function
