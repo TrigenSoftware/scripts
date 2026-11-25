@@ -24,6 +24,7 @@ export default {
         // React
         'react/no-array-index-key': 'warn',
         'react/no-children-prop': 'error',
+        'react/no-clone-element': 'error',
         'react/no-danger': 'warn',
         'react/no-danger-with-children': 'error',
         'react/no-did-mount-set-state': 'error',
@@ -37,6 +38,7 @@ export default {
             ignoreStateless: true
           }
         ],
+        'react/no-react-children': 'error',
         'react/no-redundant-should-component-update': 'error',
         'react/no-render-return-value': 'error',
         'react/no-string-refs': 'error',
