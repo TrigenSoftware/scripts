@@ -55,10 +55,12 @@ Use the `ui-component` skill as the base — it holds the framework-agnostic HTM
   [ComponentName].module.css  — component styles
   [ComponentName].stories.tsx — stories (optional, if Storybook is used)
   [ComponentName].spec.tsx    — tests (optional, on request)
-  use[HookName].ts            — component logic extracted into a hook (optional, for complex components with a lot of logic)
+  hooks.ts                    — component logic extracted into hooks (optional, for complex components with a lot of logic); a `hooks/` folder when there are several
   loadable.tsx                — lazy-loaded wrapper (optional, when the component pulls in a heavy dependency)
   skeleton.tsx                — the component's skeleton, its shape while it or its data loads (optional)
 ```
+
+A hook lives in a `.jsx` or `.tsx` file, in a `hooks.ts`, or in a file of a `hooks/` folder, wherever that file or folder stands: `uikit/hooks.ts`, `blocks/shared/hooks.ts`, `blocks/shared/hooks/garden.ts`. The linter's rules of hooks and React Compiler's rules find hooks by these files, so a hook in any other module goes unchecked.
 
 ## Reference component
 

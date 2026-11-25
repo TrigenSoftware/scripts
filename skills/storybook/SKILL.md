@@ -170,7 +170,7 @@ export const Disabled: Story = {
 
 - **`component` comes first when the component takes props alone:** the renderer renders it from args, and a story that only picks args is `{}` or `{ args }`. A complex example, such as a composition, gets a `render` instead, and so does a nanoviews component with children, which are not props there.
 - **`args` give every arg its default,** so each story starts from a complete set and changes only what it is about.
-- **`argTypes` give a control to every arg worth playing with,** and the arg goes into the component as it is: `select` (or `inline-radio` for two or three values) with `options` for a union, `boolean`, `text`, `number`, `range` with `min`, `max` and `step`, `object`. The `options` come from a typed constant, the one the component exports (`icons`) or one at the top of the module (`TONES`), never an inline list that drifts from the type. A "none" option maps to `undefined` through `mapping`, or the arg defaults to `null`.
+- **`argTypes` give a control to every arg worth playing with,** and the arg goes into the component as it is: `select` (or `inline-radio` for two or three values) with `options` for a union, `boolean`, `text`, `number`, `range` with `min`, `max` and `step`, `object`. The `options` are written inline, `['sm', 'md', 'lg']`, beside the control they feed, where a glance checks them against the type; a list too long to read there, such as every icon, comes from the typed constant the component exports (`icons`). A "none" option maps to `undefined` through `mapping`, or the arg defaults to `null`.
 - **`parameters.controls.exclude`** hides a control that does nothing in a given story.
 - **`parameters.layout`:** `centered` for controls and widgets, which is most of the UI kit; `padded`, the default, for what spans a column, such as a page header or a list; `fullscreen` for what sets its own width and margins in the app: pages, app shells, a block shown inside the app frame.
 - **The typing of `meta` is the framework skill's business:** `satisfies Meta<typeof IconButton>` above, `Meta<Args>` where the renderer can't infer the args from the component. Always `export default meta` and `type Story = StoryObj<typeof meta>`.
@@ -345,7 +345,9 @@ export function withApp({
 
 ## Stories in tests
 
-Stories have no `play` functions: behavior is asserted in `*.spec.ts` by the `unit-tests` conventions. A spec that needs the setup a story already has renders the composed story instead of building the view again. The story comes with its args and decorators, and the test passes the args it drives.
+A story's `play` brings it into the state it shows, the way a person gets there: it opens a dialog or a menu, types, submits, presses Escape. A state the story can reach through its args, its decorator or its mock data takes that instead, and a play is left for what only input reaches. A play asserts nothing: a check there runs only where someone opens the story. Behavior is asserted in `*.spec.ts` by the `unit-tests` conventions.
+
+A spec that needs the setup a story already has renders the composed story instead of building the view again. The story comes with its args and decorators, and the test passes the args it drives. `run()` renders it and plays its `play`, so a spec checks the state the story shows without driving the input twice.
 
 ```ts
 // if.spec.ts
@@ -354,8 +356,14 @@ import * as Stories from './if.stories'
 
 const {
   StaticValue,
-  ReactiveValue
+  ReactiveValue,
+  Opened
 } = composeStories(Stories)
+
+it('should trap focus in the opened dialog', async () => {
+  await Opened.run()
+  // ...
+})
 ```
 
 ## Light and dark theme
