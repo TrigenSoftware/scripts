@@ -58,6 +58,27 @@ describe('stylelint-config', () => {
           'trigen/hover-in-media': true
         }, '.button:focus-visible { color: red; }')).toEqual([])
       })
+
+      it('should allow a hover that pins the look at rest', async () => {
+        expect(await lint({
+          'trigen/hover-in-media': true
+        }, [
+          '.item[aria-current], .item[aria-current]:is(:hover, :focus-visible, :active) { color: red; }',
+          '.thumb::before, .thumb:hover::before { color: red; }'
+        ].join('\n'))).toEqual([])
+      })
+
+      it('should report a hover beside another selector at rest', async () => {
+        expect(await lint({
+          'trigen/hover-in-media': true
+        }, '.item, .other:is(:hover, :focus-visible) { color: red; }')).toEqual([message])
+      })
+
+      it('should report a hover the selector at rest cannot drop', async () => {
+        expect(await lint({
+          'trigen/hover-in-media': true
+        }, '.item, .item:not(:hover) { color: red; }')).toEqual([message])
+      })
     })
 
     describe('thin-scrollbar-in-media', () => {

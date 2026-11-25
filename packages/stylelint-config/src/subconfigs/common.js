@@ -38,7 +38,9 @@ export default {
       }
     ],
     // Trigen
-    // Hover styles in a hover media query: add a project's own media through `customMedia`
+    // Hover styles in a hover media query: add a project's own media through `customMedia`. It
+    // takes the place of a11y's `selector-pseudo-class-focus`, which asks for `:focus` in the list
+    // of a `:hover` that now stands in a media query of its own
     'trigen/hover-in-media': true,
     // A11y
     'a11y/font-size-is-readable': true,
@@ -47,7 +49,6 @@ export default {
     'a11y/no-obsolete-element': true,
     'a11y/no-outline-none': true,
     'a11y/no-text-align-justify': true,
-    'a11y/selector-pseudo-class-focus': true,
     // High performance animation
     'plugin/no-low-performance-animation-properties': [
       true,
