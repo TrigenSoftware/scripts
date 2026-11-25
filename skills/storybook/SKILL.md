@@ -194,7 +194,7 @@ export const Disabled: Story = {
 
 ### Content and fixtures
 
-- **Real copy:** the product's wording and realistic domain data, never lorem ipsum or "Button text".
+- **Real copy:** what the product says, its labels, buttons, titles and messages, is its own wording, never "Button text" or lorem ipsum. What people write in it, a post, a note, a name, may come from seeded faker, lorem included: it stands in for words the product never chooses.
 - **Typed fixtures:** built with the app's types and helpers, as SCREAMING_CASE constants at the top of the module, or in a `*.mock.ts` once stories or specs share them. Their ids match the seed of the mock API.
 - **Deterministic:** fixed dates, ids and seeds, no `Date.now()`, `Math.random()` or unseeded faker, so every render and every screenshot is the same.
 - **Offline:** images are SVG data URLs, and binary inputs are made in code (a PNG drawn on a canvas, a zip `File` built by a helper), never network URLs or asset files kept for the stories.
