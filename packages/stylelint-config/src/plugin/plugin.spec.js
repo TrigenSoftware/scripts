@@ -21,6 +21,37 @@ async function lint(rules, code, codeFilename) {
 
 describe('stylelint-config', () => {
   describe('plugin', () => {
+    describe('focus-includes-hover', () => {
+      it('should report a hover declaration no focus rule sets', async () => {
+        expect(await lint({
+          'trigen/focus-includes-hover': true
+        }, '.button:hover { color: red; background: blue; } .button:focus-visible { color: red; }')).toEqual([
+          'Set `background: blue` on focus too: a keyboard reaches what a pointer does, so focus styles include the hover ones. (trigen/focus-includes-hover)'
+        ])
+      })
+
+      it('should allow a hover a focus rule matches under other conditions and media', async () => {
+        expect(await lint({
+          'trigen/focus-includes-hover': true
+        }, [
+          '@media (hover: hover) { .button:not(:disabled, [aria-disabled=true]):hover { color: red; } }',
+          '.button:not(:disabled):focus-visible { color:  red; }'
+        ].join('\n'))).toEqual([])
+      })
+
+      it('should allow a hover matched by focus on an input inside', async () => {
+        expect(await lint({
+          'trigen/focus-includes-hover': true
+        }, '.card:hover { color: red; } .card:has(> input:focus-visible) { color: red; }')).toEqual([])
+      })
+
+      it('should leave a rule that lists focus beside hover', async () => {
+        expect(await lint({
+          'trigen/focus-includes-hover': true
+        }, '.button:is(:hover, :focus-visible) { color: red; }')).toEqual([])
+      })
+    })
+
     describe('hover-in-media', () => {
       const message = 'Put `:hover` styles in a hover media query, so a tap does not leave a control looking hovered. (trigen/hover-in-media)'
 
@@ -57,6 +88,27 @@ describe('stylelint-config', () => {
         expect(await lint({
           'trigen/hover-in-media': true
         }, '.button:focus-visible { color: red; }')).toEqual([])
+      })
+
+      it('should allow a hover that pins the look at rest', async () => {
+        expect(await lint({
+          'trigen/hover-in-media': true
+        }, [
+          '.item[aria-current], .item[aria-current]:is(:hover, :focus-visible, :active) { color: red; }',
+          '.thumb::before, .thumb:hover::before { color: red; }'
+        ].join('\n'))).toEqual([])
+      })
+
+      it('should report a hover beside another selector at rest', async () => {
+        expect(await lint({
+          'trigen/hover-in-media': true
+        }, '.item, .other:is(:hover, :focus-visible) { color: red; }')).toEqual([message])
+      })
+
+      it('should report a hover the selector at rest cannot drop', async () => {
+        expect(await lint({
+          'trigen/hover-in-media': true
+        }, '.item, .item:not(:hover) { color: red; }')).toEqual([message])
       })
     })
 
