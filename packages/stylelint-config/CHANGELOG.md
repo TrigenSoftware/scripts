@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.3.0](https://github.com/TrigenSoftware/scripts/compare/v12.2.1...v12.3.0) (2026-11-25)
+
+### Features
+
+* let a color function derive a color from tokens in `flat-layers` ([#229](https://github.com/TrigenSoftware/scripts/issues/229)) ([fc2602f](https://github.com/TrigenSoftware/scripts/commit/fc2602f6e58fa2205745b7d137f5d6fef7a80a1d))
+
 ## [12.2.1](https://github.com/TrigenSoftware/scripts/compare/v12.2.0...v12.2.1) (2026-11-25)
 
 ### Bug Fixes
