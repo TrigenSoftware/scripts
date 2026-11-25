@@ -2,7 +2,7 @@
   "name": "scripts",
   "type": "module",
   "private": true,
-  "version": "12.1.0",
+  "version": "12.2.0",
   "description": "Scripts and configs for TrigenSoftware's projects.",
   "author": "dangreen",
   "license": "MIT",
