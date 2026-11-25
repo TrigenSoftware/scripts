@@ -1,6 +1,7 @@
 import { execFile } from 'node:child_process'
 import { promisify } from 'node:util'
 import {
+  mkdir,
   mkdtemp,
   readFile,
   rm,
@@ -8,6 +9,7 @@ import {
 } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import {
+  dirname,
   join,
   resolve
 } from 'node:path'
@@ -76,7 +78,14 @@ async function runOxlint(rules, files, fix) {
 
     await writeFile(join(tempDir, '.oxlintrc.json'), JSON.stringify(config))
     await Promise.all(
-      fileNames.map(fileName => writeFile(join(tempDir, fileName), files[fileName]))
+      fileNames.map(async (fileName) => {
+        const filePath = join(tempDir, fileName)
+
+        await mkdir(dirname(filePath), {
+          recursive: true
+        })
+        await writeFile(filePath, files[fileName])
+      })
     )
 
     const output = await execOxlint(

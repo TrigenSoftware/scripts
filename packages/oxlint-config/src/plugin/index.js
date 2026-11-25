@@ -1,4 +1,5 @@
 import extensionsRule from './extensions.js'
+import flatLayersRule from './flat-layers.js'
 import funcStyleRule from './func-style.js'
 import importOrderRule from './import-order.js'
 import memberOrderingRule from './member-ordering.js'
@@ -14,6 +15,7 @@ export default {
   },
   rules: {
     extensions: extensionsRule,
+    'flat-layers': flatLayersRule,
     'func-style': funcStyleRule,
     'import-order': importOrderRule,
     'member-ordering': memberOrderingRule,
