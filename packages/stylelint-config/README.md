@@ -50,7 +50,8 @@ There are additional configs for specific language features and strict mode:
 | Config | Description |
 |--------|-------------|
 | @trigen/stylelint-config/logical | Rules with CSS logical properties support. |
-| @trigen/stylelint-config/strict | Strict rules for enhanced code quality. |
+| @trigen/stylelint-config/strict | Strict rules for enhanced code quality: colors, fonts, layers and lengths through tokens. |
+| @trigen/stylelint-config/flat-layers | Rules for the files of Flat Layers Design: tokens, breakpoints, container names, mixins and global styles each in their own file (`variables.css`, `media.css`, `containers.module.css`, `mixins.module.css`, `globals.css`, `styles.css`). |
 
 Example:
 
