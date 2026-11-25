@@ -71,7 +71,7 @@ stores ──► services ──► shared
 | `services` | `services`, `shared` | `stores`, `uikit`, `blocks`, `pages` |
 | `stores` | `stores`, `services`, `shared` | `uikit`, `blocks`, `pages` |
 | `uikit` | `uikit`, `assets`, `shared` | `stores`, `blocks`, `pages`; `services` only as a `type` import, and only when the type can't reasonably be declared in `uikit` |
-| `blocks` | `blocks`, `uikit`, `stores`, `services`, `shared` | `pages` |
+| `blocks` | `blocks`, `uikit`, `stores`, `services`, `shared`, `assets` | `pages` |
 | `pages` | everything | — |
 
 Blocks and pages take from `services` only types, error codes, constants and pure helpers; queries and mutations go through `stores`.
@@ -83,7 +83,7 @@ Blocks and pages take from `services` only types, error codes, constants and pur
 | a visual element with no copy and no data knowledge | `uikit/<Name>/` |
 | a component that reads a store, has copy, or collects analytics | `blocks/<Name>/` |
 | a part of one block's own job: a sub-part, a variant | inside that block: `blocks/<Name>/<Part>.tsx`, `blocks/<Name>/types/` |
-| a helper, hook/composable or messages factory about a domain or a topic rather than one module's job, however many use it today | that layer's `shared/`: `blocks/shared/garden.ts`, `uikit/shared/readOnly.ts` |
+| a helper, hook/composable or messages factory about a domain or a topic rather than one module's job, however many use it today | that layer's `shared/`: `blocks/shared/garden.ts`, `uikit/shared/readOnly.ts`; a hook in `shared/hooks.ts` or `shared/hooks/<domain>.ts` |
 | a screen bound to a route, or a layout | `pages/<Name>/` |
 | a route path | `stores/router.ts`, then register the page in `index.tsx` |
 | domain state, derived state, queries, mutations, redirects after actions | `stores/<domain>.ts` |
@@ -120,13 +120,13 @@ Where code goes follows what it is about, never how many modules use it today. C
 services/shared/  — wire-format helpers several adapters use
 stores/shared/    — helpers several domain stores repeat
 uikit/shared/     — readOnly.ts: read-only props for Checkbox and Radio
-blocks/shared/    — messages.ts, garden.ts…: message sets and per-domain helpers
+blocks/shared/    — messages.ts, garden.ts, hooks.ts…: message sets, per-domain helpers and hooks
 pages/shared/     — messages.tsx: titles and breadcrumbs shared by pages
 ```
 
 - It is part of its layer and imports only what the layer may import.
 - It has no `index.ts`: import its files by name (`../shared/readOnly`).
-- Files are named by domain (`garden.ts`) or, in a layer without domains such as uikit, by topic (`readOnly.ts`) — never by kind (no `hooks.ts`, `utils.ts` dumps).
+- Files are named by domain (`garden.ts`) or, in a layer without domains such as uikit, by topic (`readOnly.ts`) — never by kind (no `utils.ts` dumps). Hooks are the one exception: they go to `hooks.ts`, or to a `hooks/` folder of files named by domain or topic, so the linter finds them (see the `react-component` skill).
 - Domain-free code that needs nothing from the layer (array, date, hashing utils) goes to the app-wide `shared/` instead.
 
 ### `services/`
@@ -220,7 +220,8 @@ The business-logic tier: a block composes uikit components with stores and owns 
 blocks/
   shared/
     messages.ts      — message sets used by many blocks (common, password…)
-    garden.ts  post.ts  report.tsx  image.ts   — per-domain helpers: messages, hooks/composables, render helpers
+    garden.ts  post.ts  report.tsx  image.ts   — per-domain helpers: messages, render helpers
+    hooks.ts         — hooks several blocks share; a `hooks/` folder of domain files when there are many
   GardenForm/
     index.ts
     GardenForm.tsx
