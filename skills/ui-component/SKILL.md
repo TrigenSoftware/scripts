@@ -51,7 +51,7 @@ metadata:
     - a modal's lock of the page's scroll while it is open, `:global(html):has(.root:modal)`, which belongs to the modal;
     - a page shell's or layout's ground on the root, such as the canvas behind a short page or the scrollbar's track, `:global(html):has(.root)`, which belongs to the frame.
 - Build simple shapes with HTML+CSS instead of SVG (this scales up to e.g. a burger button animating into a cross).
-- Use `currentColor` in icons and similar components (e.g. as SVG `fill`), so consumers set the color via the `color` property.
+- A color is a token or comes from one. What follows the text's color (an icon, an underline, a border, a mark) takes `currentColor`, so the consumer sets it with `color`. A shade or a transparency of a token or of `currentColor` is `color-mix()` over it, `color-mix(in srgb, currentColor 40%, transparent)`, never a new hex or `rgba()`: it follows its source in both themes. A state the design names, such as hover or pressed, is a role of its own (the `design-system` skill), not a mix in one component.
 - Write computed values as the source expression, so it's clear where the number comes from:
 
   ```css
