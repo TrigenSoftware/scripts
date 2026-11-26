@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 
+## [12.4.0](https://github.com/TrigenSoftware/scripts/compare/v12.3.0...v12.4.0) (2026-11-26)
+
+### Features
+
+* **oxlint-config:** add `props-order` rule ([a7b9e4c](https://github.com/TrigenSoftware/scripts/commit/a7b9e4cdddff9cac0bbd28f5510493dbf4b7f0a9))
+* **stylelint-config:** add `no-root-placement` and ban a root's place in flex and grid in `strict` ([f0224c4](https://github.com/TrigenSoftware/scripts/commit/f0224c403ad88e848874bd282abd9344c1ce99e6))
+
 ## [12.3.0](https://github.com/TrigenSoftware/scripts/compare/v12.2.1...v12.3.0) (2026-11-25)
 
 ### Features
