@@ -19,6 +19,54 @@
 
 Scripts and configs for TrigenSoftware's projects.
 
+## Available packages
+
+| Package | Version | Dependencies |
+|---------|---------|--------------|
+| [`@trigen/scripts`](packages/scripts#readme) | [![NPM version][npm]][npm-url] | [![Dependencies status][deps]][deps-url] |
+| [`@trigen/browserslist-config`](packages/browserslist-config#readme) | [![NPM version][browserslist-config-npm]][browserslist-config-npm-url] | |
+| [`@trigen/oxlint-config`](packages/oxlint-config#readme) | [![NPM version][oxlint-config-npm]][oxlint-config-npm-url] | [![Dependencies status][oxlint-config-deps]][oxlint-config-deps-url] |
+| [`@trigen/stylelint-config`](packages/stylelint-config#readme) | [![NPM version][stylelint-config-npm]][stylelint-config-npm-url] | [![Dependencies status][stylelint-config-deps]][stylelint-config-deps-url] |
+| [`@trigen/lint-package-json`](packages/lint-package-json#readme) | [![NPM version][lint-package-json-npm]][lint-package-json-npm-url] | [![Dependencies status][lint-package-json-deps]][lint-package-json-deps-url] |
+| [`@trigen/npm-package-json-lint-config`](packages/npm-package-json-lint-config#readme) | [![NPM version][npm-package-json-lint-config-npm]][npm-package-json-lint-config-npm-url] | [![Dependencies status][npm-package-json-lint-config-deps]][npm-package-json-lint-config-deps-url] |
+
+<!-- browserslist-config -->
+
+[browserslist-config-npm]: https://img.shields.io/npm/v/%40trigen/browserslist-config.svg
+[browserslist-config-npm-url]: https://www.npmjs.com/package/@trigen/browserslist-config
+
+<!-- oxlint-config -->
+
+[oxlint-config-npm]: https://img.shields.io/npm/v/%40trigen/oxlint-config.svg
+[oxlint-config-npm-url]: https://www.npmjs.com/package/@trigen/oxlint-config
+
+[oxlint-config-deps]: https://img.shields.io/librariesio/release/npm/@trigen/oxlint-config
+[oxlint-config-deps-url]: https://libraries.io/npm/@trigen%2Foxlint-config
+
+<!-- stylelint-config -->
+
+[stylelint-config-npm]: https://img.shields.io/npm/v/%40trigen/stylelint-config.svg
+[stylelint-config-npm-url]: https://www.npmjs.com/package/@trigen/stylelint-config
+
+[stylelint-config-deps]: https://img.shields.io/librariesio/release/npm/@trigen/stylelint-config
+[stylelint-config-deps-url]: https://libraries.io/npm/@trigen%2Fstylelint-config
+
+<!-- lint-package-json -->
+
+[lint-package-json-npm]: https://img.shields.io/npm/v/%40trigen/lint-package-json.svg
+[lint-package-json-npm-url]: https://www.npmjs.com/package/@trigen/lint-package-json
+
+[lint-package-json-deps]: https://img.shields.io/librariesio/release/npm/@trigen/lint-package-json
+[lint-package-json-deps-url]: https://libraries.io/npm/@trigen%2Fnpm-package-json-lint-config
+
+<!-- npm-package-json-lint-config -->
+
+[npm-package-json-lint-config-npm]: https://img.shields.io/npm/v/%40trigen/npm-package-json-lint-config.svg
+[npm-package-json-lint-config-npm-url]: https://www.npmjs.com/package/@trigen/npm-package-json-lint-config
+
+[npm-package-json-lint-config-deps]: https://img.shields.io/librariesio/release/npm/@trigen/npm-package-json-lint-config
+[npm-package-json-lint-config-deps-url]: https://libraries.io/npm/@trigen%2Fnpm-package-json-lint-config
+
 ## Available skills
 
 - [`project`](skills/project/SKILL.md)
@@ -73,51 +121,3 @@ pnpx skills add TrigenSoftware/scripts --skill \
   unit-tests ui-verification tree-shaking \
   chrome-mcp browserstack-mcp item-by-item weekly-audit
 ```
-
-## Available packages
-
-| Package | Version | Dependencies |
-|---------|---------|--------------|
-| [`@trigen/scripts`](packages/scripts#readme) | [![NPM version][npm]][npm-url] | [![Dependencies status][deps]][deps-url] |
-| [`@trigen/browserslist-config`](packages/browserslist-config#readme) | [![NPM version][browserslist-config-npm]][browserslist-config-npm-url] | |
-| [`@trigen/oxlint-config`](packages/oxlint-config#readme) | [![NPM version][oxlint-config-npm]][oxlint-config-npm-url] | [![Dependencies status][oxlint-config-deps]][oxlint-config-deps-url] |
-| [`@trigen/stylelint-config`](packages/stylelint-config#readme) | [![NPM version][stylelint-config-npm]][stylelint-config-npm-url] | [![Dependencies status][stylelint-config-deps]][stylelint-config-deps-url] |
-| [`@trigen/lint-package-json`](packages/lint-package-json#readme) | [![NPM version][lint-package-json-npm]][lint-package-json-npm-url] | [![Dependencies status][lint-package-json-deps]][lint-package-json-deps-url] |
-| [`@trigen/npm-package-json-lint-config`](packages/npm-package-json-lint-config#readme) | [![NPM version][npm-package-json-lint-config-npm]][npm-package-json-lint-config-npm-url] | [![Dependencies status][npm-package-json-lint-config-deps]][npm-package-json-lint-config-deps-url] |
-
-<!-- browserslist-config -->
-
-[browserslist-config-npm]: https://img.shields.io/npm/v/%40trigen/browserslist-config.svg
-[browserslist-config-npm-url]: https://www.npmjs.com/package/@trigen/browserslist-config
-
-<!-- oxlint-config -->
-
-[oxlint-config-npm]: https://img.shields.io/npm/v/%40trigen/oxlint-config.svg
-[oxlint-config-npm-url]: https://www.npmjs.com/package/@trigen/oxlint-config
-
-[oxlint-config-deps]: https://img.shields.io/librariesio/release/npm/@trigen/oxlint-config
-[oxlint-config-deps-url]: https://libraries.io/npm/@trigen%2Foxlint-config
-
-<!-- stylelint-config -->
-
-[stylelint-config-npm]: https://img.shields.io/npm/v/%40trigen/stylelint-config.svg
-[stylelint-config-npm-url]: https://www.npmjs.com/package/@trigen/stylelint-config
-
-[stylelint-config-deps]: https://img.shields.io/librariesio/release/npm/@trigen/stylelint-config
-[stylelint-config-deps-url]: https://libraries.io/npm/@trigen%2Fstylelint-config
-
-<!-- lint-package-json -->
-
-[lint-package-json-npm]: https://img.shields.io/npm/v/%40trigen/lint-package-json.svg
-[lint-package-json-npm-url]: https://www.npmjs.com/package/@trigen/lint-package-json
-
-[lint-package-json-deps]: https://img.shields.io/librariesio/release/npm/@trigen/lint-package-json
-[lint-package-json-deps-url]: https://libraries.io/npm/@trigen%2Fnpm-package-json-lint-config
-
-<!-- npm-package-json-lint-config -->
-
-[npm-package-json-lint-config-npm]: https://img.shields.io/npm/v/%40trigen/npm-package-json-lint-config.svg
-[npm-package-json-lint-config-npm-url]: https://www.npmjs.com/package/@trigen/npm-package-json-lint-config
-
-[npm-package-json-lint-config-deps]: https://img.shields.io/librariesio/release/npm/@trigen/npm-package-json-lint-config
-[npm-package-json-lint-config-deps-url]: https://libraries.io/npm/@trigen%2Fnpm-package-json-lint-config
