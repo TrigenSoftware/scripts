@@ -296,7 +296,7 @@ A project that builds with React Compiler memoizes nothing by hand: the compiler
   ```
 
 - Universal components must forward all remaining props to the root element, spreading `...props` after the explicitly set props — see the reference `Button` above: `onClick`, `type`, etc. reach `<button>` via the spread instead of being listed one by one. The exception is an attribute the component owns, one it derives from its own prop and must not lose to a passed-in value, such as `aria-disabled` rendered from a `busy` prop: it goes after the spread, and the props type declares it `never`. A hyphenated one, `aria-*` or `data-*`, needs that most: `Omit` cannot keep it out, as JSX does not check hyphenated names a props type lacks.
-- `ref` is always the first prop and `className` the next — first among the JSX attributes and first in the props destructuring, as the reference `Button` does for `className`. A `ref` the component owns, which a passed one must not replace, stands after the spread with its other owned attributes, first among them:
+- `ref` is always the first prop and `className` the next — first among the JSX attributes and first in the props destructuring, as the reference `Button` does for `className`. `key`, which is React's and no prop, comes before both in JSX. A `ref` the component owns, which a passed one must not replace, stands after the spread with its other owned attributes, first among them:
 
   ```jsx
   // not
