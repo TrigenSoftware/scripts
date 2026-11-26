@@ -36,7 +36,7 @@ metadata:
 
 ## CSS
 
-- Follow the BEM methodology — the principles, not the class naming. Key rule: a block must not affect its surroundings, i.e. no external geometry (margins, size-affecting borders) or positioning on the block itself.
+- Follow the BEM methodology — the principles, not the class naming. Key rule: a block must not affect its surroundings, i.e. no external geometry (margins, size-affecting borders) or positioning on the block itself. A block does not place itself: its margin, its insets, its stacking (`z-index`), `position: absolute`, `fixed` or `sticky`, its place in a parent's flex or grid (`align-self`, `grid-area`, `order`) and whether it shows at a breakpoint are the consumer's. Its own size is its own, `flex: none` included, and so are its pseudo-elements, placed inside it. What is out of the flow by its nature (a skip link, visually hidden words, a modal in the top layer) says so where it does it.
 - CSS Modules:
   - The root element's class must be named `.root`.
   - Use simple camelCase class names (easy to access from JS), not BEM naming:
