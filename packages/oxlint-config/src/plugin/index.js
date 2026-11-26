@@ -10,6 +10,7 @@ import namingConventionRule from './naming-convention.js'
 import noClassnamePropsRule from './no-classname-props.js'
 import noEnumRule from './no-enum.js'
 import noManualMemoRule from './no-manual-memo.js'
+import propsOrderRule from './props-order.js'
 import suspenseFallbackRule from './suspense-fallback.js'
 import timeDatetimeRule from './time-datetime.js'
 import typeImportStyleRule from './type-import-style.js'
@@ -31,6 +32,7 @@ export default {
     'no-classname-props': noClassnamePropsRule,
     'no-enum': noEnumRule,
     'no-manual-memo': noManualMemoRule,
+    'props-order': propsOrderRule,
     'suspense-fallback': suspenseFallbackRule,
     'time-datetime': timeDatetimeRule,
     'type-import-style': typeImportStyleRule

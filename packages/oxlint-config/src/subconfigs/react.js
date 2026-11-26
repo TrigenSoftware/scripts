@@ -77,6 +77,7 @@ export default {
 
         // Trigen
         'trigen/no-classname-props': 'error',
+        'trigen/props-order': 'error',
         'trigen/suspense-fallback': 'error',
         'trigen/time-datetime': 'error'
       }
