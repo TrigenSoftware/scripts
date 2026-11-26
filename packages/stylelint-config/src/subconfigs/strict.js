@@ -96,9 +96,11 @@ export default {
         'overflow-y',
         'overflow-block'
       ],
-      // A block does not place itself: where it stands is its consumer's. Its margin is left out:
-      // a root resets the one its element has with `0`, which a list of properties cannot tell.
-      // Its pseudo-elements are its own parts, placed inside it
+      // A block does not place itself: where it stands is its consumer's, in the flow, over others
+      // and in a parent's flex or grid. Its margin, its `position` and its hiding at a breakpoint
+      // are left to `trigen/no-root-margin` and `trigen/no-root-placement`, as a value decides
+      // them, which a list of properties cannot tell. Its own size is its own, `flex: none`
+      // included, and its pseudo-elements are its own parts, placed inside it
       '/^\\.root(?![\\w-])(?!.*::)[^\\s>+~]*$/': [
         'inset',
         '/^inset-/',
@@ -106,7 +108,14 @@ export default {
         'right',
         'bottom',
         'left',
-        'z-index'
+        'z-index',
+        'align-self',
+        'justify-self',
+        'place-self',
+        'grid-area',
+        '/^grid-(row|column)/',
+        'order',
+        'float'
       ]
     },
     // A thin scrollbar for a mouse alone: add a project's own media through `customMedia`
@@ -115,6 +124,8 @@ export default {
     'trigen/no-bare-length': true,
     // A block's outer margin is its consumer's
     'trigen/no-root-margin': true,
+    // So is taking it out of the flow and hiding it at a breakpoint
+    'trigen/no-root-placement': true,
     'a11y/line-height-is-vertical-rhythmed': [
       true,
       {

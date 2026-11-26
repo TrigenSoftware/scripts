@@ -209,6 +209,42 @@ describe('stylelint-config', () => {
       })
     })
 
+    describe('no-root-placement', () => {
+      const rules = {
+        'trigen/no-root-placement': true
+      }
+      const outOfFlow = 'A block does not take itself out of the flow: where it stands is its consumer\'s. Only `relative` and `static` keep it in its place. (trigen/no-root-placement)'
+      const hidden = 'A block does not hide itself at a breakpoint: whether it shows there is its consumer\'s. (trigen/no-root-placement)'
+
+      it('should report a root taken out of the flow', async () => {
+        expect(await lint(rules, '.root { position: fixed; }')).toEqual([outOfFlow])
+      })
+
+      it('should report a root taken out of the flow in a nested state', async () => {
+        expect(await lint(rules, '.root { &.stuck { position: sticky; } }')).toEqual([outOfFlow])
+      })
+
+      it('should allow a root that keeps its place', async () => {
+        expect(await lint(rules, '.root { position: relative; } .root.flat { position: static; }')).toEqual([])
+      })
+
+      it('should leave the root\'s pseudo-elements and inner elements', async () => {
+        expect(await lint(rules, '.root::before { position: absolute; } .root { &:active::after { position: absolute; } } .root .badge { position: absolute; }')).toEqual([])
+      })
+
+      it('should report a root that hides itself at a breakpoint', async () => {
+        expect(await lint(rules, '@media (width < 600px) { .root { display: none; } }')).toEqual([hidden])
+      })
+
+      it('should report a root that hides itself in a nested query', async () => {
+        expect(await lint(rules, '.root { display: flex; @container (width < 20rem) { display: none; } }')).toEqual([hidden])
+      })
+
+      it('should allow a root hidden by its own state, and an inner element hidden at a breakpoint', async () => {
+        expect(await lint(rules, '.root[hidden] { display: none; } @media (width < 600px) { .root .label { display: none; } }')).toEqual([])
+      })
+    })
+
     describe('uikit-module-root', () => {
       const rules = {
         'trigen/uikit-module-root': true
