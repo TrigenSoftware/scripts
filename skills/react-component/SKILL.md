@@ -242,6 +242,12 @@ export function ReportTitle({ className }: ReportTitleProps) {
 
 Name event handlers in the `on*` form, never `handle*`: `onCloseCallback`, `onClickCallback` for `useCallback`-wrapped handlers inside the component, `onSomeButtonClick` for handlers extracted to module scope — not `handleClose`/`handleClick`.
 
+## With server rendering
+
+The `ui-component` skill has the rules (Server rendering). In React:
+
+- Ids come from `useId`, never a counter or `Math.random`. A value from outside React is read with `useSyncExternalStore` and its server snapshot. `suppressHydrationWarning` goes only where a head script sets attributes before hydration (the `css-light-dark` skill).
+
 ## With React Compiler
 
 A project that builds with React Compiler memoizes nothing by hand: the compiler memoizes components and hooks as it builds them. There the rules above change:

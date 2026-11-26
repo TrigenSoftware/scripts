@@ -1,6 +1,6 @@
 ---
 name: ui-component
-description: Framework-agnostic rules for writing UI components — semantic HTML, CSS Modules conventions (root class, camelCase, CSS Custom Properties), UX/accessibility requirements, and how components compose in any framework (a polymorphic `as`, shared bases, variants and parts, context, ids, a generic kit). Apply when creating, editing, or reviewing UI components, their markup, their props, or styles.
+description: Framework-agnostic rules for writing UI components — semantic HTML, CSS Modules conventions (root class, camelCase, CSS Custom Properties), UX/accessibility requirements, and how components compose in any framework (a polymorphic `as`, shared bases, variants and parts, context, ids, server rendering, a generic kit). Apply when creating, editing, or reviewing UI components, their markup, their props, or styles.
 license: MIT
 compatibility:
   - Claude Code
@@ -123,6 +123,13 @@ These hold in any framework: a prop, a context, a part and an effect mean the sa
 - **A part marks itself, the parent reads the mark.** When a parent must react to an inner part, the part sets a `data-*` attribute it owns, after the spread and typed `never` in its props, and the parent's stylesheet reads it, `.root:has([data-more])`. Never a prop that hands the part a class.
 - **A compound's own code stays in its folder:** its context and the helpers only its parts share live in a lowercase file beside them, left out of its index, and a part in a file of its own carries the component's prefix, `MenuLoadingItem` beside `MenuItem`. The layer's `shared/` is for code several components share.
 - **Simplify by parts, never by stripping.** When one screen needs less of a shared component, the rest becomes optional parts each consumer composes. Never take a feature away from the component's other consumers.
+
+### Server rendering
+
+- **The browser's first render draws what the server drew.** A render reads nothing that differs between the two: no `window`, `document` or storage, no viewport, no time, no random number. What only the browser knows comes after it has taken the page over, from an effect or a store's browser-side value, or is decided in CSS: a breakpoint is a media query, a theme a `color-scheme`.
+- **A value both sides read is carried, not read twice:** the clock a relative date reads, a seed, what a request said. The server's copy goes into the page and the browser starts from it, as a state library's hydration does.
+- **Markup is wiring.** An `aria-*` pointing at a part, an id, an expanded state are rendered from props and the root's context, never set up after mount by a part calling back into its root (Parts). A part only the browser draws after a press, such as a menu's popover, may: the server never draws it.
+- **No `typeof window` in a render:** it is a mismatch written on purpose.
 
 ### A generic kit
 
